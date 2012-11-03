@@ -6,6 +6,15 @@ require "sports_data_api"
 # loaded once.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+
+def load_xml(filename)
+  File.read("#{File.dirname(__FILE__)}/xml/#{filename}.xml")
+end
+
+def schedule_xml
+  load_xml("schedule")
+end
+
 RSpec.configure do |config|
   config.treat_symbols_as_metadata_keys_with_true_values = true
   config.run_all_when_everything_filtered = true
