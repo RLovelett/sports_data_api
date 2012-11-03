@@ -14,4 +14,15 @@ Gem::Specification.new do |gem|
   gem.name          = "sports_data_api"
   gem.require_paths = ["lib"]
   gem.version       = SportsDataApi::VERSION
+
+  gem.add_dependency "nokogiri", "~> 1.5.5"
+  gem.add_dependency "rest-client", "~> 1.6.7"
+
+  gem.add_development_dependency "rspec", "~> 2.11.0"
+  gem.add_development_dependency "rspec-xml", "~> 0.0.6"
+  gem.add_development_dependency "guard-rspec", "~> 2.1.0"
+  gem.add_development_dependency "rb-fsevent", "~> 0.9.1"
+  gem.add_development_dependency "growl", "~> 1.0.3"
+  gem.add_development_dependency "terminal-notifier-guard", "~> 1.5.3"
+  gem.add_development_dependency "faker", "~> 1.1.2"
 end
