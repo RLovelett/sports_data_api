@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<league xmlns="http://feed.elasticstats.com/schema/nfl/hierarchy-v1.0.xsd" id="NFL">
+  <conference id="AFC" name="AFC">
+    <division id="AFC_EAST" name="AFC East">
+      <team id="BUF" name="Bills" market="Buffalo">
+        <venue id="e9e0828e-37fc-4238-a317-49037577dd55" country="US" name="Ralph Wilson Stadium" city="Orchard Park" state="NY" capacity="73967" surface="artificial" type="outdoor" zip="" address=""/>
+      </team>
+      <team id="MIA" name="Dolphins" market="Miami">
+        <venue id="50a5c833-1570-4c38-abc7-7914cf87dbde" country="US" name="Sun Life Stadium" city="Miami Garden" state="FL" capacity="75235" surface="turf" type="outdoor" zip="" address=""/>
+      </team>
+      <team id="NYJ" name="Jets" market="New York">
+        <venue id="5d4c85c7-d84e-4e10-bd6a-8a15ebecca5c" country="US" name="New Meadowlands Stadium" city="East Rutherford" state="NJ" capacity="82500" surface="artificial" type="outdoor" zip="" address=""/>
+      </team>
+      <team id="NE" name="Patriots" market="New England">
+        <venue id="e43310b1-cb82-4df9-8be5-e9b39637031b" country="US" name="Gillette Stadium" city="Foxborough" state="MA" capacity="68756" surface="turf" type="outdoor" zip="" address=""/>
+      </team>
+    </division>
+    <division id="AFC_NORTH" name="AFC North">
+      <team id="CIN" name="Bengals" market="Cincinnati">
+        <venue id="b87a1595-d3c8-48ea-8a53-0aab6378a64a" country="US" name="Paul Brown Stadium" city="Cincinnati" state="OH" capacity="65535" surface="artificial" type="outdoor" zip="" address=""/>
+      </team>
+      <team id="CLE" name="Browns" market="Cleveland">
+        <venue id="90c38d91-3774-4f5d-82ca-1c806828219f" country="US" name="Cleveland Browns Stadium" city="Cleveland " state="OH" capacity="73200" surface="artificial" type="outdoor" zip="" address=""/>
+      </team>
+      <team id="BAL" name="Ravens" market="Baltimore">
+        <venue id="d54faae0-0314-484f-8604-9d8dd08e1149" country="US" name="M&amp;T Bank Stadium" city="Baltimore" state="MD" capacity="71008" surface="artificial" type="outdoor" zip="" address=""/>
+      </team>
+      <team id="PIT" name="Steelers" market="Pittsburgh">
+        <venue id="7349a2e6-0ac9-410b-8bd2-ca58c9f7aa34" country="US" name="Heinz Field" city="Pittsburgh" state="PA" capacity="65050" surface="turf" type="outdoor" zip="" address=""/>
+      </team>
+    </division>
+    <division id="AFC_SOUTH" name="AFC South">
+      <team id="IND" name="Colts" market="Indianapolis">
+        <venue id="6ed18563-53e0-46c2-a91d-12d73a16456d" country="US" name="Lucas Oil Stadium" city="Indianapolis" state="IN" capacity="67000" surface="artificial" type="retractable_dome" zip="46225" address="500 S. Capitol Avenue"/>
+      </team>
+      <team id="JAC" name="Jaguars" market="Jacksonville">
+        <venue id="4c5c036d-dd3d-4183-b595-71a43a97560f" country="US" name="EverBank Field" city="Jacksonville" state="FL" capacity="76877" surface="artificial" type="outdoor" zip="" address=""/>
+      </team>
+      <team id="HOU" name="Texans" market="Houston">
+        <venue id="6a72e5ca-33d0-40af-8e6b-b32a4d3d9346" country="US" name="Reliant Stadium" city="Houston" state="TX" capacity="71500" surface="turf" type="retractable_dome" zip="" address=""/>
+      </team>
+      <team id="TEN" name="Titans" market="Tennessee">
+        <venue id="5295c1b7-c85c-49cb-9569-1707c65324e5" country="US" name="LP Field" city="Nashville" state="TN" capacity="68798" surface="turf" type="outdoor" zip="" address=""/>
+      </team>
+    </division>
+    <division id="AFC_WEST" name="AFC West">
+      <team id="DEN" name="Broncos" market="Denver">
+        <venue id="6589e61d-ef1e-4e30-91b5-9acd2072b8a0" country="US" name="Sports Authority Field at Mile High" city="Denver " state="CO" capacity="76125" surface="turf" type="outdoor" zip="" address=""/>
+      </team>
+      <team id="SD" name="Chargers" market="San Diego">
+        <venue id="7ca47702-8951-45be-a4f5-3e7d78f8f399" country="US" name="Qualcomm Stadium" city="San Diego" state="CA" capacity="71294" surface="turf" type="outdoor" zip="" address=""/>
+      </team>
+      <team id="KC" name="Chiefs" market="Kansas City">
+        <venue id="2ec4c411-dac2-403d-b091-6b6aa4a0a914" country="US" name="Arrowhead Stadium" city="Kansas City" state="MO" capacity="79451" surface="turf" type="outdoor" zip="" address=""/>
+      </team>
+      <team id="OAK" name="Raiders" market="Oakland">
+        <venue id="ba1ad00f-9130-462c-93f9-5612a0015117" country="US" name="Oakland-Alameda County Coliseum" city="Oakland" state="CA" capacity="63026" surface="turf" type="outdoor" zip="" address=""/>
+      </team>
+    </division>
+  </conference>
+  <conference id="NFC" name="NFC">
+    <division id="NFC_EAST" name="NFC East">
+      <team id="DAL" name="Cowboys" market="Dallas">
+        <venue id="1e84213a-ff1f-4c9d-a003-8ee782b25a40" country="US" name="Cowboys Stadium" city="Arlington" state="TX" capacity="80000" surface="artificial" type="retractable_dome" zip="" address=""/>
+      </team>
+      <team id="PHI" name="Eagles" market="Philadelphia">
+        <venue id="4fa8c29c-6626-464c-8540-314ed7535e1b" country="US" name="Lincoln Financial Field" city="Philadelphia" state="PA" capacity="68532" surface="turf" type="outdoor" zip="" address=""/>
+      </team>
+      <team id="NYG" name="Giants" market="New York">
+        <venue id="5d4c85c7-d84e-4e10-bd6a-8a15ebecca5c" country="US" name="New Meadowlands Stadium" city="East Rutherford" state="NJ" capacity="82500" surface="artificial" type="outdoor" zip="" address=""/>
+      </team>
+      <team id="WAS" name="Redskins" market="Washington">
+        <venue id="7c11bb2d-4a53-4842-b842-0f1c63ed78e9" country="US" name="FedEx Field" city="Hyattsville" state="MD" capacity="91704" surface="turf" type="outdoor" zip="" address=""/>
+      </team>
+    </division>
+    <division id="NFC_NORTH" name="NFC North">
+      <team id="CHI" name="Bears" market="Chicago">
+        <venue id="d7866605-5ac6-4b3a-90e8-760cc5a26b75" country="US" name="Soldier Field" city="Chicago" state="IL" capacity="61500" surface="turf" type="outdoor" zip="" address=""/>
+      </team>
+      <team id="DET" name="Lions" market="Detroit">
+        <venue id="6e3bcf22-277d-4c06-b019-62aded51654f" country="US" name="Ford Field" city="Detroit" state="MI" capacity="65000" surface="artificial" type="dome" zip="" address=""/>
+      </team>
+      <team id="GB" name="Packers" market="Green Bay">
+        <venue id="5a60dd3a-302c-41c6-ab0f-dd335c1103c2" country="US" name="Lambeau Field" city="Green Bay" state="WI" capacity="72992" surface="turf" type="outdoor" zip="" address=""/>
+      </team>
+      <team id="MIN" name="Vikings" market="Minnesota">
+        <venue id="1fede74c-50a2-4036-a1c0-b4d1e53ca98c" country="US" name="Mall of America Field" city="Minneapolis" state="MN" capacity="64111" surface="artificial" type="dome" zip="" address=""/>
+      </team>
+    </division>
+    <division id="NFC_SOUTH" name="NFC South">
+      <team id="TB" name="Buccaneers" market="Tampa Bay">
+        <venue id="6fccc39c-80bc-4c81-83d9-2d5a848c8c09" country="US" name="Raymond James Stadium" city="Tampa Bay" state="FL" capacity="65657" surface="turf" type="outdoor" zip="" address=""/>
+      </team>
+      <team id="ATL" name="Falcons" market="Atlanta">
+        <venue id="216de6bf-bce0-409a-a9e7-90db8df1f7b9" country="US" name="Georgia Dome" city="Atlanta" state="GA" capacity="71250" surface="artificial" type="dome" zip="" address=""/>
+      </team>
+      <team id="CAR" name="Panthers" market="Carolina">
+        <venue id="39be9ed4-3292-49ac-8699-a381de3a4969" country="US" name="Bank of America Stadium" city="Charlotte" state="NC" capacity="73778" surface="turf" type="outdoor" zip="" address=""/>
+      </team>
+      <team id="NO" name="Saints" market="New Orleans">
+        <venue id="3c85d89a-ec66-4983-acd5-1381d6c8673a" country="US" name="Louisiana Superdome" city="New Orleans" state="LA" capacity="72968" surface="artificial" type="dome" zip="" address=""/>
+      </team>
+    </division>
+    <division id="NFC_WEST" name="NFC West">
+      <team id="SF" name="49ers" market="San Francisco">
+        <venue id="6701808c-c329-482b-9834-2d29cb3185ff" country="US" name="Candlestick Park" city="San Francisco" state="CA" capacity="70207" surface="turf" type="outdoor" zip="" address=""/>
+      </team>
+      <team id="ARI" name="Cardinals" market="Arizona">
+        <venue id="f8e4d2ab-53f9-4e9f-8c4a-9bc278094a84" country="US" name="University of Phoenix Stadium" city="Glendale" state="AZ" capacity="63400" surface="turf" type="retractable_dome" zip="" address=""/>
+      </team>
+      <team id="STL" name="Rams" market="St. Louis">
+        <venue id="e86a743f-ee77-490f-acfb-3187b7a9633e" country="US" name="Edward Jones Dome" city="St. Louis" state="MO" capacity="65321" surface="artificial" type="dome" zip="" address=""/>
+      </team>
+      <team id="SEA" name="Seahawks" market="Seattle">
+        <venue id="c6b9e5df-c9e4-434c-b3e6-83928f11cbda" country="US" name="Qwest Field" city="Seattle" state="WA" capacity="67000" surface="artificial" type="outdoor" zip="" address=""/>
+      </team>
+    </division>
+  </conference>
+</league>

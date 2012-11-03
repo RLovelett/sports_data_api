@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generation started at Fri Nov 02 02:27:02 +0000 2012 -->
+<game xmlns="http://feed.elasticstats.com/schema/nfl/boxscore-v1.0.xsd" id="82748625-c24e-437a-b991-cab7f766c249" scheduled="2012-11-02T00:20:00+00:00" home="SD" away="KC" status="inprogress" quarter="3" clock=":53">
+  <team id="SD" name="Chargers" market="San Diego" remaining_challenges="2" remaining_timeouts="3">
+    <scoring points="10">
+      <quarter number="1" points="7"/>
+      <quarter number="2" points="3"/>
+      <quarter number="3" points="0"/>
+    </scoring>
+  </team>
+  <team id="KC" name="Chiefs" market="Kansas City" remaining_challenges="2" remaining_timeouts="3">
+    <scoring points="6">
+      <quarter number="1" points="0"/>
+      <quarter number="2" points="3"/>
+      <quarter number="3" points="3"/>
+    </scoring>
+  </team>
+  <scoring_drives>
+    <drive sequence="1" clock="15:00" quarter="1" team="SD">
+      <score type="touchdown" clock="10:31" quarter="1" points="6">
+        <summary>
+          <![CDATA[17-P.Rivers complete to 85-A.Gates. 85-A.Gates runs 14 yards for a touchdown.]]>
+        </summary>
+        <links>
+          <link rel="summary" href="/2012/REG/9/KC/SD/plays/fb5c3b6f-be0a-4f3f-819e-f1134204e312.xml" type="application/xml"/>
+        </links>
+      </score>
+      <score type="extrapoint" clock="10:24" quarter="1" points="1">
+        <summary>
+          <![CDATA[9-N.Novak extra point is good.]]>
+        </summary>
+        <links>
+          <link rel="summary" href="/2012/REG/9/KC/SD/plays/cecb31f7-febb-470d-b833-b32b9411fa95.xml" type="application/xml"/>
+        </links>
+      </score>
+    </drive>
+    <drive sequence="2" clock="02:18" quarter="1" team="SD">
+      <score type="fieldgoal" clock="09:13" quarter="2" points="3">
+        <summary>
+          <![CDATA[9-N.Novak 25 yards Field Goal is Good.]]>
+        </summary>
+        <links>
+          <link rel="summary" href="/2012/REG/9/KC/SD/plays/2036be2d-f58b-4290-9e45-2e171c37588e.xml" type="application/xml"/>
+        </links>
+      </score>
+    </drive>
+    <drive sequence="3" clock="09:10" quarter="2" team="KC">
+      <score type="fieldgoal" clock="02:56" quarter="2" points="3">
+        <summary>
+          <![CDATA[6-R.Succop 49 yards Field Goal is Good.]]>
+        </summary>
+        <links>
+          <link rel="summary" href="/2012/REG/9/KC/SD/plays/68de7467-99b7-4e87-939d-7dc9b90c0462.xml" type="application/xml"/>
+        </links>
+      </score>
+    </drive>
+    <drive sequence="4" clock="07:09" quarter="3" team="KC">
+      <score type="fieldgoal" clock=":58" quarter="3" points="3">
+        <summary>
+          <![CDATA[6-R.Succop 41 yards Field Goal is Good.]]>
+        </summary>
+        <links>
+          <link rel="summary" href="/2012/REG/9/KC/SD/plays/35b31551-62ce-430b-8d1e-4153a1e81483.xml" type="application/xml"/>
+        </links>
+      </score>
+    </drive>
+  </scoring_drives>
+</game>
+<!-- Generation finished at Fri Nov 02 02:27:02 +0000 2012 -->
