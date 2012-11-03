@@ -20,3 +20,6 @@ tmp
 .yardoc
 _yardoc
 doc/
+
+# OSX artifacts
+.DS_Store
