@@ -18,6 +18,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency "nokogiri", "~> 1.5.5"
   gem.add_dependency "rest-client", "~> 1.6.7"
 
+  gem.add_development_dependency "rake", "~> 0.9.2.2"
   gem.add_development_dependency "rspec", "~> 2.11.0"
   gem.add_development_dependency "rspec-xml", "~> 0.0.6"
   gem.add_development_dependency "guard-rspec", "~> 2.1.0"
