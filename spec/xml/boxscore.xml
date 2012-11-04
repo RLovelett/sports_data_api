@@ -1,69 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generation started at Fri Nov 02 02:27:02 +0000 2012 -->
-<game xmlns="http://feed.elasticstats.com/schema/nfl/boxscore-v1.0.xsd" id="82748625-c24e-437a-b991-cab7f766c249" scheduled="2012-11-02T00:20:00+00:00" home="SD" away="KC" status="inprogress" quarter="3" clock=":53">
-  <team id="SD" name="Chargers" market="San Diego" remaining_challenges="2" remaining_timeouts="3">
+<!-- Generation started at Sun Nov 04 19:18:23 +0000 2012 -->
+<game xmlns="http://feed.elasticstats.com/schema/nfl/boxscore-v1.0.xsd" id="55d0b262-98ff-49fa-95c8-5ab8ec8cbd34" scheduled="2012-11-04T18:00:00+00:00" home="IND" away="MIA" status="inprogress" quarter="2" clock="02:29">
+  <team id="IND" name="Colts" market="Indianapolis" remaining_challenges="1" remaining_timeouts="2">
     <scoring points="10">
       <quarter number="1" points="7"/>
       <quarter number="2" points="3"/>
-      <quarter number="3" points="0"/>
     </scoring>
   </team>
-  <team id="KC" name="Chiefs" market="Kansas City" remaining_challenges="2" remaining_timeouts="3">
-    <scoring points="6">
-      <quarter number="1" points="0"/>
-      <quarter number="2" points="3"/>
-      <quarter number="3" points="3"/>
+  <team id="MIA" name="Dolphins" market="Miami" remaining_challenges="2" remaining_timeouts="2">
+    <scoring points="17">
+      <quarter number="1" points="3"/>
+      <quarter number="2" points="14"/>
     </scoring>
   </team>
   <scoring_drives>
-    <drive sequence="1" clock="15:00" quarter="1" team="SD">
-      <score type="touchdown" clock="10:31" quarter="1" points="6">
+    <drive sequence="1" clock="09:34" quarter="1" team="MIA">
+      <score type="fieldgoal" clock="04:21" quarter="1" points="3">
         <summary>
-          <![CDATA[17-P.Rivers complete to 85-A.Gates. 85-A.Gates runs 14 yards for a touchdown.]]>
+          <![CDATA[5-D.Carpenter 37 yards Field Goal is Good.]]>
         </summary>
         <links>
-          <link rel="summary" href="/2012/REG/9/KC/SD/plays/fb5c3b6f-be0a-4f3f-819e-f1134204e312.xml" type="application/xml"/>
-        </links>
-      </score>
-      <score type="extrapoint" clock="10:24" quarter="1" points="1">
-        <summary>
-          <![CDATA[9-N.Novak extra point is good.]]>
-        </summary>
-        <links>
-          <link rel="summary" href="/2012/REG/9/KC/SD/plays/cecb31f7-febb-470d-b833-b32b9411fa95.xml" type="application/xml"/>
+          <link rel="summary" href="/2012/REG/9/MIA/IND/plays/f98b06d5-cfa1-475f-9d4b-b794599501d7.xml" type="application/xml"/>
         </links>
       </score>
     </drive>
-    <drive sequence="2" clock="02:18" quarter="1" team="SD">
-      <score type="fieldgoal" clock="09:13" quarter="2" points="3">
+    <drive sequence="2" clock="04:15" quarter="1" team="IND">
+      <score type="touchdown" clock=":53" quarter="1" points="6">
         <summary>
-          <![CDATA[9-N.Novak 25 yards Field Goal is Good.]]>
+          <![CDATA[12-A.Luck complete to 87-R.Wayne. 87-R.Wayne runs 9 yards for a touchdown.]]>
         </summary>
         <links>
-          <link rel="summary" href="/2012/REG/9/KC/SD/plays/2036be2d-f58b-4290-9e45-2e171c37588e.xml" type="application/xml"/>
+          <link rel="summary" href="/2012/REG/9/MIA/IND/plays/000eabfe-4b36-40d7-ad4b-6f137ff9e615.xml" type="application/xml"/>
+        </links>
+      </score>
+      <score type="extrapoint" clock=":53" quarter="1" points="1">
+        <summary>
+          <![CDATA[4-A.Vinatieri extra point is good.]]>
+        </summary>
+        <links>
+          <link rel="summary" href="/2012/REG/9/MIA/IND/plays/429691e9-d940-4647-9e6e-99ebbe6e11e8.xml" type="application/xml"/>
         </links>
       </score>
     </drive>
-    <drive sequence="3" clock="09:10" quarter="2" team="KC">
-      <score type="fieldgoal" clock="02:56" quarter="2" points="3">
+    <drive sequence="3" clock=":47" quarter="1" team="MIA">
+      <score type="touchdown" clock="13:32" quarter="2" points="6">
         <summary>
-          <![CDATA[6-R.Succop 49 yards Field Goal is Good.]]>
+          <![CDATA[17-R.Tannehill complete to 42-C.Clay. 42-C.Clay runs 31 yards for a touchdown.]]>
         </summary>
         <links>
-          <link rel="summary" href="/2012/REG/9/KC/SD/plays/68de7467-99b7-4e87-939d-7dc9b90c0462.xml" type="application/xml"/>
+          <link rel="summary" href="/2012/REG/9/MIA/IND/plays/c34a88cd-6e5d-4072-98f8-1c8bb7103e6f.xml" type="application/xml"/>
+        </links>
+      </score>
+      <score type="extrapoint" clock="13:32" quarter="2" points="1">
+        <summary>
+          <![CDATA[5-D.Carpenter extra point is good.]]>
+        </summary>
+        <links>
+          <link rel="summary" href="/2012/REG/9/MIA/IND/plays/3b73e8a4-e44d-4b97-b198-42a2e8954c3c.xml" type="application/xml"/>
         </links>
       </score>
     </drive>
-    <drive sequence="4" clock="07:09" quarter="3" team="KC">
-      <score type="fieldgoal" clock=":58" quarter="3" points="3">
+    <drive sequence="4" clock="13:25" quarter="2" team="IND">
+      <score type="fieldgoal" clock="09:42" quarter="2" points="3">
         <summary>
-          <![CDATA[6-R.Succop 41 yards Field Goal is Good.]]>
+          <![CDATA[4-A.Vinatieri 23 yards Field Goal is Good.]]>
         </summary>
         <links>
-          <link rel="summary" href="/2012/REG/9/KC/SD/plays/35b31551-62ce-430b-8d1e-4153a1e81483.xml" type="application/xml"/>
+          <link rel="summary" href="/2012/REG/9/MIA/IND/plays/ceb258a0-ee6e-4b5b-8271-c42af4fa6a72.xml" type="application/xml"/>
+        </links>
+      </score>
+    </drive>
+    <drive sequence="5" clock="09:37" quarter="2" team="MIA">
+      <score type="touchdown" clock="05:16" quarter="2" points="6">
+        <summary>
+          <![CDATA[22-R.Bush runs 18 yards for a touchdown.]]>
+        </summary>
+        <links>
+          <link rel="summary" href="/2012/REG/9/MIA/IND/plays/595a0a07-1d75-40d5-9c3c-d52eb8d7f3a6.xml" type="application/xml"/>
+        </links>
+      </score>
+      <score type="extrapoint" clock="05:16" quarter="2" points="1">
+        <summary>
+          <![CDATA[5-D.Carpenter extra point is good.]]>
+        </summary>
+        <links>
+          <link rel="summary" href="/2012/REG/9/MIA/IND/plays/c9e83168-d56a-434b-8ba2-5673ab571806.xml" type="application/xml"/>
         </links>
       </score>
     </drive>
   </scoring_drives>
 </game>
-<!-- Generation finished at Fri Nov 02 02:27:02 +0000 2012 -->
+<!-- Generation finished at Sun Nov 04 19:18:24 +0000 2012 -->
