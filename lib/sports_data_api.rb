@@ -1,6 +1,7 @@
 require "sports_data_api/version"
 require "nokogiri"
 require "rest_client"
+require "time"
 
 module SportsDataApi
   def self.key
