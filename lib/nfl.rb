@@ -97,7 +97,7 @@ module SportsDataApi
         return Season.new(schedule.xpath("/season"))
       rescue RestClient::Exception => e
         message = if e.response.headers.key? :x_server_error
-                    JSON.parse(error_json, { symbolize_names: true })[:message]
+                    JSON.parse(e.response.headers[:x_server_error], { symbolize_names: true })[:message]
                   elsif e.response.headers.key? :x_mashery_error_code
                     e.response.headers[:x_mashery_error_code]
                   else
@@ -126,7 +126,7 @@ module SportsDataApi
         return Game.new(boxscore.xpath("/game"))
       rescue RestClient::Exception => e
         message = if e.response.headers.key? :x_server_error
-                    JSON.parse(error_json, { symbolize_names: true })[:message]
+                    JSON.parse(e.response.headers[:x_server_error], { symbolize_names: true })[:message]
                   elsif e.response.headers.key? :x_mashery_error_code
                     e.response.headers[:x_mashery_error_code]
                   else
