@@ -6,6 +6,7 @@ require "time"
 module SportsDataApi
   def self.key
     @key ||= "garbage"
+    @key
   end
 
   def self.key=(new_key)
@@ -14,6 +15,7 @@ module SportsDataApi
 
   def self.access_level
     @access_level ||= "t"
+    @access_level
   end
 
   def self.access_level=(new_level)
