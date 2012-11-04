@@ -5,11 +5,19 @@ require "time"
 
 module SportsDataApi
   def self.key
-    "garbage"
+    @key ||= "garbage"
+  end
+
+  def self.key=(new_key)
+    @key = new_key
   end
 
   def self.access_level
-    "t"
+    @access_level ||= "t"
+  end
+
+  def self.access_level=(new_level)
+    @access_level = new_level
   end
 
   autoload :Nfl, File.join(File.dirname(__FILE__), 'nfl')
