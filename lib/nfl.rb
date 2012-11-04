@@ -113,7 +113,7 @@ module SportsDataApi
       base_url = BASE_URL % { access_level: SportsDataApi.access_level, version: version }
       season = season.to_s.upcase.to_sym
       raise SportsDataApi::Nfl::Exception.new("#{season} is not a valid season") unless season?(season)
-      url = "#{base_url}/#{year}/#{season}/#{week}/#{home}/#{away}/boxscore.xml"
+      url = "#{base_url}/#{year}/#{season}/#{week}/#{away}/#{home}/boxscore.xml"
 
       begin
         # Perform the request

@@ -48,14 +48,14 @@ describe SportsDataApi::Nfl do
     it "creates a valid SportsData LLC url" do
       SportsDataApi.stub(:key).and_return(key)
       RestClient.stub(:get).with("http://api.sportsdatallc.org/nfl-t1/2012/REG/9/MIA/IND/boxscore.xml", params: { api_key: key }).and_return(boxscore_xml)
-      subject.boxscore(2012, :REG, 9, "MIA", "IND")
+      subject.boxscore(2012, :REG, 9, "IND", "MIA")
     end
     it "creates a SportsDataApi::Exception when there is no response from the api" do
       error = RestClient::ResourceNotFound.new
       error.stub_chain(:response, :headers).and_return(Hash.new)
       SportsDataApi.stub(:key).and_return(key)
       RestClient.stub(:get).and_raise(error)
-      expect { subject.boxscore(2999, :REG, 9, "MIA", "IND") }.to raise_error(SportsDataApi::Exception)
+      expect { subject.boxscore(2999, :REG, 9, "IND", "MIA") }.to raise_error(SportsDataApi::Exception)
     end
     describe "returned data structures" do
       let(:boxscore) { SportsDataApi::Nfl.boxscore(2012, :REG, 9, "IND", "MIA") }
