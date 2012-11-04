@@ -15,6 +15,10 @@ def schedule_xml
   load_xml("schedule")
 end
 
+def boxscore_xml
+  load_xml("boxscore")
+end
+
 RSpec.configure do |config|
   config.treat_symbols_as_metadata_keys_with_true_values = true
   config.run_all_when_everything_filtered = true
