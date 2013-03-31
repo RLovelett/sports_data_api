@@ -5,7 +5,7 @@ require "time"
 
 module SportsDataApi
   def self.key
-    @key ||= "garbage"
+    @key ||= ''
     @key
   end
 
@@ -22,7 +22,8 @@ module SportsDataApi
     @access_level = new_level
   end
 
-  autoload :Nfl, File.join(File.dirname(__FILE__), 'nfl')
+  LIBRARY_PATH = File.join(File.dirname(__FILE__), 'sports_data_api')
 
-  class Exception < ::Exception; end
+  autoload :Nfl,       File.join(LIBRARY_PATH, 'nfl')
+  autoload :Exception, File.join(LIBRARY_PATH, 'exception')
 end
