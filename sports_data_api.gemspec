@@ -25,5 +25,7 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'rb-fsevent', '~> 0.9.1'
   gem.add_development_dependency 'growl', '~> 1.0.3'
   gem.add_development_dependency 'terminal-notifier-guard', '~> 1.5.3'
+  gem.add_development_dependency 'vcr', '~> 2.4.0'
+  gem.add_development_dependency 'webmock', '~> 1.9.0'
   gem.add_development_dependency 'faker', '~> 1.1.2'
 end

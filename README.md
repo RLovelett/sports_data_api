@@ -48,6 +48,21 @@ The specs for this Gem should give you some idea of how to make use of
 the API. For now they will be the usage information. As always Pull
 Requests for better documentation are always welcome.
 
+## Testing
+
+The tests for the API have been mocked using [VCR](https://github.com/vcr/vcr) and [WebMock](https://github.com/bblimke/webmock).
+
+Actual calls to the Sports Data LLC have been mocked out to prevent storage of valid API credentials and making
+superflous API calls while testing. As such, in order to generically run the tests (without actually hitting)
+the server the only thing that needs to be done is to run the specs (e.g., `bundle exec rake spec` or
+`bundle exec guard start`).
+
+However, if you want to refresh the actual server API responses you will need to re-record all of the VCR cassettes.
+This can be achieved simply by performing the following two steps:
+
+1. Delete all the cassettes (`rm spec/cassettes/*.yml`)
+2. Run specs passing the API key as environment variable (`SPORTS_DATA_API_KEY=realapikey bundle exec rake spec`)
+
 ## Contributing
 
 1. Fork it

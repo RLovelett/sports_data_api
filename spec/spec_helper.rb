@@ -7,6 +7,9 @@ require "sports_data_api"
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
+require 'webmock/rspec'
+require 'vcr'
+
 def load_xml(filename)
   File.read("#{File.dirname(__FILE__)}/xml/#{filename}.xml")
 end
@@ -19,6 +22,12 @@ def boxscore_xml
   load_xml("boxscore")
 end
 
+def api_key
+  key = 'VALID_SPORTS_DATA_API_KEY'
+  key = ENV['SPORTS_DATA_API_KEY'] if ENV.has_key?('SPORTS_DATA_API_KEY')
+  key
+end
+
 RSpec.configure do |config|
   config.treat_symbols_as_metadata_keys_with_true_values = true
   config.run_all_when_everything_filtered = true
@@ -29,4 +38,15 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = 'random'
+end
+
+VCR.configure do |c|
+  c.cassette_library_dir = 'spec/cassettes'
+  c.hook_into :webmock
+  c.preserve_exact_body_bytes { true }
+  c.configure_rspec_metadata!
+
+  ##
+  # Filter the real API key so that it does not make its way into the VCR cassette
+  c.filter_sensitive_data('<API_KEY>')  { api_key }
 end
