@@ -1,0 +1,85 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.sportsdatallc.org/nfl-t1/2013/REG/schedule.xml?api_key=
+    body:
+      encoding: US-ASCII
+      base64_string: ''
+    headers:
+      Accept:
+      - ! '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 403
+      message: Forbidden
+    headers:
+      Accept-Ranges:
+      - bytes
+      Content-Type:
+      - text/xml
+      Date:
+      - Sat, 06 Apr 2013 22:01:34 GMT
+      Server:
+      - Mashery Proxy
+      X-Mashery-Error-Code:
+      - ERR_403_DEVELOPER_INACTIVE
+      X-Mashery-Responder:
+      - prod-p-worker-us-east-1d-34.mashery.com
+      Content-Length:
+      - '31'
+      Connection:
+      - keep-alive
+    body:
+      encoding: US-ASCII
+      base64_string: ! 'PGgxPjQwMyBEZXZlbG9wZXIgSW5hY3RpdmU8L2gxPg==
+
+'
+    http_version: 
+  recorded_at: Sat, 06 Apr 2013 22:01:36 GMT
+- request:
+    method: get
+    uri: http://api.sportsdatallc.org/nfl-t1/2012/REG/9/MIA/IND/boxscore.xml?api_key=invalid_key
+    body:
+      encoding: US-ASCII
+      base64_string: ''
+    headers:
+      Accept:
+      - ! '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 403
+      message: Forbidden
+    headers:
+      Accept-Ranges:
+      - bytes
+      Content-Type:
+      - text/xml
+      Date:
+      - Sat, 06 Apr 2013 22:01:35 GMT
+      Server:
+      - Mashery Proxy
+      X-Mashery-Error-Code:
+      - ERR_403_DEVELOPER_INACTIVE
+      X-Mashery-Responder:
+      - prod-p-worker-us-east-1d-34.mashery.com
+      Content-Length:
+      - '31'
+      Connection:
+      - keep-alive
+    body:
+      encoding: US-ASCII
+      base64_string: ! 'PGgxPjQwMyBEZXZlbG9wZXIgSW5hY3RpdmU8L2gxPg==
+
+'
+    http_version: 
+  recorded_at: Sat, 06 Apr 2013 22:01:37 GMT
+recorded_with: VCR 2.4.0
