@@ -5,7 +5,7 @@ http_interactions:
     uri: http://api.sportsdatallc.org/nfl-t1/2012/PRE/1/schedule.xml?api_key=<API_KEY>
     body:
       encoding: US-ASCII
-      string: ''
+      base64_string: ''
     headers:
       Accept:
       - ! '*/*; q=0.5, application/xml'
@@ -42,243 +42,871 @@ http_interactions:
       - keep-alive
     body:
       encoding: US-ASCII
-      string: ! "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<games xmlns=\"http://feed.elasticstats.com/schema/nfl/schedule-v1.0.xsd\"
-        season=\"2012\" type=\"PRE\" week=\"1\">\n  <game id=\"433d3222-e82d-4f14-97e2-4115579473f6\"
-        scheduled=\"2012-08-09T23:00:00+00:00\" home_rotation=\"\" away_rotation=\"\"
-        home=\"BUF\" away=\"WAS\" status=\"closed\">\n    <venue id=\"e9e0828e-37fc-4238-a317-49037577dd55\"
-        country=\"US\" name=\"Ralph Wilson Stadium\" city=\"Orchard Park\" state=\"NY\"
-        capacity=\"73967\" surface=\"artificial\" type=\"outdoor\" zip=\"\" address=\"\"/>\n
-        \   <weather temperature=\"80\" condition=\"Cloudy\" humidity=\"38\">\n      <wind
-        speed=\"16\" direction=\"W\"/>\n    </weather>\n    <broadcast network=\"Local\"
-        satellite=\"\" internet=\"\" cable=\"\"/>\n    <links>\n      <link rel=\"statistics\"
-        href=\"/2012/PRE/1/WAS/BUF/statistics.xml\" type=\"application/xml\"/>\n      <link
-        rel=\"summary\" href=\"/2012/PRE/1/WAS/BUF/summary.xml\" type=\"application/xml\"/>\n
-        \     <link rel=\"pbp\" href=\"/2012/PRE/1/WAS/BUF/pbp.xml\" type=\"application/xml\"/>\n
-        \     <link rel=\"boxscore\" href=\"/2012/PRE/1/WAS/BUF/boxscore.xml\" type=\"application/xml\"/>\n
-        \     <link rel=\"roster\" href=\"/2012/PRE/1/WAS/BUF/roster.xml\" type=\"application/xml\"/>\n
-        \     <link rel=\"injuries\" href=\"/2012/PRE/1/WAS/BUF/injuries.xml\" type=\"application/xml\"/>\n
-        \     <link rel=\"depthchart\" href=\"/2012/PRE/1/WAS/BUF/depthchart.xml\"
-        type=\"application/xml\"/>\n    </links>\n  </game>\n  <game id=\"b63e01f9-600d-42ee-b1f0-b020846b246b\"
-        scheduled=\"2012-08-09T23:30:00+00:00\" home_rotation=\"\" away_rotation=\"\"
-        home=\"PHI\" away=\"PIT\" status=\"closed\">\n    <venue id=\"4fa8c29c-6626-464c-8540-314ed7535e1b\"
-        country=\"US\" name=\"Lincoln Financial Field\" city=\"Philadelphia\" state=\"PA\"
-        capacity=\"68532\" surface=\"turf\" type=\"outdoor\" zip=\"\" address=\"\"/>\n
-        \   <weather temperature=\"83\" condition=\"Overcast\" humidity=\"46\">\n
-        \     <wind speed=\"4\" direction=\"S\"/>\n    </weather>\n    <broadcast
-        network=\"Local\" satellite=\"\" internet=\"\" cable=\"\"/>\n    <links>\n
-        \     <link rel=\"statistics\" href=\"/2012/PRE/1/PIT/PHI/statistics.xml\"
-        type=\"application/xml\"/>\n      <link rel=\"summary\" href=\"/2012/PRE/1/PIT/PHI/summary.xml\"
-        type=\"application/xml\"/>\n      <link rel=\"pbp\" href=\"/2012/PRE/1/PIT/PHI/pbp.xml\"
-        type=\"application/xml\"/>\n      <link rel=\"boxscore\" href=\"/2012/PRE/1/PIT/PHI/boxscore.xml\"
-        type=\"application/xml\"/>\n      <link rel=\"roster\" href=\"/2012/PRE/1/PIT/PHI/roster.xml\"
-        type=\"application/xml\"/>\n      <link rel=\"injuries\" href=\"/2012/PRE/1/PIT/PHI/injuries.xml\"
-        type=\"application/xml\"/>\n      <link rel=\"depthchart\" href=\"/2012/PRE/1/PIT/PHI/depthchart.xml\"
-        type=\"application/xml\"/>\n    </links>\n  </game>\n  <game id=\"e25de70d-9bff-4490-9695-fd66cf45aa6d\"
-        scheduled=\"2012-08-09T23:30:00+00:00\" home_rotation=\"\" away_rotation=\"\"
-        home=\"NE\" away=\"NO\" status=\"closed\">\n    <venue id=\"e43310b1-cb82-4df9-8be5-e9b39637031b\"
-        country=\"US\" name=\"Gillette Stadium\" city=\"Foxborough\" state=\"MA\"
-        capacity=\"68756\" surface=\"turf\" type=\"outdoor\" zip=\"\" address=\"\"/>\n
-        \   <weather temperature=\"83\" condition=\"Clear\" humidity=\"41\">\n      <wind
-        speed=\"6\" direction=\"N\"/>\n    </weather>\n    <broadcast network=\"Local\"
-        satellite=\"\" internet=\"\" cable=\"\"/>\n    <links>\n      <link rel=\"statistics\"
-        href=\"/2012/PRE/1/NO/NE/statistics.xml\" type=\"application/xml\"/>\n      <link
-        rel=\"summary\" href=\"/2012/PRE/1/NO/NE/summary.xml\" type=\"application/xml\"/>\n
-        \     <link rel=\"pbp\" href=\"/2012/PRE/1/NO/NE/pbp.xml\" type=\"application/xml\"/>\n
-        \     <link rel=\"boxscore\" href=\"/2012/PRE/1/NO/NE/boxscore.xml\" type=\"application/xml\"/>\n
-        \     <link rel=\"roster\" href=\"/2012/PRE/1/NO/NE/roster.xml\" type=\"application/xml\"/>\n
-        \     <link rel=\"injuries\" href=\"/2012/PRE/1/NO/NE/injuries.xml\" type=\"application/xml\"/>\n
-        \     <link rel=\"depthchart\" href=\"/2012/PRE/1/NO/NE/depthchart.xml\" type=\"application/xml\"/>\n
-        \   </links>\n  </game>\n  <game id=\"c69d0297-6db2-4599-9ecb-2e9d70e6feb1\"
-        scheduled=\"2012-08-09T23:30:00+00:00\" home_rotation=\"\" away_rotation=\"\"
-        home=\"ATL\" away=\"BAL\" status=\"closed\">\n    <venue id=\"216de6bf-bce0-409a-a9e7-90db8df1f7b9\"
-        country=\"US\" name=\"Georgia Dome\" city=\"Atlanta\" state=\"GA\" capacity=\"71250\"
-        surface=\"artificial\" type=\"dome\" zip=\"\" address=\"\"/>\n    <weather
-        temperature=\"83\" condition=\"Partly Cloudy\" humidity=\"67\">\n      <wind
-        speed=\"6\" direction=\"SE\"/>\n    </weather>\n    <broadcast network=\"Local\"
-        satellite=\"\" internet=\"\" cable=\"\"/>\n    <links>\n      <link rel=\"statistics\"
-        href=\"/2012/PRE/1/BAL/ATL/statistics.xml\" type=\"application/xml\"/>\n      <link
-        rel=\"summary\" href=\"/2012/PRE/1/BAL/ATL/summary.xml\" type=\"application/xml\"/>\n
-        \     <link rel=\"pbp\" href=\"/2012/PRE/1/BAL/ATL/pbp.xml\" type=\"application/xml\"/>\n
-        \     <link rel=\"boxscore\" href=\"/2012/PRE/1/BAL/ATL/boxscore.xml\" type=\"application/xml\"/>\n
-        \     <link rel=\"roster\" href=\"/2012/PRE/1/BAL/ATL/roster.xml\" type=\"application/xml\"/>\n
-        \     <link rel=\"injuries\" href=\"/2012/PRE/1/BAL/ATL/injuries.xml\" type=\"application/xml\"/>\n
-        \     <link rel=\"depthchart\" href=\"/2012/PRE/1/BAL/ATL/depthchart.xml\"
-        type=\"application/xml\"/>\n    </links>\n  </game>\n  <game id=\"088077a2-e49e-4ec6-b7b8-7318752adf6a\"
-        scheduled=\"2012-08-10T00:00:00+00:00\" home_rotation=\"\" away_rotation=\"\"
-        home=\"SD\" away=\"GB\" status=\"closed\">\n    <venue id=\"7ca47702-8951-45be-a4f5-3e7d78f8f399\"
-        country=\"US\" name=\"Qualcomm Stadium\" city=\"San Diego\" state=\"CA\" capacity=\"71294\"
-        surface=\"turf\" type=\"outdoor\" zip=\"\" address=\"\"/>\n    <weather temperature=\"\"
-        condition=\"\" humidity=\"\">\n      <wind speed=\"\" direction=\"\"/>\n    </weather>\n
-        \   <broadcast network=\"ESPN\" satellite=\"\" internet=\"\" cable=\"\"/>\n
-        \   <links>\n      <link rel=\"statistics\" href=\"/2012/PRE/1/GB/SD/statistics.xml\"
-        type=\"application/xml\"/>\n      <link rel=\"summary\" href=\"/2012/PRE/1/GB/SD/summary.xml\"
-        type=\"application/xml\"/>\n      <link rel=\"pbp\" href=\"/2012/PRE/1/GB/SD/pbp.xml\"
-        type=\"application/xml\"/>\n      <link rel=\"boxscore\" href=\"/2012/PRE/1/GB/SD/boxscore.xml\"
-        type=\"application/xml\"/>\n      <link rel=\"roster\" href=\"/2012/PRE/1/GB/SD/roster.xml\"
-        type=\"application/xml\"/>\n      <link rel=\"injuries\" href=\"/2012/PRE/1/GB/SD/injuries.xml\"
-        type=\"application/xml\"/>\n      <link rel=\"depthchart\" href=\"/2012/PRE/1/GB/SD/depthchart.xml\"
-        type=\"application/xml\"/>\n    </links>\n  </game>\n  <game id=\"12a31b8b-119e-4ea2-9627-5ae7a0829b47\"
-        scheduled=\"2012-08-10T00:30:00+00:00\" home_rotation=\"\" away_rotation=\"\"
-        home=\"CHI\" away=\"DEN\" status=\"closed\">\n    <venue id=\"d7866605-5ac6-4b3a-90e8-760cc5a26b75\"
-        country=\"US\" name=\"Soldier Field\" city=\"Chicago\" state=\"IL\" capacity=\"61500\"
-        surface=\"turf\" type=\"outdoor\" zip=\"\" address=\"\"/>\n    <weather temperature=\"88\"
-        condition=\"Partly Cloudy\" humidity=\"34\">\n      <wind speed=\"6\" direction=\"N\"/>\n
-        \   </weather>\n    <broadcast network=\"Local\" satellite=\"\" internet=\"\"
-        cable=\"\"/>\n    <links>\n      <link rel=\"statistics\" href=\"/2012/PRE/1/DEN/CHI/statistics.xml\"
-        type=\"application/xml\"/>\n      <link rel=\"summary\" href=\"/2012/PRE/1/DEN/CHI/summary.xml\"
-        type=\"application/xml\"/>\n      <link rel=\"pbp\" href=\"/2012/PRE/1/DEN/CHI/pbp.xml\"
-        type=\"application/xml\"/>\n      <link rel=\"boxscore\" href=\"/2012/PRE/1/DEN/CHI/boxscore.xml\"
-        type=\"application/xml\"/>\n      <link rel=\"roster\" href=\"/2012/PRE/1/DEN/CHI/roster.xml\"
-        type=\"application/xml\"/>\n      <link rel=\"injuries\" href=\"/2012/PRE/1/DEN/CHI/injuries.xml\"
-        type=\"application/xml\"/>\n      <link rel=\"depthchart\" href=\"/2012/PRE/1/DEN/CHI/depthchart.xml\"
-        type=\"application/xml\"/>\n    </links>\n  </game>\n  <game id=\"e93f780c-dc00-4456-835b-0abc6a64e58d\"
-        scheduled=\"2012-08-10T23:30:00+00:00\" home_rotation=\"\" away_rotation=\"\"
-        home=\"JAC\" away=\"NYG\" status=\"closed\">\n    <venue id=\"4c5c036d-dd3d-4183-b595-71a43a97560f\"
-        country=\"US\" name=\"EverBank Field\" city=\"Jacksonville\" state=\"FL\"
-        capacity=\"76877\" surface=\"artificial\" type=\"outdoor\" zip=\"\" address=\"\"/>\n
-        \   <weather temperature=\"91\" condition=\"Mostly Cloudy\" humidity=\"52\">\n
-        \     <wind speed=\"12\" direction=\"S\"/>\n    </weather>\n    <broadcast
-        network=\"Local\" satellite=\"\" internet=\"\" cable=\"\"/>\n    <links>\n
-        \     <link rel=\"statistics\" href=\"/2012/PRE/1/NYG/JAC/statistics.xml\"
-        type=\"application/xml\"/>\n      <link rel=\"summary\" href=\"/2012/PRE/1/NYG/JAC/summary.xml\"
-        type=\"application/xml\"/>\n      <link rel=\"pbp\" href=\"/2012/PRE/1/NYG/JAC/pbp.xml\"
-        type=\"application/xml\"/>\n      <link rel=\"boxscore\" href=\"/2012/PRE/1/NYG/JAC/boxscore.xml\"
-        type=\"application/xml\"/>\n      <link rel=\"roster\" href=\"/2012/PRE/1/NYG/JAC/roster.xml\"
-        type=\"application/xml\"/>\n      <link rel=\"injuries\" href=\"/2012/PRE/1/NYG/JAC/injuries.xml\"
-        type=\"application/xml\"/>\n      <link rel=\"depthchart\" href=\"/2012/PRE/1/NYG/JAC/depthchart.xml\"
-        type=\"application/xml\"/>\n    </links>\n  </game>\n  <game id=\"b307bf92-9c69-4443-bc18-cee45fb63fcb\"
-        scheduled=\"2012-08-10T23:30:00+00:00\" home_rotation=\"\" away_rotation=\"\"
-        home=\"CIN\" away=\"NYJ\" status=\"closed\">\n    <venue id=\"b87a1595-d3c8-48ea-8a53-0aab6378a64a\"
-        country=\"US\" name=\"Paul Brown Stadium\" city=\"Cincinnati\" state=\"OH\"
-        capacity=\"65535\" surface=\"artificial\" type=\"outdoor\" zip=\"\" address=\"\"/>\n
-        \   <weather temperature=\"88\" condition=\"Clear\" humidity=\"43\">\n      <wind
-        speed=\"7\" direction=\"S\"/>\n    </weather>\n    <broadcast network=\"Local\"
-        satellite=\"\" internet=\"\" cable=\"\"/>\n    <links>\n      <link rel=\"statistics\"
-        href=\"/2012/PRE/1/NYJ/CIN/statistics.xml\" type=\"application/xml\"/>\n      <link
-        rel=\"summary\" href=\"/2012/PRE/1/NYJ/CIN/summary.xml\" type=\"application/xml\"/>\n
-        \     <link rel=\"pbp\" href=\"/2012/PRE/1/NYJ/CIN/pbp.xml\" type=\"application/xml\"/>\n
-        \     <link rel=\"boxscore\" href=\"/2012/PRE/1/NYJ/CIN/boxscore.xml\" type=\"application/xml\"/>\n
-        \     <link rel=\"roster\" href=\"/2012/PRE/1/NYJ/CIN/roster.xml\" type=\"application/xml\"/>\n
-        \     <link rel=\"injuries\" href=\"/2012/PRE/1/NYJ/CIN/injuries.xml\" type=\"application/xml\"/>\n
-        \     <link rel=\"depthchart\" href=\"/2012/PRE/1/NYJ/CIN/depthchart.xml\"
-        type=\"application/xml\"/>\n    </links>\n  </game>\n  <game id=\"9279dd5b-5429-4680-bee4-26cfaaf51b21\"
-        scheduled=\"2012-08-10T23:30:00+00:00\" home_rotation=\"\" away_rotation=\"\"
-        home=\"MIA\" away=\"TB\" status=\"closed\">\n    <venue id=\"50a5c833-1570-4c38-abc7-7914cf87dbde\"
-        country=\"US\" name=\"Sun Life Stadium\" city=\"Miami Garden\" state=\"FL\"
-        capacity=\"75235\" surface=\"turf\" type=\"outdoor\" zip=\"\" address=\"\"/>\n
-        \   <weather temperature=\"90\" condition=\"Cloudy\" humidity=\"57\">\n      <wind
-        speed=\"10\" direction=\"SE\"/>\n    </weather>\n    <broadcast network=\"Local\"
-        satellite=\"\" internet=\"\" cable=\"\"/>\n    <links>\n      <link rel=\"statistics\"
-        href=\"/2012/PRE/1/TB/MIA/statistics.xml\" type=\"application/xml\"/>\n      <link
-        rel=\"summary\" href=\"/2012/PRE/1/TB/MIA/summary.xml\" type=\"application/xml\"/>\n
-        \     <link rel=\"pbp\" href=\"/2012/PRE/1/TB/MIA/pbp.xml\" type=\"application/xml\"/>\n
-        \     <link rel=\"boxscore\" href=\"/2012/PRE/1/TB/MIA/boxscore.xml\" type=\"application/xml\"/>\n
-        \     <link rel=\"roster\" href=\"/2012/PRE/1/TB/MIA/roster.xml\" type=\"application/xml\"/>\n
-        \     <link rel=\"injuries\" href=\"/2012/PRE/1/TB/MIA/injuries.xml\" type=\"application/xml\"/>\n
-        \     <link rel=\"depthchart\" href=\"/2012/PRE/1/TB/MIA/depthchart.xml\"
-        type=\"application/xml\"/>\n    </links>\n  </game>\n  <game id=\"1a984c80-f0fa-48c8-a88d-a67a82344753\"
-        scheduled=\"2012-08-10T23:30:00+00:00\" home_rotation=\"\" away_rotation=\"\"
-        home=\"DET\" away=\"CLE\" status=\"closed\">\n    <venue id=\"6e3bcf22-277d-4c06-b019-62aded51654f\"
-        country=\"US\" name=\"Ford Field\" city=\"Detroit\" state=\"MI\" capacity=\"65000\"
-        surface=\"artificial\" type=\"dome\" zip=\"\" address=\"\"/>\n    <weather
-        temperature=\"86\" condition=\"Clear\" humidity=\"32\">\n      <wind speed=\"13\"
-        direction=\"W\"/>\n    </weather>\n    <broadcast network=\"Local\" satellite=\"\"
-        internet=\"\" cable=\"\"/>\n    <links>\n      <link rel=\"statistics\" href=\"/2012/PRE/1/CLE/DET/statistics.xml\"
-        type=\"application/xml\"/>\n      <link rel=\"summary\" href=\"/2012/PRE/1/CLE/DET/summary.xml\"
-        type=\"application/xml\"/>\n      <link rel=\"pbp\" href=\"/2012/PRE/1/CLE/DET/pbp.xml\"
-        type=\"application/xml\"/>\n      <link rel=\"boxscore\" href=\"/2012/PRE/1/CLE/DET/boxscore.xml\"
-        type=\"application/xml\"/>\n      <link rel=\"roster\" href=\"/2012/PRE/1/CLE/DET/roster.xml\"
-        type=\"application/xml\"/>\n      <link rel=\"injuries\" href=\"/2012/PRE/1/CLE/DET/injuries.xml\"
-        type=\"application/xml\"/>\n      <link rel=\"depthchart\" href=\"/2012/PRE/1/CLE/DET/depthchart.xml\"
-        type=\"application/xml\"/>\n    </links>\n  </game>\n  <game id=\"3af20dde-aa41-46f2-a7e2-929ce5b4a2e6\"
-        scheduled=\"2012-08-11T00:00:00+00:00\" home_rotation=\"\" away_rotation=\"\"
-        home=\"KC\" away=\"ARI\" status=\"closed\">\n    <venue id=\"2ec4c411-dac2-403d-b091-6b6aa4a0a914\"
-        country=\"US\" name=\"Arrowhead Stadium\" city=\"Kansas City\" state=\"MO\"
-        capacity=\"79451\" surface=\"turf\" type=\"outdoor\" zip=\"\" address=\"\"/>\n
-        \   <weather temperature=\"99\" condition=\"Clear\" humidity=\"21\">\n      <wind
-        speed=\"5\" direction=\"S\"/>\n    </weather>\n    <broadcast network=\"Local\"
-        satellite=\"\" internet=\"\" cable=\"\"/>\n    <links>\n      <link rel=\"statistics\"
-        href=\"/2012/PRE/1/ARI/KC/statistics.xml\" type=\"application/xml\"/>\n      <link
-        rel=\"summary\" href=\"/2012/PRE/1/ARI/KC/summary.xml\" type=\"application/xml\"/>\n
-        \     <link rel=\"pbp\" href=\"/2012/PRE/1/ARI/KC/pbp.xml\" type=\"application/xml\"/>\n
-        \     <link rel=\"boxscore\" href=\"/2012/PRE/1/ARI/KC/boxscore.xml\" type=\"application/xml\"/>\n
-        \     <link rel=\"roster\" href=\"/2012/PRE/1/ARI/KC/roster.xml\" type=\"application/xml\"/>\n
-        \     <link rel=\"injuries\" href=\"/2012/PRE/1/ARI/KC/injuries.xml\" type=\"application/xml\"/>\n
-        \     <link rel=\"depthchart\" href=\"/2012/PRE/1/ARI/KC/depthchart.xml\"
-        type=\"application/xml\"/>\n    </links>\n  </game>\n  <game id=\"92613948-82c8-46c1-b943-1c43c10914fb\"
-        scheduled=\"2012-08-11T01:00:00+00:00\" home_rotation=\"\" away_rotation=\"\"
-        home=\"SF\" away=\"MIN\" status=\"closed\">\n    <venue id=\"6701808c-c329-482b-9834-2d29cb3185ff\"
-        country=\"US\" name=\"Candlestick Park\" city=\"San Francisco\" state=\"CA\"
-        capacity=\"70207\" surface=\"turf\" type=\"outdoor\" zip=\"\" address=\"\"/>\n
-        \   <weather temperature=\"0\" condition=\"\" humidity=\"0\">\n      <wind
-        speed=\"0\" direction=\"\"/>\n    </weather>\n    <broadcast network=\"Local\"
-        satellite=\"\" internet=\"\" cable=\"\"/>\n    <links>\n      <link rel=\"statistics\"
-        href=\"/2012/PRE/1/MIN/SF/statistics.xml\" type=\"application/xml\"/>\n      <link
-        rel=\"summary\" href=\"/2012/PRE/1/MIN/SF/summary.xml\" type=\"application/xml\"/>\n
-        \     <link rel=\"pbp\" href=\"/2012/PRE/1/MIN/SF/pbp.xml\" type=\"application/xml\"/>\n
-        \     <link rel=\"boxscore\" href=\"/2012/PRE/1/MIN/SF/boxscore.xml\" type=\"application/xml\"/>\n
-        \     <link rel=\"roster\" href=\"/2012/PRE/1/MIN/SF/roster.xml\" type=\"application/xml\"/>\n
-        \     <link rel=\"injuries\" href=\"/2012/PRE/1/MIN/SF/injuries.xml\" type=\"application/xml\"/>\n
-        \     <link rel=\"depthchart\" href=\"/2012/PRE/1/MIN/SF/depthchart.xml\"
-        type=\"application/xml\"/>\n    </links>\n  </game>\n  <game id=\"cf2a0638-ee67-4ca5-9666-fc37b37b1145\"
-        scheduled=\"2012-08-11T23:00:00+00:00\" home_rotation=\"\" away_rotation=\"\"
-        home=\"CAR\" away=\"HOU\" status=\"closed\">\n    <venue id=\"39be9ed4-3292-49ac-8699-a381de3a4969\"
-        country=\"US\" name=\"Bank of America Stadium\" city=\"Charlotte\" state=\"NC\"
-        capacity=\"73778\" surface=\"turf\" type=\"outdoor\" zip=\"\" address=\"\"/>\n
-        \   <weather temperature=\"80\" condition=\"Overcast\" humidity=\"74\">\n
-        \     <wind speed=\"0\" direction=\"N\"/>\n    </weather>\n    <broadcast
-        network=\"Local\" satellite=\"\" internet=\"\" cable=\"\"/>\n    <links>\n
-        \     <link rel=\"statistics\" href=\"/2012/PRE/1/HOU/CAR/statistics.xml\"
-        type=\"application/xml\"/>\n      <link rel=\"summary\" href=\"/2012/PRE/1/HOU/CAR/summary.xml\"
-        type=\"application/xml\"/>\n      <link rel=\"pbp\" href=\"/2012/PRE/1/HOU/CAR/pbp.xml\"
-        type=\"application/xml\"/>\n      <link rel=\"boxscore\" href=\"/2012/PRE/1/HOU/CAR/boxscore.xml\"
-        type=\"application/xml\"/>\n      <link rel=\"roster\" href=\"/2012/PRE/1/HOU/CAR/roster.xml\"
-        type=\"application/xml\"/>\n      <link rel=\"injuries\" href=\"/2012/PRE/1/HOU/CAR/injuries.xml\"
-        type=\"application/xml\"/>\n      <link rel=\"depthchart\" href=\"/2012/PRE/1/HOU/CAR/depthchart.xml\"
-        type=\"application/xml\"/>\n    </links>\n  </game>\n  <game id=\"9f3127d9-3f67-4972-b2d9-96bee12e523c\"
-        scheduled=\"2012-08-12T02:00:00+00:00\" home_rotation=\"\" away_rotation=\"\"
-        home=\"SEA\" away=\"TEN\" status=\"closed\">\n    <venue id=\"c6b9e5df-c9e4-434c-b3e6-83928f11cbda\"
-        country=\"US\" name=\"Qwest Field\" city=\"Seattle\" state=\"WA\" capacity=\"67000\"
-        surface=\"artificial\" type=\"outdoor\" zip=\"\" address=\"\"/>\n    <weather
-        temperature=\"\" condition=\"\" humidity=\"\">\n      <wind speed=\"\" direction=\"\"/>\n
-        \   </weather>\n    <broadcast network=\"Local\" satellite=\"\" internet=\"\"
-        cable=\"\"/>\n    <links>\n      <link rel=\"statistics\" href=\"/2012/PRE/1/TEN/SEA/statistics.xml\"
-        type=\"application/xml\"/>\n      <link rel=\"summary\" href=\"/2012/PRE/1/TEN/SEA/summary.xml\"
-        type=\"application/xml\"/>\n      <link rel=\"pbp\" href=\"/2012/PRE/1/TEN/SEA/pbp.xml\"
-        type=\"application/xml\"/>\n      <link rel=\"boxscore\" href=\"/2012/PRE/1/TEN/SEA/boxscore.xml\"
-        type=\"application/xml\"/>\n      <link rel=\"roster\" href=\"/2012/PRE/1/TEN/SEA/roster.xml\"
-        type=\"application/xml\"/>\n      <link rel=\"injuries\" href=\"/2012/PRE/1/TEN/SEA/injuries.xml\"
-        type=\"application/xml\"/>\n      <link rel=\"depthchart\" href=\"/2012/PRE/1/TEN/SEA/depthchart.xml\"
-        type=\"application/xml\"/>\n    </links>\n  </game>\n  <game id=\"4b60bf06-aa62-4ad0-ba70-978998ac96ae\"
-        scheduled=\"2012-08-12T17:30:00+00:00\" home_rotation=\"\" away_rotation=\"\"
-        home=\"IND\" away=\"STL\" status=\"closed\">\n    <venue id=\"6ed18563-53e0-46c2-a91d-12d73a16456d\"
-        country=\"US\" name=\"Lucas Oil Stadium\" city=\"Indianapolis\" state=\"IN\"
-        capacity=\"67000\" surface=\"artificial\" type=\"retractable_dome\" zip=\"46225\"
-        address=\"500 S. Capitol Avenue\"/>\n    <weather temperature=\"91\" condition=\"Partly
-        Cloudy\" humidity=\"25\">\n      <wind speed=\"9\" direction=\"W\"/>\n    </weather>\n
-        \   <broadcast network=\"Local\" satellite=\"\" internet=\"\" cable=\"\"/>\n
-        \   <links>\n      <link rel=\"statistics\" href=\"/2012/PRE/1/STL/IND/statistics.xml\"
-        type=\"application/xml\"/>\n      <link rel=\"summary\" href=\"/2012/PRE/1/STL/IND/summary.xml\"
-        type=\"application/xml\"/>\n      <link rel=\"pbp\" href=\"/2012/PRE/1/STL/IND/pbp.xml\"
-        type=\"application/xml\"/>\n      <link rel=\"boxscore\" href=\"/2012/PRE/1/STL/IND/boxscore.xml\"
-        type=\"application/xml\"/>\n      <link rel=\"roster\" href=\"/2012/PRE/1/STL/IND/roster.xml\"
-        type=\"application/xml\"/>\n      <link rel=\"injuries\" href=\"/2012/PRE/1/STL/IND/injuries.xml\"
-        type=\"application/xml\"/>\n      <link rel=\"depthchart\" href=\"/2012/PRE/1/STL/IND/depthchart.xml\"
-        type=\"application/xml\"/>\n    </links>\n  </game>\n  <game id=\"1e65ee9d-bc47-4488-b810-2814d7844ab7\"
-        scheduled=\"2012-08-14T00:00:00+00:00\" home_rotation=\"\" away_rotation=\"\"
-        home=\"OAK\" away=\"DAL\" status=\"closed\">\n    <venue id=\"ba1ad00f-9130-462c-93f9-5612a0015117\"
-        country=\"US\" name=\"Oakland-Alameda County Coliseum\" city=\"Oakland\" state=\"CA\"
-        capacity=\"63026\" surface=\"turf\" type=\"outdoor\" zip=\"\" address=\"\"/>\n
-        \   <weather temperature=\"\" condition=\"\" humidity=\"\">\n      <wind speed=\"\"
-        direction=\"\"/>\n    </weather>\n    <broadcast network=\"ESPN\" satellite=\"\"
-        internet=\"\" cable=\"\"/>\n    <links>\n      <link rel=\"statistics\" href=\"/2012/PRE/1/DAL/OAK/statistics.xml\"
-        type=\"application/xml\"/>\n      <link rel=\"summary\" href=\"/2012/PRE/1/DAL/OAK/summary.xml\"
-        type=\"application/xml\"/>\n      <link rel=\"pbp\" href=\"/2012/PRE/1/DAL/OAK/pbp.xml\"
-        type=\"application/xml\"/>\n      <link rel=\"boxscore\" href=\"/2012/PRE/1/DAL/OAK/boxscore.xml\"
-        type=\"application/xml\"/>\n      <link rel=\"roster\" href=\"/2012/PRE/1/DAL/OAK/roster.xml\"
-        type=\"application/xml\"/>\n      <link rel=\"injuries\" href=\"/2012/PRE/1/DAL/OAK/injuries.xml\"
-        type=\"application/xml\"/>\n      <link rel=\"depthchart\" href=\"/2012/PRE/1/DAL/OAK/depthchart.xml\"
-        type=\"application/xml\"/>\n    </links>\n  </game>\n</games>\n"
+      base64_string: ! 'PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPGdhbWVz
+
+        IHhtbG5zPSJodHRwOi8vZmVlZC5lbGFzdGljc3RhdHMuY29tL3NjaGVtYS9u
+
+        Zmwvc2NoZWR1bGUtdjEuMC54c2QiIHNlYXNvbj0iMjAxMiIgdHlwZT0iUFJF
+
+        IiB3ZWVrPSIxIj4KICA8Z2FtZSBpZD0iNDMzZDMyMjItZTgyZC00ZjE0LTk3
+
+        ZTItNDExNTU3OTQ3M2Y2IiBzY2hlZHVsZWQ9IjIwMTItMDgtMDlUMjM6MDA6
+
+        MDArMDA6MDAiIGhvbWVfcm90YXRpb249IiIgYXdheV9yb3RhdGlvbj0iIiBo
+
+        b21lPSJCVUYiIGF3YXk9IldBUyIgc3RhdHVzPSJjbG9zZWQiPgogICAgPHZl
+
+        bnVlIGlkPSJlOWUwODI4ZS0zN2ZjLTQyMzgtYTMxNy00OTAzNzU3N2RkNTUi
+
+        IGNvdW50cnk9IlVTIiBuYW1lPSJSYWxwaCBXaWxzb24gU3RhZGl1bSIgY2l0
+
+        eT0iT3JjaGFyZCBQYXJrIiBzdGF0ZT0iTlkiIGNhcGFjaXR5PSI3Mzk2NyIg
+
+        c3VyZmFjZT0iYXJ0aWZpY2lhbCIgdHlwZT0ib3V0ZG9vciIgemlwPSIiIGFk
+
+        ZHJlc3M9IiIvPgogICAgPHdlYXRoZXIgdGVtcGVyYXR1cmU9IjgwIiBjb25k
+
+        aXRpb249IkNsb3VkeSIgaHVtaWRpdHk9IjM4Ij4KICAgICAgPHdpbmQgc3Bl
+
+        ZWQ9IjE2IiBkaXJlY3Rpb249IlciLz4KICAgIDwvd2VhdGhlcj4KICAgIDxi
+
+        cm9hZGNhc3QgbmV0d29yaz0iTG9jYWwiIHNhdGVsbGl0ZT0iIiBpbnRlcm5l
+
+        dD0iIiBjYWJsZT0iIi8+CiAgICA8bGlua3M+CiAgICAgIDxsaW5rIHJlbD0i
+
+        c3RhdGlzdGljcyIgaHJlZj0iLzIwMTIvUFJFLzEvV0FTL0JVRi9zdGF0aXN0
+
+        aWNzLnhtbCIgdHlwZT0iYXBwbGljYXRpb24veG1sIi8+CiAgICAgIDxsaW5r
+
+        IHJlbD0ic3VtbWFyeSIgaHJlZj0iLzIwMTIvUFJFLzEvV0FTL0JVRi9zdW1t
+
+        YXJ5LnhtbCIgdHlwZT0iYXBwbGljYXRpb24veG1sIi8+CiAgICAgIDxsaW5r
+
+        IHJlbD0icGJwIiBocmVmPSIvMjAxMi9QUkUvMS9XQVMvQlVGL3BicC54bWwi
+
+        IHR5cGU9ImFwcGxpY2F0aW9uL3htbCIvPgogICAgICA8bGluayByZWw9ImJv
+
+        eHNjb3JlIiBocmVmPSIvMjAxMi9QUkUvMS9XQVMvQlVGL2JveHNjb3JlLnht
+
+        bCIgdHlwZT0iYXBwbGljYXRpb24veG1sIi8+CiAgICAgIDxsaW5rIHJlbD0i
+
+        cm9zdGVyIiBocmVmPSIvMjAxMi9QUkUvMS9XQVMvQlVGL3Jvc3Rlci54bWwi
+
+        IHR5cGU9ImFwcGxpY2F0aW9uL3htbCIvPgogICAgICA8bGluayByZWw9Imlu
+
+        anVyaWVzIiBocmVmPSIvMjAxMi9QUkUvMS9XQVMvQlVGL2luanVyaWVzLnht
+
+        bCIgdHlwZT0iYXBwbGljYXRpb24veG1sIi8+CiAgICAgIDxsaW5rIHJlbD0i
+
+        ZGVwdGhjaGFydCIgaHJlZj0iLzIwMTIvUFJFLzEvV0FTL0JVRi9kZXB0aGNo
+
+        YXJ0LnhtbCIgdHlwZT0iYXBwbGljYXRpb24veG1sIi8+CiAgICA8L2xpbmtz
+
+        PgogIDwvZ2FtZT4KICA8Z2FtZSBpZD0iYjYzZTAxZjktNjAwZC00MmVlLWIx
+
+        ZjAtYjAyMDg0NmIyNDZiIiBzY2hlZHVsZWQ9IjIwMTItMDgtMDlUMjM6MzA6
+
+        MDArMDA6MDAiIGhvbWVfcm90YXRpb249IiIgYXdheV9yb3RhdGlvbj0iIiBo
+
+        b21lPSJQSEkiIGF3YXk9IlBJVCIgc3RhdHVzPSJjbG9zZWQiPgogICAgPHZl
+
+        bnVlIGlkPSI0ZmE4YzI5Yy02NjI2LTQ2NGMtODU0MC0zMTRlZDc1MzVlMWIi
+
+        IGNvdW50cnk9IlVTIiBuYW1lPSJMaW5jb2xuIEZpbmFuY2lhbCBGaWVsZCIg
+
+        Y2l0eT0iUGhpbGFkZWxwaGlhIiBzdGF0ZT0iUEEiIGNhcGFjaXR5PSI2ODUz
+
+        MiIgc3VyZmFjZT0idHVyZiIgdHlwZT0ib3V0ZG9vciIgemlwPSIiIGFkZHJl
+
+        c3M9IiIvPgogICAgPHdlYXRoZXIgdGVtcGVyYXR1cmU9IjgzIiBjb25kaXRp
+
+        b249Ik92ZXJjYXN0IiBodW1pZGl0eT0iNDYiPgogICAgICA8d2luZCBzcGVl
+
+        ZD0iNCIgZGlyZWN0aW9uPSJTIi8+CiAgICA8L3dlYXRoZXI+CiAgICA8YnJv
+
+        YWRjYXN0IG5ldHdvcms9IkxvY2FsIiBzYXRlbGxpdGU9IiIgaW50ZXJuZXQ9
+
+        IiIgY2FibGU9IiIvPgogICAgPGxpbmtzPgogICAgICA8bGluayByZWw9InN0
+
+        YXRpc3RpY3MiIGhyZWY9Ii8yMDEyL1BSRS8xL1BJVC9QSEkvc3RhdGlzdGlj
+
+        cy54bWwiIHR5cGU9ImFwcGxpY2F0aW9uL3htbCIvPgogICAgICA8bGluayBy
+
+        ZWw9InN1bW1hcnkiIGhyZWY9Ii8yMDEyL1BSRS8xL1BJVC9QSEkvc3VtbWFy
+
+        eS54bWwiIHR5cGU9ImFwcGxpY2F0aW9uL3htbCIvPgogICAgICA8bGluayBy
+
+        ZWw9InBicCIgaHJlZj0iLzIwMTIvUFJFLzEvUElUL1BISS9wYnAueG1sIiB0
+
+        eXBlPSJhcHBsaWNhdGlvbi94bWwiLz4KICAgICAgPGxpbmsgcmVsPSJib3hz
+
+        Y29yZSIgaHJlZj0iLzIwMTIvUFJFLzEvUElUL1BISS9ib3hzY29yZS54bWwi
+
+        IHR5cGU9ImFwcGxpY2F0aW9uL3htbCIvPgogICAgICA8bGluayByZWw9InJv
+
+        c3RlciIgaHJlZj0iLzIwMTIvUFJFLzEvUElUL1BISS9yb3N0ZXIueG1sIiB0
+
+        eXBlPSJhcHBsaWNhdGlvbi94bWwiLz4KICAgICAgPGxpbmsgcmVsPSJpbmp1
+
+        cmllcyIgaHJlZj0iLzIwMTIvUFJFLzEvUElUL1BISS9pbmp1cmllcy54bWwi
+
+        IHR5cGU9ImFwcGxpY2F0aW9uL3htbCIvPgogICAgICA8bGluayByZWw9ImRl
+
+        cHRoY2hhcnQiIGhyZWY9Ii8yMDEyL1BSRS8xL1BJVC9QSEkvZGVwdGhjaGFy
+
+        dC54bWwiIHR5cGU9ImFwcGxpY2F0aW9uL3htbCIvPgogICAgPC9saW5rcz4K
+
+        ICA8L2dhbWU+CiAgPGdhbWUgaWQ9ImUyNWRlNzBkLTliZmYtNDQ5MC05Njk1
+
+        LWZkNjZjZjQ1YWE2ZCIgc2NoZWR1bGVkPSIyMDEyLTA4LTA5VDIzOjMwOjAw
+
+        KzAwOjAwIiBob21lX3JvdGF0aW9uPSIiIGF3YXlfcm90YXRpb249IiIgaG9t
+
+        ZT0iTkUiIGF3YXk9Ik5PIiBzdGF0dXM9ImNsb3NlZCI+CiAgICA8dmVudWUg
+
+        aWQ9ImU0MzMxMGIxLWNiODItNGRmOS04YmU1LWU5YjM5NjM3MDMxYiIgY291
+
+        bnRyeT0iVVMiIG5hbWU9IkdpbGxldHRlIFN0YWRpdW0iIGNpdHk9IkZveGJv
+
+        cm91Z2giIHN0YXRlPSJNQSIgY2FwYWNpdHk9IjY4NzU2IiBzdXJmYWNlPSJ0
+
+        dXJmIiB0eXBlPSJvdXRkb29yIiB6aXA9IiIgYWRkcmVzcz0iIi8+CiAgICA8
+
+        d2VhdGhlciB0ZW1wZXJhdHVyZT0iODMiIGNvbmRpdGlvbj0iQ2xlYXIiIGh1
+
+        bWlkaXR5PSI0MSI+CiAgICAgIDx3aW5kIHNwZWVkPSI2IiBkaXJlY3Rpb249
+
+        Ik4iLz4KICAgIDwvd2VhdGhlcj4KICAgIDxicm9hZGNhc3QgbmV0d29yaz0i
+
+        TG9jYWwiIHNhdGVsbGl0ZT0iIiBpbnRlcm5ldD0iIiBjYWJsZT0iIi8+CiAg
+
+        ICA8bGlua3M+CiAgICAgIDxsaW5rIHJlbD0ic3RhdGlzdGljcyIgaHJlZj0i
+
+        LzIwMTIvUFJFLzEvTk8vTkUvc3RhdGlzdGljcy54bWwiIHR5cGU9ImFwcGxp
+
+        Y2F0aW9uL3htbCIvPgogICAgICA8bGluayByZWw9InN1bW1hcnkiIGhyZWY9
+
+        Ii8yMDEyL1BSRS8xL05PL05FL3N1bW1hcnkueG1sIiB0eXBlPSJhcHBsaWNh
+
+        dGlvbi94bWwiLz4KICAgICAgPGxpbmsgcmVsPSJwYnAiIGhyZWY9Ii8yMDEy
+
+        L1BSRS8xL05PL05FL3BicC54bWwiIHR5cGU9ImFwcGxpY2F0aW9uL3htbCIv
+
+        PgogICAgICA8bGluayByZWw9ImJveHNjb3JlIiBocmVmPSIvMjAxMi9QUkUv
+
+        MS9OTy9ORS9ib3hzY29yZS54bWwiIHR5cGU9ImFwcGxpY2F0aW9uL3htbCIv
+
+        PgogICAgICA8bGluayByZWw9InJvc3RlciIgaHJlZj0iLzIwMTIvUFJFLzEv
+
+        Tk8vTkUvcm9zdGVyLnhtbCIgdHlwZT0iYXBwbGljYXRpb24veG1sIi8+CiAg
+
+        ICAgIDxsaW5rIHJlbD0iaW5qdXJpZXMiIGhyZWY9Ii8yMDEyL1BSRS8xL05P
+
+        L05FL2luanVyaWVzLnhtbCIgdHlwZT0iYXBwbGljYXRpb24veG1sIi8+CiAg
+
+        ICAgIDxsaW5rIHJlbD0iZGVwdGhjaGFydCIgaHJlZj0iLzIwMTIvUFJFLzEv
+
+        Tk8vTkUvZGVwdGhjaGFydC54bWwiIHR5cGU9ImFwcGxpY2F0aW9uL3htbCIv
+
+        PgogICAgPC9saW5rcz4KICA8L2dhbWU+CiAgPGdhbWUgaWQ9ImM2OWQwMjk3
+
+        LTZkYjItNDU5OS05ZWNiLTJlOWQ3MGU2ZmViMSIgc2NoZWR1bGVkPSIyMDEy
+
+        LTA4LTA5VDIzOjMwOjAwKzAwOjAwIiBob21lX3JvdGF0aW9uPSIiIGF3YXlf
+
+        cm90YXRpb249IiIgaG9tZT0iQVRMIiBhd2F5PSJCQUwiIHN0YXR1cz0iY2xv
+
+        c2VkIj4KICAgIDx2ZW51ZSBpZD0iMjE2ZGU2YmYtYmNlMC00MDlhLWE5ZTct
+
+        OTBkYjhkZjFmN2I5IiBjb3VudHJ5PSJVUyIgbmFtZT0iR2VvcmdpYSBEb21l
+
+        IiBjaXR5PSJBdGxhbnRhIiBzdGF0ZT0iR0EiIGNhcGFjaXR5PSI3MTI1MCIg
+
+        c3VyZmFjZT0iYXJ0aWZpY2lhbCIgdHlwZT0iZG9tZSIgemlwPSIiIGFkZHJl
+
+        c3M9IiIvPgogICAgPHdlYXRoZXIgdGVtcGVyYXR1cmU9IjgzIiBjb25kaXRp
+
+        b249IlBhcnRseSBDbG91ZHkiIGh1bWlkaXR5PSI2NyI+CiAgICAgIDx3aW5k
+
+        IHNwZWVkPSI2IiBkaXJlY3Rpb249IlNFIi8+CiAgICA8L3dlYXRoZXI+CiAg
+
+        ICA8YnJvYWRjYXN0IG5ldHdvcms9IkxvY2FsIiBzYXRlbGxpdGU9IiIgaW50
+
+        ZXJuZXQ9IiIgY2FibGU9IiIvPgogICAgPGxpbmtzPgogICAgICA8bGluayBy
+
+        ZWw9InN0YXRpc3RpY3MiIGhyZWY9Ii8yMDEyL1BSRS8xL0JBTC9BVEwvc3Rh
+
+        dGlzdGljcy54bWwiIHR5cGU9ImFwcGxpY2F0aW9uL3htbCIvPgogICAgICA8
+
+        bGluayByZWw9InN1bW1hcnkiIGhyZWY9Ii8yMDEyL1BSRS8xL0JBTC9BVEwv
+
+        c3VtbWFyeS54bWwiIHR5cGU9ImFwcGxpY2F0aW9uL3htbCIvPgogICAgICA8
+
+        bGluayByZWw9InBicCIgaHJlZj0iLzIwMTIvUFJFLzEvQkFML0FUTC9wYnAu
+
+        eG1sIiB0eXBlPSJhcHBsaWNhdGlvbi94bWwiLz4KICAgICAgPGxpbmsgcmVs
+
+        PSJib3hzY29yZSIgaHJlZj0iLzIwMTIvUFJFLzEvQkFML0FUTC9ib3hzY29y
+
+        ZS54bWwiIHR5cGU9ImFwcGxpY2F0aW9uL3htbCIvPgogICAgICA8bGluayBy
+
+        ZWw9InJvc3RlciIgaHJlZj0iLzIwMTIvUFJFLzEvQkFML0FUTC9yb3N0ZXIu
+
+        eG1sIiB0eXBlPSJhcHBsaWNhdGlvbi94bWwiLz4KICAgICAgPGxpbmsgcmVs
+
+        PSJpbmp1cmllcyIgaHJlZj0iLzIwMTIvUFJFLzEvQkFML0FUTC9pbmp1cmll
+
+        cy54bWwiIHR5cGU9ImFwcGxpY2F0aW9uL3htbCIvPgogICAgICA8bGluayBy
+
+        ZWw9ImRlcHRoY2hhcnQiIGhyZWY9Ii8yMDEyL1BSRS8xL0JBTC9BVEwvZGVw
+
+        dGhjaGFydC54bWwiIHR5cGU9ImFwcGxpY2F0aW9uL3htbCIvPgogICAgPC9s
+
+        aW5rcz4KICA8L2dhbWU+CiAgPGdhbWUgaWQ9IjA4ODA3N2EyLWU0OWUtNGVj
+
+        Ni1iN2I4LTczMTg3NTJhZGY2YSIgc2NoZWR1bGVkPSIyMDEyLTA4LTEwVDAw
+
+        OjAwOjAwKzAwOjAwIiBob21lX3JvdGF0aW9uPSIiIGF3YXlfcm90YXRpb249
+
+        IiIgaG9tZT0iU0QiIGF3YXk9IkdCIiBzdGF0dXM9ImNsb3NlZCI+CiAgICA8
+
+        dmVudWUgaWQ9IjdjYTQ3NzAyLTg5NTEtNDViZS1hNGY1LTNlN2Q3OGY4ZjM5
+
+        OSIgY291bnRyeT0iVVMiIG5hbWU9IlF1YWxjb21tIFN0YWRpdW0iIGNpdHk9
+
+        IlNhbiBEaWVnbyIgc3RhdGU9IkNBIiBjYXBhY2l0eT0iNzEyOTQiIHN1cmZh
+
+        Y2U9InR1cmYiIHR5cGU9Im91dGRvb3IiIHppcD0iIiBhZGRyZXNzPSIiLz4K
+
+        ICAgIDx3ZWF0aGVyIHRlbXBlcmF0dXJlPSIiIGNvbmRpdGlvbj0iIiBodW1p
+
+        ZGl0eT0iIj4KICAgICAgPHdpbmQgc3BlZWQ9IiIgZGlyZWN0aW9uPSIiLz4K
+
+        ICAgIDwvd2VhdGhlcj4KICAgIDxicm9hZGNhc3QgbmV0d29yaz0iRVNQTiIg
+
+        c2F0ZWxsaXRlPSIiIGludGVybmV0PSIiIGNhYmxlPSIiLz4KICAgIDxsaW5r
+
+        cz4KICAgICAgPGxpbmsgcmVsPSJzdGF0aXN0aWNzIiBocmVmPSIvMjAxMi9Q
+
+        UkUvMS9HQi9TRC9zdGF0aXN0aWNzLnhtbCIgdHlwZT0iYXBwbGljYXRpb24v
+
+        eG1sIi8+CiAgICAgIDxsaW5rIHJlbD0ic3VtbWFyeSIgaHJlZj0iLzIwMTIv
+
+        UFJFLzEvR0IvU0Qvc3VtbWFyeS54bWwiIHR5cGU9ImFwcGxpY2F0aW9uL3ht
+
+        bCIvPgogICAgICA8bGluayByZWw9InBicCIgaHJlZj0iLzIwMTIvUFJFLzEv
+
+        R0IvU0QvcGJwLnhtbCIgdHlwZT0iYXBwbGljYXRpb24veG1sIi8+CiAgICAg
+
+        IDxsaW5rIHJlbD0iYm94c2NvcmUiIGhyZWY9Ii8yMDEyL1BSRS8xL0dCL1NE
+
+        L2JveHNjb3JlLnhtbCIgdHlwZT0iYXBwbGljYXRpb24veG1sIi8+CiAgICAg
+
+        IDxsaW5rIHJlbD0icm9zdGVyIiBocmVmPSIvMjAxMi9QUkUvMS9HQi9TRC9y
+
+        b3N0ZXIueG1sIiB0eXBlPSJhcHBsaWNhdGlvbi94bWwiLz4KICAgICAgPGxp
+
+        bmsgcmVsPSJpbmp1cmllcyIgaHJlZj0iLzIwMTIvUFJFLzEvR0IvU0QvaW5q
+
+        dXJpZXMueG1sIiB0eXBlPSJhcHBsaWNhdGlvbi94bWwiLz4KICAgICAgPGxp
+
+        bmsgcmVsPSJkZXB0aGNoYXJ0IiBocmVmPSIvMjAxMi9QUkUvMS9HQi9TRC9k
+
+        ZXB0aGNoYXJ0LnhtbCIgdHlwZT0iYXBwbGljYXRpb24veG1sIi8+CiAgICA8
+
+        L2xpbmtzPgogIDwvZ2FtZT4KICA8Z2FtZSBpZD0iMTJhMzFiOGItMTE5ZS00
+
+        ZWEyLTk2MjctNWFlN2EwODI5YjQ3IiBzY2hlZHVsZWQ9IjIwMTItMDgtMTBU
+
+        MDA6MzA6MDArMDA6MDAiIGhvbWVfcm90YXRpb249IiIgYXdheV9yb3RhdGlv
+
+        bj0iIiBob21lPSJDSEkiIGF3YXk9IkRFTiIgc3RhdHVzPSJjbG9zZWQiPgog
+
+        ICAgPHZlbnVlIGlkPSJkNzg2NjYwNS01YWM2LTRiM2EtOTBlOC03NjBjYzVh
+
+        MjZiNzUiIGNvdW50cnk9IlVTIiBuYW1lPSJTb2xkaWVyIEZpZWxkIiBjaXR5
+
+        PSJDaGljYWdvIiBzdGF0ZT0iSUwiIGNhcGFjaXR5PSI2MTUwMCIgc3VyZmFj
+
+        ZT0idHVyZiIgdHlwZT0ib3V0ZG9vciIgemlwPSIiIGFkZHJlc3M9IiIvPgog
+
+        ICAgPHdlYXRoZXIgdGVtcGVyYXR1cmU9Ijg4IiBjb25kaXRpb249IlBhcnRs
+
+        eSBDbG91ZHkiIGh1bWlkaXR5PSIzNCI+CiAgICAgIDx3aW5kIHNwZWVkPSI2
+
+        IiBkaXJlY3Rpb249Ik4iLz4KICAgIDwvd2VhdGhlcj4KICAgIDxicm9hZGNh
+
+        c3QgbmV0d29yaz0iTG9jYWwiIHNhdGVsbGl0ZT0iIiBpbnRlcm5ldD0iIiBj
+
+        YWJsZT0iIi8+CiAgICA8bGlua3M+CiAgICAgIDxsaW5rIHJlbD0ic3RhdGlz
+
+        dGljcyIgaHJlZj0iLzIwMTIvUFJFLzEvREVOL0NISS9zdGF0aXN0aWNzLnht
+
+        bCIgdHlwZT0iYXBwbGljYXRpb24veG1sIi8+CiAgICAgIDxsaW5rIHJlbD0i
+
+        c3VtbWFyeSIgaHJlZj0iLzIwMTIvUFJFLzEvREVOL0NISS9zdW1tYXJ5Lnht
+
+        bCIgdHlwZT0iYXBwbGljYXRpb24veG1sIi8+CiAgICAgIDxsaW5rIHJlbD0i
+
+        cGJwIiBocmVmPSIvMjAxMi9QUkUvMS9ERU4vQ0hJL3BicC54bWwiIHR5cGU9
+
+        ImFwcGxpY2F0aW9uL3htbCIvPgogICAgICA8bGluayByZWw9ImJveHNjb3Jl
+
+        IiBocmVmPSIvMjAxMi9QUkUvMS9ERU4vQ0hJL2JveHNjb3JlLnhtbCIgdHlw
+
+        ZT0iYXBwbGljYXRpb24veG1sIi8+CiAgICAgIDxsaW5rIHJlbD0icm9zdGVy
+
+        IiBocmVmPSIvMjAxMi9QUkUvMS9ERU4vQ0hJL3Jvc3Rlci54bWwiIHR5cGU9
+
+        ImFwcGxpY2F0aW9uL3htbCIvPgogICAgICA8bGluayByZWw9ImluanVyaWVz
+
+        IiBocmVmPSIvMjAxMi9QUkUvMS9ERU4vQ0hJL2luanVyaWVzLnhtbCIgdHlw
+
+        ZT0iYXBwbGljYXRpb24veG1sIi8+CiAgICAgIDxsaW5rIHJlbD0iZGVwdGhj
+
+        aGFydCIgaHJlZj0iLzIwMTIvUFJFLzEvREVOL0NISS9kZXB0aGNoYXJ0Lnht
+
+        bCIgdHlwZT0iYXBwbGljYXRpb24veG1sIi8+CiAgICA8L2xpbmtzPgogIDwv
+
+        Z2FtZT4KICA8Z2FtZSBpZD0iZTkzZjc4MGMtZGMwMC00NDU2LTgzNWItMGFi
+
+        YzZhNjRlNThkIiBzY2hlZHVsZWQ9IjIwMTItMDgtMTBUMjM6MzA6MDArMDA6
+
+        MDAiIGhvbWVfcm90YXRpb249IiIgYXdheV9yb3RhdGlvbj0iIiBob21lPSJK
+
+        QUMiIGF3YXk9Ik5ZRyIgc3RhdHVzPSJjbG9zZWQiPgogICAgPHZlbnVlIGlk
+
+        PSI0YzVjMDM2ZC1kZDNkLTQxODMtYjU5NS03MWE0M2E5NzU2MGYiIGNvdW50
+
+        cnk9IlVTIiBuYW1lPSJFdmVyQmFuayBGaWVsZCIgY2l0eT0iSmFja3NvbnZp
+
+        bGxlIiBzdGF0ZT0iRkwiIGNhcGFjaXR5PSI3Njg3NyIgc3VyZmFjZT0iYXJ0
+
+        aWZpY2lhbCIgdHlwZT0ib3V0ZG9vciIgemlwPSIiIGFkZHJlc3M9IiIvPgog
+
+        ICAgPHdlYXRoZXIgdGVtcGVyYXR1cmU9IjkxIiBjb25kaXRpb249Ik1vc3Rs
+
+        eSBDbG91ZHkiIGh1bWlkaXR5PSI1MiI+CiAgICAgIDx3aW5kIHNwZWVkPSIx
+
+        MiIgZGlyZWN0aW9uPSJTIi8+CiAgICA8L3dlYXRoZXI+CiAgICA8YnJvYWRj
+
+        YXN0IG5ldHdvcms9IkxvY2FsIiBzYXRlbGxpdGU9IiIgaW50ZXJuZXQ9IiIg
+
+        Y2FibGU9IiIvPgogICAgPGxpbmtzPgogICAgICA8bGluayByZWw9InN0YXRp
+
+        c3RpY3MiIGhyZWY9Ii8yMDEyL1BSRS8xL05ZRy9KQUMvc3RhdGlzdGljcy54
+
+        bWwiIHR5cGU9ImFwcGxpY2F0aW9uL3htbCIvPgogICAgICA8bGluayByZWw9
+
+        InN1bW1hcnkiIGhyZWY9Ii8yMDEyL1BSRS8xL05ZRy9KQUMvc3VtbWFyeS54
+
+        bWwiIHR5cGU9ImFwcGxpY2F0aW9uL3htbCIvPgogICAgICA8bGluayByZWw9
+
+        InBicCIgaHJlZj0iLzIwMTIvUFJFLzEvTllHL0pBQy9wYnAueG1sIiB0eXBl
+
+        PSJhcHBsaWNhdGlvbi94bWwiLz4KICAgICAgPGxpbmsgcmVsPSJib3hzY29y
+
+        ZSIgaHJlZj0iLzIwMTIvUFJFLzEvTllHL0pBQy9ib3hzY29yZS54bWwiIHR5
+
+        cGU9ImFwcGxpY2F0aW9uL3htbCIvPgogICAgICA8bGluayByZWw9InJvc3Rl
+
+        ciIgaHJlZj0iLzIwMTIvUFJFLzEvTllHL0pBQy9yb3N0ZXIueG1sIiB0eXBl
+
+        PSJhcHBsaWNhdGlvbi94bWwiLz4KICAgICAgPGxpbmsgcmVsPSJpbmp1cmll
+
+        cyIgaHJlZj0iLzIwMTIvUFJFLzEvTllHL0pBQy9pbmp1cmllcy54bWwiIHR5
+
+        cGU9ImFwcGxpY2F0aW9uL3htbCIvPgogICAgICA8bGluayByZWw9ImRlcHRo
+
+        Y2hhcnQiIGhyZWY9Ii8yMDEyL1BSRS8xL05ZRy9KQUMvZGVwdGhjaGFydC54
+
+        bWwiIHR5cGU9ImFwcGxpY2F0aW9uL3htbCIvPgogICAgPC9saW5rcz4KICA8
+
+        L2dhbWU+CiAgPGdhbWUgaWQ9ImIzMDdiZjkyLTljNjktNDQ0My1iYzE4LWNl
+
+        ZTQ1ZmI2M2ZjYiIgc2NoZWR1bGVkPSIyMDEyLTA4LTEwVDIzOjMwOjAwKzAw
+
+        OjAwIiBob21lX3JvdGF0aW9uPSIiIGF3YXlfcm90YXRpb249IiIgaG9tZT0i
+
+        Q0lOIiBhd2F5PSJOWUoiIHN0YXR1cz0iY2xvc2VkIj4KICAgIDx2ZW51ZSBp
+
+        ZD0iYjg3YTE1OTUtZDNjOC00OGVhLThhNTMtMGFhYjYzNzhhNjRhIiBjb3Vu
+
+        dHJ5PSJVUyIgbmFtZT0iUGF1bCBCcm93biBTdGFkaXVtIiBjaXR5PSJDaW5j
+
+        aW5uYXRpIiBzdGF0ZT0iT0giIGNhcGFjaXR5PSI2NTUzNSIgc3VyZmFjZT0i
+
+        YXJ0aWZpY2lhbCIgdHlwZT0ib3V0ZG9vciIgemlwPSIiIGFkZHJlc3M9IiIv
+
+        PgogICAgPHdlYXRoZXIgdGVtcGVyYXR1cmU9Ijg4IiBjb25kaXRpb249IkNs
+
+        ZWFyIiBodW1pZGl0eT0iNDMiPgogICAgICA8d2luZCBzcGVlZD0iNyIgZGly
+
+        ZWN0aW9uPSJTIi8+CiAgICA8L3dlYXRoZXI+CiAgICA8YnJvYWRjYXN0IG5l
+
+        dHdvcms9IkxvY2FsIiBzYXRlbGxpdGU9IiIgaW50ZXJuZXQ9IiIgY2FibGU9
+
+        IiIvPgogICAgPGxpbmtzPgogICAgICA8bGluayByZWw9InN0YXRpc3RpY3Mi
+
+        IGhyZWY9Ii8yMDEyL1BSRS8xL05ZSi9DSU4vc3RhdGlzdGljcy54bWwiIHR5
+
+        cGU9ImFwcGxpY2F0aW9uL3htbCIvPgogICAgICA8bGluayByZWw9InN1bW1h
+
+        cnkiIGhyZWY9Ii8yMDEyL1BSRS8xL05ZSi9DSU4vc3VtbWFyeS54bWwiIHR5
+
+        cGU9ImFwcGxpY2F0aW9uL3htbCIvPgogICAgICA8bGluayByZWw9InBicCIg
+
+        aHJlZj0iLzIwMTIvUFJFLzEvTllKL0NJTi9wYnAueG1sIiB0eXBlPSJhcHBs
+
+        aWNhdGlvbi94bWwiLz4KICAgICAgPGxpbmsgcmVsPSJib3hzY29yZSIgaHJl
+
+        Zj0iLzIwMTIvUFJFLzEvTllKL0NJTi9ib3hzY29yZS54bWwiIHR5cGU9ImFw
+
+        cGxpY2F0aW9uL3htbCIvPgogICAgICA8bGluayByZWw9InJvc3RlciIgaHJl
+
+        Zj0iLzIwMTIvUFJFLzEvTllKL0NJTi9yb3N0ZXIueG1sIiB0eXBlPSJhcHBs
+
+        aWNhdGlvbi94bWwiLz4KICAgICAgPGxpbmsgcmVsPSJpbmp1cmllcyIgaHJl
+
+        Zj0iLzIwMTIvUFJFLzEvTllKL0NJTi9pbmp1cmllcy54bWwiIHR5cGU9ImFw
+
+        cGxpY2F0aW9uL3htbCIvPgogICAgICA8bGluayByZWw9ImRlcHRoY2hhcnQi
+
+        IGhyZWY9Ii8yMDEyL1BSRS8xL05ZSi9DSU4vZGVwdGhjaGFydC54bWwiIHR5
+
+        cGU9ImFwcGxpY2F0aW9uL3htbCIvPgogICAgPC9saW5rcz4KICA8L2dhbWU+
+
+        CiAgPGdhbWUgaWQ9IjkyNzlkZDViLTU0MjktNDY4MC1iZWU0LTI2Y2ZhYWY1
+
+        MWIyMSIgc2NoZWR1bGVkPSIyMDEyLTA4LTEwVDIzOjMwOjAwKzAwOjAwIiBo
+
+        b21lX3JvdGF0aW9uPSIiIGF3YXlfcm90YXRpb249IiIgaG9tZT0iTUlBIiBh
+
+        d2F5PSJUQiIgc3RhdHVzPSJjbG9zZWQiPgogICAgPHZlbnVlIGlkPSI1MGE1
+
+        YzgzMy0xNTcwLTRjMzgtYWJjNy03OTE0Y2Y4N2RiZGUiIGNvdW50cnk9IlVT
+
+        IiBuYW1lPSJTdW4gTGlmZSBTdGFkaXVtIiBjaXR5PSJNaWFtaSBHYXJkZW4i
+
+        IHN0YXRlPSJGTCIgY2FwYWNpdHk9Ijc1MjM1IiBzdXJmYWNlPSJ0dXJmIiB0
+
+        eXBlPSJvdXRkb29yIiB6aXA9IiIgYWRkcmVzcz0iIi8+CiAgICA8d2VhdGhl
+
+        ciB0ZW1wZXJhdHVyZT0iOTAiIGNvbmRpdGlvbj0iQ2xvdWR5IiBodW1pZGl0
+
+        eT0iNTciPgogICAgICA8d2luZCBzcGVlZD0iMTAiIGRpcmVjdGlvbj0iU0Ui
+
+        Lz4KICAgIDwvd2VhdGhlcj4KICAgIDxicm9hZGNhc3QgbmV0d29yaz0iTG9j
+
+        YWwiIHNhdGVsbGl0ZT0iIiBpbnRlcm5ldD0iIiBjYWJsZT0iIi8+CiAgICA8
+
+        bGlua3M+CiAgICAgIDxsaW5rIHJlbD0ic3RhdGlzdGljcyIgaHJlZj0iLzIw
+
+        MTIvUFJFLzEvVEIvTUlBL3N0YXRpc3RpY3MueG1sIiB0eXBlPSJhcHBsaWNh
+
+        dGlvbi94bWwiLz4KICAgICAgPGxpbmsgcmVsPSJzdW1tYXJ5IiBocmVmPSIv
+
+        MjAxMi9QUkUvMS9UQi9NSUEvc3VtbWFyeS54bWwiIHR5cGU9ImFwcGxpY2F0
+
+        aW9uL3htbCIvPgogICAgICA8bGluayByZWw9InBicCIgaHJlZj0iLzIwMTIv
+
+        UFJFLzEvVEIvTUlBL3BicC54bWwiIHR5cGU9ImFwcGxpY2F0aW9uL3htbCIv
+
+        PgogICAgICA8bGluayByZWw9ImJveHNjb3JlIiBocmVmPSIvMjAxMi9QUkUv
+
+        MS9UQi9NSUEvYm94c2NvcmUueG1sIiB0eXBlPSJhcHBsaWNhdGlvbi94bWwi
+
+        Lz4KICAgICAgPGxpbmsgcmVsPSJyb3N0ZXIiIGhyZWY9Ii8yMDEyL1BSRS8x
+
+        L1RCL01JQS9yb3N0ZXIueG1sIiB0eXBlPSJhcHBsaWNhdGlvbi94bWwiLz4K
+
+        ICAgICAgPGxpbmsgcmVsPSJpbmp1cmllcyIgaHJlZj0iLzIwMTIvUFJFLzEv
+
+        VEIvTUlBL2luanVyaWVzLnhtbCIgdHlwZT0iYXBwbGljYXRpb24veG1sIi8+
+
+        CiAgICAgIDxsaW5rIHJlbD0iZGVwdGhjaGFydCIgaHJlZj0iLzIwMTIvUFJF
+
+        LzEvVEIvTUlBL2RlcHRoY2hhcnQueG1sIiB0eXBlPSJhcHBsaWNhdGlvbi94
+
+        bWwiLz4KICAgIDwvbGlua3M+CiAgPC9nYW1lPgogIDxnYW1lIGlkPSIxYTk4
+
+        NGM4MC1mMGZhLTQ4YzgtYTg4ZC1hNjdhODIzNDQ3NTMiIHNjaGVkdWxlZD0i
+
+        MjAxMi0wOC0xMFQyMzozMDowMCswMDowMCIgaG9tZV9yb3RhdGlvbj0iIiBh
+
+        d2F5X3JvdGF0aW9uPSIiIGhvbWU9IkRFVCIgYXdheT0iQ0xFIiBzdGF0dXM9
+
+        ImNsb3NlZCI+CiAgICA8dmVudWUgaWQ9IjZlM2JjZjIyLTI3N2QtNGMwNi1i
+
+        MDE5LTYyYWRlZDUxNjU0ZiIgY291bnRyeT0iVVMiIG5hbWU9IkZvcmQgRmll
+
+        bGQiIGNpdHk9IkRldHJvaXQiIHN0YXRlPSJNSSIgY2FwYWNpdHk9IjY1MDAw
+
+        IiBzdXJmYWNlPSJhcnRpZmljaWFsIiB0eXBlPSJkb21lIiB6aXA9IiIgYWRk
+
+        cmVzcz0iIi8+CiAgICA8d2VhdGhlciB0ZW1wZXJhdHVyZT0iODYiIGNvbmRp
+
+        dGlvbj0iQ2xlYXIiIGh1bWlkaXR5PSIzMiI+CiAgICAgIDx3aW5kIHNwZWVk
+
+        PSIxMyIgZGlyZWN0aW9uPSJXIi8+CiAgICA8L3dlYXRoZXI+CiAgICA8YnJv
+
+        YWRjYXN0IG5ldHdvcms9IkxvY2FsIiBzYXRlbGxpdGU9IiIgaW50ZXJuZXQ9
+
+        IiIgY2FibGU9IiIvPgogICAgPGxpbmtzPgogICAgICA8bGluayByZWw9InN0
+
+        YXRpc3RpY3MiIGhyZWY9Ii8yMDEyL1BSRS8xL0NMRS9ERVQvc3RhdGlzdGlj
+
+        cy54bWwiIHR5cGU9ImFwcGxpY2F0aW9uL3htbCIvPgogICAgICA8bGluayBy
+
+        ZWw9InN1bW1hcnkiIGhyZWY9Ii8yMDEyL1BSRS8xL0NMRS9ERVQvc3VtbWFy
+
+        eS54bWwiIHR5cGU9ImFwcGxpY2F0aW9uL3htbCIvPgogICAgICA8bGluayBy
+
+        ZWw9InBicCIgaHJlZj0iLzIwMTIvUFJFLzEvQ0xFL0RFVC9wYnAueG1sIiB0
+
+        eXBlPSJhcHBsaWNhdGlvbi94bWwiLz4KICAgICAgPGxpbmsgcmVsPSJib3hz
+
+        Y29yZSIgaHJlZj0iLzIwMTIvUFJFLzEvQ0xFL0RFVC9ib3hzY29yZS54bWwi
+
+        IHR5cGU9ImFwcGxpY2F0aW9uL3htbCIvPgogICAgICA8bGluayByZWw9InJv
+
+        c3RlciIgaHJlZj0iLzIwMTIvUFJFLzEvQ0xFL0RFVC9yb3N0ZXIueG1sIiB0
+
+        eXBlPSJhcHBsaWNhdGlvbi94bWwiLz4KICAgICAgPGxpbmsgcmVsPSJpbmp1
+
+        cmllcyIgaHJlZj0iLzIwMTIvUFJFLzEvQ0xFL0RFVC9pbmp1cmllcy54bWwi
+
+        IHR5cGU9ImFwcGxpY2F0aW9uL3htbCIvPgogICAgICA8bGluayByZWw9ImRl
+
+        cHRoY2hhcnQiIGhyZWY9Ii8yMDEyL1BSRS8xL0NMRS9ERVQvZGVwdGhjaGFy
+
+        dC54bWwiIHR5cGU9ImFwcGxpY2F0aW9uL3htbCIvPgogICAgPC9saW5rcz4K
+
+        ICA8L2dhbWU+CiAgPGdhbWUgaWQ9IjNhZjIwZGRlLWFhNDEtNDZmMi1hN2Uy
+
+        LTkyOWNlNWI0YTJlNiIgc2NoZWR1bGVkPSIyMDEyLTA4LTExVDAwOjAwOjAw
+
+        KzAwOjAwIiBob21lX3JvdGF0aW9uPSIiIGF3YXlfcm90YXRpb249IiIgaG9t
+
+        ZT0iS0MiIGF3YXk9IkFSSSIgc3RhdHVzPSJjbG9zZWQiPgogICAgPHZlbnVl
+
+        IGlkPSIyZWM0YzQxMS1kYWMyLTQwM2QtYjA5MS02YjZhYTRhMGE5MTQiIGNv
+
+        dW50cnk9IlVTIiBuYW1lPSJBcnJvd2hlYWQgU3RhZGl1bSIgY2l0eT0iS2Fu
+
+        c2FzIENpdHkiIHN0YXRlPSJNTyIgY2FwYWNpdHk9Ijc5NDUxIiBzdXJmYWNl
+
+        PSJ0dXJmIiB0eXBlPSJvdXRkb29yIiB6aXA9IiIgYWRkcmVzcz0iIi8+CiAg
+
+        ICA8d2VhdGhlciB0ZW1wZXJhdHVyZT0iOTkiIGNvbmRpdGlvbj0iQ2xlYXIi
+
+        IGh1bWlkaXR5PSIyMSI+CiAgICAgIDx3aW5kIHNwZWVkPSI1IiBkaXJlY3Rp
+
+        b249IlMiLz4KICAgIDwvd2VhdGhlcj4KICAgIDxicm9hZGNhc3QgbmV0d29y
+
+        az0iTG9jYWwiIHNhdGVsbGl0ZT0iIiBpbnRlcm5ldD0iIiBjYWJsZT0iIi8+
+
+        CiAgICA8bGlua3M+CiAgICAgIDxsaW5rIHJlbD0ic3RhdGlzdGljcyIgaHJl
+
+        Zj0iLzIwMTIvUFJFLzEvQVJJL0tDL3N0YXRpc3RpY3MueG1sIiB0eXBlPSJh
+
+        cHBsaWNhdGlvbi94bWwiLz4KICAgICAgPGxpbmsgcmVsPSJzdW1tYXJ5IiBo
+
+        cmVmPSIvMjAxMi9QUkUvMS9BUkkvS0Mvc3VtbWFyeS54bWwiIHR5cGU9ImFw
+
+        cGxpY2F0aW9uL3htbCIvPgogICAgICA8bGluayByZWw9InBicCIgaHJlZj0i
+
+        LzIwMTIvUFJFLzEvQVJJL0tDL3BicC54bWwiIHR5cGU9ImFwcGxpY2F0aW9u
+
+        L3htbCIvPgogICAgICA8bGluayByZWw9ImJveHNjb3JlIiBocmVmPSIvMjAx
+
+        Mi9QUkUvMS9BUkkvS0MvYm94c2NvcmUueG1sIiB0eXBlPSJhcHBsaWNhdGlv
+
+        bi94bWwiLz4KICAgICAgPGxpbmsgcmVsPSJyb3N0ZXIiIGhyZWY9Ii8yMDEy
+
+        L1BSRS8xL0FSSS9LQy9yb3N0ZXIueG1sIiB0eXBlPSJhcHBsaWNhdGlvbi94
+
+        bWwiLz4KICAgICAgPGxpbmsgcmVsPSJpbmp1cmllcyIgaHJlZj0iLzIwMTIv
+
+        UFJFLzEvQVJJL0tDL2luanVyaWVzLnhtbCIgdHlwZT0iYXBwbGljYXRpb24v
+
+        eG1sIi8+CiAgICAgIDxsaW5rIHJlbD0iZGVwdGhjaGFydCIgaHJlZj0iLzIw
+
+        MTIvUFJFLzEvQVJJL0tDL2RlcHRoY2hhcnQueG1sIiB0eXBlPSJhcHBsaWNh
+
+        dGlvbi94bWwiLz4KICAgIDwvbGlua3M+CiAgPC9nYW1lPgogIDxnYW1lIGlk
+
+        PSI5MjYxMzk0OC04MmM4LTQ2YzEtYjk0My0xYzQzYzEwOTE0ZmIiIHNjaGVk
+
+        dWxlZD0iMjAxMi0wOC0xMVQwMTowMDowMCswMDowMCIgaG9tZV9yb3RhdGlv
+
+        bj0iIiBhd2F5X3JvdGF0aW9uPSIiIGhvbWU9IlNGIiBhd2F5PSJNSU4iIHN0
+
+        YXR1cz0iY2xvc2VkIj4KICAgIDx2ZW51ZSBpZD0iNjcwMTgwOGMtYzMyOS00
+
+        ODJiLTk4MzQtMmQyOWNiMzE4NWZmIiBjb3VudHJ5PSJVUyIgbmFtZT0iQ2Fu
+
+        ZGxlc3RpY2sgUGFyayIgY2l0eT0iU2FuIEZyYW5jaXNjbyIgc3RhdGU9IkNB
+
+        IiBjYXBhY2l0eT0iNzAyMDciIHN1cmZhY2U9InR1cmYiIHR5cGU9Im91dGRv
+
+        b3IiIHppcD0iIiBhZGRyZXNzPSIiLz4KICAgIDx3ZWF0aGVyIHRlbXBlcmF0
+
+        dXJlPSIwIiBjb25kaXRpb249IiIgaHVtaWRpdHk9IjAiPgogICAgICA8d2lu
+
+        ZCBzcGVlZD0iMCIgZGlyZWN0aW9uPSIiLz4KICAgIDwvd2VhdGhlcj4KICAg
+
+        IDxicm9hZGNhc3QgbmV0d29yaz0iTG9jYWwiIHNhdGVsbGl0ZT0iIiBpbnRl
+
+        cm5ldD0iIiBjYWJsZT0iIi8+CiAgICA8bGlua3M+CiAgICAgIDxsaW5rIHJl
+
+        bD0ic3RhdGlzdGljcyIgaHJlZj0iLzIwMTIvUFJFLzEvTUlOL1NGL3N0YXRp
+
+        c3RpY3MueG1sIiB0eXBlPSJhcHBsaWNhdGlvbi94bWwiLz4KICAgICAgPGxp
+
+        bmsgcmVsPSJzdW1tYXJ5IiBocmVmPSIvMjAxMi9QUkUvMS9NSU4vU0Yvc3Vt
+
+        bWFyeS54bWwiIHR5cGU9ImFwcGxpY2F0aW9uL3htbCIvPgogICAgICA8bGlu
+
+        ayByZWw9InBicCIgaHJlZj0iLzIwMTIvUFJFLzEvTUlOL1NGL3BicC54bWwi
+
+        IHR5cGU9ImFwcGxpY2F0aW9uL3htbCIvPgogICAgICA8bGluayByZWw9ImJv
+
+        eHNjb3JlIiBocmVmPSIvMjAxMi9QUkUvMS9NSU4vU0YvYm94c2NvcmUueG1s
+
+        IiB0eXBlPSJhcHBsaWNhdGlvbi94bWwiLz4KICAgICAgPGxpbmsgcmVsPSJy
+
+        b3N0ZXIiIGhyZWY9Ii8yMDEyL1BSRS8xL01JTi9TRi9yb3N0ZXIueG1sIiB0
+
+        eXBlPSJhcHBsaWNhdGlvbi94bWwiLz4KICAgICAgPGxpbmsgcmVsPSJpbmp1
+
+        cmllcyIgaHJlZj0iLzIwMTIvUFJFLzEvTUlOL1NGL2luanVyaWVzLnhtbCIg
+
+        dHlwZT0iYXBwbGljYXRpb24veG1sIi8+CiAgICAgIDxsaW5rIHJlbD0iZGVw
+
+        dGhjaGFydCIgaHJlZj0iLzIwMTIvUFJFLzEvTUlOL1NGL2RlcHRoY2hhcnQu
+
+        eG1sIiB0eXBlPSJhcHBsaWNhdGlvbi94bWwiLz4KICAgIDwvbGlua3M+CiAg
+
+        PC9nYW1lPgogIDxnYW1lIGlkPSJjZjJhMDYzOC1lZTY3LTRjYTUtOTY2Ni1m
+
+        YzM3YjM3YjExNDUiIHNjaGVkdWxlZD0iMjAxMi0wOC0xMVQyMzowMDowMCsw
+
+        MDowMCIgaG9tZV9yb3RhdGlvbj0iIiBhd2F5X3JvdGF0aW9uPSIiIGhvbWU9
+
+        IkNBUiIgYXdheT0iSE9VIiBzdGF0dXM9ImNsb3NlZCI+CiAgICA8dmVudWUg
+
+        aWQ9IjM5YmU5ZWQ0LTMyOTItNDlhYy04Njk5LWEzODFkZTNhNDk2OSIgY291
+
+        bnRyeT0iVVMiIG5hbWU9IkJhbmsgb2YgQW1lcmljYSBTdGFkaXVtIiBjaXR5
+
+        PSJDaGFybG90dGUiIHN0YXRlPSJOQyIgY2FwYWNpdHk9IjczNzc4IiBzdXJm
+
+        YWNlPSJ0dXJmIiB0eXBlPSJvdXRkb29yIiB6aXA9IiIgYWRkcmVzcz0iIi8+
+
+        CiAgICA8d2VhdGhlciB0ZW1wZXJhdHVyZT0iODAiIGNvbmRpdGlvbj0iT3Zl
+
+        cmNhc3QiIGh1bWlkaXR5PSI3NCI+CiAgICAgIDx3aW5kIHNwZWVkPSIwIiBk
+
+        aXJlY3Rpb249Ik4iLz4KICAgIDwvd2VhdGhlcj4KICAgIDxicm9hZGNhc3Qg
+
+        bmV0d29yaz0iTG9jYWwiIHNhdGVsbGl0ZT0iIiBpbnRlcm5ldD0iIiBjYWJs
+
+        ZT0iIi8+CiAgICA8bGlua3M+CiAgICAgIDxsaW5rIHJlbD0ic3RhdGlzdGlj
+
+        cyIgaHJlZj0iLzIwMTIvUFJFLzEvSE9VL0NBUi9zdGF0aXN0aWNzLnhtbCIg
+
+        dHlwZT0iYXBwbGljYXRpb24veG1sIi8+CiAgICAgIDxsaW5rIHJlbD0ic3Vt
+
+        bWFyeSIgaHJlZj0iLzIwMTIvUFJFLzEvSE9VL0NBUi9zdW1tYXJ5LnhtbCIg
+
+        dHlwZT0iYXBwbGljYXRpb24veG1sIi8+CiAgICAgIDxsaW5rIHJlbD0icGJw
+
+        IiBocmVmPSIvMjAxMi9QUkUvMS9IT1UvQ0FSL3BicC54bWwiIHR5cGU9ImFw
+
+        cGxpY2F0aW9uL3htbCIvPgogICAgICA8bGluayByZWw9ImJveHNjb3JlIiBo
+
+        cmVmPSIvMjAxMi9QUkUvMS9IT1UvQ0FSL2JveHNjb3JlLnhtbCIgdHlwZT0i
+
+        YXBwbGljYXRpb24veG1sIi8+CiAgICAgIDxsaW5rIHJlbD0icm9zdGVyIiBo
+
+        cmVmPSIvMjAxMi9QUkUvMS9IT1UvQ0FSL3Jvc3Rlci54bWwiIHR5cGU9ImFw
+
+        cGxpY2F0aW9uL3htbCIvPgogICAgICA8bGluayByZWw9ImluanVyaWVzIiBo
+
+        cmVmPSIvMjAxMi9QUkUvMS9IT1UvQ0FSL2luanVyaWVzLnhtbCIgdHlwZT0i
+
+        YXBwbGljYXRpb24veG1sIi8+CiAgICAgIDxsaW5rIHJlbD0iZGVwdGhjaGFy
+
+        dCIgaHJlZj0iLzIwMTIvUFJFLzEvSE9VL0NBUi9kZXB0aGNoYXJ0LnhtbCIg
+
+        dHlwZT0iYXBwbGljYXRpb24veG1sIi8+CiAgICA8L2xpbmtzPgogIDwvZ2Ft
+
+        ZT4KICA8Z2FtZSBpZD0iOWYzMTI3ZDktM2Y2Ny00OTcyLWIyZDktOTZiZWUx
+
+        MmU1MjNjIiBzY2hlZHVsZWQ9IjIwMTItMDgtMTJUMDI6MDA6MDArMDA6MDAi
+
+        IGhvbWVfcm90YXRpb249IiIgYXdheV9yb3RhdGlvbj0iIiBob21lPSJTRUEi
+
+        IGF3YXk9IlRFTiIgc3RhdHVzPSJjbG9zZWQiPgogICAgPHZlbnVlIGlkPSJj
+
+        NmI5ZTVkZi1jOWU0LTQzNGMtYjNlNi04MzkyOGYxMWNiZGEiIGNvdW50cnk9
+
+        IlVTIiBuYW1lPSJRd2VzdCBGaWVsZCIgY2l0eT0iU2VhdHRsZSIgc3RhdGU9
+
+        IldBIiBjYXBhY2l0eT0iNjcwMDAiIHN1cmZhY2U9ImFydGlmaWNpYWwiIHR5
+
+        cGU9Im91dGRvb3IiIHppcD0iIiBhZGRyZXNzPSIiLz4KICAgIDx3ZWF0aGVy
+
+        IHRlbXBlcmF0dXJlPSIiIGNvbmRpdGlvbj0iIiBodW1pZGl0eT0iIj4KICAg
+
+        ICAgPHdpbmQgc3BlZWQ9IiIgZGlyZWN0aW9uPSIiLz4KICAgIDwvd2VhdGhl
+
+        cj4KICAgIDxicm9hZGNhc3QgbmV0d29yaz0iTG9jYWwiIHNhdGVsbGl0ZT0i
+
+        IiBpbnRlcm5ldD0iIiBjYWJsZT0iIi8+CiAgICA8bGlua3M+CiAgICAgIDxs
+
+        aW5rIHJlbD0ic3RhdGlzdGljcyIgaHJlZj0iLzIwMTIvUFJFLzEvVEVOL1NF
+
+        QS9zdGF0aXN0aWNzLnhtbCIgdHlwZT0iYXBwbGljYXRpb24veG1sIi8+CiAg
+
+        ICAgIDxsaW5rIHJlbD0ic3VtbWFyeSIgaHJlZj0iLzIwMTIvUFJFLzEvVEVO
+
+        L1NFQS9zdW1tYXJ5LnhtbCIgdHlwZT0iYXBwbGljYXRpb24veG1sIi8+CiAg
+
+        ICAgIDxsaW5rIHJlbD0icGJwIiBocmVmPSIvMjAxMi9QUkUvMS9URU4vU0VB
+
+        L3BicC54bWwiIHR5cGU9ImFwcGxpY2F0aW9uL3htbCIvPgogICAgICA8bGlu
+
+        ayByZWw9ImJveHNjb3JlIiBocmVmPSIvMjAxMi9QUkUvMS9URU4vU0VBL2Jv
+
+        eHNjb3JlLnhtbCIgdHlwZT0iYXBwbGljYXRpb24veG1sIi8+CiAgICAgIDxs
+
+        aW5rIHJlbD0icm9zdGVyIiBocmVmPSIvMjAxMi9QUkUvMS9URU4vU0VBL3Jv
+
+        c3Rlci54bWwiIHR5cGU9ImFwcGxpY2F0aW9uL3htbCIvPgogICAgICA8bGlu
+
+        ayByZWw9ImluanVyaWVzIiBocmVmPSIvMjAxMi9QUkUvMS9URU4vU0VBL2lu
+
+        anVyaWVzLnhtbCIgdHlwZT0iYXBwbGljYXRpb24veG1sIi8+CiAgICAgIDxs
+
+        aW5rIHJlbD0iZGVwdGhjaGFydCIgaHJlZj0iLzIwMTIvUFJFLzEvVEVOL1NF
+
+        QS9kZXB0aGNoYXJ0LnhtbCIgdHlwZT0iYXBwbGljYXRpb24veG1sIi8+CiAg
+
+        ICA8L2xpbmtzPgogIDwvZ2FtZT4KICA8Z2FtZSBpZD0iNGI2MGJmMDYtYWE2
+
+        Mi00YWQwLWJhNzAtOTc4OTk4YWM5NmFlIiBzY2hlZHVsZWQ9IjIwMTItMDgt
+
+        MTJUMTc6MzA6MDArMDA6MDAiIGhvbWVfcm90YXRpb249IiIgYXdheV9yb3Rh
+
+        dGlvbj0iIiBob21lPSJJTkQiIGF3YXk9IlNUTCIgc3RhdHVzPSJjbG9zZWQi
+
+        PgogICAgPHZlbnVlIGlkPSI2ZWQxODU2My01M2UwLTQ2YzItYTkxZC0xMmQ3
+
+        M2ExNjQ1NmQiIGNvdW50cnk9IlVTIiBuYW1lPSJMdWNhcyBPaWwgU3RhZGl1
+
+        bSIgY2l0eT0iSW5kaWFuYXBvbGlzIiBzdGF0ZT0iSU4iIGNhcGFjaXR5PSI2
+
+        NzAwMCIgc3VyZmFjZT0iYXJ0aWZpY2lhbCIgdHlwZT0icmV0cmFjdGFibGVf
+
+        ZG9tZSIgemlwPSI0NjIyNSIgYWRkcmVzcz0iNTAwIFMuIENhcGl0b2wgQXZl
+
+        bnVlIi8+CiAgICA8d2VhdGhlciB0ZW1wZXJhdHVyZT0iOTEiIGNvbmRpdGlv
+
+        bj0iUGFydGx5IENsb3VkeSIgaHVtaWRpdHk9IjI1Ij4KICAgICAgPHdpbmQg
+
+        c3BlZWQ9IjkiIGRpcmVjdGlvbj0iVyIvPgogICAgPC93ZWF0aGVyPgogICAg
+
+        PGJyb2FkY2FzdCBuZXR3b3JrPSJMb2NhbCIgc2F0ZWxsaXRlPSIiIGludGVy
+
+        bmV0PSIiIGNhYmxlPSIiLz4KICAgIDxsaW5rcz4KICAgICAgPGxpbmsgcmVs
+
+        PSJzdGF0aXN0aWNzIiBocmVmPSIvMjAxMi9QUkUvMS9TVEwvSU5EL3N0YXRp
+
+        c3RpY3MueG1sIiB0eXBlPSJhcHBsaWNhdGlvbi94bWwiLz4KICAgICAgPGxp
+
+        bmsgcmVsPSJzdW1tYXJ5IiBocmVmPSIvMjAxMi9QUkUvMS9TVEwvSU5EL3N1
+
+        bW1hcnkueG1sIiB0eXBlPSJhcHBsaWNhdGlvbi94bWwiLz4KICAgICAgPGxp
+
+        bmsgcmVsPSJwYnAiIGhyZWY9Ii8yMDEyL1BSRS8xL1NUTC9JTkQvcGJwLnht
+
+        bCIgdHlwZT0iYXBwbGljYXRpb24veG1sIi8+CiAgICAgIDxsaW5rIHJlbD0i
+
+        Ym94c2NvcmUiIGhyZWY9Ii8yMDEyL1BSRS8xL1NUTC9JTkQvYm94c2NvcmUu
+
+        eG1sIiB0eXBlPSJhcHBsaWNhdGlvbi94bWwiLz4KICAgICAgPGxpbmsgcmVs
+
+        PSJyb3N0ZXIiIGhyZWY9Ii8yMDEyL1BSRS8xL1NUTC9JTkQvcm9zdGVyLnht
+
+        bCIgdHlwZT0iYXBwbGljYXRpb24veG1sIi8+CiAgICAgIDxsaW5rIHJlbD0i
+
+        aW5qdXJpZXMiIGhyZWY9Ii8yMDEyL1BSRS8xL1NUTC9JTkQvaW5qdXJpZXMu
+
+        eG1sIiB0eXBlPSJhcHBsaWNhdGlvbi94bWwiLz4KICAgICAgPGxpbmsgcmVs
+
+        PSJkZXB0aGNoYXJ0IiBocmVmPSIvMjAxMi9QUkUvMS9TVEwvSU5EL2RlcHRo
+
+        Y2hhcnQueG1sIiB0eXBlPSJhcHBsaWNhdGlvbi94bWwiLz4KICAgIDwvbGlu
+
+        a3M+CiAgPC9nYW1lPgogIDxnYW1lIGlkPSIxZTY1ZWU5ZC1iYzQ3LTQ0ODgt
+
+        YjgxMC0yODE0ZDc4NDRhYjciIHNjaGVkdWxlZD0iMjAxMi0wOC0xNFQwMDow
+
+        MDowMCswMDowMCIgaG9tZV9yb3RhdGlvbj0iIiBhd2F5X3JvdGF0aW9uPSIi
+
+        IGhvbWU9Ik9BSyIgYXdheT0iREFMIiBzdGF0dXM9ImNsb3NlZCI+CiAgICA8
+
+        dmVudWUgaWQ9ImJhMWFkMDBmLTkxMzAtNDYyYy05M2Y5LTU2MTJhMDAxNTEx
+
+        NyIgY291bnRyeT0iVVMiIG5hbWU9Ik9ha2xhbmQtQWxhbWVkYSBDb3VudHkg
+
+        Q29saXNldW0iIGNpdHk9Ik9ha2xhbmQiIHN0YXRlPSJDQSIgY2FwYWNpdHk9
+
+        IjYzMDI2IiBzdXJmYWNlPSJ0dXJmIiB0eXBlPSJvdXRkb29yIiB6aXA9IiIg
+
+        YWRkcmVzcz0iIi8+CiAgICA8d2VhdGhlciB0ZW1wZXJhdHVyZT0iIiBjb25k
+
+        aXRpb249IiIgaHVtaWRpdHk9IiI+CiAgICAgIDx3aW5kIHNwZWVkPSIiIGRp
+
+        cmVjdGlvbj0iIi8+CiAgICA8L3dlYXRoZXI+CiAgICA8YnJvYWRjYXN0IG5l
+
+        dHdvcms9IkVTUE4iIHNhdGVsbGl0ZT0iIiBpbnRlcm5ldD0iIiBjYWJsZT0i
+
+        Ii8+CiAgICA8bGlua3M+CiAgICAgIDxsaW5rIHJlbD0ic3RhdGlzdGljcyIg
+
+        aHJlZj0iLzIwMTIvUFJFLzEvREFML09BSy9zdGF0aXN0aWNzLnhtbCIgdHlw
+
+        ZT0iYXBwbGljYXRpb24veG1sIi8+CiAgICAgIDxsaW5rIHJlbD0ic3VtbWFy
+
+        eSIgaHJlZj0iLzIwMTIvUFJFLzEvREFML09BSy9zdW1tYXJ5LnhtbCIgdHlw
+
+        ZT0iYXBwbGljYXRpb24veG1sIi8+CiAgICAgIDxsaW5rIHJlbD0icGJwIiBo
+
+        cmVmPSIvMjAxMi9QUkUvMS9EQUwvT0FLL3BicC54bWwiIHR5cGU9ImFwcGxp
+
+        Y2F0aW9uL3htbCIvPgogICAgICA8bGluayByZWw9ImJveHNjb3JlIiBocmVm
+
+        PSIvMjAxMi9QUkUvMS9EQUwvT0FLL2JveHNjb3JlLnhtbCIgdHlwZT0iYXBw
+
+        bGljYXRpb24veG1sIi8+CiAgICAgIDxsaW5rIHJlbD0icm9zdGVyIiBocmVm
+
+        PSIvMjAxMi9QUkUvMS9EQUwvT0FLL3Jvc3Rlci54bWwiIHR5cGU9ImFwcGxp
+
+        Y2F0aW9uL3htbCIvPgogICAgICA8bGluayByZWw9ImluanVyaWVzIiBocmVm
+
+        PSIvMjAxMi9QUkUvMS9EQUwvT0FLL2luanVyaWVzLnhtbCIgdHlwZT0iYXBw
+
+        bGljYXRpb24veG1sIi8+CiAgICAgIDxsaW5rIHJlbD0iZGVwdGhjaGFydCIg
+
+        aHJlZj0iLzIwMTIvUFJFLzEvREFML09BSy9kZXB0aGNoYXJ0LnhtbCIgdHlw
+
+        ZT0iYXBwbGljYXRpb24veG1sIi8+CiAgICA8L2xpbmtzPgogIDwvZ2FtZT4K
+
+        PC9nYW1lcz4K
+
+'
     http_version: 
   recorded_at: Sun, 07 Apr 2013 23:29:34 GMT
 recorded_with: VCR 2.4.0
