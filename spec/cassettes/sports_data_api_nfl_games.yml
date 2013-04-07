@@ -1,0 +1,284 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.sportsdatallc.org/nfl-t1/2012/PRE/1/schedule.xml?api_key=<API_KEY>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - ! '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Accept-Ranges:
+      - bytes
+      Cache-Control:
+      - public, must-revalidate, max-age=2
+      Content-Type:
+      - application/xml
+      Date:
+      - Sun, 07 Apr 2013 23:29:32 GMT
+      Etag:
+      - ! '"e86702cdeee2ada38d237875c98d4e3a"'
+      Last-Modified:
+      - Wed, 15 Aug 2012 19:03:44 GMT
+      Server:
+      - nginx/1.0.14
+      X-Mashery-Responder:
+      - prod-p-worker-us-east-1d-34.mashery.com
+      X-Via:
+      - Nginx-S3-Proxy
+      Content-Length:
+      - '19404'
+      Connection:
+      - keep-alive
+    body:
+      encoding: US-ASCII
+      string: ! "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<games xmlns=\"http://feed.elasticstats.com/schema/nfl/schedule-v1.0.xsd\"
+        season=\"2012\" type=\"PRE\" week=\"1\">\n  <game id=\"433d3222-e82d-4f14-97e2-4115579473f6\"
+        scheduled=\"2012-08-09T23:00:00+00:00\" home_rotation=\"\" away_rotation=\"\"
+        home=\"BUF\" away=\"WAS\" status=\"closed\">\n    <venue id=\"e9e0828e-37fc-4238-a317-49037577dd55\"
+        country=\"US\" name=\"Ralph Wilson Stadium\" city=\"Orchard Park\" state=\"NY\"
+        capacity=\"73967\" surface=\"artificial\" type=\"outdoor\" zip=\"\" address=\"\"/>\n
+        \   <weather temperature=\"80\" condition=\"Cloudy\" humidity=\"38\">\n      <wind
+        speed=\"16\" direction=\"W\"/>\n    </weather>\n    <broadcast network=\"Local\"
+        satellite=\"\" internet=\"\" cable=\"\"/>\n    <links>\n      <link rel=\"statistics\"
+        href=\"/2012/PRE/1/WAS/BUF/statistics.xml\" type=\"application/xml\"/>\n      <link
+        rel=\"summary\" href=\"/2012/PRE/1/WAS/BUF/summary.xml\" type=\"application/xml\"/>\n
+        \     <link rel=\"pbp\" href=\"/2012/PRE/1/WAS/BUF/pbp.xml\" type=\"application/xml\"/>\n
+        \     <link rel=\"boxscore\" href=\"/2012/PRE/1/WAS/BUF/boxscore.xml\" type=\"application/xml\"/>\n
+        \     <link rel=\"roster\" href=\"/2012/PRE/1/WAS/BUF/roster.xml\" type=\"application/xml\"/>\n
+        \     <link rel=\"injuries\" href=\"/2012/PRE/1/WAS/BUF/injuries.xml\" type=\"application/xml\"/>\n
+        \     <link rel=\"depthchart\" href=\"/2012/PRE/1/WAS/BUF/depthchart.xml\"
+        type=\"application/xml\"/>\n    </links>\n  </game>\n  <game id=\"b63e01f9-600d-42ee-b1f0-b020846b246b\"
+        scheduled=\"2012-08-09T23:30:00+00:00\" home_rotation=\"\" away_rotation=\"\"
+        home=\"PHI\" away=\"PIT\" status=\"closed\">\n    <venue id=\"4fa8c29c-6626-464c-8540-314ed7535e1b\"
+        country=\"US\" name=\"Lincoln Financial Field\" city=\"Philadelphia\" state=\"PA\"
+        capacity=\"68532\" surface=\"turf\" type=\"outdoor\" zip=\"\" address=\"\"/>\n
+        \   <weather temperature=\"83\" condition=\"Overcast\" humidity=\"46\">\n
+        \     <wind speed=\"4\" direction=\"S\"/>\n    </weather>\n    <broadcast
+        network=\"Local\" satellite=\"\" internet=\"\" cable=\"\"/>\n    <links>\n
+        \     <link rel=\"statistics\" href=\"/2012/PRE/1/PIT/PHI/statistics.xml\"
+        type=\"application/xml\"/>\n      <link rel=\"summary\" href=\"/2012/PRE/1/PIT/PHI/summary.xml\"
+        type=\"application/xml\"/>\n      <link rel=\"pbp\" href=\"/2012/PRE/1/PIT/PHI/pbp.xml\"
+        type=\"application/xml\"/>\n      <link rel=\"boxscore\" href=\"/2012/PRE/1/PIT/PHI/boxscore.xml\"
+        type=\"application/xml\"/>\n      <link rel=\"roster\" href=\"/2012/PRE/1/PIT/PHI/roster.xml\"
+        type=\"application/xml\"/>\n      <link rel=\"injuries\" href=\"/2012/PRE/1/PIT/PHI/injuries.xml\"
+        type=\"application/xml\"/>\n      <link rel=\"depthchart\" href=\"/2012/PRE/1/PIT/PHI/depthchart.xml\"
+        type=\"application/xml\"/>\n    </links>\n  </game>\n  <game id=\"e25de70d-9bff-4490-9695-fd66cf45aa6d\"
+        scheduled=\"2012-08-09T23:30:00+00:00\" home_rotation=\"\" away_rotation=\"\"
+        home=\"NE\" away=\"NO\" status=\"closed\">\n    <venue id=\"e43310b1-cb82-4df9-8be5-e9b39637031b\"
+        country=\"US\" name=\"Gillette Stadium\" city=\"Foxborough\" state=\"MA\"
+        capacity=\"68756\" surface=\"turf\" type=\"outdoor\" zip=\"\" address=\"\"/>\n
+        \   <weather temperature=\"83\" condition=\"Clear\" humidity=\"41\">\n      <wind
+        speed=\"6\" direction=\"N\"/>\n    </weather>\n    <broadcast network=\"Local\"
+        satellite=\"\" internet=\"\" cable=\"\"/>\n    <links>\n      <link rel=\"statistics\"
+        href=\"/2012/PRE/1/NO/NE/statistics.xml\" type=\"application/xml\"/>\n      <link
+        rel=\"summary\" href=\"/2012/PRE/1/NO/NE/summary.xml\" type=\"application/xml\"/>\n
+        \     <link rel=\"pbp\" href=\"/2012/PRE/1/NO/NE/pbp.xml\" type=\"application/xml\"/>\n
+        \     <link rel=\"boxscore\" href=\"/2012/PRE/1/NO/NE/boxscore.xml\" type=\"application/xml\"/>\n
+        \     <link rel=\"roster\" href=\"/2012/PRE/1/NO/NE/roster.xml\" type=\"application/xml\"/>\n
+        \     <link rel=\"injuries\" href=\"/2012/PRE/1/NO/NE/injuries.xml\" type=\"application/xml\"/>\n
+        \     <link rel=\"depthchart\" href=\"/2012/PRE/1/NO/NE/depthchart.xml\" type=\"application/xml\"/>\n
+        \   </links>\n  </game>\n  <game id=\"c69d0297-6db2-4599-9ecb-2e9d70e6feb1\"
+        scheduled=\"2012-08-09T23:30:00+00:00\" home_rotation=\"\" away_rotation=\"\"
+        home=\"ATL\" away=\"BAL\" status=\"closed\">\n    <venue id=\"216de6bf-bce0-409a-a9e7-90db8df1f7b9\"
+        country=\"US\" name=\"Georgia Dome\" city=\"Atlanta\" state=\"GA\" capacity=\"71250\"
+        surface=\"artificial\" type=\"dome\" zip=\"\" address=\"\"/>\n    <weather
+        temperature=\"83\" condition=\"Partly Cloudy\" humidity=\"67\">\n      <wind
+        speed=\"6\" direction=\"SE\"/>\n    </weather>\n    <broadcast network=\"Local\"
+        satellite=\"\" internet=\"\" cable=\"\"/>\n    <links>\n      <link rel=\"statistics\"
+        href=\"/2012/PRE/1/BAL/ATL/statistics.xml\" type=\"application/xml\"/>\n      <link
+        rel=\"summary\" href=\"/2012/PRE/1/BAL/ATL/summary.xml\" type=\"application/xml\"/>\n
+        \     <link rel=\"pbp\" href=\"/2012/PRE/1/BAL/ATL/pbp.xml\" type=\"application/xml\"/>\n
+        \     <link rel=\"boxscore\" href=\"/2012/PRE/1/BAL/ATL/boxscore.xml\" type=\"application/xml\"/>\n
+        \     <link rel=\"roster\" href=\"/2012/PRE/1/BAL/ATL/roster.xml\" type=\"application/xml\"/>\n
+        \     <link rel=\"injuries\" href=\"/2012/PRE/1/BAL/ATL/injuries.xml\" type=\"application/xml\"/>\n
+        \     <link rel=\"depthchart\" href=\"/2012/PRE/1/BAL/ATL/depthchart.xml\"
+        type=\"application/xml\"/>\n    </links>\n  </game>\n  <game id=\"088077a2-e49e-4ec6-b7b8-7318752adf6a\"
+        scheduled=\"2012-08-10T00:00:00+00:00\" home_rotation=\"\" away_rotation=\"\"
+        home=\"SD\" away=\"GB\" status=\"closed\">\n    <venue id=\"7ca47702-8951-45be-a4f5-3e7d78f8f399\"
+        country=\"US\" name=\"Qualcomm Stadium\" city=\"San Diego\" state=\"CA\" capacity=\"71294\"
+        surface=\"turf\" type=\"outdoor\" zip=\"\" address=\"\"/>\n    <weather temperature=\"\"
+        condition=\"\" humidity=\"\">\n      <wind speed=\"\" direction=\"\"/>\n    </weather>\n
+        \   <broadcast network=\"ESPN\" satellite=\"\" internet=\"\" cable=\"\"/>\n
+        \   <links>\n      <link rel=\"statistics\" href=\"/2012/PRE/1/GB/SD/statistics.xml\"
+        type=\"application/xml\"/>\n      <link rel=\"summary\" href=\"/2012/PRE/1/GB/SD/summary.xml\"
+        type=\"application/xml\"/>\n      <link rel=\"pbp\" href=\"/2012/PRE/1/GB/SD/pbp.xml\"
+        type=\"application/xml\"/>\n      <link rel=\"boxscore\" href=\"/2012/PRE/1/GB/SD/boxscore.xml\"
+        type=\"application/xml\"/>\n      <link rel=\"roster\" href=\"/2012/PRE/1/GB/SD/roster.xml\"
+        type=\"application/xml\"/>\n      <link rel=\"injuries\" href=\"/2012/PRE/1/GB/SD/injuries.xml\"
+        type=\"application/xml\"/>\n      <link rel=\"depthchart\" href=\"/2012/PRE/1/GB/SD/depthchart.xml\"
+        type=\"application/xml\"/>\n    </links>\n  </game>\n  <game id=\"12a31b8b-119e-4ea2-9627-5ae7a0829b47\"
+        scheduled=\"2012-08-10T00:30:00+00:00\" home_rotation=\"\" away_rotation=\"\"
+        home=\"CHI\" away=\"DEN\" status=\"closed\">\n    <venue id=\"d7866605-5ac6-4b3a-90e8-760cc5a26b75\"
+        country=\"US\" name=\"Soldier Field\" city=\"Chicago\" state=\"IL\" capacity=\"61500\"
+        surface=\"turf\" type=\"outdoor\" zip=\"\" address=\"\"/>\n    <weather temperature=\"88\"
+        condition=\"Partly Cloudy\" humidity=\"34\">\n      <wind speed=\"6\" direction=\"N\"/>\n
+        \   </weather>\n    <broadcast network=\"Local\" satellite=\"\" internet=\"\"
+        cable=\"\"/>\n    <links>\n      <link rel=\"statistics\" href=\"/2012/PRE/1/DEN/CHI/statistics.xml\"
+        type=\"application/xml\"/>\n      <link rel=\"summary\" href=\"/2012/PRE/1/DEN/CHI/summary.xml\"
+        type=\"application/xml\"/>\n      <link rel=\"pbp\" href=\"/2012/PRE/1/DEN/CHI/pbp.xml\"
+        type=\"application/xml\"/>\n      <link rel=\"boxscore\" href=\"/2012/PRE/1/DEN/CHI/boxscore.xml\"
+        type=\"application/xml\"/>\n      <link rel=\"roster\" href=\"/2012/PRE/1/DEN/CHI/roster.xml\"
+        type=\"application/xml\"/>\n      <link rel=\"injuries\" href=\"/2012/PRE/1/DEN/CHI/injuries.xml\"
+        type=\"application/xml\"/>\n      <link rel=\"depthchart\" href=\"/2012/PRE/1/DEN/CHI/depthchart.xml\"
+        type=\"application/xml\"/>\n    </links>\n  </game>\n  <game id=\"e93f780c-dc00-4456-835b-0abc6a64e58d\"
+        scheduled=\"2012-08-10T23:30:00+00:00\" home_rotation=\"\" away_rotation=\"\"
+        home=\"JAC\" away=\"NYG\" status=\"closed\">\n    <venue id=\"4c5c036d-dd3d-4183-b595-71a43a97560f\"
+        country=\"US\" name=\"EverBank Field\" city=\"Jacksonville\" state=\"FL\"
+        capacity=\"76877\" surface=\"artificial\" type=\"outdoor\" zip=\"\" address=\"\"/>\n
+        \   <weather temperature=\"91\" condition=\"Mostly Cloudy\" humidity=\"52\">\n
+        \     <wind speed=\"12\" direction=\"S\"/>\n    </weather>\n    <broadcast
+        network=\"Local\" satellite=\"\" internet=\"\" cable=\"\"/>\n    <links>\n
+        \     <link rel=\"statistics\" href=\"/2012/PRE/1/NYG/JAC/statistics.xml\"
+        type=\"application/xml\"/>\n      <link rel=\"summary\" href=\"/2012/PRE/1/NYG/JAC/summary.xml\"
+        type=\"application/xml\"/>\n      <link rel=\"pbp\" href=\"/2012/PRE/1/NYG/JAC/pbp.xml\"
+        type=\"application/xml\"/>\n      <link rel=\"boxscore\" href=\"/2012/PRE/1/NYG/JAC/boxscore.xml\"
+        type=\"application/xml\"/>\n      <link rel=\"roster\" href=\"/2012/PRE/1/NYG/JAC/roster.xml\"
+        type=\"application/xml\"/>\n      <link rel=\"injuries\" href=\"/2012/PRE/1/NYG/JAC/injuries.xml\"
+        type=\"application/xml\"/>\n      <link rel=\"depthchart\" href=\"/2012/PRE/1/NYG/JAC/depthchart.xml\"
+        type=\"application/xml\"/>\n    </links>\n  </game>\n  <game id=\"b307bf92-9c69-4443-bc18-cee45fb63fcb\"
+        scheduled=\"2012-08-10T23:30:00+00:00\" home_rotation=\"\" away_rotation=\"\"
+        home=\"CIN\" away=\"NYJ\" status=\"closed\">\n    <venue id=\"b87a1595-d3c8-48ea-8a53-0aab6378a64a\"
+        country=\"US\" name=\"Paul Brown Stadium\" city=\"Cincinnati\" state=\"OH\"
+        capacity=\"65535\" surface=\"artificial\" type=\"outdoor\" zip=\"\" address=\"\"/>\n
+        \   <weather temperature=\"88\" condition=\"Clear\" humidity=\"43\">\n      <wind
+        speed=\"7\" direction=\"S\"/>\n    </weather>\n    <broadcast network=\"Local\"
+        satellite=\"\" internet=\"\" cable=\"\"/>\n    <links>\n      <link rel=\"statistics\"
+        href=\"/2012/PRE/1/NYJ/CIN/statistics.xml\" type=\"application/xml\"/>\n      <link
+        rel=\"summary\" href=\"/2012/PRE/1/NYJ/CIN/summary.xml\" type=\"application/xml\"/>\n
+        \     <link rel=\"pbp\" href=\"/2012/PRE/1/NYJ/CIN/pbp.xml\" type=\"application/xml\"/>\n
+        \     <link rel=\"boxscore\" href=\"/2012/PRE/1/NYJ/CIN/boxscore.xml\" type=\"application/xml\"/>\n
+        \     <link rel=\"roster\" href=\"/2012/PRE/1/NYJ/CIN/roster.xml\" type=\"application/xml\"/>\n
+        \     <link rel=\"injuries\" href=\"/2012/PRE/1/NYJ/CIN/injuries.xml\" type=\"application/xml\"/>\n
+        \     <link rel=\"depthchart\" href=\"/2012/PRE/1/NYJ/CIN/depthchart.xml\"
+        type=\"application/xml\"/>\n    </links>\n  </game>\n  <game id=\"9279dd5b-5429-4680-bee4-26cfaaf51b21\"
+        scheduled=\"2012-08-10T23:30:00+00:00\" home_rotation=\"\" away_rotation=\"\"
+        home=\"MIA\" away=\"TB\" status=\"closed\">\n    <venue id=\"50a5c833-1570-4c38-abc7-7914cf87dbde\"
+        country=\"US\" name=\"Sun Life Stadium\" city=\"Miami Garden\" state=\"FL\"
+        capacity=\"75235\" surface=\"turf\" type=\"outdoor\" zip=\"\" address=\"\"/>\n
+        \   <weather temperature=\"90\" condition=\"Cloudy\" humidity=\"57\">\n      <wind
+        speed=\"10\" direction=\"SE\"/>\n    </weather>\n    <broadcast network=\"Local\"
+        satellite=\"\" internet=\"\" cable=\"\"/>\n    <links>\n      <link rel=\"statistics\"
+        href=\"/2012/PRE/1/TB/MIA/statistics.xml\" type=\"application/xml\"/>\n      <link
+        rel=\"summary\" href=\"/2012/PRE/1/TB/MIA/summary.xml\" type=\"application/xml\"/>\n
+        \     <link rel=\"pbp\" href=\"/2012/PRE/1/TB/MIA/pbp.xml\" type=\"application/xml\"/>\n
+        \     <link rel=\"boxscore\" href=\"/2012/PRE/1/TB/MIA/boxscore.xml\" type=\"application/xml\"/>\n
+        \     <link rel=\"roster\" href=\"/2012/PRE/1/TB/MIA/roster.xml\" type=\"application/xml\"/>\n
+        \     <link rel=\"injuries\" href=\"/2012/PRE/1/TB/MIA/injuries.xml\" type=\"application/xml\"/>\n
+        \     <link rel=\"depthchart\" href=\"/2012/PRE/1/TB/MIA/depthchart.xml\"
+        type=\"application/xml\"/>\n    </links>\n  </game>\n  <game id=\"1a984c80-f0fa-48c8-a88d-a67a82344753\"
+        scheduled=\"2012-08-10T23:30:00+00:00\" home_rotation=\"\" away_rotation=\"\"
+        home=\"DET\" away=\"CLE\" status=\"closed\">\n    <venue id=\"6e3bcf22-277d-4c06-b019-62aded51654f\"
+        country=\"US\" name=\"Ford Field\" city=\"Detroit\" state=\"MI\" capacity=\"65000\"
+        surface=\"artificial\" type=\"dome\" zip=\"\" address=\"\"/>\n    <weather
+        temperature=\"86\" condition=\"Clear\" humidity=\"32\">\n      <wind speed=\"13\"
+        direction=\"W\"/>\n    </weather>\n    <broadcast network=\"Local\" satellite=\"\"
+        internet=\"\" cable=\"\"/>\n    <links>\n      <link rel=\"statistics\" href=\"/2012/PRE/1/CLE/DET/statistics.xml\"
+        type=\"application/xml\"/>\n      <link rel=\"summary\" href=\"/2012/PRE/1/CLE/DET/summary.xml\"
+        type=\"application/xml\"/>\n      <link rel=\"pbp\" href=\"/2012/PRE/1/CLE/DET/pbp.xml\"
+        type=\"application/xml\"/>\n      <link rel=\"boxscore\" href=\"/2012/PRE/1/CLE/DET/boxscore.xml\"
+        type=\"application/xml\"/>\n      <link rel=\"roster\" href=\"/2012/PRE/1/CLE/DET/roster.xml\"
+        type=\"application/xml\"/>\n      <link rel=\"injuries\" href=\"/2012/PRE/1/CLE/DET/injuries.xml\"
+        type=\"application/xml\"/>\n      <link rel=\"depthchart\" href=\"/2012/PRE/1/CLE/DET/depthchart.xml\"
+        type=\"application/xml\"/>\n    </links>\n  </game>\n  <game id=\"3af20dde-aa41-46f2-a7e2-929ce5b4a2e6\"
+        scheduled=\"2012-08-11T00:00:00+00:00\" home_rotation=\"\" away_rotation=\"\"
+        home=\"KC\" away=\"ARI\" status=\"closed\">\n    <venue id=\"2ec4c411-dac2-403d-b091-6b6aa4a0a914\"
+        country=\"US\" name=\"Arrowhead Stadium\" city=\"Kansas City\" state=\"MO\"
+        capacity=\"79451\" surface=\"turf\" type=\"outdoor\" zip=\"\" address=\"\"/>\n
+        \   <weather temperature=\"99\" condition=\"Clear\" humidity=\"21\">\n      <wind
+        speed=\"5\" direction=\"S\"/>\n    </weather>\n    <broadcast network=\"Local\"
+        satellite=\"\" internet=\"\" cable=\"\"/>\n    <links>\n      <link rel=\"statistics\"
+        href=\"/2012/PRE/1/ARI/KC/statistics.xml\" type=\"application/xml\"/>\n      <link
+        rel=\"summary\" href=\"/2012/PRE/1/ARI/KC/summary.xml\" type=\"application/xml\"/>\n
+        \     <link rel=\"pbp\" href=\"/2012/PRE/1/ARI/KC/pbp.xml\" type=\"application/xml\"/>\n
+        \     <link rel=\"boxscore\" href=\"/2012/PRE/1/ARI/KC/boxscore.xml\" type=\"application/xml\"/>\n
+        \     <link rel=\"roster\" href=\"/2012/PRE/1/ARI/KC/roster.xml\" type=\"application/xml\"/>\n
+        \     <link rel=\"injuries\" href=\"/2012/PRE/1/ARI/KC/injuries.xml\" type=\"application/xml\"/>\n
+        \     <link rel=\"depthchart\" href=\"/2012/PRE/1/ARI/KC/depthchart.xml\"
+        type=\"application/xml\"/>\n    </links>\n  </game>\n  <game id=\"92613948-82c8-46c1-b943-1c43c10914fb\"
+        scheduled=\"2012-08-11T01:00:00+00:00\" home_rotation=\"\" away_rotation=\"\"
+        home=\"SF\" away=\"MIN\" status=\"closed\">\n    <venue id=\"6701808c-c329-482b-9834-2d29cb3185ff\"
+        country=\"US\" name=\"Candlestick Park\" city=\"San Francisco\" state=\"CA\"
+        capacity=\"70207\" surface=\"turf\" type=\"outdoor\" zip=\"\" address=\"\"/>\n
+        \   <weather temperature=\"0\" condition=\"\" humidity=\"0\">\n      <wind
+        speed=\"0\" direction=\"\"/>\n    </weather>\n    <broadcast network=\"Local\"
+        satellite=\"\" internet=\"\" cable=\"\"/>\n    <links>\n      <link rel=\"statistics\"
+        href=\"/2012/PRE/1/MIN/SF/statistics.xml\" type=\"application/xml\"/>\n      <link
+        rel=\"summary\" href=\"/2012/PRE/1/MIN/SF/summary.xml\" type=\"application/xml\"/>\n
+        \     <link rel=\"pbp\" href=\"/2012/PRE/1/MIN/SF/pbp.xml\" type=\"application/xml\"/>\n
+        \     <link rel=\"boxscore\" href=\"/2012/PRE/1/MIN/SF/boxscore.xml\" type=\"application/xml\"/>\n
+        \     <link rel=\"roster\" href=\"/2012/PRE/1/MIN/SF/roster.xml\" type=\"application/xml\"/>\n
+        \     <link rel=\"injuries\" href=\"/2012/PRE/1/MIN/SF/injuries.xml\" type=\"application/xml\"/>\n
+        \     <link rel=\"depthchart\" href=\"/2012/PRE/1/MIN/SF/depthchart.xml\"
+        type=\"application/xml\"/>\n    </links>\n  </game>\n  <game id=\"cf2a0638-ee67-4ca5-9666-fc37b37b1145\"
+        scheduled=\"2012-08-11T23:00:00+00:00\" home_rotation=\"\" away_rotation=\"\"
+        home=\"CAR\" away=\"HOU\" status=\"closed\">\n    <venue id=\"39be9ed4-3292-49ac-8699-a381de3a4969\"
+        country=\"US\" name=\"Bank of America Stadium\" city=\"Charlotte\" state=\"NC\"
+        capacity=\"73778\" surface=\"turf\" type=\"outdoor\" zip=\"\" address=\"\"/>\n
+        \   <weather temperature=\"80\" condition=\"Overcast\" humidity=\"74\">\n
+        \     <wind speed=\"0\" direction=\"N\"/>\n    </weather>\n    <broadcast
+        network=\"Local\" satellite=\"\" internet=\"\" cable=\"\"/>\n    <links>\n
+        \     <link rel=\"statistics\" href=\"/2012/PRE/1/HOU/CAR/statistics.xml\"
+        type=\"application/xml\"/>\n      <link rel=\"summary\" href=\"/2012/PRE/1/HOU/CAR/summary.xml\"
+        type=\"application/xml\"/>\n      <link rel=\"pbp\" href=\"/2012/PRE/1/HOU/CAR/pbp.xml\"
+        type=\"application/xml\"/>\n      <link rel=\"boxscore\" href=\"/2012/PRE/1/HOU/CAR/boxscore.xml\"
+        type=\"application/xml\"/>\n      <link rel=\"roster\" href=\"/2012/PRE/1/HOU/CAR/roster.xml\"
+        type=\"application/xml\"/>\n      <link rel=\"injuries\" href=\"/2012/PRE/1/HOU/CAR/injuries.xml\"
+        type=\"application/xml\"/>\n      <link rel=\"depthchart\" href=\"/2012/PRE/1/HOU/CAR/depthchart.xml\"
+        type=\"application/xml\"/>\n    </links>\n  </game>\n  <game id=\"9f3127d9-3f67-4972-b2d9-96bee12e523c\"
+        scheduled=\"2012-08-12T02:00:00+00:00\" home_rotation=\"\" away_rotation=\"\"
+        home=\"SEA\" away=\"TEN\" status=\"closed\">\n    <venue id=\"c6b9e5df-c9e4-434c-b3e6-83928f11cbda\"
+        country=\"US\" name=\"Qwest Field\" city=\"Seattle\" state=\"WA\" capacity=\"67000\"
+        surface=\"artificial\" type=\"outdoor\" zip=\"\" address=\"\"/>\n    <weather
+        temperature=\"\" condition=\"\" humidity=\"\">\n      <wind speed=\"\" direction=\"\"/>\n
+        \   </weather>\n    <broadcast network=\"Local\" satellite=\"\" internet=\"\"
+        cable=\"\"/>\n    <links>\n      <link rel=\"statistics\" href=\"/2012/PRE/1/TEN/SEA/statistics.xml\"
+        type=\"application/xml\"/>\n      <link rel=\"summary\" href=\"/2012/PRE/1/TEN/SEA/summary.xml\"
+        type=\"application/xml\"/>\n      <link rel=\"pbp\" href=\"/2012/PRE/1/TEN/SEA/pbp.xml\"
+        type=\"application/xml\"/>\n      <link rel=\"boxscore\" href=\"/2012/PRE/1/TEN/SEA/boxscore.xml\"
+        type=\"application/xml\"/>\n      <link rel=\"roster\" href=\"/2012/PRE/1/TEN/SEA/roster.xml\"
+        type=\"application/xml\"/>\n      <link rel=\"injuries\" href=\"/2012/PRE/1/TEN/SEA/injuries.xml\"
+        type=\"application/xml\"/>\n      <link rel=\"depthchart\" href=\"/2012/PRE/1/TEN/SEA/depthchart.xml\"
+        type=\"application/xml\"/>\n    </links>\n  </game>\n  <game id=\"4b60bf06-aa62-4ad0-ba70-978998ac96ae\"
+        scheduled=\"2012-08-12T17:30:00+00:00\" home_rotation=\"\" away_rotation=\"\"
+        home=\"IND\" away=\"STL\" status=\"closed\">\n    <venue id=\"6ed18563-53e0-46c2-a91d-12d73a16456d\"
+        country=\"US\" name=\"Lucas Oil Stadium\" city=\"Indianapolis\" state=\"IN\"
+        capacity=\"67000\" surface=\"artificial\" type=\"retractable_dome\" zip=\"46225\"
+        address=\"500 S. Capitol Avenue\"/>\n    <weather temperature=\"91\" condition=\"Partly
+        Cloudy\" humidity=\"25\">\n      <wind speed=\"9\" direction=\"W\"/>\n    </weather>\n
+        \   <broadcast network=\"Local\" satellite=\"\" internet=\"\" cable=\"\"/>\n
+        \   <links>\n      <link rel=\"statistics\" href=\"/2012/PRE/1/STL/IND/statistics.xml\"
+        type=\"application/xml\"/>\n      <link rel=\"summary\" href=\"/2012/PRE/1/STL/IND/summary.xml\"
+        type=\"application/xml\"/>\n      <link rel=\"pbp\" href=\"/2012/PRE/1/STL/IND/pbp.xml\"
+        type=\"application/xml\"/>\n      <link rel=\"boxscore\" href=\"/2012/PRE/1/STL/IND/boxscore.xml\"
+        type=\"application/xml\"/>\n      <link rel=\"roster\" href=\"/2012/PRE/1/STL/IND/roster.xml\"
+        type=\"application/xml\"/>\n      <link rel=\"injuries\" href=\"/2012/PRE/1/STL/IND/injuries.xml\"
+        type=\"application/xml\"/>\n      <link rel=\"depthchart\" href=\"/2012/PRE/1/STL/IND/depthchart.xml\"
+        type=\"application/xml\"/>\n    </links>\n  </game>\n  <game id=\"1e65ee9d-bc47-4488-b810-2814d7844ab7\"
+        scheduled=\"2012-08-14T00:00:00+00:00\" home_rotation=\"\" away_rotation=\"\"
+        home=\"OAK\" away=\"DAL\" status=\"closed\">\n    <venue id=\"ba1ad00f-9130-462c-93f9-5612a0015117\"
+        country=\"US\" name=\"Oakland-Alameda County Coliseum\" city=\"Oakland\" state=\"CA\"
+        capacity=\"63026\" surface=\"turf\" type=\"outdoor\" zip=\"\" address=\"\"/>\n
+        \   <weather temperature=\"\" condition=\"\" humidity=\"\">\n      <wind speed=\"\"
+        direction=\"\"/>\n    </weather>\n    <broadcast network=\"ESPN\" satellite=\"\"
+        internet=\"\" cable=\"\"/>\n    <links>\n      <link rel=\"statistics\" href=\"/2012/PRE/1/DAL/OAK/statistics.xml\"
+        type=\"application/xml\"/>\n      <link rel=\"summary\" href=\"/2012/PRE/1/DAL/OAK/summary.xml\"
+        type=\"application/xml\"/>\n      <link rel=\"pbp\" href=\"/2012/PRE/1/DAL/OAK/pbp.xml\"
+        type=\"application/xml\"/>\n      <link rel=\"boxscore\" href=\"/2012/PRE/1/DAL/OAK/boxscore.xml\"
+        type=\"application/xml\"/>\n      <link rel=\"roster\" href=\"/2012/PRE/1/DAL/OAK/roster.xml\"
+        type=\"application/xml\"/>\n      <link rel=\"injuries\" href=\"/2012/PRE/1/DAL/OAK/injuries.xml\"
+        type=\"application/xml\"/>\n      <link rel=\"depthchart\" href=\"/2012/PRE/1/DAL/OAK/depthchart.xml\"
+        type=\"application/xml\"/>\n    </links>\n  </game>\n</games>\n"
+    http_version: 
+  recorded_at: Sun, 07 Apr 2013 23:29:34 GMT
+recorded_with: VCR 2.4.0
