@@ -20,25 +20,14 @@ module SportsDataApi
       raise SportsDataApi::Nfl::Exception.new("#{season} is not a valid season") unless Season.valid?(season)
       url = "#{base_url}/#{year}/#{season}/schedule.xml"
 
-      begin
-        # Perform the request
-        response = RestClient.get(url, params: { api_key: SportsDataApi.key })
+      # Perform the request
+      response = self.generic_request(url)
 
-        # Load the XML and ignore namespaces in Nokogiri
-        schedule = Nokogiri::XML(response.to_s)
-        schedule.remove_namespaces!
+      # Load the XML and ignore namespaces in Nokogiri
+      schedule = Nokogiri::XML(response.to_s)
+      schedule.remove_namespaces!
 
-        return Season.new(schedule.xpath("/season"))
-      rescue RestClient::Exception => e
-        message = if e.response.headers.key? :x_server_error
-                    JSON.parse(e.response.headers[:x_server_error], { symbolize_names: true })[:message]
-                  elsif e.response.headers.key? :x_mashery_error_code
-                    e.response.headers[:x_mashery_error_code]
-                  else
-                    "The server did not specify a message"
-                  end
-        raise SportsDataApi::Exception, message
-      end
+      return Season.new(schedule.xpath("/season"))
     end
 
     ##
@@ -49,15 +38,22 @@ module SportsDataApi
       raise SportsDataApi::Nfl::Exception.new("#{season} is not a valid season") unless Season.valid?(season)
       url = "#{base_url}/#{year}/#{season}/#{week}/#{away}/#{home}/boxscore.xml"
 
+      # Perform the request
+      response = self.generic_request(url)
+
+      # Load the XML and ignore namespaces in Nokogiri
+      boxscore = Nokogiri::XML(response.to_s)
+      boxscore.remove_namespaces!
+
+      return Game.new(boxscore.xpath("/game"))
+    end
+
+    private
+    def self.generic_request(url)
       begin
-        # Perform the request
-        response = RestClient.get(url, params: { api_key: SportsDataApi.key })
-
-        # Load the XML and ignore namespaces in Nokogiri
-        boxscore = Nokogiri::XML(response.to_s)
-        boxscore.remove_namespaces!
-
-        return Game.new(boxscore.xpath("/game"))
+        return RestClient.get(url, params: { api_key: SportsDataApi.key })
+      rescue RestClient::RequestTimeout => timeout
+        raise SportsDataApi::Exception, 'The API did not respond in a reasonable amount of time'
       rescue RestClient::Exception => e
         message = if e.response.headers.key? :x_server_error
                     JSON.parse(e.response.headers[:x_server_error], { symbolize_names: true })[:message]
