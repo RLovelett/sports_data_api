@@ -52,6 +52,8 @@ module SportsDataApi
     def self.generic_request(url)
       begin
         return RestClient.get(url, params: { api_key: SportsDataApi.key })
+      rescue RestClient::RequestTimeout => timeout
+        raise SportsDataApi::Exception, 'The API did not respond in a reasonable amount of time'
       rescue RestClient::Exception => e
         message = if e.response.headers.key? :x_server_error
                     JSON.parse(e.response.headers[:x_server_error], { symbolize_names: true })[:message]
