@@ -2,7 +2,7 @@ module SportsDataApi
   module Nfl
     class Game
       attr_reader :id, :scheduled, :home, :home_team, :away,
-        :away_team, :status, :quarter, :clock, :venue
+        :away_team, :status, :quarter, :clock, :venue, :broadcast
 
       def initialize(xml)
         xml = xml.first if xml.is_a? Nokogiri::XML::NodeSet
@@ -19,6 +19,7 @@ module SportsDataApi
           @home_team = Team.new(team_xml.first)
           @away_team = Team.new(team_xml.last)
           @venue = Venue.new(xml.xpath('venue'))
+          @broadcast = Broadcast.new(xml.xpath('broadcast'))
         end
       end
     end
