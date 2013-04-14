@@ -62,5 +62,6 @@ describe SportsDataApi::Nfl::Game, vcr: {
     its(:clock) { should eq nil }
     its(:home_team) { should be_an_instance_of(SportsDataApi::Nfl::Team) }
     its(:away_team) { should be_an_instance_of(SportsDataApi::Nfl::Team) }
+    its(:venue) { should be_an_instance_of(SportsDataApi::Nfl::Venue) }
   end
 end
