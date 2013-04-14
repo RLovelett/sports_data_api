@@ -16,18 +16,6 @@ require "sports_data_api"
 require 'webmock/rspec'
 require 'vcr'
 
-def load_xml(filename)
-  File.read("#{File.dirname(__FILE__)}/xml/#{filename}.xml")
-end
-
-def schedule_xml
-  load_xml("schedule")
-end
-
-def boxscore_xml
-  load_xml("boxscore")
-end
-
 def api_key
   key = 'VALID_SPORTS_DATA_API_KEY'
   key = ENV['SPORTS_DATA_API_KEY'] if ENV.has_key?('SPORTS_DATA_API_KEY')
