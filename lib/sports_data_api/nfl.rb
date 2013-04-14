@@ -17,6 +17,7 @@ module SportsDataApi
     autoload :Season,           File.join(DIR, 'season')
     autoload :Venue,            File.join(DIR, 'venue')
     autoload :Broadcast,        File.join(DIR, 'broadcast')
+    autoload :Weather,          File.join(DIR, 'weather')
 
     ##
     # Fetches NFL season schedule for a given year and season.

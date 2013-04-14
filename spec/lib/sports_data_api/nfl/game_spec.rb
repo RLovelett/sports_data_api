@@ -64,5 +64,6 @@ describe SportsDataApi::Nfl::Game, vcr: {
     its(:away_team) { should be_an_instance_of(SportsDataApi::Nfl::Team) }
     its(:venue) { should be_an_instance_of(SportsDataApi::Nfl::Venue) }
     its(:broadcast) { should be_an_instance_of(SportsDataApi::Nfl::Broadcast) }
+    its(:weather) { should be_an_instance_of(SportsDataApi::Nfl::Weather) }
   end
 end
