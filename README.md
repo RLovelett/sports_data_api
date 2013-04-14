@@ -46,7 +46,7 @@ Or install it yourself as:
 
 The specs for this Gem should give you some idea of how to make use of
 the API. For now they will be the usage information. As always Pull
-Requests for better documentation are always welcome.
+Requests for better documentation are welcome.
 
 ## Testing
 
