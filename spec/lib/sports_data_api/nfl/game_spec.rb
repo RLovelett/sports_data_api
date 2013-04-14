@@ -23,6 +23,8 @@ describe SportsDataApi::Nfl::Game, vcr: {
     its(:home) { should eq 'NYG' }
     its(:away) { should eq 'DAL' }
     its(:status) { should eq 'closed' }
+    its(:home_team) { should be_an_instance_of(SportsDataApi::Nfl::Team) }
+    its(:away_team) { should be_an_instance_of(SportsDataApi::Nfl::Team) }
   end
   context 'results from boxscore fetch' do
     subject { boxscore }
