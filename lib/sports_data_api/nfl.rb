@@ -8,6 +8,7 @@ module SportsDataApi
     BASE_URL = 'http://api.sportsdatallc.org/nfl-%{access_level}%{version}'
 
     autoload :Team,   File.join(DIR, 'team')
+    autoload :Teams,  File.join(DIR, 'teams')
     autoload :Game,   File.join(DIR, 'game')
     autoload :Week,   File.join(DIR, 'week')
     autoload :Season, File.join(DIR, 'season')
@@ -46,6 +47,22 @@ module SportsDataApi
       boxscore.remove_namespaces!
 
       return Game.new(boxscore.xpath("/game"))
+    end
+
+    ##
+    #
+    def self.teams(version = 1)
+      base_url = BASE_URL % { access_level: SportsDataApi.access_level, version: version }
+      url = "#{base_url}/teams/hierarchy.xml"
+
+      # Perform the request
+      response = self.generic_request(url)
+
+      # Load the XML and ignore namespaces in Nokogiri
+      teams = Nokogiri::XML(response.to_s)
+      teams.remove_namespaces!
+
+      return Teams.new(teams.xpath('/league'))
     end
 
     private
