@@ -34,4 +34,19 @@ describe SportsDataApi::Nfl::Team, vcr: {
     its(:quarters) { should have(4).scores }
     its(:quarters) { should eq [3, 14, 0, 3] }
   end
+  describe 'eql' do
+    let(:url) { 'http://api.sportsdatallc.org/nfl-t1/teams/hierarchy.xml' }
+
+    let(:dolphins_xml) do
+      str = RestClient.get(url, params: { api_key: api_key }).to_s
+      xml = Nokogiri::XML(str)
+      xml.remove_namespaces!
+      xml.xpath('/league/conference/division/team[@id=\'MIA\']')
+    end
+
+    let(:dolphins1) { SportsDataApi::Nfl::Team.new(dolphins_xml) }
+    let(:dolphins2) { SportsDataApi::Nfl::Team.new(dolphins_xml) }
+
+    it { (dolphins1 == dolphins2).should be_true }
+  end
 end
