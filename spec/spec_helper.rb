@@ -18,7 +18,7 @@ require 'webmock/rspec'
 require 'vcr'
 
 def api_key
-  key = ''
+  key = 'VALID_SPORTS_DATA_API_KEY'
   key = ENV['SPORTS_DATA_API_KEY'] if ENV.has_key?('SPORTS_DATA_API_KEY')
   key
 end

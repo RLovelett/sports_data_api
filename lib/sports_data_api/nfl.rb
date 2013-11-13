@@ -8,7 +8,7 @@ module SportsDataApi
     BASE_URL = 'http://api.sportsdatallc.org/nfl-%{access_level}%{version}'
 
     autoload :Team,           File.join(DIR, 'team')
-    autoload :TeamHierarchy,   File.join(DIR, 'team_hierarchy')
+    autoload :TeamHierarchy,  File.join(DIR, 'team_hierarchy')
     autoload :Game,           File.join(DIR, 'game')
     autoload :Week,           File.join(DIR, 'week')
     autoload :Season,         File.join(DIR, 'season')
