@@ -29,6 +29,12 @@ describe SportsDataApi::Nfl, vcr: {
     end
   end
 
+  context "just a test" do
+    it "does something" do
+      subject.team_hierarchy
+    end
+  end
+
   context 'create valid URLs' do
     let(:schedule_url) { 'http://api.sportsdatallc.org/nfl-t1/2012/REG/schedule.xml' }
     let(:boxscore_url) { 'http://api.sportsdatallc.org/nfl-t1/2012/REG/9/MIA/IND/boxscore.xml' }
@@ -52,6 +58,21 @@ describe SportsDataApi::Nfl, vcr: {
         RestClient.should_receive(:get).with(boxscore_url, params).and_return(@boxscore_xml)
         subject.boxscore(2012, :REG, 9, 'IND', 'MIA')
       end
+    end
+  end
+
+  context '#get_teams' do
+    before do
+      SportsDataApi.key = api_key
+      SportsDataApi.access_level = 't'
+    end
+    it "returns an array" do
+      binding.pry
+      expect(subject.get_teams.kind_of?(Array)).to be true
+    end
+
+    it "returns 32 teams" do
+      expect(subject.get_teams.count).to eq 32
     end
   end
 end

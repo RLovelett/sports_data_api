@@ -7,10 +7,11 @@ module SportsDataApi
     DIR = File.join(File.dirname(__FILE__), 'nfl')
     BASE_URL = 'http://api.sportsdatallc.org/nfl-%{access_level}%{version}'
 
-    autoload :Team,   File.join(DIR, 'team')
-    autoload :Game,   File.join(DIR, 'game')
-    autoload :Week,   File.join(DIR, 'week')
-    autoload :Season, File.join(DIR, 'season')
+    autoload :Team,           File.join(DIR, 'team')
+    autoload :TeamHierarchy,   File.join(DIR, 'team_hierarchy')
+    autoload :Game,           File.join(DIR, 'game')
+    autoload :Week,           File.join(DIR, 'week')
+    autoload :Season,         File.join(DIR, 'season')
 
     ##
     # Fetches NFL season schedule for a given year and season.
@@ -28,6 +29,20 @@ module SportsDataApi
       schedule.remove_namespaces!
 
       return Season.new(schedule.xpath("/season"))
+    end
+
+    ##
+    # Fetches all NFL Teams
+    def self.get_teams(version=1)
+      base_url = BASE_URL % { access_level: SportsDataApi.access_level, version: version }
+      url = "#{base_url}/teams/hierarchy.xml"
+      response = Nokogiri::XML(self.generic_request(url.to_s))
+
+      teams = []
+      response.search("team").each do |team|
+        teams << TeamHierarchy.new(team)
+      end
+      return teams
     end
 
     ##
