@@ -9,6 +9,7 @@ module SportsDataApi
 
     autoload :Team,           File.join(DIR, 'team')
     autoload :TeamHierarchy,  File.join(DIR, 'team_hierarchy')
+    autoload :TeamRoster,     File.join(DIR, 'team_roster')
     autoload :Game,           File.join(DIR, 'game')
     autoload :Week,           File.join(DIR, 'week')
     autoload :Season,         File.join(DIR, 'season')
@@ -43,6 +44,20 @@ module SportsDataApi
         teams << TeamHierarchy.new(team)
       end
       return teams
+    end
+
+    ##
+    # Fetch NFL Team Roster
+    def self.get_team_roster(team, version=1)
+      base_url = BASE_URL % { access_level: SportsDataApi.access_level, version: version }
+      url = "#{base_url}/teams/#{team}/roster.xml"
+
+      response = Nokogiri::XML(self.generic_request(url.to_s))
+      players = []
+      response.search("player").each do |player|
+        players << TeamRoster.new(player)
+      end
+      return players
     end
 
     ##
