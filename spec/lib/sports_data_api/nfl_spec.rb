@@ -55,17 +55,25 @@ describe SportsDataApi::Nfl, vcr: {
     end
   end
 
-  context '#get_teams' do
+  describe "team based class methods" do
     before do
       SportsDataApi.key = api_key
       SportsDataApi.access_level = 't'
     end
-    it "returns an array" do
-      expect(subject.get_teams.kind_of?(SportsDataApi::Nfl::Teams)).to be true
+    context '#get_teams' do
+      it "returns an array" do
+        expect(subject.get_teams.kind_of?(SportsDataApi::Nfl::Teams)).to be true
+      end
+
+      it "returns 32 teams" do
+        expect(subject.get_teams.count).to eq 32
+      end
     end
 
-    it "returns 32 teams" do
-      expect(subject.get_teams.count).to eq 32
+    context "#get_team_roster" do
+      it "returns an array" do
+        expect(subject.get_team_roster('MIA').kind_of?(Array)).to be true
+      end
     end
   end
 end
