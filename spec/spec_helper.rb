@@ -1,7 +1,9 @@
 require 'simplecov'
+require 'coveralls'
 SimpleCov.start do
   add_filter "/spec/"
 end
+Coveralls.wear!
 
 # Previous content of test helper now starts here
 require "sports_data_api"
