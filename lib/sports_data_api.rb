@@ -24,6 +24,7 @@ module SportsDataApi
 
   LIBRARY_PATH = File.join(File.dirname(__FILE__), 'sports_data_api')
 
-  autoload :Nfl,       File.join(LIBRARY_PATH, 'nfl')
-  autoload :Exception, File.join(LIBRARY_PATH, 'exception')
+  autoload :Stats,       File.join(LIBRARY_PATH, 'stats')
+  autoload :Nfl,         File.join(LIBRARY_PATH, 'nfl')
+  autoload :Exception,   File.join(LIBRARY_PATH, 'exception')
 end
