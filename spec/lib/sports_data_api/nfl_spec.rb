@@ -61,7 +61,7 @@ describe SportsDataApi::Nfl, vcr: {
       SportsDataApi.access_level = 't'
     end
 
-    context "#team_stats" do
+    context "#team_season_stats" do
       it "returns the team id" do
         expect(subject.team_season_stats("BUF", 2013, "REG").id).to eq "BUF"
       end
@@ -74,6 +74,23 @@ describe SportsDataApi::Nfl, vcr: {
     context "#get_team_roster" do
       it "returns an array" do
         expect(subject.get_team_roster('MIA').kind_of?(Array)).to be true
+      end
+    end
+  end
+
+  describe "player based class methods" do
+    before do
+      SportsDataApi.key = api_key
+      SportsDataApi.access_level = 't'
+    end
+
+    context "#player_season_stats" do
+      it "responds to players" do
+        expect(subject.player_season_stats("BUF", 2013, "REG")).to respond_to :players
+      end
+
+      it "returns an array" do
+        expect(subject.player_season_stats("BUF", 2013, "REG").players.kind_of?(Array)).to be true
       end
     end
   end
