@@ -60,13 +60,14 @@ describe SportsDataApi::Nfl, vcr: {
       SportsDataApi.key = api_key
       SportsDataApi.access_level = 't'
     end
-    context '#get_teams' do
-      it "returns an array" do
-        expect(subject.get_teams.kind_of?(SportsDataApi::Nfl::Teams)).to be true
+
+    context "#team_stats" do
+      it "returns the team id" do
+        expect(subject.team_season_stats("BUF", 2013, "REG").id).to eq "BUF"
       end
 
-      it "returns 32 teams" do
-        expect(subject.get_teams.count).to eq 32
+      it "returns an array of stats" do
+        expect(subject.team_season_stats("BUF", 2013, "REG").stats.kind_of?(Array)).to be true
       end
     end
 

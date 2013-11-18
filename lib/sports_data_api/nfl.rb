@@ -7,12 +7,13 @@ module SportsDataApi
     DIR = File.join(File.dirname(__FILE__), 'nfl')
     BASE_URL = 'http://api.sportsdatallc.org/nfl-%{access_level}%{version}'
 
-    autoload :Team,           File.join(DIR, 'team')
-    autoload :Teams,          File.join(DIR, 'teams')
-    autoload :TeamRoster,     File.join(DIR, 'team_roster')
-    autoload :Game,           File.join(DIR, 'game')
-    autoload :Week,           File.join(DIR, 'week')
-    autoload :Season,         File.join(DIR, 'season')
+    autoload :Team,             File.join(DIR, 'team')
+    autoload :Teams,            File.join(DIR, 'teams')
+    autoload :TeamRoster,       File.join(DIR, 'team_roster')
+    autoload :TeamSeasonStats,  File.join(DIR, 'team_season_stats')
+    autoload :Game,             File.join(DIR, 'game')
+    autoload :Week,             File.join(DIR, 'week')
+    autoload :Season,           File.join(DIR, 'season')
 
     ##
     # Fetches NFL season schedule for a given year and season.
@@ -44,6 +45,16 @@ module SportsDataApi
         players << TeamRoster.new(player)
       end
       return players
+    end
+
+    ##
+    # Fetch NFL Team Seaon Stats
+    def self.team_season_stats(team, season, season_type, version=1)
+      base_url = BASE_URL % { access_level: SportsDataApi.access_level, version: version }
+      url = "#{base_url}/teams/#{team}/#{season}/#{season_type}/statistics.xml"
+
+      response = Nokogiri::XML(self.generic_request(url.to_s)).remove_namespaces!
+      return TeamSeasonStats.new(response.xpath("/season").xpath("team"))
     end
 
     ##
@@ -79,9 +90,6 @@ module SportsDataApi
 
       return Teams.new(teams.xpath('/league'))
     end
-    # Create an alias of teams to get_teams
-    # Maintain compatibility with rottmanj's patches
-    self.singleton_class.send(:alias_method, :get_teams, :teams)
 
     private
     def self.generic_request(url)
