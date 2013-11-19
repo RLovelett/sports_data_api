@@ -7,13 +7,15 @@ module SportsDataApi
     DIR = File.join(File.dirname(__FILE__), 'nfl')
     BASE_URL = 'http://api.sportsdatallc.org/nfl-%{access_level}%{version}'
 
-    autoload :Team,             File.join(DIR, 'team')
-    autoload :Teams,            File.join(DIR, 'teams')
-    autoload :TeamRoster,       File.join(DIR, 'team_roster')
-    autoload :TeamSeasonStats,  File.join(DIR, 'team_season_stats')
-    autoload :Game,             File.join(DIR, 'game')
-    autoload :Week,             File.join(DIR, 'week')
-    autoload :Season,           File.join(DIR, 'season')
+    autoload :Team,               File.join(DIR, 'team')
+    autoload :Teams,              File.join(DIR, 'teams')
+    autoload :TeamRoster,         File.join(DIR, 'team_roster')
+    autoload :Player,             File.join(DIR, 'player')
+    autoload :TeamSeasonStats,    File.join(DIR, 'team_season_stats')
+    autoload :PlayerSeasonStats,  File.join(DIR, 'player_season_stats')
+    autoload :Game,               File.join(DIR, 'game')
+    autoload :Week,               File.join(DIR, 'week')
+    autoload :Season,             File.join(DIR, 'season')
 
     ##
     # Fetches NFL season schedule for a given year and season.
@@ -35,16 +37,12 @@ module SportsDataApi
 
     ##
     # Fetch NFL Team Roster
-    def self.get_team_roster(team, version=1)
+    def self.team_roster(team, version=1)
       base_url = BASE_URL % { access_level: SportsDataApi.access_level, version: version }
       url = "#{base_url}/teams/#{team}/roster.xml"
 
-      response = Nokogiri::XML(self.generic_request(url.to_s))
-      players = []
-      response.search("player").each do |player|
-        players << TeamRoster.new(player)
-      end
-      return players
+      response = Nokogiri::XML(self.generic_request(url.to_s)).remove_namespaces!
+      return TeamRoster.new(response.xpath("team"))
     end
 
     ##
@@ -55,6 +53,16 @@ module SportsDataApi
 
       response = Nokogiri::XML(self.generic_request(url.to_s)).remove_namespaces!
       return TeamSeasonStats.new(response.xpath("/season").xpath("team"))
+    end
+
+    ##
+    # Fetch NFL Player Seaon Stats
+    def self.player_season_stats(team, season, season_type, version=1)
+      base_url = BASE_URL % { access_level: SportsDataApi.access_level, version: version }
+      url = "#{base_url}/teams/#{team}/#{season}/#{season_type}/statistics.xml"
+
+      response = Nokogiri::XML(self.generic_request(url.to_s)).remove_namespaces!
+      return PlayerSeasonStats.new(response.xpath("/season").xpath("team").xpath("players"))
     end
 
     ##

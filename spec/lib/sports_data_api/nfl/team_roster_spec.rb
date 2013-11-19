@@ -9,20 +9,20 @@ describe SportsDataApi::Nfl::TeamRoster, vcr: {
     SportsDataApi.key = api_key
     SportsDataApi.access_level = 't'
   end
-  let(:roster) { SportsDataApi::Nfl.get_team_roster('MIA').first }
+  let(:roster) { SportsDataApi::Nfl.team_roster('MIA').players.first }
 
   describe 'player' do
     it "responds to id attribute" do
-      expect(roster).to respond_to(:id)
-      expect(roster.id).not_to be nil
+      expect(roster.player.has_key?(:id)).to be true
+      expect(roster.player[:id]).not_to be nil
     end
     it "responds to position attribute" do
-      expect(roster).to respond_to(:position)
-      expect(roster.position).not_to be nil
+     expect(roster.player.has_key?(:position)).to be true
+      expect(roster.player[:position]).not_to be nil
     end
     it "responds to status attribute" do
-      expect(roster).to respond_to(:status)
-      expect(roster.status).not_to be nil
+      expect(roster.player.has_key?(:status)).to be true
+      expect(roster.player[:status]).not_to be nil
     end
   end
 end
