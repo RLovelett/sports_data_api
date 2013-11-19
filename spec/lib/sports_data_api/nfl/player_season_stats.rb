@@ -16,7 +16,7 @@ describe SportsDataApi::Nfl::PlayerSeasonStats, vcr: {
     it { subject.players.kind_of?(Array).should be true }
   end
 
-  describe ".player" do
+  describe ".players" do
     it "has key id" do
       expect(subject.players.first.has_key?(:id)).to be true
     end
