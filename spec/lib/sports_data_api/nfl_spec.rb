@@ -71,9 +71,9 @@ describe SportsDataApi::Nfl, vcr: {
       end
     end
 
-    context "#get_team_roster" do
+    context "#team_roster" do
       it "returns an array" do
-        expect(subject.get_team_roster('MIA').kind_of?(Array)).to be true
+        expect(subject.team_roster('MIA').players.kind_of?(Array)).to be true
       end
     end
   end
