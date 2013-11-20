@@ -12,8 +12,12 @@ module SportsDataApi
     autoload :TeamRoster,       File.join(DIR, 'team_roster')
     autoload :TeamSeasonStats,  File.join(DIR, 'team_season_stats')
     autoload :Game,             File.join(DIR, 'game')
+    autoload :Games,            File.join(DIR, 'games')
     autoload :Week,             File.join(DIR, 'week')
     autoload :Season,           File.join(DIR, 'season')
+    autoload :Venue,            File.join(DIR, 'venue')
+    autoload :Broadcast,        File.join(DIR, 'broadcast')
+    autoload :Weather,          File.join(DIR, 'weather')
 
     ##
     # Fetches NFL season schedule for a given year and season.
@@ -72,7 +76,7 @@ module SportsDataApi
       boxscore = Nokogiri::XML(response.to_s)
       boxscore.remove_namespaces!
 
-      return Game.new(boxscore.xpath("/game"))
+      return Game.new(year, season, week, boxscore.xpath("/game"))
     end
 
     ##
@@ -89,6 +93,23 @@ module SportsDataApi
       teams.remove_namespaces!
 
       return Teams.new(teams.xpath('/league'))
+    end
+
+    ##
+    #
+    def self.weekly(year, season, week, version = 1)
+      base_url = BASE_URL % { access_level: SportsDataApi.access_level, version: version}
+      season = season.to_s.upcase.to_sym
+      raise SportsDataApi::Nfl::Exception.new("#{season} is not a valid season") unless Season.valid?(season)
+      url = "#{base_url}/#{year}/#{season}/#{week}/schedule.xml"
+
+      response = self.generic_request(url)
+
+      # Load the XML and ignore namespaces in Nokogiri
+      games = Nokogiri::XML(response.to_s)
+      games.remove_namespaces!
+
+      return Games.new(games.xpath('/games'))
     end
 
     private
