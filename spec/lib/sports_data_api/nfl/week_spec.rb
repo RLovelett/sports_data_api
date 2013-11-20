@@ -13,6 +13,8 @@ describe SportsDataApi::Nfl::Week, vcr: {
     end
     subject { season.weeks.first }
     it { should be_an_instance_of(SportsDataApi::Nfl::Week) }
+    its(:year) { should eq 2012 }
+    its(:season) { should eq :REG }
     its(:number) { should eq 1 }
     its(:games) { should have(16).games }
   end
