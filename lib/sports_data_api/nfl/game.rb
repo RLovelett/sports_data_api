@@ -28,6 +28,56 @@ module SportsDataApi
           @weather = Weather.new(xml.xpath('weather'))
         end
       end
+
+      ##
+      # Wrapper for Nfl.statistics
+      # TODO
+      def statistics
+        raise NotImplementedError
+      end
+
+      ##
+      # Wrapper for Nfl.summary
+      # TODO
+      def summary
+        raise NotImplementedError
+      end
+
+      ##
+      # Wrapper for Nfl.pbp (Nfl.play_by_play)
+      # TODO
+      def pbp
+        raise NotImplementedError
+      end
+
+      ##
+      # Wrapper for Nfl.boxscore these helper methods are used
+      # to provide similar functionality as the links attribute
+      # found in the weekly schedule example.
+      def boxscore
+        Nfl.boxscore(year, season, week, home, away, 1)
+      end
+
+      ##
+      # Wrapper for Nfl.roster
+      # TODO
+      def roster
+        raise NotImplementedError
+      end
+
+      ##
+      # Wrapper for Nfl.injuries
+      # TODO
+      def injuries
+        raise NotImplementedError
+      end
+
+      ##
+      # Wrapper for Nfl.depthchart
+      # TODO
+      def depthchart
+        raise NotImplementedError
+      end
     end
   end
 end

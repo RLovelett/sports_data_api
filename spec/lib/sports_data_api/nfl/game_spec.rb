@@ -33,6 +33,25 @@ describe SportsDataApi::Nfl::Game, vcr: {
     its(:venue) { should be_an_instance_of(SportsDataApi::Nfl::Venue) }
     its(:broadcast) { should be_an_instance_of(SportsDataApi::Nfl::Broadcast) }
     its(:weather) { should be_an_instance_of(SportsDataApi::Nfl::Weather) }
+    it '#statistics' do
+      expect { subject.statistics }.to raise_error(NotImplementedError)
+    end
+    it '#summary' do
+      expect { subject.summary }.to raise_error(NotImplementedError)
+    end
+    it '#pbp' do
+      expect { subject.pbp }.to raise_error(NotImplementedError)
+    end
+    it '#roster' do
+      expect { subject.roster }.to raise_error(NotImplementedError)
+    end
+    it '#injuries' do
+      expect { subject.injuries }.to raise_error(NotImplementedError)
+    end
+    it '#depthchart' do
+      expect { subject.depthchart }.to raise_error(NotImplementedError)
+    end
+    its(:boxscore) { should be_an_instance_of(SportsDataApi::Nfl::Game) }
   end
   context 'results from boxscore fetch' do
     subject { boxscore }
@@ -49,6 +68,25 @@ describe SportsDataApi::Nfl::Game, vcr: {
     its(:venue) { should be_an_instance_of(SportsDataApi::Nfl::Venue) }
     its(:broadcast) { should be_an_instance_of(SportsDataApi::Nfl::Broadcast) }
     its(:weather) { should be_an_instance_of(SportsDataApi::Nfl::Weather) }
+    it '#statistics' do
+      expect { subject.statistics }.to raise_error(NotImplementedError)
+    end
+    it '#summary' do
+      expect { subject.summary }.to raise_error(NotImplementedError)
+    end
+    it '#pbp' do
+      expect { subject.pbp }.to raise_error(NotImplementedError)
+    end
+    it '#roster' do
+      expect { subject.roster }.to raise_error(NotImplementedError)
+    end
+    it '#injuries' do
+      expect { subject.injuries }.to raise_error(NotImplementedError)
+    end
+    it '#depthchart' do
+      expect { subject.depthchart }.to raise_error(NotImplementedError)
+    end
+    its(:boxscore) { should be_an_instance_of(SportsDataApi::Nfl::Game) }
   end
   context 'results from weekly schedule fetch' do
     subject { weekly_schedule.first }
@@ -65,5 +103,24 @@ describe SportsDataApi::Nfl::Game, vcr: {
     its(:venue) { should be_an_instance_of(SportsDataApi::Nfl::Venue) }
     its(:broadcast) { should be_an_instance_of(SportsDataApi::Nfl::Broadcast) }
     its(:weather) { should be_an_instance_of(SportsDataApi::Nfl::Weather) }
+    it '#statistics' do
+      expect { subject.statistics }.to raise_error(NotImplementedError)
+    end
+    it '#summary' do
+      expect { subject.summary }.to raise_error(NotImplementedError)
+    end
+    it '#pbp' do
+      expect { subject.pbp }.to raise_error(NotImplementedError)
+    end
+    it '#roster' do
+      expect { subject.roster }.to raise_error(NotImplementedError)
+    end
+    it '#injuries' do
+      expect { subject.injuries }.to raise_error(NotImplementedError)
+    end
+    it '#depthchart' do
+      expect { subject.depthchart }.to raise_error(NotImplementedError)
+    end
+    its(:boxscore) { should be_an_instance_of(SportsDataApi::Nfl::Game) }
   end
 end
