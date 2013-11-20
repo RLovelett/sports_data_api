@@ -11,7 +11,7 @@ module SportsDataApi
         if xml.is_a? Nokogiri::XML::Element
           @number = xml["week"].to_i
           @games = xml.xpath("game").map do |game_xml|
-            Game.new(game_xml)
+            Game.new(@year, @season, @number, game_xml)
           end
         end
       end

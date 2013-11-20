@@ -2,9 +2,14 @@ module SportsDataApi
   module Nfl
     class Game
       attr_reader :id, :scheduled, :home, :home_team, :away,
-        :away_team, :status, :quarter, :clock, :venue, :broadcast, :weather
+        :away_team, :status, :quarter, :clock, :venue, :broadcast, :weather,
+        :year, :season, :week
 
-      def initialize(xml)
+      def initialize(year, season, week, xml)
+        @year = year.to_i
+        @season = season.to_sym
+        @week = week.to_i
+
         xml = xml.first if xml.is_a? Nokogiri::XML::NodeSet
         if xml.is_a? Nokogiri::XML::Element
           @id = xml['id']

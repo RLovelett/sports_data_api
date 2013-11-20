@@ -76,7 +76,7 @@ module SportsDataApi
       boxscore = Nokogiri::XML(response.to_s)
       boxscore.remove_namespaces!
 
-      return Game.new(boxscore.xpath("/game"))
+      return Game.new(year, season, week, boxscore.xpath("/game"))
     end
 
     ##
