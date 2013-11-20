@@ -13,6 +13,9 @@ describe SportsDataApi::Nfl::Games, vcr: {
     end
     subject { games }
     it { should be_an_instance_of(SportsDataApi::Nfl::Games) }
+    its(:year) { should eq 2012 }
+    its(:season) { should eq :PRE }
+    its(:week) { should eq 1 }
     its(:count) { should eq 16 }
   end
 end
