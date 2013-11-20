@@ -14,9 +14,6 @@ module SportsDataApi
         end
       end
 
-      def self.valid?(season)
-
-      end
       ##
       # Check if the requested season is a valid
       # NFL season type.
