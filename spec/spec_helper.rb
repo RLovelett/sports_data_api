@@ -1,10 +1,13 @@
 require 'simplecov'
 require 'coveralls'
 require 'pry'
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
+  Coveralls::SimpleCov::Formatter,
+  SimpleCov::Formatter::HTMLFormatter
+]
 SimpleCov.start do
   add_filter "/spec/"
 end
-Coveralls.wear!
 
 # Previous content of test helper now starts here
 require "sports_data_api"
