@@ -7,19 +7,19 @@ module SportsDataApi
     DIR = File.join(File.dirname(__FILE__), 'nfl')
     BASE_URL = 'http://api.sportsdatallc.org/nfl-%{access_level}%{version}'
 
-    autoload :Team,              File.join(DIR, 'team')
-    autoload :Teams,             File.join(DIR, 'teams')
-    autoload :TeamRoster,        File.join(DIR, 'team_roster')
-    autoload :Player,            File.join(DIR, 'player')
-    autoload :TeamSeasonStats,   File.join(DIR, 'team_season_stats')
+    autoload :Team, File.join(DIR, 'team')
+    autoload :Teams, File.join(DIR, 'teams')
+    autoload :TeamRoster, File.join(DIR, 'team_roster')
+    autoload :Player, File.join(DIR, 'player')
+    autoload :TeamSeasonStats, File.join(DIR, 'team_season_stats')
     autoload :PlayerSeasonStats, File.join(DIR, 'player_season_stats')
-    autoload :Game,              File.join(DIR, 'game')
-    autoload :Games,             File.join(DIR, 'games')
-    autoload :Week,              File.join(DIR, 'week')
-    autoload :Season,            File.join(DIR, 'season')
-    autoload :Venue,             File.join(DIR, 'venue')
-    autoload :Broadcast,         File.join(DIR, 'broadcast')
-    autoload :Weather,           File.join(DIR, 'weather')
+    autoload :Game, File.join(DIR, 'game')
+    autoload :Games, File.join(DIR, 'games')
+    autoload :Week, File.join(DIR, 'week')
+    autoload :Season, File.join(DIR, 'season')
+    autoload :Venue, File.join(DIR, 'venue')
+    autoload :Broadcast, File.join(DIR, 'broadcast')
+    autoload :Weather, File.join(DIR, 'weather')
 
     ##
     # Fetches NFL season schedule for a given year and season.
