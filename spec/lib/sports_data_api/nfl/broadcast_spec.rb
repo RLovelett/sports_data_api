@@ -7,7 +7,7 @@ describe SportsDataApi::Nfl::Broadcast, vcr: {
 } do
   let(:weekly_schedule) do
     SportsDataApi.access_level = 't'
-    SportsDataApi.key = api_key
+    SportsDataApi.set_key(:nfl, api_key(:nfl))
     SportsDataApi::Nfl.weekly(2011, :PST, 4)
   end
   context 'results from weekly schedule fetch' do

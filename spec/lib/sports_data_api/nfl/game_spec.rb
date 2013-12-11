@@ -6,18 +6,18 @@ describe SportsDataApi::Nfl::Game, vcr: {
     match_requests_on: [:host, :path]
 } do
   let(:season) do
-    SportsDataApi.key = api_key
+    SportsDataApi.set_key(:nfl, api_key(:nfl))
     SportsDataApi.access_level = 't'
     SportsDataApi::Nfl.schedule(2012, :REG)
   end
   let(:boxscore) do
-    SportsDataApi.key = api_key
+    SportsDataApi.set_key(:nfl, api_key(:nfl))
     SportsDataApi.access_level = 't'
     SportsDataApi::Nfl.boxscore(2012, :REG, 9, 'IND', 'MIA')
   end
   let(:weekly_schedule) do
     SportsDataApi.access_level = 't'
-    SportsDataApi.key = api_key
+    SportsDataApi.set_key(:nfl, api_key(:nfl))
     SportsDataApi::Nfl.weekly(2012, :PRE, 1)
   end
   context 'results from schedule fetch' do

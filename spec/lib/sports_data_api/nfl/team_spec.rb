@@ -6,7 +6,7 @@ describe SportsDataApi::Nfl::Team, vcr: {
     match_requests_on: [:host, :path]
 } do
   let(:boxscore) do
-    SportsDataApi.key = api_key
+    SportsDataApi.set_key(:nfl, api_key(:nfl))
     SportsDataApi.access_level = 't'
     SportsDataApi::Nfl.boxscore(2012, :REG, 9, 'IND', 'MIA')
   end
@@ -38,7 +38,7 @@ describe SportsDataApi::Nfl::Team, vcr: {
     let(:url) { 'http://api.sportsdatallc.org/nfl-t1/teams/hierarchy.xml' }
 
     let(:dolphins_xml) do
-      str = RestClient.get(url, params: { api_key: api_key }).to_s
+      str = RestClient.get(url, params: { api_key: api_key(:nfl) }).to_s
       xml = Nokogiri::XML(str)
       xml.remove_namespaces!
       xml.xpath('/league/conference/division/team[@id=\'MIA\']')

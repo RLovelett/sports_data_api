@@ -4,13 +4,15 @@ require "rest_client"
 require "time"
 
 module SportsDataApi
-  def self.key
-    @key ||= ''
-    @key
+  def self.key(sport)
+    @key ||= {}
+    @key[sport] ||= ''
+    @key[sport]
   end
 
-  def self.key=(new_key)
-    @key = new_key
+  def self.set_key(sport, new_key)
+    @key ||= {}
+    @key[sport] = new_key
   end
 
   def self.access_level
@@ -26,5 +28,6 @@ module SportsDataApi
 
   autoload :Stats,       File.join(LIBRARY_PATH, 'stats')
   autoload :Nfl,         File.join(LIBRARY_PATH, 'nfl')
+  autoload :Nba,         File.join(LIBRARY_PATH, 'nba')
   autoload :Exception,   File.join(LIBRARY_PATH, 'exception')
 end

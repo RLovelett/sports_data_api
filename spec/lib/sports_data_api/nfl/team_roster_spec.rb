@@ -6,7 +6,7 @@ describe SportsDataApi::Nfl::TeamRoster, vcr: {
     match_requests_on: [:host, :path]
 } do
   before do
-    SportsDataApi.key = api_key
+    SportsDataApi.set_key(:nfl, api_key(:nfl))
     SportsDataApi.access_level = 't'
   end
   let(:roster) { SportsDataApi::Nfl.team_roster('MIA').players.first }
