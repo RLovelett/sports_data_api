@@ -8,7 +8,7 @@ describe SportsDataApi::Nfl::Games, vcr: {
   context 'results from weekly schedule fetch' do
     let(:games) do
       SportsDataApi.access_level = 't'
-      SportsDataApi.key = api_key
+      SportsDataApi.set_key(:nfl, api_key(:nfl))
       SportsDataApi::Nfl.weekly(2012, :PRE, 1)
     end
     subject { games }

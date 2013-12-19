@@ -123,7 +123,7 @@ module SportsDataApi
     private
     def self.generic_request(url)
       begin
-        return RestClient.get(url, params: { api_key: SportsDataApi.key })
+        return RestClient.get(url, params: { api_key: SportsDataApi.key(:nfl) })
       rescue RestClient::RequestTimeout => timeout
         raise SportsDataApi::Exception, 'The API did not respond in a reasonable amount of time'
       rescue RestClient::Exception => e

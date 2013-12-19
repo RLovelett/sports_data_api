@@ -1,14 +1,14 @@
 require 'spec_helper'
 
-describe SportsDataApi::Nfl::Season, vcr: {
-    cassette_name: 'sports_data_api_nfl_season',
+describe SportsDataApi::Nba::Season, vcr: {
+    cassette_name: 'sports_data_api_nba_season',
     record: :new_episodes,
     match_requests_on: [:host, :path]
 } do
-  subject { SportsDataApi::Nfl::Season }
+  subject { SportsDataApi::Nba::Season }
   describe '.season?' do
     context :PRE do
-      it { SportsDataApi::Nfl::Season.valid?(:PRE).should be_true }
+      it { SportsDataApi::Nba::Season.valid?(:PRE).should be_true }
     end
     context :REG do
       it { subject.valid?(:REG).should be_true }
@@ -29,13 +29,13 @@ describe SportsDataApi::Nfl::Season, vcr: {
   context 'results from schedule fetch' do
       let(:season) do
         SportsDataApi.access_level = 't'
-        SportsDataApi.set_key(:nfl, api_key(:nfl))
-        SportsDataApi::Nfl.schedule(2012, :REG)
+        SportsDataApi.set_key(:nba, api_key(:nba))
+        SportsDataApi::Nba.schedule(2013, :reg)
       end
       subject { season }
-      it { should be_an_instance_of(SportsDataApi::Nfl::Season) }
-      its(:year) { should eq 2012 }
+      it { should be_an_instance_of(SportsDataApi::Nba::Season) }
+      its(:year) { should eq 2013 }
       its(:type) { should eq :REG }
-      its(:weeks) { should have(17).weeks }
+      its(:games) { should have(1230).games }
   end
 end

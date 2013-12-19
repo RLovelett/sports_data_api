@@ -8,7 +8,7 @@ describe SportsDataApi::Nfl, vcr: {
 
   context 'invalid API key' do
     before(:each) do
-      SportsDataApi.key = 'invalid_key'
+      SportsDataApi.set_key(:nfl, 'invalid_key')
       SportsDataApi.access_level = 't'
     end
     describe '.schedule' do
@@ -40,15 +40,15 @@ describe SportsDataApi::Nfl, vcr: {
     let(:boxscore_url) { 'http://api.sportsdatallc.org/nfl-t1/2012/REG/9/MIA/IND/boxscore.xml' }
     let(:weekly_url) { 'http://api.sportsdatallc.org/nfl-t1/2012/PRE/1/schedule.xml' }
     before(:each) do
-      SportsDataApi.key = 'invalid_key'
+      SportsDataApi.set_key(:nfl, 'invalid_key')
       SportsDataApi.access_level = 't'
-      @schedule_xml = RestClient.get("#{schedule_url}?api_key=#{api_key}")
-      @boxscore_xml = RestClient.get("#{boxscore_url}?api_key=#{api_key}")
-      @weekly_xml = RestClient.get("#{weekly_url}?api_key=#{api_key}")
+      @schedule_xml = RestClient.get("#{schedule_url}?api_key=#{api_key(:nfl)}")
+      @boxscore_xml = RestClient.get("#{boxscore_url}?api_key=#{api_key(:nfl)}")
+      @weekly_xml = RestClient.get("#{weekly_url}?api_key=#{api_key(:nfl)}")
     end
     describe '.schedule' do
       it 'creates a valid Sports Data LLC url' do
-        params = { params: { api_key: SportsDataApi.key } }
+        params = { params: { api_key: SportsDataApi.key(:nfl) } }
         RestClient.should_receive(:get).with(schedule_url, params).and_return(@schedule_xml)
         subject.schedule(2012, :REG)
       end
@@ -56,7 +56,7 @@ describe SportsDataApi::Nfl, vcr: {
 
     describe '.boxscore' do
       it 'creates a valid Sports Data LLC url' do
-        params = { params: { api_key: SportsDataApi.key } }
+        params = { params: { api_key: SportsDataApi.key(:nfl) } }
         RestClient.should_receive(:get).with(boxscore_url, params).and_return(@boxscore_xml)
         subject.boxscore(2012, :REG, 9, 'IND', 'MIA')
       end
@@ -64,7 +64,7 @@ describe SportsDataApi::Nfl, vcr: {
 
     describe '.weekly' do
       it 'creates a valid Sports Data LLC url' do
-        params = { params: { api_key: SportsDataApi.key } }
+        params = { params: { api_key: SportsDataApi.key(:nfl) } }
         RestClient.should_receive(:get).with(weekly_url, params).and_return(@weekly_xml)
         subject.weekly(2012, :PRE, 1)
       end
@@ -73,7 +73,7 @@ describe SportsDataApi::Nfl, vcr: {
 
   describe "team based class methods" do
     before do
-      SportsDataApi.key = api_key
+      SportsDataApi.set_key(:nfl, api_key(:nfl))
       SportsDataApi.access_level = 't'
     end
 
@@ -96,7 +96,7 @@ describe SportsDataApi::Nfl, vcr: {
 
   describe "player based class methods" do
     before do
-      SportsDataApi.key = api_key
+      SportsDataApi.set_key(:nfl, api_key(:nfl))
       SportsDataApi.access_level = 't'
     end
 
