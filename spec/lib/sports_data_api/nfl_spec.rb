@@ -9,7 +9,7 @@ describe SportsDataApi::Nfl, vcr: {
   context 'invalid API key' do
     before(:each) do
       SportsDataApi.set_key(:nfl, 'invalid_key')
-      SportsDataApi.access_level = 't'
+      SportsDataApi.set_access_level(:nfl, 't')
     end
     describe '.schedule' do
       it { expect { subject.schedule(2013, :REG) }.to raise_error(SportsDataApi::Exception) }
@@ -41,7 +41,7 @@ describe SportsDataApi::Nfl, vcr: {
     let(:weekly_url) { 'http://api.sportsdatallc.org/nfl-t1/2012/PRE/1/schedule.xml' }
     before(:each) do
       SportsDataApi.set_key(:nfl, 'invalid_key')
-      SportsDataApi.access_level = 't'
+      SportsDataApi.set_access_level(:nfl, 't')
       @schedule_xml = RestClient.get("#{schedule_url}?api_key=#{api_key(:nfl)}")
       @boxscore_xml = RestClient.get("#{boxscore_url}?api_key=#{api_key(:nfl)}")
       @weekly_xml = RestClient.get("#{weekly_url}?api_key=#{api_key(:nfl)}")
@@ -74,7 +74,7 @@ describe SportsDataApi::Nfl, vcr: {
   describe "team based class methods" do
     before do
       SportsDataApi.set_key(:nfl, api_key(:nfl))
-      SportsDataApi.access_level = 't'
+      SportsDataApi.set_access_level(:nfl, 't')
     end
 
     context "#team_season_stats" do
@@ -97,7 +97,7 @@ describe SportsDataApi::Nfl, vcr: {
   describe "player based class methods" do
     before do
       SportsDataApi.set_key(:nfl, api_key(:nfl))
-      SportsDataApi.access_level = 't'
+      SportsDataApi.set_access_level(:nfl, 't')
     end
 
     context "#player_season_stats" do

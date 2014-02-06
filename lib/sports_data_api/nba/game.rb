@@ -33,7 +33,7 @@ module SportsDataApi
       # Wrapper for Nba.game_summary
       # TODO
       def summary
-        raise NotImplementedError
+        Nba.game_summary(@id)
       end
 
       ##

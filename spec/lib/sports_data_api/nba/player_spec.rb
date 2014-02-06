@@ -7,7 +7,7 @@ describe SportsDataApi::Nba::Player, vcr: {
 } do
   before do
     SportsDataApi.set_key(:nba, api_key(:nba))
-    SportsDataApi.access_level = 't'
+    SportsDataApi.set_access_level(:nba, 't')
   end
   let(:player) { SportsDataApi::Nba.team_roster('583ec825-fb46-11e1-82cb-f4ce4684ea4c').players.first.player }
 

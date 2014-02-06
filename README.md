@@ -21,12 +21,12 @@ log](https://github.com/rlovelett/sports_data_api/issues).
 ## API Support
 
   * [NFL](http://developer.sportsdatallc.com/docs/NFL_API)
+  * [NBA](http://developer.sportsdatallc.com/docs/NBA_API)
   * TODO
     1. [MLB](http://developer.sportsdatallc.com/docs/MLB_API)
     2. [NHL](http://developer.sportsdatallc.com/docs/NHL_API)
-    3. [NBA](http://developer.sportsdatallc.com/docs/NBA_API)
-    4. [NCAA Basketball](http://developer.sportsdatallc.com/docs/NCAA_Mens_Basketball)
-    5. [NCAA Football](http://developer.sportsdatallc.com/docs/NCAA_Football_API)
+    3. [NCAA Basketball](http://developer.sportsdatallc.com/docs/NCAA_Mens_Basketball)
+    4. [NCAA Football](http://developer.sportsdatallc.com/docs/NCAA_Football_API)
 
 ## Installation
 
