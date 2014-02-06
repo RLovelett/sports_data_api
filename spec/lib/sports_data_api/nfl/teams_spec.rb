@@ -7,7 +7,7 @@ describe SportsDataApi::Nfl::Teams, vcr: {
 } do
   let(:teams) do
     SportsDataApi.set_key(:nfl, api_key(:nfl))
-    SportsDataApi.access_level = 't'
+    SportsDataApi.set_access_level(:nfl, 't')
     SportsDataApi::Nfl.teams
   end
 

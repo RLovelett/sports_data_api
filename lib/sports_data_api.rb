@@ -15,13 +15,15 @@ module SportsDataApi
     @key[sport] = new_key
   end
 
-  def self.access_level
-    @access_level ||= "t"
-    @access_level
+  def self.access_level(sport)
+    @access_level ||= {}
+    @access_level[sport] ||= "t"
+    @access_level[sport]
   end
 
-  def self.access_level=(new_level)
-    @access_level = new_level
+  def self.set_access_level(sport, new_level)
+    @access_level ||= {}
+    @access_level[sport] = new_level
   end
 
   LIBRARY_PATH = File.join(File.dirname(__FILE__), 'sports_data_api')

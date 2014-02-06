@@ -7,7 +7,7 @@ describe SportsDataApi::Nfl::Team, vcr: {
 } do
   let(:boxscore) do
     SportsDataApi.set_key(:nfl, api_key(:nfl))
-    SportsDataApi.access_level = 't'
+    SportsDataApi.set_access_level(:nfl, 't')
     SportsDataApi::Nfl.boxscore(2012, :REG, 9, 'IND', 'MIA')
   end
   describe 'home team' do

@@ -7,16 +7,16 @@ describe SportsDataApi::Nba::Game, vcr: {
 } do
   let(:season) do
     SportsDataApi.set_key(:nba, api_key(:nba))
-    SportsDataApi.access_level = 't'
+    SportsDataApi.set_access_level(:nba, 't')
     SportsDataApi::Nba.schedule(2013, :REG)
   end
   let(:game_summary) do
     SportsDataApi.set_key(:nba, api_key(:nba))
-    SportsDataApi.access_level = 't'
+    SportsDataApi.set_access_level(:nba, 't')
     SportsDataApi::Nba.game_summary('e1dcf692-330d-46d3-8add-a241b388fbe2')
   end
   let(:daily_schedule) do
-    SportsDataApi.access_level = 't'
+    SportsDataApi.set_access_level(:nba, 't')
     SportsDataApi.set_key(:nba, api_key(:nba))
     SportsDataApi::Nba.daily(2013, 12, 12)
   end
@@ -32,11 +32,9 @@ describe SportsDataApi::Nba::Game, vcr: {
     its(:away_team) { should be_an_instance_of(SportsDataApi::Nba::Team) }
     its(:venue) { should be_an_instance_of(SportsDataApi::Nba::Venue) }
     its(:broadcast) { should be_an_instance_of(SportsDataApi::Nba::Broadcast) }
+    its(:summary) { should be_an_instance_of(SportsDataApi::Nba::Game) }
     it '#boxscore' do
       expect { subject.boxscore }.to raise_error(NotImplementedError)
-    end
-    it '#summary' do
-      expect { subject.summary }.to raise_error(NotImplementedError)
     end
     it '#pbp' do
       expect { subject.pbp }.to raise_error(NotImplementedError)
@@ -56,11 +54,9 @@ describe SportsDataApi::Nba::Game, vcr: {
     its(:away_team) { should be_an_instance_of(SportsDataApi::Nba::Team) }
     its(:venue) { should be_an_instance_of(SportsDataApi::Nba::Venue) }
     its(:broadcast) { should be_an_instance_of(SportsDataApi::Nba::Broadcast) }
+    its(:summary) { should be_an_instance_of(SportsDataApi::Nba::Game) }
     it '#boxscore' do
       expect { subject.boxscore }.to raise_error(NotImplementedError)
-    end
-    it '#summary' do
-      expect { subject.summary }.to raise_error(NotImplementedError)
     end
     it '#pbp' do
       expect { subject.pbp }.to raise_error(NotImplementedError)
@@ -73,18 +69,16 @@ describe SportsDataApi::Nba::Game, vcr: {
     its(:scheduled) { should eq Time.new(2013, 12, 12, 20, 00, 00, '-05:00') }
     its(:home) { should eq '583ec9d6-fb46-11e1-82cb-f4ce4684ea4c' }
     its(:away) { should eq '583ecdfb-fb46-11e1-82cb-f4ce4684ea4c' }
-    its(:status) { should eq 'scheduled' }
+    its(:status) { should eq 'closed' }
     its(:quarter) { should eq nil }
     its(:clock) { should eq nil }
     its(:home_team) { should be_an_instance_of(SportsDataApi::Nba::Team) }
     its(:away_team) { should be_an_instance_of(SportsDataApi::Nba::Team) }
     its(:venue) { should be_an_instance_of(SportsDataApi::Nba::Venue) }
     its(:broadcast) { should be_an_instance_of(SportsDataApi::Nba::Broadcast) }
+    its(:summary) { should be_an_instance_of(SportsDataApi::Nba::Game) }
     it '#boxscore' do
       expect { subject.boxscore }.to raise_error(NotImplementedError)
-    end
-    it '#summary' do
-      expect { subject.summary }.to raise_error(NotImplementedError)
     end
     it '#pbp' do
       expect { subject.pbp }.to raise_error(NotImplementedError)

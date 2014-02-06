@@ -7,7 +7,7 @@ describe SportsDataApi::Nfl::TeamSeasonStats, vcr: {
 } do
   before do
     SportsDataApi.set_key(:nfl, api_key(:nfl))
-    SportsDataApi.access_level = 't'
+    SportsDataApi.set_access_level(:nfl, 't')
   end
   let(:team_stats) { SportsDataApi::Nfl.team_season_stats("BUF", 2013, "REG") }
   subject { team_stats }

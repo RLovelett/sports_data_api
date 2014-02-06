@@ -24,7 +24,7 @@ module SportsDataApi
     ##
     # Fetches NFL season schedule for a given year and season.
     def self.schedule(year, season, version = 1)
-      base_url = BASE_URL % { access_level: SportsDataApi.access_level, version: version }
+      base_url = BASE_URL % { access_level: SportsDataApi.access_level(:nfl), version: version }
       season = season.to_s.upcase.to_sym
       raise SportsDataApi::Nfl::Exception.new("#{season} is not a valid season") unless Season.valid?(season)
       url = "#{base_url}/#{year}/#{season}/schedule.xml"
@@ -42,7 +42,7 @@ module SportsDataApi
     ##
     # Fetch NFL Team Roster
     def self.team_roster(team, version=1)
-      base_url = BASE_URL % { access_level: SportsDataApi.access_level, version: version }
+      base_url = BASE_URL % { access_level: SportsDataApi.access_level(:nfl), version: version }
       url = "#{base_url}/teams/#{team}/roster.xml"
 
       response = Nokogiri::XML(self.generic_request(url.to_s)).remove_namespaces!
@@ -52,7 +52,7 @@ module SportsDataApi
     ##
     # Fetch NFL Team Seaon Stats
     def self.team_season_stats(team, season, season_type, version=1)
-      base_url = BASE_URL % { access_level: SportsDataApi.access_level, version: version }
+      base_url = BASE_URL % { access_level: SportsDataApi.access_level(:nfl), version: version }
       url = "#{base_url}/teams/#{team}/#{season}/#{season_type}/statistics.xml"
 
       response = Nokogiri::XML(self.generic_request(url.to_s)).remove_namespaces!
@@ -62,7 +62,7 @@ module SportsDataApi
     ##
     # Fetch NFL Player Seaon Stats
     def self.player_season_stats(team, season, season_type, version=1)
-      base_url = BASE_URL % { access_level: SportsDataApi.access_level, version: version }
+      base_url = BASE_URL % { access_level: SportsDataApi.access_level(:nfl), version: version }
       url = "#{base_url}/teams/#{team}/#{season}/#{season_type}/statistics.xml"
 
       response = Nokogiri::XML(self.generic_request(url.to_s)).remove_namespaces!
@@ -72,7 +72,7 @@ module SportsDataApi
     ##
     #
     def self.boxscore(year, season, week, home, away, version = 1)
-      base_url = BASE_URL % { access_level: SportsDataApi.access_level, version: version }
+      base_url = BASE_URL % { access_level: SportsDataApi.access_level(:nfl), version: version }
       season = season.to_s.upcase.to_sym
       raise SportsDataApi::Nfl::Exception.new("#{season} is not a valid season") unless Season.valid?(season)
       url = "#{base_url}/#{year}/#{season}/#{week}/#{away}/#{home}/boxscore.xml"
@@ -90,7 +90,7 @@ module SportsDataApi
     ##
     # Fetches all NFL Teams
     def self.teams(version = 1)
-      base_url = BASE_URL % { access_level: SportsDataApi.access_level, version: version }
+      base_url = BASE_URL % { access_level: SportsDataApi.access_level(:nfl), version: version }
       url = "#{base_url}/teams/hierarchy.xml"
 
       # Perform the request
@@ -106,7 +106,7 @@ module SportsDataApi
     ##
     #
     def self.weekly(year, season, week, version = 1)
-      base_url = BASE_URL % { access_level: SportsDataApi.access_level, version: version}
+      base_url = BASE_URL % { access_level: SportsDataApi.access_level(:nfl), version: version}
       season = season.to_s.upcase.to_sym
       raise SportsDataApi::Nfl::Exception.new("#{season} is not a valid season") unless Season.valid?(season)
       url = "#{base_url}/#{year}/#{season}/#{week}/schedule.xml"
