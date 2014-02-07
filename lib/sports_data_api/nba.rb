@@ -19,7 +19,7 @@ module SportsDataApi
     ##
     # Fetches NBA season schedule for a given year and season.
     def self.schedule(year, season, version = 3)
-      base_url = BASE_URL % { access_level: SportsDataApi.access_level, version: version }
+      base_url = BASE_URL % { access_level: SportsDataApi.access_level(:nba), version: version }
       season = season.to_s.upcase.to_sym
       raise SportsDataApi::Nba::Exception.new("#{season} is not a valid season") unless Season.valid?(season)
       url = "#{base_url}/games/#{year}/#{season}/schedule.xml"
@@ -37,7 +37,7 @@ module SportsDataApi
     ##
     # Fetch NBA Team Roster
     def self.team_roster(team, version=3)
-      base_url = BASE_URL % { access_level: SportsDataApi.access_level, version: version }
+      base_url = BASE_URL % { access_level: SportsDataApi.access_level(:nba), version: version }
       url = "#{base_url}/teams/#{team}/profile.xml"
 
       roster = Nokogiri::XML(self.generic_request(url.to_s)).remove_namespaces!
@@ -47,7 +47,7 @@ module SportsDataApi
     ##
     #
     def self.game_summary(game, version = 3)
-      base_url = BASE_URL % { access_level: SportsDataApi.access_level, version: version }
+      base_url = BASE_URL % { access_level: SportsDataApi.access_level(:nba), version: version }
       url = "#{base_url}/games/#{game}/summary.xml"
 
       # Perform the request
@@ -63,7 +63,7 @@ module SportsDataApi
     ##
     # Fetches all NBA Teams
     def self.teams(version = 3)
-      base_url = BASE_URL % { access_level: SportsDataApi.access_level, version: version }
+      base_url = BASE_URL % { access_level: SportsDataApi.access_level(:nba), version: version }
       url = "#{base_url}/league/hierarchy.xml"
 
       # Perform the request
@@ -79,7 +79,7 @@ module SportsDataApi
     ##
     #
     def self.daily(year, month, day, version = 3)
-      base_url = BASE_URL % { access_level: SportsDataApi.access_level, version: version}
+      base_url = BASE_URL % { access_level: SportsDataApi.access_level(:nba), version: version}
       url = "#{base_url}/games/#{year}/#{month}/#{day}/schedule.xml"
 
       response = self.generic_request(url)

@@ -28,7 +28,7 @@ describe SportsDataApi::Nba::Season, vcr: {
   end
   context 'results from schedule fetch' do
       let(:season) do
-        SportsDataApi.access_level = 't'
+        SportsDataApi.set_access_level(:nba, 't')
         SportsDataApi.set_key(:nba, api_key(:nba))
         SportsDataApi::Nba.schedule(2013, :reg)
       end

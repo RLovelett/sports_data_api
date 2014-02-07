@@ -7,17 +7,17 @@ describe SportsDataApi::Nba::Team, vcr: {
 } do
   let(:teams) do
     SportsDataApi.set_key(:nba, api_key(:nba))
-    SportsDataApi.access_level = 't'
+    SportsDataApi.set_access_level(:nba, 't')
     SportsDataApi::Nba.teams
   end
   let(:roster) do
     SportsDataApi.set_key(:nba, api_key(:nba))
-    SportsDataApi.access_level = 't'
+    SportsDataApi.set_access_level(:nba, 't')
     SportsDataApi::Nba.team_roster('583ec825-fb46-11e1-82cb-f4ce4684ea4c')
   end
   let(:game_summary) do
     SportsDataApi.set_key(:nba, api_key(:nba))
-    SportsDataApi.access_level = 't'
+    SportsDataApi.set_access_level(:nba, 't')
     SportsDataApi::Nba.game_summary('e1dcf692-330d-46d3-8add-a241b388fbe2')
   end
 
@@ -31,6 +31,7 @@ describe SportsDataApi::Nba::Team, vcr: {
     its(:market) { should eq 'Washington' }
     its(:name) { should eq 'Wizards' }
     its(:players) { should eq [] }
+    its(:points) { should be_nil }
   end
   context 'results from team roster fetch' do
     subject { roster }
@@ -40,6 +41,7 @@ describe SportsDataApi::Nba::Team, vcr: {
     its(:market) { should eq 'Golden State' }
     its(:name) { should eq 'Warriors' }
     its(:players) { should be_an_instance_of(Array) }
+    its(:points) { should be_nil }
     context 'players' do
       subject { roster.players }
       its(:count) { should eq 15 }
@@ -51,6 +53,7 @@ describe SportsDataApi::Nba::Team, vcr: {
     its(:id) { should eq '583ec825-fb46-11e1-82cb-f4ce4684ea4c' }
     its(:market) { should eq 'Golden State' }
     its(:name) { should eq 'Warriors' }
+    its(:points) { should eq 125 }
     its(:alias) { should be_nil }
     its(:conference) { should be_nil }
     its(:division) { should be_nil }

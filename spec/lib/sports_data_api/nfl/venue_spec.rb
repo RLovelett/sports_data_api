@@ -6,7 +6,7 @@ describe SportsDataApi::Nfl::Venue, vcr: {
     match_requests_on: [:host, :path]
 } do
   let(:weekly_schedule) do
-    SportsDataApi.access_level = 't'
+    SportsDataApi.set_access_level(:nfl, 't')
     SportsDataApi.set_key(:nfl, api_key(:nfl))
     SportsDataApi::Nfl.weekly(2011, :PST, 4)
   end

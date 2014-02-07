@@ -5,9 +5,11 @@ describe SportsDataApi do
     let(:level) { "b" }
     before(:each) do
       SportsDataApi.set_key(:foo, 'bar')
-      SportsDataApi.access_level = level
+      SportsDataApi.set_access_level(:foo, level)
     end
-    its(:access_level) { should eq level }
+    it 'should have the proper access level for :foo' do
+      expect(SportsDataApi.access_level(:foo)).to eql 'b'
+    end
     it 'should have the proper key for :foo' do
       expect(SportsDataApi.key(:foo)).to eq 'bar'
     end
