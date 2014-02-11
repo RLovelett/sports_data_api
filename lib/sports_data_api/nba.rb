@@ -6,6 +6,8 @@ module SportsDataApi
 
     DIR = File.join(File.dirname(__FILE__), 'nba')
     BASE_URL = 'http://api.sportsdatallc.org/nba-%{access_level}%{version}'
+    DEFAULT_VERSION = 3
+    SPORT = :nba
 
     autoload :Team, File.join(DIR, 'team')
     autoload :Teams, File.join(DIR, 'teams')
@@ -17,96 +19,53 @@ module SportsDataApi
     autoload :Broadcast, File.join(DIR, 'broadcast')
 
     ##
-    # Fetches NBA season schedule for a given year and season.
-    def self.schedule(year, season, version = 3)
-      base_url = BASE_URL % { access_level: SportsDataApi.access_level(:nba), version: version }
+    # Fetches NBA season schedule for a given year and season
+    def self.schedule(year, season, version = DEFAULT_VERSION)
       season = season.to_s.upcase.to_sym
       raise SportsDataApi::Nba::Exception.new("#{season} is not a valid season") unless Season.valid?(season)
-      url = "#{base_url}/games/#{year}/#{season}/schedule.xml"
 
-      # Perform the request
-      response = self.generic_request(url)
+      response = self.response_xml(version, "/games/#{year}/#{season}/schedule.xml")
 
-      # Load the XML and ignore namespaces in Nokogiri
-      schedule = Nokogiri::XML(response.to_s)
-      schedule.remove_namespaces!
-
-      return Season.new(schedule.xpath("/league/season-schedule"))
+      return Season.new(response.xpath("/league/season-schedule"))
     end
 
     ##
-    # Fetch NBA Team Roster
-    def self.team_roster(team, version=3)
-      base_url = BASE_URL % { access_level: SportsDataApi.access_level(:nba), version: version }
-      url = "#{base_url}/teams/#{team}/profile.xml"
+    # Fetches NBA team roster
+    def self.team_roster(team, version = DEFAULT_VERSION)
+      response = self.response_xml(version, "/teams/#{team}/profile.xml")
 
-      roster = Nokogiri::XML(self.generic_request(url.to_s)).remove_namespaces!
-      return Team.new(roster.xpath("team"))
+      return Team.new(response.xpath("team"))
     end
 
     ##
-    #
-    def self.game_summary(game, version = 3)
-      base_url = BASE_URL % { access_level: SportsDataApi.access_level(:nba), version: version }
-      url = "#{base_url}/games/#{game}/summary.xml"
+    # Fetches NBA game summary for a given game
+    def self.game_summary(game, version = DEFAULT_VERSION)
+      response = self.response_xml(version, "/games/#{game}/summary.xml")
 
-      # Perform the request
-      response = self.generic_request(url)
-
-      # Load the XML and ignore namespaces in Nokogiri
-      summary = Nokogiri::XML(response.to_s)
-      summary.remove_namespaces!
-
-      return Game.new(xml: summary.xpath("/game"))
+      return Game.new(xml: response.xpath("/game"))
     end
 
     ##
-    # Fetches all NBA Teams
-    def self.teams(version = 3)
-      base_url = BASE_URL % { access_level: SportsDataApi.access_level(:nba), version: version }
-      url = "#{base_url}/league/hierarchy.xml"
+    # Fetches all NBA teams
+    def self.teams(version = DEFAULT_VERSION)
+      response = self.response_xml(version, "/league/hierarchy.xml")
 
-      # Perform the request
-      response = self.generic_request(url)
-
-      # Load the XML and ignore namespaces in Nokogiri
-      teams = Nokogiri::XML(response.to_s)
-      teams.remove_namespaces!
-
-      return Teams.new(teams.xpath('/league'))
+      return Teams.new(response.xpath('/league'))
     end
 
     ##
-    #
-    def self.daily(year, month, day, version = 3)
-      base_url = BASE_URL % { access_level: SportsDataApi.access_level(:nba), version: version}
-      url = "#{base_url}/games/#{year}/#{month}/#{day}/schedule.xml"
+    # Fetches NBA daily schedule for a given date
+    def self.daily(year, month, day, version = DEFAULT_VERSION)
+      response = self.response_xml(version, "/games/#{year}/#{month}/#{day}/schedule.xml")
 
-      response = self.generic_request(url)
-
-      # Load the XML and ignore namespaces in Nokogiri
-      games = Nokogiri::XML(response.to_s)
-      games.remove_namespaces!
-
-      return Games.new(games.xpath('league/daily-schedule'))
+      return Games.new(response.xpath('league/daily-schedule'))
     end
 
     private
-    def self.generic_request(url)
-      begin
-        return RestClient.get(url, params: { api_key: SportsDataApi.key(:nba) })
-      rescue RestClient::RequestTimeout => timeout
-        raise SportsDataApi::Exception, 'The API did not respond in a reasonable amount of time'
-      rescue RestClient::Exception => e
-        message = if e.response.headers.key? :x_server_error
-                    JSON.parse(e.response.headers[:x_server_error], { symbolize_names: true })[:message]
-                  elsif e.response.headers.key? :x_mashery_error_code
-                    e.response.headers[:x_mashery_error_code]
-                  else
-                    "The server did not specify a message"
-                  end
-        raise SportsDataApi::Exception, message
-      end
+    def self.response_xml(version, url)
+      base_url = BASE_URL % { access_level: SportsDataApi.access_level(SPORT), version: version }
+      response = SportsDataApi.generic_request("#{base_url}#{url}", SPORT)
+      Nokogiri::XML(response.to_s).remove_namespaces!
     end
   end
 end

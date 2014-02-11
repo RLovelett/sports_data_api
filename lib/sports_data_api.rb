@@ -26,6 +26,23 @@ module SportsDataApi
     @access_level[sport] = new_level
   end
 
+  def self.generic_request(url, sport)
+    begin
+      return RestClient.get(url, params: { api_key: SportsDataApi.key(sport) })
+    rescue RestClient::RequestTimeout => timeout
+      raise SportsDataApi::Exception, 'The API did not respond in a reasonable amount of time'
+    rescue RestClient::Exception => e
+      message = if e.response.headers.key? :x_server_error
+                  JSON.parse(e.response.headers[:x_server_error], { symbolize_names: true })[:message]
+                elsif e.response.headers.key? :x_mashery_error_code
+                  e.response.headers[:x_mashery_error_code]
+                else
+                  "The server did not specify a message"
+                end
+      raise SportsDataApi::Exception, message
+    end
+  end
+
   LIBRARY_PATH = File.join(File.dirname(__FILE__), 'sports_data_api')
 
   autoload :Stats,       File.join(LIBRARY_PATH, 'stats')
