@@ -1,0 +1,112 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.sportsdatallc.org/nfl-t1/2011/PST/4/schedule.xml?api_key=<API_KEY>
+    body:
+      encoding: US-ASCII
+      base64_string: ''
+    headers:
+      Accept:
+      - ! '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Accept-Ranges:
+      - bytes
+      Cache-Control:
+      - public, must-revalidate, max-age=2
+      Content-Type:
+      - application/xml
+      Date:
+      - Sun, 14 Apr 2013 02:05:43 GMT
+      Etag:
+      - ! '"699f1bc69f47decf47e714f25648e4ce"'
+      Last-Modified:
+      - Thu, 26 Jul 2012 16:45:24 GMT
+      Server:
+      - nginx/1.0.14
+      X-Mashery-Responder:
+      - prod-p-worker-us-east-1d-34.mashery.com
+      X-Via:
+      - Nginx-S3-Proxy
+      Content-Length:
+      - '1402'
+      Connection:
+      - keep-alive
+    body:
+      encoding: US-ASCII
+      base64_string: ! 'PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPGdhbWVz
+
+        IHhtbG5zPSJodHRwOi8vZmVlZC5lbGFzdGljc3RhdHMuY29tL3NjaGVtYS9u
+
+        Zmwvc2NoZWR1bGUtdjEuMC54c2QiIHNlYXNvbj0iMjAxMSIgdHlwZT0iUFNU
+
+        IiB3ZWVrPSI0Ij4KICA8Z2FtZSBpZD0iNjU5MTgzYTAtZWE2OS00NTNhLTg2
+
+        MDgtYjNhNzU2ZGRiMzdmIiBzY2hlZHVsZWQ9IjIwMTItMDItMDVUMjM6MzA6
+
+        MDArMDA6MDAiIGhvbWVfcm90YXRpb249IiIgYXdheV9yb3RhdGlvbj0iIiBo
+
+        b21lPSJORSIgYXdheT0iTllHIiBzdGF0dXM9ImNsb3NlZCI+CiAgICA8dmVu
+
+        dWUgaWQ9IjZlZDE4NTYzLTUzZTAtNDZjMi1hOTFkLTEyZDczYTE2NDU2ZCIg
+
+        Y291bnRyeT0iVVMiIG5hbWU9Ikx1Y2FzIE9pbCBTdGFkaXVtIiBjaXR5PSJJ
+
+        bmRpYW5hcG9saXMiIHN0YXRlPSJJTiIgY2FwYWNpdHk9IjY3MDAwIiBzdXJm
+
+        YWNlPSJhcnRpZmljaWFsIiB0eXBlPSJyZXRyYWN0YWJsZV9kb21lIiB6aXA9
+
+        IjQ2MjI1IiBhZGRyZXNzPSI1MDAgUy4gQ2FwaXRvbCBBdmVudWUiLz4KICAg
+
+        IDx3ZWF0aGVyIHRlbXBlcmF0dXJlPSI0MSIgY29uZGl0aW9uPSJDbGVhciIg
+
+        aHVtaWRpdHk9IjYyIj4KICAgICAgPHdpbmQgc3BlZWQ9IjQiIGRpcmVjdGlv
+
+        bj0iTiIvPgogICAgPC93ZWF0aGVyPgogICAgPGJyb2FkY2FzdCBuZXR3b3Jr
+
+        PSJOQkMiIHNhdGVsbGl0ZT0iIiBpbnRlcm5ldD0iTkZMIFJlZHpvbmUiIGNh
+
+        YmxlPSIiLz4KICAgIDxsaW5rcz4KICAgICAgPGxpbmsgcmVsPSJzdGF0aXN0
+
+        aWNzIiBocmVmPSIvMjAxMS9QU1QvNC9OWUcvTkUvc3RhdGlzdGljcy54bWwi
+
+        IHR5cGU9ImFwcGxpY2F0aW9uL3htbCIvPgogICAgICA8bGluayByZWw9InN1
+
+        bW1hcnkiIGhyZWY9Ii8yMDExL1BTVC80L05ZRy9ORS9zdW1tYXJ5LnhtbCIg
+
+        dHlwZT0iYXBwbGljYXRpb24veG1sIi8+CiAgICAgIDxsaW5rIHJlbD0icGJw
+
+        IiBocmVmPSIvMjAxMS9QU1QvNC9OWUcvTkUvcGJwLnhtbCIgdHlwZT0iYXBw
+
+        bGljYXRpb24veG1sIi8+CiAgICAgIDxsaW5rIHJlbD0iYm94c2NvcmUiIGhy
+
+        ZWY9Ii8yMDExL1BTVC80L05ZRy9ORS9ib3hzY29yZS54bWwiIHR5cGU9ImFw
+
+        cGxpY2F0aW9uL3htbCIvPgogICAgICA8bGluayByZWw9InJvc3RlciIgaHJl
+
+        Zj0iLzIwMTEvUFNULzQvTllHL05FL3Jvc3Rlci54bWwiIHR5cGU9ImFwcGxp
+
+        Y2F0aW9uL3htbCIvPgogICAgICA8bGluayByZWw9ImluanVyaWVzIiBocmVm
+
+        PSIvMjAxMS9QU1QvNC9OWUcvTkUvaW5qdXJpZXMueG1sIiB0eXBlPSJhcHBs
+
+        aWNhdGlvbi94bWwiLz4KICAgICAgPGxpbmsgcmVsPSJkZXB0aGNoYXJ0IiBo
+
+        cmVmPSIvMjAxMS9QU1QvNC9OWUcvTkUvZGVwdGhjaGFydC54bWwiIHR5cGU9
+
+        ImFwcGxpY2F0aW9uL3htbCIvPgogICAgPC9saW5rcz4KICA8L2dhbWU+Cjwv
+
+        Z2FtZXM+Cg==
+
+'
+    http_version: 
+  recorded_at: Sun, 14 Apr 2013 02:05:45 GMT
+recorded_with: VCR 2.4.0

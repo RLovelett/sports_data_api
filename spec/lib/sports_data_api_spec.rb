@@ -2,13 +2,16 @@ require "spec_helper"
 
 describe SportsDataApi do
   context "user supplied values" do
-    let(:key) { "testing_key123" }
     let(:level) { "b" }
     before(:each) do
-      SportsDataApi.key = key
-      SportsDataApi.access_level = level
+      SportsDataApi.set_key(:foo, 'bar')
+      SportsDataApi.set_access_level(:foo, level)
     end
-    its(:key) { should eq key }
-    its(:access_level) { should eq level }
+    it 'should have the proper access level for :foo' do
+      expect(SportsDataApi.access_level(:foo)).to eql 'b'
+    end
+    it 'should have the proper key for :foo' do
+      expect(SportsDataApi.key(:foo)).to eq 'bar'
+    end
   end
 end

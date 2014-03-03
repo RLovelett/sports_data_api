@@ -6,8 +6,8 @@ describe SportsDataApi::Nfl::Team, vcr: {
     match_requests_on: [:host, :path]
 } do
   let(:boxscore) do
-    SportsDataApi.key = api_key
-    SportsDataApi.access_level = 't'
+    SportsDataApi.set_key(:nfl, api_key(:nfl))
+    SportsDataApi.set_access_level(:nfl, 't')
     SportsDataApi::Nfl.boxscore(2012, :REG, 9, 'IND', 'MIA')
   end
   describe 'home team' do
@@ -33,5 +33,20 @@ describe SportsDataApi::Nfl::Team, vcr: {
     its(:score) { should eq 20 }
     its(:quarters) { should have(4).scores }
     its(:quarters) { should eq [3, 14, 0, 3] }
+  end
+  describe 'eql' do
+    let(:url) { 'http://api.sportsdatallc.org/nfl-t1/teams/hierarchy.xml' }
+
+    let(:dolphins_xml) do
+      str = RestClient.get(url, params: { api_key: api_key(:nfl) }).to_s
+      xml = Nokogiri::XML(str)
+      xml.remove_namespaces!
+      xml.xpath('/league/conference/division/team[@id=\'MIA\']')
+    end
+
+    let(:dolphins1) { SportsDataApi::Nfl::Team.new(dolphins_xml) }
+    let(:dolphins2) { SportsDataApi::Nfl::Team.new(dolphins_xml) }
+
+    it { (dolphins1 == dolphins2).should be_true }
   end
 end

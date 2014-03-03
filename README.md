@@ -1,4 +1,4 @@
-# SportsDataApi [![Build Status](https://travis-ci.org/RLovelett/sports_data_api.png?branch=master)](https://travis-ci.org/RLovelett/sports_data_api)
+# SportsDataApi [![Build Status](https://travis-ci.org/RLovelett/sports_data_api.png?branch=master)](https://travis-ci.org/RLovelett/sports_data_api) [![Coverage Status](https://coveralls.io/repos/RLovelett/sports_data_api/badge.png?branch=master)](https://coveralls.io/r/RLovelett/sports_data_api?branch=master)
 
 SportsDataApi is an attempt to make a Ruby interface to the
 [SportsData](http://www.sportsdatallc.com/) API. The goal is to
@@ -21,12 +21,12 @@ log](https://github.com/rlovelett/sports_data_api/issues).
 ## API Support
 
   * [NFL](http://developer.sportsdatallc.com/docs/NFL_API)
+  * [NBA](http://developer.sportsdatallc.com/docs/NBA_API)
   * TODO
     1. [MLB](http://developer.sportsdatallc.com/docs/MLB_API)
     2. [NHL](http://developer.sportsdatallc.com/docs/NHL_API)
-    3. [NBA](http://developer.sportsdatallc.com/docs/NBA_API)
-    4. [NCAA Basketball](http://developer.sportsdatallc.com/docs/NCAA_Mens_Backetball)
-    5. [NCAA Football](http://developer.sportsdatallc.com/docs/NCAA_Football_API)
+    3. [NCAA Basketball](http://developer.sportsdatallc.com/docs/NCAA_Mens_Basketball)
+    4. [NCAA Football](http://developer.sportsdatallc.com/docs/NCAA_Football_API)
 
 ## Installation
 
@@ -61,7 +61,7 @@ However, if you want to refresh the actual server API responses you will need to
 This can be achieved simply by performing the following two steps:
 
 1. Delete all the cassettes (`rm spec/cassettes/*.yml`)
-2. Run specs passing the API key as environment variable (`SPORTS_DATA_API_KEY=realapikey bundle exec rake spec`)
+2. Run specs passing the API key as environment variable (`SPORTS_DATA_<NBA|NFL>_API_KEY=realapikey bundle exec rake spec`)
 
 ## Contributing
 

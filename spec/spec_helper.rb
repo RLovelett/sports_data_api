@@ -1,4 +1,10 @@
 require 'simplecov'
+require 'coveralls'
+require 'pry'
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
+  Coveralls::SimpleCov::Formatter,
+  SimpleCov::Formatter::HTMLFormatter
+]
 SimpleCov.start do
   add_filter "/spec/"
 end
@@ -16,9 +22,9 @@ require "sports_data_api"
 require 'webmock/rspec'
 require 'vcr'
 
-def api_key
+def api_key(sport)
   key = 'VALID_SPORTS_DATA_API_KEY'
-  key = ENV['SPORTS_DATA_API_KEY'] if ENV.has_key?('SPORTS_DATA_API_KEY')
+  key = ENV["SPORTS_DATA_#{sport.to_s.upcase}_API_KEY"] if ENV.has_key?("SPORTS_DATA_#{sport.to_s.upcase}_API_KEY")
   key
 end
 
@@ -42,5 +48,6 @@ VCR.configure do |c|
 
   ##
   # Filter the real API key so that it does not make its way into the VCR cassette
-  c.filter_sensitive_data('<API_KEY>')  { api_key }
+  c.filter_sensitive_data('<API_KEY>')  { api_key(:nfl) }
+  c.filter_sensitive_data('<API_KEY>')  { api_key(:nba) }
 end

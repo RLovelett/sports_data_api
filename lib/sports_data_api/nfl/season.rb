@@ -9,14 +9,11 @@ module SportsDataApi
           @year = xml.first["season"].to_i
           @type = xml.first["type"].to_sym
           @weeks = xml.first.xpath("week").map do |week_xml|
-            Week.new(week_xml)
+            Week.new(@year, @type, week_xml)
           end
         end
       end
 
-      def self.valid?(season)
-
-      end
       ##
       # Check if the requested season is a valid
       # NFL season type.
