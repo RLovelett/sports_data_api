@@ -19,6 +19,7 @@ module SportsDataApi
     autoload :Broadcast, File.join(DIR, 'broadcast')
     autoload :GameStat, File.join(DIR,'game_stat')
     autoload :GameStats, File.join(DIR, 'game_stats')
+    autoload :Boxscore, File.join(DIR, 'boxscore')
 
     ##
     # Fetches all NBA teams
@@ -49,6 +50,14 @@ module SportsDataApi
       response = self.response_xml(version, "/statistics/#{event_id}.xml")
 
       return GameStats.new(response.xpath("/statistics"))
+    end
+
+    ##
+    # Fetch MLB Game Boxscore
+    def self.game_boxscore(event_id, version = DEFAULT_VERSION )
+      response = self.response_xml(version, "/boxscore/#{event_id}.xml")
+
+      return Boxscore.new(response.xpath("/boxscore"))
     end
 
     ##
