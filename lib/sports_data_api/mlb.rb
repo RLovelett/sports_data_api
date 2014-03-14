@@ -20,6 +20,8 @@ module SportsDataApi
     autoload :GameStat, File.join(DIR,'game_stat')
     autoload :GameStats, File.join(DIR, 'game_stats')
     autoload :Boxscore, File.join(DIR, 'boxscore')
+    autoload :Venue, File.join(DIR, 'venue')
+    autoload :Venues, File.join(DIR, 'venues')
 
     ##
     # Fetches all NBA teams
@@ -42,6 +44,14 @@ module SportsDataApi
       response = self.response_xml(version, "/daily/schedule/#{year}/#{month}/#{day}.xml")
 
       return Games.new(response.xpath("calendars"))
+    end
+
+    ##
+    # Fetches MLB venues
+    def self.venues(version = DEFAULT_VERSION)
+      response = self.response_xml(version, "/venues/venues.xml")
+
+      return Venues.new(response.xpath("venues"))
     end
 
     ##
