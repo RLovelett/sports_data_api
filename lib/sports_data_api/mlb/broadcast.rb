@@ -1,5 +1,5 @@
 module SportsDataApi
-  module Mlb
+  module Nba
     class Broadcast
       attr_reader :network, :satellite
       def initialize(xml)
