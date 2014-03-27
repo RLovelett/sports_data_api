@@ -27,7 +27,6 @@ module SportsDataApi
     # Fetches all NBA teams
     def self.teams(year=Date.today.year, version = DEFAULT_VERSION)
       response = self.response_xml(version, "/teams/#{year}.xml")
-
       return Teams.new(response.xpath('/teams'))
     end
 
@@ -42,7 +41,6 @@ module SportsDataApi
     # Fetches MLB daily schedule for a given date
     def self.daily(year, month, day, version = DEFAULT_VERSION)
       response = self.response_xml(version, "/daily/schedule/#{year}/#{month}/#{day}.xml")
-
       return Games.new(response.xpath("calendars"))
     end
 
@@ -50,7 +48,6 @@ module SportsDataApi
     # Fetches MLB venues
     def self.venues(version = DEFAULT_VERSION)
       response = self.response_xml(version, "/venues/venues.xml")
-
       return Venues.new(response.xpath("venues"))
     end
 
@@ -58,7 +55,6 @@ module SportsDataApi
     # Fetch MLB game stats
     def self.game_statistics(event_id, version = DEFAULT_VERSION )
       response = self.response_xml(version, "/statistics/#{event_id}.xml")
-
       return GameStats.new(response.xpath("/statistics"))
     end
 
@@ -66,7 +62,6 @@ module SportsDataApi
     # Fetch MLB Game Boxscore
     def self.game_boxscore(event_id, version = DEFAULT_VERSION )
       response = self.response_xml(version, "/boxscore/#{event_id}.xml")
-
       return Boxscore.new(response.xpath("/boxscore"))
     end
 

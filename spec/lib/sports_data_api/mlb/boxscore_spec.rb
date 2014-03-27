@@ -20,6 +20,12 @@ describe SportsDataApi::Mlb::Boxscore, vcr: {
     it "inning_half eq t" do
       boxscore.game_state[:inning_half].should eq 'T'
     end
+    it "home team score eq 5" do
+      boxscore.game_state[:home_score].should eq '5'
+    end
+    it "visitor team score eq 2" do
+      boxscore.game_state[:visitor_score].should eq '2'
+    end
   end
 
   context "inprogress game" do
@@ -40,6 +46,12 @@ describe SportsDataApi::Mlb::Boxscore, vcr: {
     end
     it "inning_half eq t" do
       boxscore.game_state[:inning_half].should eq 'T'
+    end
+    it "home team score eq 2" do
+      boxscore.game_state[:home_score].should eq '2'
+    end
+    it "visitor team score eq 3" do
+      boxscore.game_state[:visitor_score].should eq '3'
     end
   end
 end
