@@ -1,0 +1,225 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.sportsdatallc.org/mlb-t4/boxscore/000c465f-7c8c-46bb-8ea7-c26b2bc7c296.xml?api_key=bc9qxt7uzpsfyw66tjnwsx4e
+    body:
+      encoding: US-ASCII
+      base64_string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Accept-Ranges:
+      - bytes
+      Cache-Control:
+      - public, must-revalidate, max-age=3
+      Content-Type:
+      - text/xml;charset=utf-8
+      Date:
+      - Fri, 14 Mar 2014 16:45:27 GMT
+      Expires:
+      - Fri, 14 Mar 2014 16:45:30 -0000
+      Server:
+      - nginx/1.4.3
+      X-Content-Type-Options:
+      - nosniff
+      X-Mashery-Responder:
+      - prod-p-worker-us-east-1d-34.mashery.com
+      Content-Length:
+      - '2660'
+      Via:
+      - 1.1 sea19-proxy-4.amazon.com:80 (Cisco-IronPort-WSA/7.5.1-201)
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      base64_string: |
+        PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCEtLSBH
+        ZW5lcmF0aW9uIHN0YXJ0ZWQgQCAyMDE0LTAzLTE0IDE2OjQ1OjI3IFVUQyAt
+        LT4KPGJveHNjb3JlIGlkPSIwMDBjNDY1Zi03YzhjLTQ2YmItOGVhNy1jMjZi
+        MmJjN2MyOTYiIHNlYXNvbl9pZD0iNThkZDlhODEtNGEzOC00YTY2LThjZDct
+        MzJhZTRkNTY3YmE4IiBzZWFzb25feWVhcj0iMjAxMyIgc2Vhc29uX3R5cGU9
+        IlJFRyIgc3RhdHVzPSJjbG9zZWQiIHhtbG5zPSJodHRwOi8vZmVlZC5lbGFz
+        dGljc3RhdHMuY29tL3NjaGVtYS9tbGIvYm94c2NvcmUtdjUuMC54c2QiIHht
+        bG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5z
+        dGFuY2UiPgogIDxmaW5hbCBpbm5pbmc9IjkiIGlubmluZ19oYWxmPSJUIi8+
+        CiAgPHZpc2l0b3IgaWQ9IjU3NWMxOWI3LTQwNTItNDFjMi05ZjBhLTFjNTgx
+        M2QwMmY5OSIgbmFtZT0iVGlnZXJzIiBhYmJyPSJERVQiIHByb2JhYmxlX3Bp
+        dGNoZXI9IjQwZmRlYjZmLTA2ZDEtNDhlMi05ZTczLTU0NTE1MGM5NTcwMyIg
+        cnVucz0iMiIgaGl0cz0iNiIgZXJyb3JzPSIwIiBzdGFydGluZ19waXRjaGVy
+        PSI0MGZkZWI2Zi0wNmQxLTQ4ZTItOWU3My01NDUxNTBjOTU3MDMiPgogICAg
+        PHJ1bnM+CiAgICAgIDxldmVudCBpZD0iYWUzYjUzMmYtNjUxNy00ZjM5LTg4
+        NmYtN2Q3ODE1NjJlMTg3IiBoaXR0ZXJfaWQ9ImNmOTgxNWE3LTIyMGItNDVm
+        OS1iYmRmLTljNmM4Yjc5MjE1NCIgcGl0Y2hlcl9pZD0iZTVjN2I4MzEtMDcx
+        NS00MDAzLWFmYjAtN2U1MThmOGNjZjkxIiBpbm5pbmc9IjMiIGlubmluZ19o
+        YWxmPSJUIiB0eXBlPSJwaXRjaCIgaGl0dGVyX291dGNvbWU9ImFIUiI+CiAg
+        ICAgICAgPHJ1biBydW5uZXJfaWQ9ImNmOTgxNWE3LTIyMGItNDVmOS1iYmRm
+        LTljNmM4Yjc5MjE1NCIgc3RhcnRpbmdfYmFzZT0iMCIvPgogICAgICAgIDxy
+        dW4gcnVubmVyX2lkPSI1ZDlkYjkyZi03Yjc0LTQyMzUtYTJlNi02NzM2MjBi
+        M2Y3YzciIHN0YXJ0aW5nX2Jhc2U9IjEiLz4KICAgICAgPC9ldmVudD4KICAg
+        IDwvcnVucz4KICA8L3Zpc2l0b3I+CiAgPGhvbWUgaWQ9IjgzM2E1MWE5LTBk
+        ODQtNDEwZi1iZDc3LWRhMDhjM2U1ZTI2ZSIgbmFtZT0iUm95YWxzIiBhYmJy
+        PSJLQyIgcHJvYmFibGVfcGl0Y2hlcj0iZTVjN2I4MzEtMDcxNS00MDAzLWFm
+        YjAtN2U1MThmOGNjZjkxIiBydW5zPSI1IiBoaXRzPSIxMCIgZXJyb3JzPSIw
+        IiBzdGFydGluZ19waXRjaGVyPSJlNWM3YjgzMS0wNzE1LTQwMDMtYWZiMC03
+        ZTUxOGY4Y2NmOTEiPgogICAgPHJ1bnM+CiAgICAgIDxldmVudCBpZD0iYmU3
+        YTE5ZTItNmZlYi00MjQ2LWExNTctNTJhMGJmODk1MDVhIiBoaXR0ZXJfaWQ9
+        IjFiMmFiZjFhLTlkNGYtNDg5My1iMjM4LWZmMzhiOGFhZjA1ZCIgcGl0Y2hl
+        cl9pZD0iNDBmZGViNmYtMDZkMS00OGUyLTllNzMtNTQ1MTUwYzk1NzAzIiBp
+        bm5pbmc9IjQiIGlubmluZ19oYWxmPSJCIiB0eXBlPSJwaXRjaCIgaGl0dGVy
+        X291dGNvbWU9ImFTIj4KICAgICAgICA8cnVuIHJ1bm5lcl9pZD0iMjg3OGJh
+        NDYtOTVmYS00ZjQzLTk0NTEtOThhMjIyNzg1Yjc1IiBzdGFydGluZ19iYXNl
+        PSIyIi8+CiAgICAgIDwvZXZlbnQ+CiAgICAgIDxldmVudCBpZD0iYmQ3Mjcw
+        ZjktNzI2Yi00NDZhLTgwYjQtZjU0NmY5NjJiMDA3IiBoaXR0ZXJfaWQ9IjZl
+        Zjg3OGUyLTFmMmQtNDg1NS1hMjUwLTJlYzdjOTdmOTYxYyIgcGl0Y2hlcl9p
+        ZD0iNDBmZGViNmYtMDZkMS00OGUyLTllNzMtNTQ1MTUwYzk1NzAzIiBpbm5p
+        bmc9IjUiIGlubmluZ19oYWxmPSJCIiB0eXBlPSJwaXRjaCIgaGl0dGVyX291
+        dGNvbWU9ImFIUiI+CiAgICAgICAgPHJ1biBydW5uZXJfaWQ9IjZlZjg3OGUy
+        LTFmMmQtNDg1NS1hMjUwLTJlYzdjOTdmOTYxYyIgc3RhcnRpbmdfYmFzZT0i
+        MCIvPgogICAgICAgIDxydW4gcnVubmVyX2lkPSIyODc4YmE0Ni05NWZhLTRm
+        NDMtOTQ1MS05OGEyMjI3ODViNzUiIHN0YXJ0aW5nX2Jhc2U9IjEiLz4KICAg
+        ICAgICA8cnVuIHJ1bm5lcl9pZD0iMTAxOGM1OTktNjA1My00ZWQ5LTg5NTIt
+        YjBlOWExNTE5Njc3IiBzdGFydGluZ19iYXNlPSIyIi8+CiAgICAgIDwvZXZl
+        bnQ+CiAgICAgIDxldmVudCBpZD0iMTQ3MWJiODYtNmMxMi00MmNjLWJkOGIt
+        MzYxM2RjNTQ2YjZlIiBoaXR0ZXJfaWQ9IjEwMThjNTk5LTYwNTMtNGVkOS04
+        OTUyLWIwZTlhMTUxOTY3NyIgcGl0Y2hlcl9pZD0iZjVhYzg0YTQtNGY0Yi00
+        ZDg5LTllNzUtNDI0NTdkNTQ4MmIyIiBpbm5pbmc9IjciIGlubmluZ19oYWxm
+        PSJCIiB0eXBlPSJwaXRjaCIgaGl0dGVyX291dGNvbWU9ImFTIj4KICAgICAg
+        ICA8cnVuIHJ1bm5lcl9pZD0iZDM2ZTE2NDMtZWY0ZC00OGQ2LWI4OTgtZDg2
+        NTRiYzdmOWUxIiBzdGFydGluZ19iYXNlPSIzIi8+CiAgICAgIDwvZXZlbnQ+
+        CiAgICA8L3J1bnM+CiAgPC9ob21lPgogIDxwaXRjaGluZz4KICAgIDx3aW4g
+        aWQ9ImU1YzdiODMxLTA3MTUtNDAwMy1hZmIwLTdlNTE4ZjhjY2Y5MSIvPgog
+        ICAgPGxvc3MgaWQ9IjQwZmRlYjZmLTA2ZDEtNDhlMi05ZTczLTU0NTE1MGM5
+        NTcwMyIvPgogICAgPHNhdmUgaWQ9IjAzNjE5ZDhlLWNkYTAtNDJiYS05NThl
+        LWE0YTNjOTM4MmFhMCIvPgogIDwvcGl0Y2hpbmc+CjwvYm94c2NvcmU+Cjwh
+        LS0gR2VuZXJhdGlvbiBlbmRlZCBAIDIwMTQtMDMtMTQgMTY6NDU6MjcgVVRD
+        IC0tPgo=
+    http_version: 
+  recorded_at: Fri, 14 Mar 2014 16:45:28 GMT
+- request:
+    method: get
+    uri: http://developer.sportsdatallc.com/files/mlb_v4_game_boxscore_example.xml
+    body:
+      encoding: US-ASCII
+      base64_string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      P3p:
+      - policyref="/w3c/p3p.xml",CP="CAO COR CURa ADMa DEVa TAIa OUR BUS IND UNI COM
+        NAV INT STA"
+      Content-Type:
+      - text/xml
+      X-Mashery-Client-Ip:
+      - 72.21.196.68
+      X-Frame-Options:
+      - deny
+      Etag:
+      - '"dc627e5e"'
+      Date:
+      - Fri, 14 Mar 2014 16:58:33 GMT
+      Server:
+      - Mashery Proxy
+      Content-Length:
+      - '3278'
+      Via:
+      - 1.1 sea19-proxy-5.amazon.com:80 (Cisco-IronPort-WSA/7.5.1-201)
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      base64_string: |
+        PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCEtLSBH
+        ZW5lcmF0aW9uIHN0YXJ0ZWQgQCAyMDE0LTAzLTAzIDIxOjAwOjE5IFVUQyAt
+        LT4KPGJveHNjb3JlIGlkPSIzZjAwZWUyMS0zMzhiLTQ3MTAtOTMyZi01Mzg0
+        YjRjYTdjNzAiIHNlYXNvbl9pZD0iNThkZDlhODEtNGEzOC00YTY2LThjZDct
+        MzJhZTRkNTY3YmE4IiBzZWFzb25feWVhcj0iMjAxMyIgc2Vhc29uX3R5cGU9
+        IlJFRyIgc3RhdHVzPSJpbnByb2dyZXNzIiB4bWxucz0iaHR0cDovL2ZlZWQu
+        ZWxhc3RpY3N0YXRzLmNvbS9zY2hlbWEvbWxiL2JveHNjb3JlLXY1LjAueHNk
+        IiB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1h
+        LWluc3RhbmNlIj4KICA8b3V0Y29tZSB0eXBlPSJwaXRjaCIgY3VycmVudF9p
+        bm5pbmc9IjEyIiBjdXJyZW50X2lubmluZ19oYWxmPSJUIj4KICAgIDxjb3Vu
+        dCBzdHJpa2VzPSIzIiBiYWxscz0iMCIgb3V0cz0iMiIgaW5uaW5nPSIxMiIg
+        aW5uaW5nX2hhbGY9IlQiIGhhbGZfb3Zlcj0iZmFsc2UiLz4KICAgIDxoaXR0
+        ZXIgaWQ9ImNjNTc4MTAyLWQwZWYtNDM2OC04MWI0LTUyY2E0OWI3ZTU4MCIg
+        Zmlyc3RfbmFtZT0iSmFtZXMiIHByZWZlcnJlZF9uYW1lPSJUdWZmeSIgbGFz
+        dF9uYW1lPSJHb3Nld2lzY2giIHRlYW1faWQ9IjVjOTRlZjNmLTFhOWMtNDFi
+        My04MjQ4LTdhYWFmYjNhYmY1NyIgdGVhbV9uYW1lPSJEaWFtb25kYmFja3Mi
+        IG91dGNvbWVfaWQ9ImtLTCIgYWJfb3Zlcj0idHJ1ZSIvPgogICAgPHBpdGNo
+        ZXIgaWQ9IjE1ZDA3NDRkLTgyNGYtNDAyZS04ZTdlLTcyNmJhYzA0M2NhYiIg
+        Zmlyc3RfbmFtZT0iTmljaG9sYXMiIHByZWZlcnJlZF9uYW1lPSJOaWNrIiBs
+        YXN0X25hbWU9IlZpbmNlbnQiIHRlYW1faWQ9ImRkMGFhM2MzLTk4NGYtNGQw
+        YS1hNmU0LTNkZDY3ZWQ1YjVkZCIgdGVhbV9uYW1lPSJQYWRyZXMiIHBpdGNo
+        X3R5cGU9IkZBIi8+CiAgICA8cnVubmVycz4KICAgICAgPHJ1bm5lciBpZD0i
+        ZTE0NDFjMTEtYzQxNi00NDkyLThkZDUtMGM4ODU4ZTM2MzFiIiBzdGFydGlu
+        Z19iYXNlPSIxIiBlbmRpbmdfYmFzZT0iMSIgb3V0PSJmYWxzZSIgZmlyc3Rf
+        bmFtZT0iSm9zaHVhIiBwcmVmZXJyZWRfbmFtZT0iSm9zaCIgbGFzdF9uYW1l
+        PSJDb2xsbWVudGVyIj4KICAgICAgPC9ydW5uZXI+CiAgICAgIDxydW5uZXIg
+        aWQ9ImU3Yjk4MjA2LTk1NmEtNDQwOS05ZjIyLTY0ZjIwNDhhMzFlZSIgc3Rh
+        cnRpbmdfYmFzZT0iMyIgZW5kaW5nX2Jhc2U9IjMiIG91dD0iZmFsc2UiIGZp
+        cnN0X25hbWU9IkdlcmFyZG8iIHByZWZlcnJlZF9uYW1lPSJHZXJhcmRvIiBs
+        YXN0X25hbWU9IlBhcnJhIj4KICAgICAgPC9ydW5uZXI+CiAgICA8L3J1bm5l
+        cnM+CiAgPC9vdXRjb21lPgogIDx2aXNpdG9yIGlkPSIyNTUwN2JlMS02YTY4
+        LTQyNjctYmQ4Mi1lMDk3ZDk0YjM1OWIiIG5hbWU9IkRpYW1vbmRiYWNrcyIg
+        YWJicj0iQVJJIiBwcm9iYWJsZV9waXRjaGVyPSJkNDEyMzRlYi05ZjRjLTQz
+        OTMtYWI4Ni00NGNhMGI1YmMxZjUiIHJ1bnM9IjMiIGhpdHM9IjEwIiBlcnJv
+        cnM9IjAiIHN0YXJ0aW5nX3BpdGNoZXI9ImQ0MTIzNGViLTlmNGMtNDM5My1h
+        Yjg2LTQ0Y2EwYjViYzFmNSI+CiAgICA8cnVucz4KICAgICAgPGV2ZW50IGlk
+        PSJlYmM4M2I4Zi1kNGVjLTQ1MWMtYmEzYy1hOTZiNzI5MTdjYWMiIGhpdHRl
+        cl9pZD0iOTMzYTBiYzktMjZjMC00NzhlLTk4MmMtMDFmZDhmZmUwNjE0IiBw
+        aXRjaGVyX2lkPSIwZWVhNDk0Yi02MDgwLTRjMjEtODBkNy1kZGY5ZWYyNmYz
+        ZGEiIGlubmluZz0iNCIgaW5uaW5nX2hhbGY9IlQiIHR5cGU9InBpdGNoIiBo
+        aXR0ZXJfb3V0Y29tZT0iYUhSIj4KICAgICAgICA8cnVuIHJ1bm5lcl9pZD0i
+        OTMzYTBiYzktMjZjMC00NzhlLTk4MmMtMDFmZDhmZmUwNjE0IiBzdGFydGlu
+        Z19iYXNlPSIwIi8+CiAgICAgICAgPHJ1biBydW5uZXJfaWQ9IjdjOWM5N2Zk
+        LTdhODktNDllMS04MzBiLTAyNzRhNWMyMjA5YSIgc3RhcnRpbmdfYmFzZT0i
+        MSIvPgogICAgICA8L2V2ZW50PgogICAgICA8ZXZlbnQgaWQ9ImVhZGI4MmI4
+        LTk3MTAtNDNiOC1hMDQzLTM3ZTJjNTJhZmM1ZSIgaGl0dGVyX2lkPSJlN2I5
+        ODIwNi05NTZhLTQ0MDktOWYyMi02NGYyMDQ4YTMxZWUiIHBpdGNoZXJfaWQ9
+        IjE1ZDA3NDRkLTgyNGYtNDAyZS04ZTdlLTcyNmJhYzA0M2NhYiIgaW5uaW5n
+        PSIxMiIgaW5uaW5nX2hhbGY9IlQiIHR5cGU9InBpdGNoIiBoaXR0ZXJfb3V0
+        Y29tZT0iYVNBRDIiPgogICAgICAgIDxydW4gcnVubmVyX2lkPSI3YzljOTdm
+        ZC03YTg5LTQ5ZTEtODMwYi0wMjc0YTVjMjIwOWEiIHN0YXJ0aW5nX2Jhc2U9
+        IjMiLz4KICAgICAgPC9ldmVudD4KICAgIDwvcnVucz4KICA8L3Zpc2l0b3I+
+        CiAgPGhvbWUgaWQ9ImQ1MmQ1MzM5LWNiZGQtNDNmMy05ZGZhLWE0MmZkNTg4
+        YjlhMyIgbmFtZT0iUGFkcmVzIiBhYmJyPSJTRCIgcHJvYmFibGVfcGl0Y2hl
+        cj0iMGVlYTQ5NGItNjA4MC00YzIxLTgwZDctZGRmOWVmMjZmM2RhIiBydW5z
+        PSIyIiBoaXRzPSI4IiBlcnJvcnM9IjAiIHN0YXJ0aW5nX3BpdGNoZXI9IjBl
+        ZWE0OTRiLTYwODAtNGMyMS04MGQ3LWRkZjllZjI2ZjNkYSI+CiAgICA8cnVu
+        cz4KICAgICAgPGV2ZW50IGlkPSI1ZWJiNTdlMC0wOWE3LTQwNTctYTMxZS00
+        NDMyMzQ5NjI1ZGMiIGhpdHRlcl9pZD0iYjlmNDcyZWYtYWExYS00ZDIyLWE1
+        Y2ItYjMxNDFiODA3ZmQwIiBwaXRjaGVyX2lkPSJkNDEyMzRlYi05ZjRjLTQz
+        OTMtYWI4Ni00NGNhMGI1YmMxZjUiIGlubmluZz0iMyIgaW5uaW5nX2hhbGY9
+        IkIiIHR5cGU9InBpdGNoIiBoaXR0ZXJfb3V0Y29tZT0iYVMiPgogICAgICAg
+        IDxydW4gcnVubmVyX2lkPSJlYTJlOTA4ZC1jZjA3LTQ3YzUtOWU5OC1mMGNl
+        OWM3ZmY4MTMiIHN0YXJ0aW5nX2Jhc2U9IjMiLz4KICAgICAgPC9ldmVudD4K
+        ICAgICAgPGV2ZW50IGlkPSJjY2FiMzM5Mi1jZDNjLTQ2YzAtYWY5MS1hOTkw
+        NDEyOWZmMjUiIGhpdHRlcl9pZD0iYzQzNjkzZDgtMWMxMS00NWM5LWJhYTAt
+        NWZlNmE1MTcyODJjIiBwaXRjaGVyX2lkPSJkNDEyMzRlYi05ZjRjLTQzOTMt
+        YWI4Ni00NGNhMGI1YmMxZjUiIGlubmluZz0iMyIgaW5uaW5nX2hhbGY9IkIi
+        IHR5cGU9InBpdGNoIiBoaXR0ZXJfb3V0Y29tZT0iYUQiPgogICAgICAgIDxy
+        dW4gcnVubmVyX2lkPSJiOWY0NzJlZi1hYTFhLTRkMjItYTVjYi1iMzE0MWI4
+        MDdmZDAiIHN0YXJ0aW5nX2Jhc2U9IjEiLz4KICAgICAgPC9ldmVudD4KICAg
+        IDwvcnVucz4KICA8L2hvbWU+CjwvYm94c2NvcmU+CjwhLS0gR2VuZXJhdGlv
+        biBlbmRlZCBAIDIwMTQtMDMtMDMgMjE6MDA6MTkgVVRDIC0tPgo=
+    http_version: 
+  recorded_at: Fri, 14 Mar 2014 16:58:34 GMT
+recorded_with: VCR 2.4.0

@@ -48,5 +48,6 @@ module SportsDataApi
   autoload :Stats,       File.join(LIBRARY_PATH, 'stats')
   autoload :Nfl,         File.join(LIBRARY_PATH, 'nfl')
   autoload :Nba,         File.join(LIBRARY_PATH, 'nba')
+  autoload :Mlb,         File.join(LIBRARY_PATH, 'mlb')
   autoload :Exception,   File.join(LIBRARY_PATH, 'exception')
 end
