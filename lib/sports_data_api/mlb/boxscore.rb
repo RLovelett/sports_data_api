@@ -16,6 +16,9 @@ module SportsDataApi
         home = xml.xpath("home").first
         boxscore_ivar[:home_score] = home.attributes["runs"].value
 
+        status = xml['status']
+        boxscore_ivar[:status] = status
+
         if xml['status'] == 'closed'
           inning = xml.xpath('final').first
           inning.attributes.each do | attr_name, attr_value|

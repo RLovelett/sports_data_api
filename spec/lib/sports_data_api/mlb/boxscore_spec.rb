@@ -26,6 +26,9 @@ describe SportsDataApi::Mlb::Boxscore, vcr: {
     it "visitor team score eq 2" do
       boxscore.game_state[:visitor_score].should eq '2'
     end
+    it "should return a game status" do
+      boxscore.game_state[:status].should eq 'closed'
+    end
   end
 
   context "inprogress game" do
@@ -52,6 +55,9 @@ describe SportsDataApi::Mlb::Boxscore, vcr: {
     end
     it "visitor team score eq 3" do
       boxscore.game_state[:visitor_score].should eq '3'
+    end
+    it "should return a game status" do
+      boxscore.game_state[:status].should eq 'inprogress'
     end
   end
 end
