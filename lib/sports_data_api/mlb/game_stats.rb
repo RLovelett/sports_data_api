@@ -4,25 +4,27 @@ module SportsDataApi
       include Enumerable
 
       def initialize(xml)
-        @stats = []
+        @stats = {}
+        @stats[:hitting] = []
+        @stats[:pitching] = []
         xml = xml.first if xml.is_a? Nokogiri::XML::NodeSet
+        @stats[:status] = xml['status']
         xml.children.each do |child|
           next unless child.is_a? Nokogiri::XML::Element
-          child.children.each do |grandchild|
-            next unless grandchild.is_a? Nokogiri::XML::Element
-            grandchild.xpath('players').xpath('player').each do |player|
-              @stats << GameStat.new(player)
-            end
+          child.xpath("hitting").xpath("players").xpath("player").each do |player|
+            @stats[:hitting] << GameStat.new(player)
+          end
+
+          child.xpath("pitching").xpath("players").xpath("player").each do |player|
+            @stats[:pitching] << GameStat.new(player)
           end
         end
-
         @stats
       end
 
       def [](search_index)
-        found_index = @stats.index(search_index)
-        unless found_index.nil?
-          @stats[found_index]
+        if @stats.has_key?(search_index)
+          @stats[search_index]
         end
       end
 

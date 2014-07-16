@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe SportsDataApi::Nba::Game, vcr: {
+describe SportsDataApi::Mlb::Game, vcr: {
     cassette_name: 'sports_data_api_mlb_game',
     record: :new_episodes,
     match_requests_on: [:host, :path]

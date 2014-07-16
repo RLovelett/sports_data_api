@@ -12,6 +12,14 @@ describe SportsDataApi::Mlb::Teams, vcr: {
   end
 
   subject { stats }
-  its(:count) { should eq 32 }
+  it "grabs the status" do
+    expect(stats[:status]).to eql 'closed'
+  end
+  it "has 25 hitting players" do
+    expect(stats[:hitting].count).to eq 25
+  end
+  it "has 7 pitching players" do
+    expect(stats[:pitching].count).to eq 7
+  end
 
 end
