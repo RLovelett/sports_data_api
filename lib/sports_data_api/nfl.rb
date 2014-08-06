@@ -29,9 +29,9 @@ module SportsDataApi
       season = season.to_s.upcase.to_sym
       raise SportsDataApi::Nfl::Exception.new("#{season} is not a valid season") unless Season.valid?(season)
 
-      response = self.response_xml(version, "/#{year}/#{season}/schedule.xml")
+      response = self.response_json(version, "/#{year}/#{season}/schedule.json")
 
-      return Season.new(response.xpath("/season"))
+      return Season.new(response)
     end
 
     ##
@@ -64,17 +64,28 @@ module SportsDataApi
       season = season.to_s.upcase.to_sym
       raise SportsDataApi::Nfl::Exception.new("#{season} is not a valid season") unless Season.valid?(season)
 
-      response = self.response_xml(version, "/#{year}/#{season}/#{week}/#{away}/#{home}/boxscore.xml")
+      response = self.response_json(version, "/#{year}/#{season}/#{week}/#{away}/#{home}/boxscore.json")
 
-      return Game.new(year, season, week, response.xpath("/game"))
+      return Game.new(year, season, week, response)
+    end
+
+    ##
+    # Fetches statistics for a given NFL game
+    def self.game_statistics(year, season, week, home, away, version = DEFAULT_VERSION)
+      season = season.to_s.upcase.to_sym
+      raise SportsDataApi::Nfl::Exception.new("#{season} is not a valid season") unless Season.valid?(season)
+
+      response = self.response_json(version, "/#{year}/#{season}/#{week}/#{away}/#{home}/statistics.json")
+
+      return Game.new(year, season, week, response)
     end
 
     ##
     # Fetches all NFL teams
     def self.teams(version = DEFAULT_VERSION)
-      response = self.response_xml(version, "/teams/hierarchy.xml")
+      response = self.response_json(version, "/teams/hierarchy.json")
 
-      return Teams.new(response.xpath('/league'))
+      return Teams.new(response)
     end
 
     ##
@@ -83,12 +94,19 @@ module SportsDataApi
       season = season.to_s.upcase.to_sym
       raise SportsDataApi::Nfl::Exception.new("#{season} is not a valid season") unless Season.valid?(season)
 
-      response = self.response_xml(version, "/#{year}/#{season}/#{week}/schedule.xml")
+      response = self.response_json(version, "/#{year}/#{season}/#{week}/schedule.json")
 
-      return Games.new(response.xpath('/games'))
+      return Games.new(year, season, week, response)
     end
 
     private
+
+    def self.response_json(version, url)
+      base_url = BASE_URL % { access_level: SportsDataApi.access_level(SPORT), version: version }
+      response = SportsDataApi.generic_request("#{base_url}#{url}", SPORT)
+      JSON.parse(response.to_s)
+    end
+
     def self.response_xml(version, url)
       base_url = BASE_URL % { access_level: SportsDataApi.access_level(SPORT), version: version }
       response = SportsDataApi.generic_request("#{base_url}#{url}", SPORT)
