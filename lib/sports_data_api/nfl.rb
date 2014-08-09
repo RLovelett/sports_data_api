@@ -53,9 +53,9 @@ module SportsDataApi
     ##
     # Fetch NFL player seaon stats for a given team, season and season type
     def self.player_season_stats(team, season, season_type, version = DEFAULT_VERSION)
-      response = self.response_xml(version, "/teams/#{team}/#{season}/#{season_type}/statistics.xml")
+      response = self.response_json(version, "/teams/#{team}/#{season}/#{season_type}/statistics.json")
 
-      return PlayerSeasonStats.new(response.xpath("/season").xpath("team").xpath("players"))
+      return PlayerSeasonStats.new(response)
     end
 
     ##
