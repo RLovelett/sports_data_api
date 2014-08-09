@@ -54,7 +54,7 @@ module SportsDataApi
       def parse_team_statistics(stats_hash)
         stats = {}
         stats_hash.keys.each do |key|
-          stats[key.to_sym] = stats_hash[key]['team']
+          stats[key] = stats_hash[key]['team']
         end
         stats
       end
