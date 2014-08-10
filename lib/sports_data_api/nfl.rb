@@ -37,17 +37,17 @@ module SportsDataApi
     ##
     # Fetch NFL team roster
     def self.team_roster(team, version = DEFAULT_VERSION)
-      response = self.response_xml(version, "/teams/#{team}/roster.xml")
+      response = self.response_json(version, "/teams/#{team}/roster.json")
 
-      return TeamRoster.new(response.xpath("team"))
+      return TeamRoster.new(response)
     end
 
     ##
     # Fetch NFL team seaon stats for a given team, season and season type
     def self.team_season_stats(team, season, season_type, version = DEFAULT_VERSION)
-      response = self.response_xml(version, "/teams/#{team}/#{season}/#{season_type}/statistics.xml")
+      response = self.response_json(version, "/teams/#{team}/#{season}/#{season_type}/statistics.json")
 
-      return TeamSeasonStats.new(response.xpath("/season").xpath("team"))
+      return TeamSeasonStats.new(response)
     end
 
     ##
@@ -105,12 +105,6 @@ module SportsDataApi
       base_url = BASE_URL % { access_level: SportsDataApi.access_level(SPORT), version: version }
       response = SportsDataApi.generic_request("#{base_url}#{url}", SPORT)
       JSON.parse(response.to_s)
-    end
-
-    def self.response_xml(version, url)
-      base_url = BASE_URL % { access_level: SportsDataApi.access_level(SPORT), version: version }
-      response = SportsDataApi.generic_request("#{base_url}#{url}", SPORT)
-      Nokogiri::XML(response.to_s).remove_namespaces!
     end
   end
 end
