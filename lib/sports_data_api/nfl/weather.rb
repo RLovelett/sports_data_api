@@ -2,14 +2,13 @@ module SportsDataApi
   module Nfl
     class Weather
       attr_reader :temperature, :condition, :humidity, :wind_speed, :wind_direction
-      def initialize(xml)
-        xml = xml.first if xml.is_a? Nokogiri::XML::NodeSet
-        if xml.is_a? Nokogiri::XML::Element
-          @temperature = xml['temperature'].to_i
-          @condition = xml['condition']
-          @humidity = xml['humidity'].to_i
-          @wind_speed = xml.xpath('wind').first['speed'].to_i
-          @wind_direction = xml.xpath('wind').first['direction']
+      def initialize(weather_hash)
+        if weather_hash
+          @temperature = weather_hash['temperature']
+          @condition = weather_hash['condition']
+          @humidity = weather_hash['humidity']
+          @wind_speed = weather_hash['wind']['speed']
+          @wind_direction = weather_hash['wind']['direction']
         end
       end
     end

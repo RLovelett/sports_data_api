@@ -1,26 +1,36 @@
 module SportsDataApi
   module Nfl
     class Team
-      attr_reader :id, :name, :conference, :division, :market, :remaining_challenges, :remaining_timeouts, :score, :quarters, :venue
+      attr_reader :id, :name, :conference, :division, :market, :remaining_challenges,
+                  :remaining_timeouts, :score, :quarters, :venue, :points, :statistics, :players
 
-      def initialize(xml, conference = nil, division = nil)
-        xml = xml.first if xml.is_a? Nokogiri::XML::NodeSet
-        if xml.is_a? Nokogiri::XML::Element
-          @id = xml['id']
-          @name = xml['name']
+      def initialize(team_hash, conference = nil, division = nil)
+        if team_hash
+          @id = team_hash['id']
+          @name = team_hash['name']
           @conference = conference
           @division = division
-          @market = xml['market']
-          @remaining_challenges = xml['remaining_challenges'].to_i
-          @remaining_timeouts = xml['remaining_timeouts'].to_i
-          @quarters = xml.xpath('scoring/quarter').map do |quarter|
-            quarter['points'].to_i
+          @market = team_hash['market']
+          @remaining_challenges = team_hash['remaining_challenges']
+          @remaining_timeouts = team_hash['remaining_timeouts']
+          @quarters = []
+          if team_hash['scoring']
+            team_hash['scoring'].each do |scoring_hash|
+              @quarters[scoring_hash['quarter']-1] = scoring_hash['points']
+            end
           end
           @quarters = @quarters.fill(0, @quarters.size, 4 - @quarters.size)
 
           # Parse the Venue data if it exists
-          venue_xml = xml.xpath('venue')
-          @venue = Venue.new(venue_xml) if venue_xml
+          if team_hash.key?('venue')
+            @venue = Venue.new(team_hash['venue'])
+          end
+
+          if team_hash['statistics']
+            @statistics = parse_team_statistics(team_hash['statistics'])
+            @players = parse_player_statistics(team_hash['statistics'])
+          end
+          @points = team_hash['points'] || score
         end
       end
 
@@ -45,6 +55,31 @@ module SportsDataApi
         end
       end
 
+      private
+
+      def parse_team_statistics(stats_hash)
+        stats = {}
+        stats_hash.keys.each do |key|
+          stats[key] = stats_hash[key]['team']
+        end
+        stats
+      end
+
+      def parse_player_statistics(stats_hash)
+        players = []
+        stats_hash.keys.each do |key|
+          next if !stats_hash[key]['players']
+          stats_hash[key]['players'].each do |p|
+            player = players.select{|a| a['id'] == p['id']}.first || {}
+            players << player if !players.select{|a| a['id'] == p['id']}.first
+            ['id', 'name', 'jersey', 'position'].each do |k|
+              player[k] = p.delete(k)
+            end
+            player[key] = p
+          end
+        end
+        players
+      end
     end
   end
 end

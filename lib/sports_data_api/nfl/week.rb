@@ -3,16 +3,14 @@ module SportsDataApi
     class Week
       attr_reader :number, :games, :year, :season
 
-      def initialize(year, season, xml)
+      def initialize(year, season, week_hash)
         @games = []
         @year = year
         @season = season
 
-        if xml.is_a? Nokogiri::XML::Element
-          @number = xml["week"].to_i
-          @games = xml.xpath("game").map do |game_xml|
-            Game.new(@year, @season, @number, game_xml)
-          end
+        @number = week_hash['number']
+        @games = week_hash['games'].map do |game_hash|
+          Game.new(@year, @season, @number, game_hash)
         end
       end
     end

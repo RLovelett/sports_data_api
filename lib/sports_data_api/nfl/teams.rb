@@ -5,23 +5,18 @@ module SportsDataApi
 
       attr_reader :conferences, :divisions
 
-      ##
-      # Initialize by passing the raw XML returned from the API
-      def initialize(xml)
+      def initialize(teams_hash)
         @teams = []
-        xml = xml.first if xml.is_a? Nokogiri::XML::NodeSet
-        if xml.is_a? Nokogiri::XML::Element
-          xml.xpath('conference').each do |conference|
-            # Conference ID, e.g., AFC or NFC
-            cid = conference['id']
+        teams_hash['conferences'].each do |conference_hash|
+          # Conference ID, e.g., AFC or NFC
+          cid = conference_hash['id']
 
-            conference.xpath('division').each do |division|
-              # Division ID, e.g., AFC_EAST, NFC_NORTH
-              did = division['id']
+          conference_hash['divisions'].each do |division_hash|
+            # Division ID, e.g., AFC_EAST, NFC_NORTH
+            did = division_hash['id']
 
-              # Create a new team
-              @teams << division.xpath('team').map { |team| Team.new(team, cid, did) }
-            end
+            # Create a new team
+            @teams << division_hash['teams'].map { |team_hash| Team.new(team_hash, cid, did) }
           end
         end
 
@@ -78,7 +73,6 @@ module SportsDataApi
           end
         end
       end
-
     end
   end
 end
