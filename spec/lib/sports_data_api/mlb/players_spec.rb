@@ -12,6 +12,6 @@ describe SportsDataApi::Mlb::Players, vcr: {
   end
 
   subject { team_rosters }
-  its(:count) { should eq 1150 }
+  its(:count) { should eq 900 }
 
 end
