@@ -3,14 +3,12 @@ module SportsDataApi
     class Season
       attr_reader :year, :type, :weeks
 
-      def initialize(xml)
+      def initialize(season_hash)
         @weeks = []
-        if xml.is_a? Nokogiri::XML::NodeSet
-          @year = xml.first["season"].to_i
-          @type = xml.first["type"].to_sym
-          @weeks = xml.first.xpath("week").map do |week_xml|
-            Week.new(@year, @type, week_xml)
-          end
+        @year = season_hash['season']
+        @type = season_hash['type'].to_sym
+        @weeks = season_hash['weeks'].map do |week_hash|
+          Week.new(@year, @type, week_hash)
         end
       end
 
