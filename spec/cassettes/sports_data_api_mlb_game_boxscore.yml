@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://api.sportsdatallc.org/mlb-t4/boxscore/000c465f-7c8c-46bb-8ea7-c26b2bc7c296.xml?api_key=bc9qxt7uzpsfyw66tjnwsx4e
+    uri: http://api.sportsdatallc.org/mlb-t4/boxscore/000c465f-7c8c-46bb-8ea7-c26b2bc7c296.xml?api_key=<API_KEY>
     body:
       encoding: US-ASCII
       base64_string: ''
@@ -18,33 +18,35 @@ http_interactions:
       code: 200
       message: OK
     headers:
-      Accept-Ranges:
-      - bytes
       Cache-Control:
-      - public, must-revalidate, max-age=3
+      - public, must-revalidate, max-age=1
       Content-Type:
       - text/xml;charset=utf-8
       Date:
-      - Fri, 14 Mar 2014 16:45:27 GMT
+      - Mon, 04 Aug 2014 19:39:44 GMT
       Expires:
-      - Fri, 14 Mar 2014 16:45:30 -0000
+      - Mon, 04 Aug 2014 19:39:45 -0000
       Server:
-      - nginx/1.4.3
+      - nginx
       X-Content-Type-Options:
       - nosniff
       X-Mashery-Responder:
-      - prod-p-worker-us-east-1d-34.mashery.com
+      - prod-j-worker-us-east-1d-35.mashery.com
       Content-Length:
       - '2660'
+      X-Cache:
+      - MISS from 172.19.134.2
+      X-Cache-Lookup:
+      - MISS from 172.19.134.2:3128
       Via:
-      - 1.1 sea19-proxy-4.amazon.com:80 (Cisco-IronPort-WSA/7.5.1-201)
+      - 1.0 172.19.134.2:3128 (squid/2.6.STABLE14)
       Connection:
-      - keep-alive
+      - close
     body:
       encoding: UTF-8
       base64_string: |
         PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCEtLSBH
-        ZW5lcmF0aW9uIHN0YXJ0ZWQgQCAyMDE0LTAzLTE0IDE2OjQ1OjI3IFVUQyAt
+        ZW5lcmF0aW9uIHN0YXJ0ZWQgQCAyMDE0LTA4LTA0IDE5OjM5OjQ0IFVUQyAt
         LT4KPGJveHNjb3JlIGlkPSIwMDBjNDY1Zi03YzhjLTQ2YmItOGVhNy1jMjZi
         MmJjN2MyOTYiIHNlYXNvbl9pZD0iNThkZDlhODEtNGEzOC00YTY2LThjZDct
         MzJhZTRkNTY3YmE4IiBzZWFzb25feWVhcj0iMjAxMyIgc2Vhc29uX3R5cGU9
@@ -101,10 +103,10 @@ http_interactions:
         ICAgPGxvc3MgaWQ9IjQwZmRlYjZmLTA2ZDEtNDhlMi05ZTczLTU0NTE1MGM5
         NTcwMyIvPgogICAgPHNhdmUgaWQ9IjAzNjE5ZDhlLWNkYTAtNDJiYS05NThl
         LWE0YTNjOTM4MmFhMCIvPgogIDwvcGl0Y2hpbmc+CjwvYm94c2NvcmU+Cjwh
-        LS0gR2VuZXJhdGlvbiBlbmRlZCBAIDIwMTQtMDMtMTQgMTY6NDU6MjcgVVRD
+        LS0gR2VuZXJhdGlvbiBlbmRlZCBAIDIwMTQtMDgtMDQgMTk6Mzk6NDQgVVRD
         IC0tPgo=
     http_version: 
-  recorded_at: Fri, 14 Mar 2014 16:45:28 GMT
+  recorded_at: Mon, 04 Aug 2014 19:39:47 GMT
 - request:
     method: get
     uri: http://developer.sportsdatallc.com/files/mlb_v4_game_boxscore_example.xml
@@ -129,21 +131,25 @@ http_interactions:
       Content-Type:
       - text/xml
       X-Mashery-Client-Ip:
-      - 72.21.196.68
+      - 10.21.19.155
       X-Frame-Options:
       - deny
       Etag:
       - '"dc627e5e"'
       Date:
-      - Fri, 14 Mar 2014 16:58:33 GMT
+      - Mon, 04 Aug 2014 19:39:53 GMT
       Server:
       - Mashery Proxy
       Content-Length:
       - '3278'
+      X-Cache:
+      - MISS from 172.19.134.2
+      X-Cache-Lookup:
+      - MISS from 172.19.134.2:3128
       Via:
-      - 1.1 sea19-proxy-5.amazon.com:80 (Cisco-IronPort-WSA/7.5.1-201)
+      - 1.0 172.19.134.2:3128 (squid/2.6.STABLE14)
       Connection:
-      - keep-alive
+      - close
     body:
       encoding: UTF-8
       base64_string: |
@@ -221,5 +227,5 @@ http_interactions:
         IDwvcnVucz4KICA8L2hvbWU+CjwvYm94c2NvcmU+CjwhLS0gR2VuZXJhdGlv
         biBlbmRlZCBAIDIwMTQtMDMtMDMgMjE6MDA6MTkgVVRDIC0tPgo=
     http_version: 
-  recorded_at: Fri, 14 Mar 2014 16:58:34 GMT
+  recorded_at: Mon, 04 Aug 2014 19:39:56 GMT
 recorded_with: VCR 2.4.0

@@ -36,9 +36,9 @@ describe SportsDataApi::Nfl, vcr: {
   end
 
   context 'create valid URLs' do
-    let(:schedule_url) { 'http://api.sportsdatallc.org/nfl-t1/2012/REG/schedule.xml' }
-    let(:boxscore_url) { 'http://api.sportsdatallc.org/nfl-t1/2012/REG/9/MIA/IND/boxscore.xml' }
-    let(:weekly_url) { 'http://api.sportsdatallc.org/nfl-t1/2012/PRE/1/schedule.xml' }
+    let(:schedule_url) { 'http://api.sportsdatallc.org/nfl-t1/2012/REG/schedule.json' }
+    let(:boxscore_url) { 'http://api.sportsdatallc.org/nfl-t1/2012/REG/9/MIA/IND/boxscore.json' }
+    let(:weekly_url) { 'http://api.sportsdatallc.org/nfl-t1/2012/PRE/1/schedule.json' }
     before(:each) do
       SportsDataApi.set_key(:nfl, 'invalid_key')
       SportsDataApi.set_access_level(:nfl, 't')

@@ -50,4 +50,5 @@ VCR.configure do |c|
   # Filter the real API key so that it does not make its way into the VCR cassette
   c.filter_sensitive_data('<API_KEY>')  { api_key(:nfl) }
   c.filter_sensitive_data('<API_KEY>')  { api_key(:nba) }
+  c.filter_sensitive_data('<API_KEY>')  { api_key(:mlb) }
 end

@@ -5,35 +5,30 @@ module SportsDataApi
         :away_team, :status, :quarter, :clock, :venue, :broadcast, :weather,
         :year, :season, :week
 
-      def initialize(year, season, week, xml)
-        @year = year.to_i
-        @season = season.to_sym
-        @week = week.to_i
+      def initialize(year, season, week, game_hash)
+        @year = year
+        @season = season
+        @week = week
 
-        xml = xml.first if xml.is_a? Nokogiri::XML::NodeSet
-        if xml.is_a? Nokogiri::XML::Element
-          @id = xml['id']
-          @scheduled = Time.parse xml['scheduled']
-          @home = xml['home']
-          @away = xml['away']
-          @status = xml['status']
-          @quarter = xml['quarter'].to_i
-          @clock = xml['clock']
+        @id = game_hash['id']
+        @scheduled = Time.parse game_hash['scheduled']
+        @home = game_hash['home'] || game_hash['home_team']['id']
+        @away = game_hash['away'] || game_hash['away_team']['id']
+        @status = game_hash['status']
+        @quarter = game_hash['quarter'].to_i
+        @clock = game_hash['clock']
 
-          team_xml = xml.xpath('team')
-          @home_team = Team.new(team_xml.first)
-          @away_team = Team.new(team_xml.last)
-          @venue = Venue.new(xml.xpath('venue'))
-          @broadcast = Broadcast.new(xml.xpath('broadcast'))
-          @weather = Weather.new(xml.xpath('weather'))
-        end
+        @home_team = Team.new(game_hash['home_team'])
+        @away_team = Team.new(game_hash['away_team'])
+        @venue = Venue.new(game_hash['venue'])
+        @broadcast = Broadcast.new(game_hash['broadcast'])
+        @weather = Weather.new(game_hash['weather'])
       end
 
       ##
       # Wrapper for Nfl.statistics
-      # TODO
       def statistics
-        raise NotImplementedError
+        Nfl.game_statistics(year, season, week, home, away, 1)
       end
 
       ##
