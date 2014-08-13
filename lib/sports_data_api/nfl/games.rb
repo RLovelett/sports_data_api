@@ -4,13 +4,13 @@ module SportsDataApi
       include Enumerable
       attr_reader :games, :year, :season, :week
 
-      def initialize(xml)
-        @year = xml.first['season'].to_i
-        @season = xml.first['type'].to_sym
-        @week = xml.first['week'].to_i
+      def initialize(year, season, week, games_hash)
+        @year = year
+        @season = season
+        @week = week
 
-        @games = xml.xpath("game").map do |game_xml|
-          Game.new(@year, @season, @week, game_xml)
+        @games = games_hash['games'].map do |game_hash|
+          Game.new(@year, @season, @week, game_hash)
         end
       end
 
@@ -23,7 +23,6 @@ module SportsDataApi
           end
         end
       end
-
     end
   end
 end

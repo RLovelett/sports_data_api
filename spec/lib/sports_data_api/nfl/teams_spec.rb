@@ -11,16 +11,15 @@ describe SportsDataApi::Nfl::Teams, vcr: {
     SportsDataApi::Nfl.teams
   end
 
-  let(:url) { 'http://api.sportsdatallc.org/nfl-t1/teams/hierarchy.xml' }
+  let(:url) { 'http://api.sportsdatallc.org/nfl-t1/teams/hierarchy.json' }
 
-  let(:dolphins_xml) do
+  let(:dolphins_hash) do
     str = RestClient.get(url, params: { api_key: api_key(:nfl) }).to_s
-    xml = Nokogiri::XML(str)
-    xml.remove_namespaces!
-    xml.xpath('/league/conference/division/team[@id=\'MIA\']')
+    teams_hash = JSON.parse(str)
+    teams_hash['conferences'][0]['divisions'][0]['teams'][1]
   end
 
-  let(:dolphins) { SportsDataApi::Nfl::Team.new(dolphins_xml) }
+  let(:dolphins) { SportsDataApi::Nfl::Team.new(dolphins_hash) }
 
   subject { teams }
   its(:conferences) { should eq %w(AFC NFC).map { |str| str.to_sym } }

@@ -15,6 +15,11 @@ describe SportsDataApi::Nfl::Game, vcr: {
     SportsDataApi.set_access_level(:nfl, 't')
     SportsDataApi::Nfl.boxscore(2012, :REG, 9, 'IND', 'MIA')
   end
+  let(:game_statistics) do
+    SportsDataApi.set_key(:nfl, api_key(:nfl))
+    SportsDataApi.set_access_level(:nfl, 't')
+    SportsDataApi::Nfl.game_statistics(2013, :REG, 16, 'GB', 'PIT')
+  end
   let(:weekly_schedule) do
     SportsDataApi.set_access_level(:nfl, 't')
     SportsDataApi.set_key(:nfl, api_key(:nfl))
@@ -33,9 +38,6 @@ describe SportsDataApi::Nfl::Game, vcr: {
     its(:venue) { should be_an_instance_of(SportsDataApi::Nfl::Venue) }
     its(:broadcast) { should be_an_instance_of(SportsDataApi::Nfl::Broadcast) }
     its(:weather) { should be_an_instance_of(SportsDataApi::Nfl::Weather) }
-    it '#statistics' do
-      expect { subject.statistics }.to raise_error(NotImplementedError)
-    end
     it '#summary' do
       expect { subject.summary }.to raise_error(NotImplementedError)
     end
@@ -52,6 +54,7 @@ describe SportsDataApi::Nfl::Game, vcr: {
       expect { subject.depthchart }.to raise_error(NotImplementedError)
     end
     its(:boxscore) { should be_an_instance_of(SportsDataApi::Nfl::Game) }
+    its(:statistics) { should be_an_instance_of(SportsDataApi::Nfl::Game) }
   end
   context 'results from boxscore fetch' do
     subject { boxscore }
@@ -68,9 +71,6 @@ describe SportsDataApi::Nfl::Game, vcr: {
     its(:venue) { should be_an_instance_of(SportsDataApi::Nfl::Venue) }
     its(:broadcast) { should be_an_instance_of(SportsDataApi::Nfl::Broadcast) }
     its(:weather) { should be_an_instance_of(SportsDataApi::Nfl::Weather) }
-    it '#statistics' do
-      expect { subject.statistics }.to raise_error(NotImplementedError)
-    end
     it '#summary' do
       expect { subject.summary }.to raise_error(NotImplementedError)
     end
@@ -87,6 +87,7 @@ describe SportsDataApi::Nfl::Game, vcr: {
       expect { subject.depthchart }.to raise_error(NotImplementedError)
     end
     its(:boxscore) { should be_an_instance_of(SportsDataApi::Nfl::Game) }
+    its(:statistics) { should be_an_instance_of(SportsDataApi::Nfl::Game) }
   end
   context 'results from weekly schedule fetch' do
     subject { weekly_schedule.first }
@@ -103,9 +104,32 @@ describe SportsDataApi::Nfl::Game, vcr: {
     its(:venue) { should be_an_instance_of(SportsDataApi::Nfl::Venue) }
     its(:broadcast) { should be_an_instance_of(SportsDataApi::Nfl::Broadcast) }
     its(:weather) { should be_an_instance_of(SportsDataApi::Nfl::Weather) }
-    it '#statistics' do
-      expect { subject.statistics }.to raise_error(NotImplementedError)
+    it '#summary' do
+      expect { subject.summary }.to raise_error(NotImplementedError)
     end
+    it '#pbp' do
+      expect { subject.pbp }.to raise_error(NotImplementedError)
+    end
+    it '#roster' do
+      expect { subject.roster }.to raise_error(NotImplementedError)
+    end
+    it '#injuries' do
+      expect { subject.injuries }.to raise_error(NotImplementedError)
+    end
+    it '#depthchart' do
+      expect { subject.depthchart }.to raise_error(NotImplementedError)
+    end
+    its(:boxscore) { should be_an_instance_of(SportsDataApi::Nfl::Game) }
+    its(:statistics) { should be_an_instance_of(SportsDataApi::Nfl::Game) }
+  end
+  context 'results from game statistics fetch' do
+    subject { game_statistics }
+    its(:id) { should eq '00d5024b-0853-4e09-ad5a-4981a968f0ad' }
+    its(:status) { should eq 'closed' }
+    its(:scheduled) { should eq Time.parse("2013-12-22T21:25:00+00:00") }
+    its(:home_team) { should be_an_instance_of(SportsDataApi::Nfl::Team) }
+    its(:away_team) { should be_an_instance_of(SportsDataApi::Nfl::Team) }
+
     it '#summary' do
       expect { subject.summary }.to raise_error(NotImplementedError)
     end
