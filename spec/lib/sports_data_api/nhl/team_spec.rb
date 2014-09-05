@@ -94,6 +94,9 @@ describe SportsDataApi::Nhl::Team, vcr: {
       it 'should not be scratched' do
         expect(subject.player[:scratched]).to eq nil
       end
+      it 'should not have goaltending' do
+        expect(subject.stats.goaltending).to eql nil
+      end
 
       its(:stats){ should be_an_instance_of(SportsDataApi::Stats) }
       context 'stats' do
@@ -151,8 +154,87 @@ describe SportsDataApi::Nhl::Team, vcr: {
         end
         it 'should have points' do
           expect(subject[:points]).to eql '0'
-        end     
+        end
+        it 'should have powerplay_shots' do
+          expect(subject[:powerplay_shots]).to eql '0'
+        end   
+        it 'should have powerplay_goals' do
+          expect(subject[:powerplay_goals]).to eql '0'
+        end 
+        it 'should have powerplay_missed_shots' do
+          expect(subject[:powerplay_missed_shots]).to eql '0'
+        end 
+        it 'should have powerplay_assists' do
+          expect(subject[:powerplay_assists]).to eql '0'
+        end 
+        it 'should have shorthanded_shots' do
+          expect(subject[:shorthanded_shots]).to eql '0'
+        end   
+        it 'should have shorthanded_goals' do
+          expect(subject[:shorthanded_goals]).to eql '0'
+        end 
+        it 'should have shorthanded_missed_shots' do
+          expect(subject[:shorthanded_missed_shots]).to eql '0'
+        end 
+        it 'should have shorthanded_assists' do
+          expect(subject[:shorthanded_assists]).to eql '0'
+        end  
+        it 'should have eventstrength_shots' do
+          expect(subject[:evenstrength_shots]).to eql '2'
+        end  
+        it 'should have eventstrength_goals' do
+          expect(subject[:evenstrength_goals]).to eql '0'
+        end 
+        it 'should have eventstrength_missed_shots' do
+          expect(subject[:evenstrength_missed_shots]).to eql '1'
+        end 
+        it 'should have eventstrength_assists' do
+          expect(subject[:evenstrength_assists]).to eql '0'
+        end    
+        it 'should have penalty_shots' do
+          expect(subject[:penalty_shots]).to eql '0'
+        end  
+        it 'should have penalty_goals' do
+          expect(subject[:penalty_goals]).to eql '0'
+        end 
+        it 'should have penalty_missed_shots' do
+          expect(subject[:penalty_missed_shots]).to eql '0'
+        end    
+        it 'should have shootout_shots' do
+          expect(subject[:shootout_shots]).to eql '0'
+        end  
+        it 'should have shootout_goals' do
+          expect(subject[:shootout_goals]).to eql '0'
+        end 
+        it 'should have shootout_missed_shots' do
+          expect(subject[:shootout_missed_shots]).to eql '0'
+        end                                                          
       end
     end
+
+    context 'goalie' do
+      subject { game_summary.away_team.players.select { |player| !player.stats.goaltending.nil? }.first.stats.goaltending }
+      it 'should have goaltending' do
+        expect(subject).to be_a Hash
+      end
+      it 'should have shots_against' do
+        expect(subject[:shots_against]).to eql '37'
+      end
+      it 'should have goals_against' do
+        expect(subject[:goals_against]).to eql '3'
+      end    
+      it 'should have saves' do
+        expect(subject[:saves]).to eql '34'
+      end    
+      it 'should have credit' do
+        expect(subject[:credit]).to eql 'win'
+      end 
+      it 'should have shutout' do
+        expect(subject[:shutout]).to eql 'false'
+      end    
+      it 'should have saves_pct' do
+        expect(subject[:saves_pct]).to eql '0.919'
+      end                                    
+    end    
   end
 end
