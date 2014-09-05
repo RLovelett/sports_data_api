@@ -51,4 +51,5 @@ VCR.configure do |c|
   c.filter_sensitive_data('<API_KEY>')  { api_key(:nfl) }
   c.filter_sensitive_data('<API_KEY>')  { api_key(:nba) }
   c.filter_sensitive_data('<API_KEY>')  { api_key(:mlb) }
+  c.filter_sensitive_data('<API_KEY>')  { api_key(:nhl) }
 end
