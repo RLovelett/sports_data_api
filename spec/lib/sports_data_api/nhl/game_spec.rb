@@ -48,7 +48,7 @@ describe SportsDataApi::Nhl::Game, vcr: {
     its(:home) { should eq '441713b7-0f24-11e2-8525-18a905767e44' }
     its(:away) { should eq '441730a9-0f24-11e2-8525-18a905767e44' }
     its(:status) { should eq 'closed' }
-    its(:period) { should eq nil }
+    its(:period) { should eq 3 }
     its(:clock) { should eq "00:00" }
     its(:home_team) { should be_an_instance_of(SportsDataApi::Nhl::Team) }
     its(:away_team) { should be_an_instance_of(SportsDataApi::Nhl::Team) }
