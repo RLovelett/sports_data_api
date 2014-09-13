@@ -2,6 +2,7 @@ require "sports_data_api/version"
 require "nokogiri"
 require "rest_client"
 require "time"
+require "json"
 
 module SportsDataApi
   def self.key(sport)
@@ -49,5 +50,6 @@ module SportsDataApi
   autoload :Nfl,         File.join(LIBRARY_PATH, 'nfl')
   autoload :Nba,         File.join(LIBRARY_PATH, 'nba')
   autoload :Mlb,         File.join(LIBRARY_PATH, 'mlb')
+  autoload :Nhl,         File.join(LIBRARY_PATH, 'nhl')
   autoload :Exception,   File.join(LIBRARY_PATH, 'exception')
 end

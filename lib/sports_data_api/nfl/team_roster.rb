@@ -3,12 +3,9 @@ module SportsDataApi
     class TeamRoster
       attr_reader :players
 
-      def initialize(xml)
+      def initialize(json)
         @players = []
-        xml.children.each do | player |
-          if player.name == "text"
-            next
-          end
+        json['players'].each do | player |
           @players << Player.new(player)
         end
       end
