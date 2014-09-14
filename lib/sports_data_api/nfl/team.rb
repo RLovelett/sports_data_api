@@ -1,7 +1,7 @@
 module SportsDataApi
   module Nfl
     class Team
-      attr_reader :id, :name, :conference, :division, :market, :remaining_challenges, :remaining_timeouts, :score, :quarters
+      attr_reader :id, :name, :conference, :division, :market, :remaining_challenges, :remaining_timeouts, :score, :quarters, :venue
 
       def initialize(xml, conference = nil, division = nil)
         xml = xml.first if xml.is_a? Nokogiri::XML::NodeSet
@@ -17,6 +17,10 @@ module SportsDataApi
             quarter['points'].to_i
           end
           @quarters = @quarters.fill(0, @quarters.size, 4 - @quarters.size)
+
+          # Parse the Venue data if it exists
+          venue_xml = xml.xpath('venue')
+          @venue = Venue.new(venue_xml) if venue_xml
         end
       end
 

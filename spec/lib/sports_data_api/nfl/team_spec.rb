@@ -49,4 +49,18 @@ describe SportsDataApi::Nfl::Team, vcr: {
 
     it { (dolphins1 == dolphins2).should be_true }
   end
+  describe 'venue' do
+    let(:url) { 'http://api.sportsdatallc.org/nfl-t1/teams/hierarchy.xml' }
+
+    let(:dolphins_xml) do
+      str = RestClient.get(url, params: { api_key: api_key(:nfl) }).to_s
+      xml = Nokogiri::XML(str)
+      xml.remove_namespaces!
+      xml.xpath('/league/conference/division/team[@id=\'MIA\']')
+    end
+
+    let(:dolphins) { SportsDataApi::Nfl::Team.new(dolphins_xml) }
+
+    it { dolphins.venue.should be_instance_of(SportsDataApi::Nfl::Venue)}
+  end
 end
