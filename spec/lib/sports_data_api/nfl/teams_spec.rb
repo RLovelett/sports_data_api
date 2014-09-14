@@ -12,15 +12,33 @@ describe SportsDataApi::Nfl::Teams, vcr: {
   end
 
   let(:url) { 'http://api.sportsdatallc.org/nfl-t1/teams/hierarchy.xml' }
-
-  let(:dolphins_xml) do
+  let(:xml) do
     str = RestClient.get(url, params: { api_key: api_key(:nfl) }).to_s
     xml = Nokogiri::XML(str)
     xml.remove_namespaces!
+    xml
+  end
+
+  let(:dolphins_xml) do
     xml.xpath('/league/conference/division/team[@id=\'MIA\']')
   end
 
-  let(:dolphins) { SportsDataApi::Nfl::Team.new(dolphins_xml) }
+  let(:patriots_xml) do
+    xml.xpath('/league/conference/division/team[@id=\'NE\']')
+  end
+
+  let(:jaguars_xml) do
+    xml.xpath('/league/conference/division/team[@id=\'JAC\']')
+  end
+
+  let(:buccaneers_xml) do
+    xml.xpath('/league/conference/division/team[@id=\'TB\']')
+  end
+
+  let(:dolphins) { SportsDataApi::Nfl::Team.new(dolphins_xml, 'AFC', 'AFC_EAST') }
+  let(:patriots) { SportsDataApi::Nfl::Team.new(patriots_xml, 'AFC', 'AFC_EAST') }
+  let(:jaguars) { SportsDataApi::Nfl::Team.new(jaguars_xml, 'AFC', 'AFC_SOUTH') }
+  let(:buccaneers) { SportsDataApi::Nfl::Team.new(buccaneers_xml, 'NFC', 'NFC_SOUTH') }
 
   subject { teams }
   its(:conferences) { should eq %w(AFC NFC).map { |str| str.to_sym } }
@@ -73,5 +91,19 @@ describe SportsDataApi::Nfl::Teams, vcr: {
       it { should include dolphins }
     end
   end
-end
 
+  describe '#divisional_rivals?' do
+    it { subject.divisional_rivals?(dolphins, patriots).should be_true }
+    it { subject.divisional_rivals?(patriots, dolphins).should be_true }
+    it { subject.divisional_rivals?(dolphins, jaguars).should be_false }
+    it { subject.divisional_rivals?(jaguars, dolphins).should be_false }
+  end
+
+  describe '#conference_rivals?' do
+    it { subject.conference_rivals?(dolphins, patriots).should be_true }
+    it { subject.conference_rivals?(patriots, dolphins).should be_true }
+    it { subject.conference_rivals?(dolphins, jaguars).should be_true }
+    it { subject.conference_rivals?(dolphins, buccaneers).should be_false }
+    it { subject.conference_rivals?(buccaneers, dolphins).should be_false }
+  end
+end

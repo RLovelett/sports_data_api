@@ -79,6 +79,22 @@ module SportsDataApi
         end
       end
 
+      def conference_rivals?(team1, team2)
+        if team1.conference
+          self.send(team1.conference.to_sym).include?(team2)
+        else
+          false
+        end
+      end
+
+      def divisional_rivals?(team1, team2)
+        if team1.division
+          self.send(team1.division.to_sym).include?(team2)
+        else
+          false
+        end
+      end
+
     end
   end
 end
