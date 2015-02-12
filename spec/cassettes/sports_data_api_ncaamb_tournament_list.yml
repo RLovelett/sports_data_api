@@ -1,0 +1,71 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.sportsdatallc.org/ncaamb-t3/tournaments/2013/PST/schedule.xml?api_key=<API_KEY>
+    body:
+      encoding: US-ASCII
+      base64_string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - public, must-revalidate, max-age=2
+      Content-Type:
+      - application/xml;charset=utf-8
+      Date:
+      - Tue, 17 Feb 2015 22:40:20 GMT
+      Expires:
+      - Tue, 17 Feb 2015 22:40:22 GMT
+      Server:
+      - nginx
+      X-Content-Type-Options:
+      - nosniff
+      X-Mashery-Responder:
+      - prod-j-worker-us-east-1e-72.mashery.com
+      X-Via:
+      - S3-Proxy
+      Content-Length:
+      - '1103'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      base64_string: |
+        PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCEtLSBH
+        ZW5lcmF0aW9uIHN0YXJ0ZWQgQCAyMDE0LTEyLTE5IDE4OjMxOjUwICswMDAw
+        IC0tPgo8bGVhZ3VlIHhtbG5zPSJodHRwOi8vZmVlZC5lbGFzdGljc3RhdHMu
+        Y29tL3NjaGVtYS9iYXNrZXRiYWxsL3NjaGVkdWxlLXYyLjAueHNkIiBpZD0i
+        Y2Q0MjY4ZWUtMDdhYS00YzRkLWE0MzUtZWM0NGFkMmM3NmNiIiBuYW1lPSJO
+        Q0FBIE1FTiIgYWxpYXM9Ik5DQUFNIj4KICA8c2Vhc29uLXNjaGVkdWxlIGlk
+        PSIyMDNmOWQ4Ny1jMGVkLTQ2ZmEtYWM4ZS0xYjgzZWE0ZjNhZDgiIHllYXI9
+        IjIwMTMiIHR5cGU9IlBTVCI+CiAgICA8dG91cm5hbWVudCBpZD0iNTQxODA3
+        YzgtOWE3Ni00OTk5LWEyYWQtYzBiYThhNTUzYzNkIiBuYW1lPSJOQ0FBIE1l
+        bidzIERpdmlzaW9uIEkgQmFza2V0YmFsbCBUb3VybmFtZW50IiBsb2NhdGlv
+        bj0iQXJsaW5ndG9uLCBUWCwgVVNBIiBzdGF0dXM9ImNsb3NlZCIgc3RhcnRf
+        ZGF0ZT0iMjAxNC0wMy0xOCIgZW5kX2RhdGU9IjIwMTQtMDQtMDciLz4KICAg
+        IDx0b3VybmFtZW50IGlkPSI1ZmNhMzBlZC1iNTYzLTRiNzMtYjYyMC1kOGYy
+        NjA3MTc1MTYiIG5hbWU9IkNJVCIgbG9jYXRpb249IkNhbXB1cyBTaXRlcyIg
+        c3RhdHVzPSJjbG9zZWQiIHN0YXJ0X2RhdGU9IjIwMTQtMDMtMTciIGVuZF9k
+        YXRlPSIyMDE0LTA0LTAzIi8+CiAgICA8dG91cm5hbWVudCBpZD0iOTRlM2Nh
+        YTUtZDE1OC00NzI5LWI4YWYtYmM0MGY4NTA4NmZjIiBuYW1lPSJOSVQiIGxv
+        Y2F0aW9uPSJOZXcgWW9yayBDaXR5LCBOWSwgVVNBIiBzdGF0dXM9ImNsb3Nl
+        ZCIgc3RhcnRfZGF0ZT0iMjAxNC0wMy0xOCIgZW5kX2RhdGU9IjIwMTQtMDQt
+        MDMiLz4KICAgIDx0b3VybmFtZW50IGlkPSJjMTM1YjYyMi05MzI4LTQzNjUt
+        ODA1Zi0zZWExM2MyNTBhZjIiIG5hbWU9IkNCSSIgbG9jYXRpb249IkNhbXB1
+        cyBTaXRlcyIgc3RhdHVzPSJjbG9zZWQiIHN0YXJ0X2RhdGU9IjIwMTQtMDMt
+        MTgiIGVuZF9kYXRlPSIyMDE0LTA0LTA1Ii8+CiAgPC9zZWFzb24tc2NoZWR1
+        bGU+CjwvbGVhZ3VlPgo8IS0tIEdlbmVyYXRpb24gZW5kZWQgQCAyMDE0LTEy
+        LTE5IDE4OjMxOjUwICswMDAwIC0tPgo=
+    http_version: 
+  recorded_at: Tue, 17 Feb 2015 22:41:17 GMT
+recorded_with: VCR 2.4.0
