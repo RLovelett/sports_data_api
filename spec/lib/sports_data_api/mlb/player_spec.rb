@@ -11,7 +11,7 @@ describe SportsDataApi::Mlb::Player, vcr: {
   end
 
   let(:player) do
-    SportsDataApi::Mlb.team_roster(Date.today.year).first.player
+    SportsDataApi::Mlb.team_roster(2014).first.player
   end
 
 describe 'player' do

@@ -8,7 +8,7 @@ describe SportsDataApi::Mlb::Teams, vcr: {
   let(:teams) do
     SportsDataApi.set_key(:mlb, api_key(:mlb))
     SportsDataApi.set_access_level(:mlb, 't')
-    SportsDataApi::Mlb.teams
+    SportsDataApi::Mlb.teams(2014)
   end
 
   let(:url) { 'http://api.sportsdatallc.org/mlb-t4/teams/2014.xml' }

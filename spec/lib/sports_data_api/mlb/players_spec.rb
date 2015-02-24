@@ -8,7 +8,7 @@ describe SportsDataApi::Mlb::Players, vcr: {
   let(:team_rosters) do
     SportsDataApi.set_key(:mlb, api_key(:mlb))
     SportsDataApi.set_access_level(:mlb, 't')
-    SportsDataApi::Mlb.team_roster
+    SportsDataApi::Mlb.team_roster(2014)
   end
 
   subject { team_rosters }

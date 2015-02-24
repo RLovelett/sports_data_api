@@ -8,7 +8,7 @@ describe SportsDataApi::Mlb::Team, vcr: {
   let(:teams) do
     SportsDataApi.set_key(:mlb, api_key(:mlb))
     SportsDataApi.set_access_level(:mlb, 't')
-    SportsDataApi::Mlb.teams
+    SportsDataApi::Mlb.teams(2014)
   end
 
   context 'results from teams fetch' do
