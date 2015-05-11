@@ -1,0 +1,117 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.sportsdatallc.org/ncaafb-t1/2013/REG/schedule.json?api_key=invalid_key
+    body:
+      encoding: US-ASCII
+      base64_string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 403
+      message: Forbidden
+    headers:
+      Content-Type:
+      - text/xml
+      Date:
+      - Mon, 11 May 2015 13:38:17 GMT
+      Server:
+      - Mashery Proxy
+      X-Mashery-Error-Code:
+      - ERR_403_DEVELOPER_INACTIVE
+      X-Mashery-Responder:
+      - prod-j-worker-us-east-1b-56.mashery.com
+      Content-Length:
+      - '27'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      base64_string: |
+        PGgxPkRldmVsb3BlciBJbmFjdGl2ZTwvaDE+
+    http_version: 
+  recorded_at: Mon, 11 May 2015 13:38:18 GMT
+- request:
+    method: get
+    uri: http://api.sportsdatallc.org/ncaafb-t1/2014/REG/10/NW/IOW/boxscore.json?api_key=invalid_key
+    body:
+      encoding: US-ASCII
+      base64_string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 403
+      message: Forbidden
+    headers:
+      Content-Type:
+      - text/xml
+      Date:
+      - Mon, 11 May 2015 13:38:21 GMT
+      Server:
+      - Mashery Proxy
+      X-Mashery-Error-Code:
+      - ERR_403_DEVELOPER_INACTIVE
+      X-Mashery-Responder:
+      - prod-j-worker-us-east-1d-84.mashery.com
+      Content-Length:
+      - '27'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      base64_string: |
+        PGgxPkRldmVsb3BlciBJbmFjdGl2ZTwvaDE+
+    http_version: 
+  recorded_at: Mon, 11 May 2015 13:38:21 GMT
+- request:
+    method: get
+    uri: http://api.sportsdatallc.org/ncaafb-t1/2013/REG/1/schedule.json?api_key=invalid_key
+    body:
+      encoding: US-ASCII
+      base64_string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 403
+      message: Forbidden
+    headers:
+      Content-Type:
+      - text/xml
+      Date:
+      - Mon, 11 May 2015 13:38:24 GMT
+      Server:
+      - Mashery Proxy
+      X-Mashery-Error-Code:
+      - ERR_403_DEVELOPER_INACTIVE
+      X-Mashery-Responder:
+      - prod-j-worker-us-east-1b-76.mashery.com
+      Content-Length:
+      - '27'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      base64_string: |
+        PGgxPkRldmVsb3BlciBJbmFjdGl2ZTwvaDE+
+    http_version: 
+  recorded_at: Mon, 11 May 2015 13:38:25 GMT
+recorded_with: VCR 2.4.0
