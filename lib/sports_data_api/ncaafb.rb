@@ -9,6 +9,8 @@ module SportsDataApi
     SPORT = :ncaafb
 
     autoload :Division, File.join(DIR, 'division')
+    autoload :PollTeam, File.join(DIR, 'poll_team')
+    autoload :Polls, File.join(DIR, 'polls')
     autoload :Team, File.join(DIR, 'team')
     autoload :Teams, File.join(DIR, 'teams')
     autoload :Player, File.join(DIR, 'player')
@@ -29,6 +31,16 @@ module SportsDataApi
       response = self.response_json(version, "/#{year}/#{season}/schedule.json")
 
       return Season.new(response)
+    end
+
+    ##
+    # Fetches Ncaafb season ranking for a given year , poll and week
+    def self.rankings(year, poll, week, version = DEFAULT_VERSION)
+      raise SportsDataApi::Ncaafb::Exception.new("#{poll} is not a valid poll")  unless Polls.valid_name?(poll)
+      raise SportsDataApi::Ncaafb::Exception.new("#{week} nr is not a valid week nr") unless Polls.valid_week?(week)
+
+      response = self.response_json(version,  "/polls/#{poll}/#{year}/#{week}/rankings.json")
+      return Polls.new(response)
     end
 
     ##

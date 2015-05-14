@@ -65,6 +65,7 @@ describe SportsDataApi::Ncaafb::Team, vcr: {
       its(:id) { should eq 'IOW' }
       its(:points) { should eq 48 }
     end
+
     describe 'away team' do
       subject { game_statistics.away_team }
       its(:id) { should eq 'NW' }
