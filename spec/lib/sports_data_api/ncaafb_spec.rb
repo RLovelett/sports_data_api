@@ -12,6 +12,11 @@ describe SportsDataApi::Ncaafb, vcr: {
       SportsDataApi.set_access_level(:ncaafb, 't')
     end
 
+    describe '.rankings' do
+      it { expect { subject.rankings(2014, :AP25, 22) }.to raise_error(SportsDataApi::Ncaafb::Exception) }
+      it { expect { subject.rankings(2014, :AP10, 12) }.to raise_error(SportsDataApi::Ncaafb::Exception) }
+    end
+
     describe '.schedule' do
       it { expect { subject.schedule(2013, :REG) }.to raise_error(SportsDataApi::Exception) }
     end
