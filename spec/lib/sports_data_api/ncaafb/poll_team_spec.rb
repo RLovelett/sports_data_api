@@ -22,6 +22,7 @@ describe SportsDataApi::Ncaafb::PollTeam, vcr: {
     its(:market) { should eq 'Mississippi State' }
     its(:points) { should eq 1488 }
     its(:fp_votes) { should eq 48 }
+    its(:rank) { should eq 1 }
     its(:wins) { should eq 9 }
     its(:losses) { should eq 0 }
     its(:ties) { should eq 0 }
