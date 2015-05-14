@@ -56,7 +56,7 @@ module SportsDataApi
     ##
     # Fetches all Ncaafb teams
     def self.teams(division, version = DEFAULT_VERSION)
-      raise SportsDataApi::Ncaafb::Exception.new("#{division} is not a valid season") unless Division.valid?(division)
+      raise SportsDataApi::Ncaafb::Exception.new("#{division} is not a valid division") unless Division.valid?(division)
       response = self.response_json(version, "/teams/#{division}/hierarchy.json")
 
       return Teams.new(response)
