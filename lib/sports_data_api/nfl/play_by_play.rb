@@ -1,9 +1,8 @@
 module SportsDataApi
   module Nfl
     class PlayByPlay
-      attr_reader :id, :scheduled, :home, :home_team, :away,
-        :away_team, :status, :quarter, :clock, :venue, :broadcast, :weather,
-        :year, :season, :week
+      attr_reader :id, :scheduled, :completed, :home, :home_team, :away,
+        :away_team, :status, :year, :season, :week, :quarters
 
       def initialize(year, season, week, play_by_play_hash)
         @year = year
@@ -19,6 +18,10 @@ module SportsDataApi
 
         @home_team = Team.new(play_by_play_hash['home_team'])
         @away_team = Team.new(play_by_play_hash['away_team'])
+
+        @away_team = Team.new(play_by_play_hash['away_team'])
+
+        @quarters = Quarters.new(play_by_play_hash["quarters"])
       end
 
       ##
