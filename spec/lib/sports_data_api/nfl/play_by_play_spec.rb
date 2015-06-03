@@ -33,16 +33,22 @@ describe SportsDataApi::Nfl::PlayByPlay, vcr: {
 
   context 'pbp data in play by play results' do
     subject {
-      play_by_play.quarters.first.pbps.first
+      play_by_play.quarters.first.play_by_plays.first
     }
 
     its(:class) {should eq(SportsDataApi::Nfl::Event)}
     its(:type) {should eq("event")}
+    its(:sequence) {should eq(1)}
+    its(:clock) {should eq("15:00")}
+    its(:updated) {should eq("2012-09-06T00:41:25+00:00")}
+    its(:summary) {should eq("NYG wins coin toss, elects to receive.")}
+    its(:winner) {should eq({"team"=>"NYG", "outcome"=>"receive"})}
+    its(:event_type) {should eq("cointoss")}
   end
 
   context 'pbp data in play by play results' do
     subject {
-      play_by_play.quarters.first.pbps.detect {|i| i.class == SportsDataApi::Nfl::Drive}
+      play_by_play.quarters.first.play_by_plays.detect {|i| i.class == SportsDataApi::Nfl::Drive}
     }
 
     its(:class) {should eq(SportsDataApi::Nfl::Drive)}
@@ -55,7 +61,7 @@ describe SportsDataApi::Nfl::PlayByPlay, vcr: {
 
   context 'play actions data in play by play results' do
     subject {
-      play_by_play.quarters.first.pbps.select {|i| i.class == SportsDataApi::Nfl::Drive}.flatten.map(&:actions).map(&:actions).flatten.detect {|a| a.sequence == 2}
+      play_by_play.quarters.first.play_by_plays.select {|i| i.class == SportsDataApi::Nfl::Drive}.flatten.map(&:actions).flatten.select {|a| a.sequence == 2}.first
     }
 
     its(:class) {should eq(SportsDataApi::Nfl::PlayAction)}
@@ -77,7 +83,7 @@ describe SportsDataApi::Nfl::PlayByPlay, vcr: {
 
   context 'play actions data in play by play results' do
     subject {
-      play_by_play.quarters.first.pbps.select {|i| i.class == SportsDataApi::Nfl::Drive}.flatten.map(&:actions).map(&:actions).flatten.select {|a| a.class == SportsDataApi::Nfl::EventAction}.first
+      play_by_play.quarters.first.play_by_plays.select {|i| i.class == SportsDataApi::Nfl::Drive}.flatten.map(&:actions).flatten.select {|a| a.sequence == 34}.first
     }
 
     its(:class) {should eq(SportsDataApi::Nfl::EventAction)}

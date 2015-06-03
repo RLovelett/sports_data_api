@@ -8,7 +8,15 @@ module SportsDataApi
         @clock = event_hash["clock"]
         @type = event_hash["type"]
         @team= event_hash["team"]
-        @actions = Actions.new(event_hash["actions"])
+        @actions = Actions.build_actions(event_hash["actions"])
+      end
+
+      def play_actions
+        actions.select {|i| i.class == SportsDataApi::Nfl::PlayAction}
+      end
+
+      def event_actions
+        actions.select {|i| i.class == SportsDataApi::Nfl::EventAction }
       end
     end
   end
