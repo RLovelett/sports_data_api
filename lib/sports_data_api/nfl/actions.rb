@@ -6,7 +6,7 @@ module SportsDataApi
 
       def initialize(actions)
         @actions = actions.map do |action|
-          Action.new(action)
+          map_by_type(action)
         end
       end
 
@@ -17,6 +17,15 @@ module SportsDataApi
           else
             yield action
           end
+        end
+      end
+
+      def map_by_type(action)
+        case action["type"]
+        when "event"
+          EventAction.new(action)
+        when "play"
+          PlayAction.new(action)
         end
       end
     end

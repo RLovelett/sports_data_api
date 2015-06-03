@@ -5,6 +5,7 @@ describe SportsDataApi::Nfl::PlayByPlay, vcr: {
     record: :new_episodes,
     match_requests_on: [:host, :path]
 } do
+
   let(:play_by_play) do
     SportsDataApi.set_key(:nfl, api_key(:nfl))
     SportsDataApi.set_access_level(:nfl, 't')
@@ -52,12 +53,12 @@ describe SportsDataApi::Nfl::PlayByPlay, vcr: {
     its(:actions) {should be_any}
   end
 
-  context 'actions data in play by play results' do
+  context 'play actions data in play by play results' do
     subject {
-      play_by_play.quarters.first.pbps.detect {|i| i.class == SportsDataApi::Nfl::Drive}.actions.first
+      play_by_play.quarters.first.pbps.select {|i| i.class == SportsDataApi::Nfl::Drive}.flatten.map(&:actions).map(&:actions).flatten.detect {|a| a.sequence == 2}
     }
 
-    its(:class) {should eq(SportsDataApi::Nfl::Action)}
+    its(:class) {should eq(SportsDataApi::Nfl::PlayAction)}
     its(:sequence) {should eq(2)}
     its(:clock) {should eq("15:00")}
     its(:id) {should eq "fdec3736-3598-4cde-ad4c-7270afc6d4e7" }
@@ -72,5 +73,20 @@ describe SportsDataApi::Nfl::PlayByPlay, vcr: {
     its(:play_type) {should eq("kick")}
     its(:sequence) {should eq(2)}
     its(:yfd) {should eq(10)}
+  end
+
+  context 'play actions data in play by play results' do
+    subject {
+      play_by_play.quarters.first.pbps.select {|i| i.class == SportsDataApi::Nfl::Drive}.flatten.map(&:actions).map(&:actions).flatten.select {|a| a.class == SportsDataApi::Nfl::EventAction}.first
+    }
+
+    its(:class) {should eq(SportsDataApi::Nfl::EventAction)}
+    its(:clock) {should eq(":00")}
+    its(:sequence) {should eq(34)}
+    its(:id) {should eq "59f4431e-5584-4199-ab7e-5cb29c89cbd4" }
+    its(:type) {should eq("event")}
+    its(:summary) {should eq("End of Quarter")}
+    its(:updated) {should eq("2012-09-06T01:11:56+00:00")}
+    its(:event_type) {should eq("quarterend")}
   end
 end
