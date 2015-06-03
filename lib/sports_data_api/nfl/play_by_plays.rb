@@ -1,6 +1,6 @@
 module SportsDataApi
   module Nfl
-    class Pbps
+    class PlayByPlays
       include Enumerable
       attr_reader :events
 

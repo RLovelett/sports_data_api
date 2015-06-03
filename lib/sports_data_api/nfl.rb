@@ -25,7 +25,7 @@ module SportsDataApi
     autoload :PlayByPlay, File.join(DIR, 'play_by_play')
     autoload :Quarters, File.join(DIR, 'quarters')
     autoload :Quarter, File.join(DIR, 'quarter')
-    autoload :Pbps, File.join(DIR, 'pbps')
+    autoload :PlayByPlays, File.join(DIR, 'play_by_plays')
     autoload :Drive, File.join(DIR, 'drive')
     autoload :Event, File.join(DIR, 'event')
     autoload :Actions, File.join(DIR, 'actions')
