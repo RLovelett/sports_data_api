@@ -11,7 +11,7 @@ module SportsDataApi
 
         @id = play_by_play_hash['id']
         @scheduled = Time.parse play_by_play_hash['scheduled']
-        @completed = Time.parse play_by_play_hash['completed']
+        @completed = play_by_play_hash['completed'] || Time.parse(play_by_play_hash['scheduled'])
         @home = play_by_play_hash['home'] || play_by_play_hash['home_team']['id']
         @away = play_by_play_hash['away'] || play_by_play_hash['away_team']['id']
         @status = play_by_play_hash['status']
