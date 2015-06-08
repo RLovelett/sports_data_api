@@ -3,6 +3,7 @@ require "nokogiri"
 require "rest_client"
 require "time"
 require "multi_json"
+require "json"
 
 module SportsDataApi
   def self.key(sport)
@@ -34,7 +35,7 @@ module SportsDataApi
       raise SportsDataApi::Exception, 'The API did not respond in a reasonable amount of time'
     rescue RestClient::Exception => e
       message = if e.response.headers.key? :x_server_error
-                  JSON.parse(e.response.headers[:x_server_error], { symbolize_names: true })[:message]
+                  ::JSON.parse(e.response.headers[:x_server_error], { symbolize_names: true })[:message]
                 elsif e.response.headers.key? :x_mashery_error_code
                   e.response.headers[:x_mashery_error_code]
                 else

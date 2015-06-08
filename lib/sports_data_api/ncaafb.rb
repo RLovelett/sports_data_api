@@ -22,7 +22,15 @@ module SportsDataApi
     autoload :Venue, File.join(DIR, 'venue')
     autoload :Broadcast, File.join(DIR, 'broadcast')
     autoload :Weather, File.join(DIR, 'weather')
-
+    autoload :PlayByPlay, File.join(DIR, 'play_by_play')
+    autoload :Quarters, File.join(DIR, 'quarters')
+    autoload :Quarter, File.join(DIR, 'quarter')
+    autoload :PlayByPlays, File.join(DIR, 'play_by_plays')
+    autoload :Drive, File.join(DIR, 'drive')
+    autoload :Event, File.join(DIR, 'event')
+    autoload :Actions, File.join(DIR, 'actions')
+    autoload :EventAction, File.join(DIR, 'play_action')
+    autoload :PlayAction, File.join(DIR, 'event_action')
     ##
     # Fetches Ncaafb season schedule for a given year and season
     def self.schedule(year, season, version = DEFAULT_VERSION)
@@ -91,6 +99,15 @@ module SportsDataApi
       response = self.response_json(version, "/#{year}/#{season}/#{week}/schedule.json")
 
       return Games.new(year, season, week, response)
+    end
+
+    def self.play_by_play(year, season, week, home, away, version = DEFAULT_VERSION)
+      season = season.to_s.upcase.to_sym
+      raise SportsDataApi::Ncaafb::Exception.new("#{season} is not a valid season") unless Season.valid?(season)
+
+      response = self.response_json(version, "/#{year}/#{season}/#{week}/#{away}/#{home}/pbp.json")
+
+      return PlayByPlay.new(year, season, week, response)
     end
 
     private
