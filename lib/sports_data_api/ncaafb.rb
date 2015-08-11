@@ -12,6 +12,7 @@ module SportsDataApi
     autoload :PollTeam, File.join(DIR, 'poll_team')
     autoload :Polls, File.join(DIR, 'polls')
     autoload :Team, File.join(DIR, 'team')
+    autoload :TeamRoster, File.join(DIR, 'team_roster')
     autoload :Teams, File.join(DIR, 'teams')
     autoload :Player, File.join(DIR, 'player')
     autoload :Game, File.join(DIR, 'game')
@@ -72,6 +73,13 @@ module SportsDataApi
       response = self.response_json(version, "/teams/#{division}/hierarchy.json")
 
       return Teams.new(response)
+    end
+
+    # Fetch Ncaafb team roster
+    def self.team_roster(team, version = DEFAULT_VERSION)
+      response = self.response_json(version, "/teams/#{team}/roster.json")
+
+      return TeamRoster.new(response)
     end
 
     ##

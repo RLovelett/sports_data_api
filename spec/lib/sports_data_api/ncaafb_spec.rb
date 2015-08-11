@@ -44,4 +44,17 @@ describe SportsDataApi::Ncaafb, vcr: {
       it { expect { subject.weekly(2014, :REG, 22) }.to raise_error(SportsDataApi::Exception) }
     end
   end
+
+  describe 'team based class methods' do
+    before do
+      SportsDataApi.set_key(:ncaafb, api_key(:ncaafb))
+      SportsDataApi.set_access_level(:ncaafb, 't')
+    end
+
+    context '#team_roster' do
+      it 'returns an array' do
+        expect(subject.team_roster('WIS').players.kind_of?(Array)).to be true
+      end
+    end
+  end
 end
