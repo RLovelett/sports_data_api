@@ -19,6 +19,7 @@ tmp
 # RVM
 .rvmrc
 .ruby-gemset
+.ruby-version
 
 # YARD artifacts
 .yardoc

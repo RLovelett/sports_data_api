@@ -18,6 +18,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'nokogiri', '>= 1.5.0'
   gem.add_dependency 'rest-client', '~> 1.6.7'
   gem.add_dependency 'multi_json', '~> 1.11.0'
+  gem.add_dependency 'virtus'
 
   gem.add_development_dependency 'rake', '~> 10.0.4'
   gem.add_development_dependency 'rspec', '~> 2.13.0'
