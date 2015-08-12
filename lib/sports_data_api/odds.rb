@@ -20,14 +20,15 @@ module SportsDataApi
           nfl: date.css('NFL Game').map {|g| Odds::Game.load_from_xml(g, date.css('GameDate').text)},
           nba: date.css('NBA Game').map {|g| Odds::Game.load_from_xml(g, date.css('GameDate').text)},
           nhl: date.css('NHL Game').map {|g| Odds::Game.load_from_xml(g, date.css('GameDate').text)},
-          mlb: date.css('MLB Game').map {|g| Odds::Game.load_from_xml(g, date.css('GameDate').text)}
+          mlb: date.css('MLB Game').map {|g| Odds::Game.load_from_xml(g, date.css('GameDate').text)},
+          ncaafb: Array(date.css('NCAA_Football Game')).map {|g| Odds::Game.load_from_xml(g, date.css('GameDate').text)},
+          ncaamb: Array(date.css('NCAA_Basketball Game')).map {|g| Odds::Game.load_from_xml(g, date.css('GameDate').text)},
         })
       end
       
     end
 
-    # private
-
+    private
     def self.response_xml(version)
       base_url = BASE_URL % { access_level: SportsDataApi.access_level(SPORT), version: version }
       response = SportsDataApi.generic_request("#{base_url}", SPORT)
