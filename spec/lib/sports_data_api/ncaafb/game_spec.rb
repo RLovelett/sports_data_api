@@ -28,6 +28,12 @@ describe SportsDataApi::Ncaafb::Game, vcr: {
     SportsDataApi::Ncaafb.weekly(2014, :REG, 1)
   end
 
+  let(:game_roster) do
+    SportsDataApi.set_key(:ncaafb, api_key(:ncaafb))
+    SportsDataApi.set_access_level(:ncaafb, 't')
+    SportsDataApi::Ncaafb.game_roster(2014, :REG, 10, 'IOW', 'NW')
+  end
+
   context 'results from schedule fetch' do
     subject { season.weeks.first.games.first }
     it { should be_an_instance_of(SportsDataApi::Ncaafb::Game) }
@@ -47,9 +53,6 @@ describe SportsDataApi::Ncaafb::Game, vcr: {
     it '#pbp' do
       expect { subject.pbp }.to raise_error(NotImplementedError)
     end
-    it '#roster' do
-      expect { subject.roster }.to raise_error(NotImplementedError)
-    end
     it '#injuries' do
       expect { subject.injuries }.to raise_error(NotImplementedError)
     end
@@ -59,6 +62,7 @@ describe SportsDataApi::Ncaafb::Game, vcr: {
 
     its(:boxscore) { should be_an_instance_of(SportsDataApi::Ncaafb::Game) }
     its(:statistics) { should be_an_instance_of(SportsDataApi::Ncaafb::Game) }
+    its(:roster) { should be_an_instance_of(SportsDataApi::Ncaafb::Game) }
   end
 
   context 'results from boxscore fetch' do
@@ -82,9 +86,6 @@ describe SportsDataApi::Ncaafb::Game, vcr: {
     it '#pbp' do
       expect { subject.pbp }.to raise_error(NotImplementedError)
     end
-    it '#roster' do
-      expect { subject.roster }.to raise_error(NotImplementedError)
-    end
     it '#injuries' do
       expect { subject.injuries }.to raise_error(NotImplementedError)
     end
@@ -94,6 +95,7 @@ describe SportsDataApi::Ncaafb::Game, vcr: {
 
     its(:boxscore) { should be_an_instance_of(SportsDataApi::Ncaafb::Game)}
     its(:statistics) { should be_an_instance_of(SportsDataApi::Ncaafb::Game) }
+    its(:roster) { should be_an_instance_of(SportsDataApi::Ncaafb::Game) }
   end
 
   context 'results from weekly schedule fetch' do
@@ -117,9 +119,6 @@ describe SportsDataApi::Ncaafb::Game, vcr: {
     it '#pbp' do
       expect { subject.pbp }.to raise_error(NotImplementedError)
     end
-    it '#roster' do
-      expect { subject.roster }.to raise_error(NotImplementedError)
-    end
     it '#injuries' do
       expect { subject.injuries }.to raise_error(NotImplementedError)
     end
@@ -128,7 +127,9 @@ describe SportsDataApi::Ncaafb::Game, vcr: {
     end
     its(:boxscore) { should be_an_instance_of(SportsDataApi::Ncaafb::Game) }
     its(:statistics) { should be_an_instance_of(SportsDataApi::Ncaafb::Game) }
+    its(:roster) { should be_an_instance_of(SportsDataApi::Ncaafb::Game) }
   end
+
   context 'results from game statistics fetch' do
     subject { game_statistics }
     its(:id) { should eq 'f38cb305-28e8-446e-ac4a-c36fe7f823ea' }
@@ -143,9 +144,39 @@ describe SportsDataApi::Ncaafb::Game, vcr: {
     it '#pbp' do
       expect { subject.pbp }.to raise_error(NotImplementedError)
     end
-    it '#roster' do
-      expect { subject.roster }.to raise_error(NotImplementedError)
+    it '#injuries' do
+      expect { subject.injuries }.to raise_error(NotImplementedError)
     end
+    it '#depthchart' do
+      expect { subject.depthchart }.to raise_error(NotImplementedError)
+    end
+    its(:boxscore) { should be_an_instance_of(SportsDataApi::Ncaafb::Game) }
+    its(:roster) { should be_an_instance_of(SportsDataApi::Ncaafb::Game) }
+  end
+
+  context 'results from game roster fetch' do
+    subject { game_roster }
+    its(:id) { should eq 'f38cb305-28e8-446e-ac4a-c36fe7f823ea' }
+    its(:status) { should eq 'closed' }
+    its(:scheduled) { should eq Time.new(2014, 11, 01, 16, 00, 00, '+00:00') }
+    its(:home_team) { should be_an_instance_of(SportsDataApi::Ncaafb::Team) }
+    its(:away_team) { should be_an_instance_of(SportsDataApi::Ncaafb::Team) }
+
+    it 'has home_team players' do
+      expect(subject.home_team.players.first).to be_an_instance_of(SportsDataApi::Ncaafb::Player)
+    end
+
+    it 'has away_team players' do
+      expect(subject.away_team.players.first).to be_an_instance_of(SportsDataApi::Ncaafb::Player)
+    end
+
+    it '#summary' do
+      expect { subject.summary }.to raise_error(NotImplementedError)
+    end
+    it '#pbp' do
+      expect { subject.pbp }.to raise_error(NotImplementedError)
+    end
+    its(:roster) { should be_an_instance_of(SportsDataApi::Ncaafb::Game) }
     it '#injuries' do
       expect { subject.injuries }.to raise_error(NotImplementedError)
     end
