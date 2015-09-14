@@ -89,6 +89,16 @@ module SportsDataApi
       return Game.new(year, season, week, response)
     end
 
+    # Fetches roster for a given NFL game
+    def self.game_roster(year, season, week, home, away, version = DEFAULT_VERSION)
+      season = season.to_s.upcase.to_sym
+      raise SportsDataApi::Nfl::Exception.new("#{season} is not a valid season") unless Season.valid?(season)
+
+      response = self.response_json(version, "/#{year}/#{season}/#{week}/#{away}/#{home}/roster.json")
+
+      return Game.new(year, season, week, response)
+    end
+
     ##
     # Fetches all NFL teams
     def self.teams(version = DEFAULT_VERSION)
