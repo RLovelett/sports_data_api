@@ -30,6 +30,20 @@ describe SportsDataApi::Nba::Game, vcr: {
     its(:status) { should eq 'closed' }
     its(:home_team) { should be_an_instance_of(SportsDataApi::Nba::Team) }
     its(:away_team) { should be_an_instance_of(SportsDataApi::Nba::Team) }
+    describe 'parsing team info' do
+      it 'home team should have an name' do
+        subject.home_team.name.should eq 'Indiana Pacers'
+      end
+      it 'away team should have an name' do
+        subject.away_team.name.should eq 'Orlando Magic'
+      end
+      it 'home team should have an alias' do
+        subject.home_team.alias.should eq 'IND'
+      end
+      it 'away team should have an alias' do
+        subject.away_team.alias.should eq 'ORL'
+      end
+    end
     its(:venue) { should be_an_instance_of(SportsDataApi::Nba::Venue) }
     its(:broadcast) { should be_an_instance_of(SportsDataApi::Nba::Broadcast) }
     its(:summary) { should be_an_instance_of(SportsDataApi::Nba::Game) }
@@ -52,6 +66,20 @@ describe SportsDataApi::Nba::Game, vcr: {
     its(:clock) { should eq '00:00' }
     its(:home_team) { should be_an_instance_of(SportsDataApi::Nba::Team) }
     its(:away_team) { should be_an_instance_of(SportsDataApi::Nba::Team) }
+    describe 'parsing team info' do
+      it 'home team should have an name' do
+        subject.home_team.name.should eq 'Warriors'
+      end
+      it 'away team should have an name' do
+        subject.away_team.name.should eq 'Lakers'
+      end
+      it 'home team should have an market' do
+        subject.home_team.market.should eq 'Golden State'
+      end
+      it 'away team should have an market' do
+        subject.away_team.market.should eq 'Los Angeles'
+      end
+    end
     its(:venue) { should be_an_instance_of(SportsDataApi::Nba::Venue) }
     its(:broadcast) { should be_an_instance_of(SportsDataApi::Nba::Broadcast) }
     its(:summary) { should be_an_instance_of(SportsDataApi::Nba::Game) }
@@ -74,6 +102,20 @@ describe SportsDataApi::Nba::Game, vcr: {
     its(:clock) { should eq nil }
     its(:home_team) { should be_an_instance_of(SportsDataApi::Nba::Team) }
     its(:away_team) { should be_an_instance_of(SportsDataApi::Nba::Team) }
+    describe 'parsing team info' do
+      it 'home team should have an name' do
+        subject.home_team.name.should eq 'Brooklyn Nets'
+      end
+      it 'away team should have an name' do
+        subject.away_team.name.should eq 'Los Angeles Clippers'
+      end
+      it 'home team should have an alias' do
+        subject.home_team.alias.should eq 'BKN'
+      end
+      it 'away team should have an alias' do
+        subject.away_team.alias.should eq 'LAC'
+      end
+    end
     its(:venue) { should be_an_instance_of(SportsDataApi::Nba::Venue) }
     its(:broadcast) { should be_an_instance_of(SportsDataApi::Nba::Broadcast) }
     its(:summary) { should be_an_instance_of(SportsDataApi::Nba::Game) }
