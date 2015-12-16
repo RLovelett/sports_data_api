@@ -22,8 +22,16 @@ module SportsDataApi
           @quarter = xml['quarter'] ? xml['quarter'].to_i : nil
 
           team_xml = xml.xpath('team')
-          @home_team = Team.new(team_xml.first)
-          @away_team = Team.new(team_xml.last)
+          if team_xml.empty?
+            # we are coming from the schedule API
+            @home_team = Team.new(xml.xpath('home'))
+            @away_team = Team.new(xml.xpath('away'))
+          else
+            # we are coming from the Game Summary API
+            @home_team = Team.new(team_xml.first)
+            @away_team = Team.new(team_xml.last)
+          end
+
           @venue = Venue.new(xml.xpath('venue'))
           @broadcast = Broadcast.new(xml.xpath('broadcast'))
         end
