@@ -1,6 +1,7 @@
 require 'simplecov'
 require 'coveralls'
 require 'pry'
+require 'codeclimate-test-reporter'
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
   Coveralls::SimpleCov::Formatter,
   SimpleCov::Formatter::HTMLFormatter
@@ -8,6 +9,7 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
 SimpleCov.start do
   add_filter "/spec/"
 end
+CodeClimate::TestReporter.start
 
 # Previous content of test helper now starts here
 require "sports_data_api"
@@ -46,6 +48,11 @@ VCR.configure do |c|
   c.hook_into :webmock
   c.preserve_exact_body_bytes { true }
   c.configure_rspec_metadata!
+
+  # VCR will prevent the codeclimate-test-reporter from reporting results to
+  # codeclimate.com. Configure VCR to ignore the codeclimate.com hostname to
+  # ensure codeclimate-test-reporter can post coverage results.
+  c.ignore_hosts 'codeclimate.com'
 
   ##
   # Filter the real API key so that it does not make its way into the VCR cassette
