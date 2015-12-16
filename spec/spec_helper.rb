@@ -1,11 +1,6 @@
 require 'simplecov'
-require 'coveralls'
 require 'pry'
 require 'codeclimate-test-reporter'
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
-  Coveralls::SimpleCov::Formatter,
-  SimpleCov::Formatter::HTMLFormatter
-]
 SimpleCov.start do
   add_filter "/spec/"
 end
