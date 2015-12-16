@@ -1,4 +1,4 @@
-# SportsDataApi [![Build Status](https://travis-ci.org/RLovelett/sports_data_api.png?branch=master)](https://travis-ci.org/RLovelett/sports_data_api) [![Coverage Status](https://coveralls.io/repos/RLovelett/sports_data_api/badge.png?branch=master)](https://coveralls.io/r/RLovelett/sports_data_api?branch=master) [![Gem Version](https://badge.fury.io/rb/sports_data_api.svg)](http://badge.fury.io/rb/sports_data_api) [![Code Climate](https://codeclimate.com/github/RLovelett/sports_data_api/badges/gpa.svg)](https://codeclimate.com/github/RLovelett/sports_data_api)
+# SportsDataApi [![Build Status](https://travis-ci.org/RLovelett/sports_data_api.png?branch=master)](https://travis-ci.org/RLovelett/sports_data_api) [![Gem Version](https://badge.fury.io/rb/sports_data_api.svg)](http://badge.fury.io/rb/sports_data_api) [![Code Climate](https://codeclimate.com/github/RLovelett/sports_data_api/badges/gpa.svg)](https://codeclimate.com/github/RLovelett/sports_data_api)
 
 SportsDataApi is an attempt to make a Ruby interface to the
 [SportsData](http://www.sportsdatallc.com/) API. The goal is to
