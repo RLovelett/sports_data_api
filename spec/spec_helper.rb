@@ -1,10 +1,19 @@
 require 'simplecov'
-require 'coveralls'
 require 'pry'
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
-  Coveralls::SimpleCov::Formatter,
-  SimpleCov::Formatter::HTMLFormatter
-]
+
+if RUBY_VERSION.to_i >= 2
+  require 'coveralls'
+
+  SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
+    Coveralls::SimpleCov::Formatter,
+    SimpleCov::Formatter::HTMLFormatter
+  ]
+else
+  SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
+    SimpleCov::Formatter::HTMLFormatter
+  ]
+end
+
 SimpleCov.start do
   add_filter "/spec/"
 end
