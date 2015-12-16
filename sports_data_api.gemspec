@@ -29,6 +29,6 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'vcr', '~> 2.4.0'
   gem.add_development_dependency 'webmock', '~> 1.9.0'
   gem.add_development_dependency 'faker', '~> 1.1.2'
-  gem.add_development_dependency 'simplecov', '~> 0.7.1'
+  gem.add_development_dependency 'simplecov', '~> 0.11.0'
   gem.add_development_dependency 'codeclimate-test-reporter'
 end
