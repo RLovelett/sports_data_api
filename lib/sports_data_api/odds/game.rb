@@ -10,6 +10,7 @@ module SportsDataApi
       attribute :away_team_id
       attribute :away_team
       attribute :spread, Float
+      attribute :total, Float
 
       def self.load_from_xml(xml, date)
         new({
@@ -19,7 +20,8 @@ module SportsDataApi
           home_team: xml.css('Home').text,
           away_team_id: xml.css('AwayID').text,
           away_team: xml.css('Away').text,
-          spread: xml.css('Spread_Current Spread').text
+          spread: xml.css('Spread_Current Spread').text,
+          total: xml.css('Total_Current Total').text
         })
       end
     end
