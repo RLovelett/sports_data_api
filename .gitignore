@@ -17,6 +17,7 @@ test/version_tmp
 tmp
 
 # RVM
+.ruby-version
 .rvmrc
 .ruby-gemset
 
