@@ -1,10 +1,10 @@
 language: ruby
 before_install: gem install bundler && bundler -v
 rvm:
-  - 1.9.3
-  - 2.0.0
   - 2.1
   - 2.2
+  - 2.3
+  - 2.4.0
   - ruby-head
 addons:
   code_climate:
