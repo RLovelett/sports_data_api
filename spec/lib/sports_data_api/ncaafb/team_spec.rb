@@ -55,7 +55,7 @@ describe SportsDataApi::Ncaafb::Team, vcr: {
       let(:team_1) { SportsDataApi::Ncaafb::Team.new(team_hash) }
       let(:team_2) { SportsDataApi::Ncaafb::Team.new(team_hash) }
 
-      it { (team_1 == team_2).should be_true }
+      it { (team_1 == team_2).should eq(true) }
     end
   end
 

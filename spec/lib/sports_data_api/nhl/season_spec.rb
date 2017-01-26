@@ -8,22 +8,22 @@ describe SportsDataApi::Nhl::Season, vcr: {
   subject { SportsDataApi::Nhl::Season }
   describe '.season?' do
     context :PRE do
-      it { SportsDataApi::Nhl::Season.valid?(:PRE).should be_true }
+      it { SportsDataApi::Nhl::Season.valid?(:PRE).should eq(true) }
     end
     context :REG do
-      it { subject.valid?(:REG).should be_true }
+      it { subject.valid?(:REG).should eq(true) }
     end
     context :PST do
-      it { subject.valid?(:PST).should be_true }
+      it { subject.valid?(:PST).should eq(true) }
     end
     context :pre do
-      it { subject.valid?(:pre).should be_false }
+      it { subject.valid?(:pre).should eq(false) }
     end
     context :reg do
-      it { subject.valid?(:reg).should be_false }
+      it { subject.valid?(:reg).should eq(false) }
     end
     context :pst do
-      it { subject.valid?(:pst).should be_false }
+      it { subject.valid?(:pst).should eq(false) }
     end
   end
   context 'results from schedule fetch' do

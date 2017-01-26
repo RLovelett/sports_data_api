@@ -16,7 +16,7 @@ describe SportsDataApi::Nhl::Player, vcr: {
     it 'should have an id' do
       expect(subject[:id]).to eql '42784f4b-0f24-11e2-8525-18a905767e44'
     end
-    
+
     it 'should have a status' do
       expect(subject[:status]).to eql 'ACT'
     end

@@ -16,6 +16,6 @@ describe SportsDataApi::Nfl::Week, vcr: {
     its(:year) { should eq 2012 }
     its(:season) { should eq :REG }
     its(:number) { should eq 1 }
-    its(:games) { should have(16).games }
+    its(:games) { should have(16).gamea }
   end
 end
