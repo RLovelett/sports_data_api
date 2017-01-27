@@ -6,7 +6,7 @@ describe SportsDataApi::Nba::Season, vcr: {
     match_requests_on: [:host, :path]
 } do
   subject { SportsDataApi::Nba::Season }
-  describe '.season?' do
+  describe '.valid?' do
     context :PRE do
       it { SportsDataApi::Nba::Season.valid?(:PRE).should eq(true) }
     end
