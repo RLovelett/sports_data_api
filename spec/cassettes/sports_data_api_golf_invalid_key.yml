@@ -1,0 +1,89 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.sportsdatallc.org/golf-t2/schedule/pga/2016/tournaments/schedule.json?api_key=invalid_key
+    body:
+      encoding: US-ASCII
+      base64_string: ''
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.0 (darwin15.6.0 x86_64) ruby/2.3.1p112
+      Host:
+      - api.sportsdatallc.org
+  response:
+    status:
+      code: 403
+      message: Forbidden
+    headers:
+      Content-Type:
+      - text/xml
+      Date:
+      - Fri, 27 Jan 2017 20:49:58 GMT
+      Server:
+      - Mashery Proxy
+      X-Error-Detail-Header:
+      - Account Inactive
+      X-Mashery-Error-Code:
+      - ERR_403_DEVELOPER_INACTIVE
+      X-Mashery-Responder:
+      - prod-j-worker-us-east-1b-127.mashery.com
+      Content-Length:
+      - '27'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      base64_string: 'PGgxPkRldmVsb3BlciBJbmFjdGl2ZTwvaDE+
+
+'
+    http_version:
+  recorded_at: Fri, 27 Jan 2017 20:49:58 GMT
+- request:
+    method: get
+    uri: https://api.sportsdatallc.org/golf-t2/profiles/pga/2016/players/profiles.json?api_key=invalid_key
+    body:
+      encoding: US-ASCII
+      base64_string: ''
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.0 (darwin15.6.0 x86_64) ruby/2.3.1p112
+      Host:
+      - api.sportsdatallc.org
+  response:
+    status:
+      code: 403
+      message: Forbidden
+    headers:
+      Content-Type:
+      - text/xml
+      Date:
+      - Fri, 27 Jan 2017 20:49:58 GMT
+      Server:
+      - Mashery Proxy
+      X-Error-Detail-Header:
+      - Account Inactive
+      X-Mashery-Error-Code:
+      - ERR_403_DEVELOPER_INACTIVE
+      X-Mashery-Responder:
+      - prod-j-worker-us-east-1e-117.mashery.com
+      Content-Length:
+      - '27'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      base64_string: 'PGgxPkRldmVsb3BlciBJbmFjdGl2ZTwvaDE+
+
+'
+    http_version:
+  recorded_at: Fri, 27 Jan 2017 20:49:58 GMT
+recorded_with: VCR 3.0.3

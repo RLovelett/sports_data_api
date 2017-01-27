@@ -11,6 +11,7 @@ module SportsDataApi
 
     autoload :Season, File.join(DIR, 'season')
     autoload :Tournament, File.join(DIR, 'tournament')
+    autoload :Player, File.join(DIR, 'player')
 
     # Fetches Golf tournament schedule for a given tour and year
     def self.season(tour, year, version = DEFAULT_VERSION)
@@ -22,6 +23,17 @@ module SportsDataApi
       response = self.response_json(version, "/schedule/#{tour}/#{year}/tournaments/schedule.json")
 
       return Season.new(response)
+    end
+
+    def self.players(tour, year, version = DEFAULT_VERSION)
+      tour = tour.to_s.downcase.to_sym
+      unless Season.valid_tour?(tour)
+        raise SportsDataApi::Golf::Exception.new("#{tour} is not a valid tour")
+      end
+
+      response = self.response_json(version, "/profiles/#{tour}/#{year}/players/profiles.json")
+
+      return response['players'].map { |player_hash| Player.new(player_hash) }
     end
 
     private
