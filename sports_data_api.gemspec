@@ -15,9 +15,9 @@ Gem::Specification.new do |gem|
   gem.require_paths = %w{lib}
   gem.version       = SportsDataApi::VERSION
 
-  gem.add_dependency 'nokogiri', '>= 1.5.0'
-  gem.add_dependency 'rest-client', '>= 1.8.0'
-  gem.add_dependency 'multi_json', '~> 1.11.0'
+  gem.add_dependency 'nokogiri', '~> 1.7.0'
+  gem.add_dependency 'rest-client', '~> 2.0.0'
+  gem.add_dependency 'multi_json', '~> 1.12.1'
 
   gem.add_development_dependency 'rake', '~> 10.0.4'
   gem.add_development_dependency 'rspec', '~> 2.13.0'
@@ -26,9 +26,9 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'rb-fsevent', '~> 0.9.1'
   gem.add_development_dependency 'growl', '~> 1.0.3'
   gem.add_development_dependency 'terminal-notifier-guard', '~> 1.5.3'
-  gem.add_development_dependency 'vcr', '~> 2.4.0'
-  gem.add_development_dependency 'webmock', '~> 1.9.0'
-  gem.add_development_dependency 'faker', '~> 1.1.2'
-  gem.add_development_dependency 'simplecov', '~> 0.11.0'
-  gem.add_development_dependency 'codeclimate-test-reporter'
+  gem.add_development_dependency 'vcr', '~> 3.0.3'
+  gem.add_development_dependency 'webmock', '~> 2.3.2'
+  gem.add_development_dependency 'faker', '~> 1.7.2'
+  gem.add_development_dependency 'simplecov', '~> 0.13.0'
+  gem.add_development_dependency 'codeclimate-test-reporter', '~> 1.0.0'
 end

@@ -1,10 +1,8 @@
 require 'simplecov'
 require 'pry'
-require 'codeclimate-test-reporter'
 SimpleCov.start do
-  add_filter "/spec/"
+  add_filter '/spec/'
 end
-CodeClimate::TestReporter.start
 
 # Previous content of test helper now starts here
 require "sports_data_api"
