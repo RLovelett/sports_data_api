@@ -17,6 +17,9 @@ describe SportsDataApi::Nfl, vcr: {
     describe '.boxscore' do
       it { expect { subject.boxscore(2012, :REG, 9, 'IND', 'MIA') }.to raise_error(SportsDataApi::Exception) }
     end
+    describe '.game_roster' do
+      it { expect { subject.game_roster(2012, :REG, 9, 'IND', 'MIA') }.to raise_error(SportsDataApi::Exception) }
+    end
     describe '.weekly' do
       it { expect { subject.weekly(2013, :PRE, 1) }.to raise_error(SportsDataApi::Exception) }
     end
@@ -30,6 +33,9 @@ describe SportsDataApi::Nfl, vcr: {
     describe '.boxscore' do
       it { expect { subject.boxscore(2012, :REG, 9, 'IND', 'MIA') }.to raise_error(SportsDataApi::Exception) }
     end
+    describe '.game_roster' do
+      it { expect { subject.game_roster(2012, :REG, 9, 'IND', 'MIA') }.to raise_error(SportsDataApi::Exception) }
+    end
     describe '.weekly' do
       it { expect { subject.weekly(2013, :PRE, 1) }.to raise_error(SportsDataApi::Exception) }
     end
@@ -38,12 +44,14 @@ describe SportsDataApi::Nfl, vcr: {
   context 'create valid URLs' do
     let(:schedule_url) { 'http://api.sportsdatallc.org/nfl-t1/2012/REG/schedule.json' }
     let(:boxscore_url) { 'http://api.sportsdatallc.org/nfl-t1/2012/REG/9/MIA/IND/boxscore.json' }
+    let(:game_roster_url) { 'http://api.sportsdatallc.org/nfl-t1/2012/REG/9/MIA/IND/roster.json' }
     let(:weekly_url) { 'http://api.sportsdatallc.org/nfl-t1/2012/PRE/1/schedule.json' }
     before(:each) do
-      SportsDataApi.set_key(:nfl, 'invalid_key')
+      SportsDataApi.set_key(:nfl, api_key(:nfl))
       SportsDataApi.set_access_level(:nfl, 't')
       @schedule_xml = RestClient.get("#{schedule_url}?api_key=#{api_key(:nfl)}")
       @boxscore_xml = RestClient.get("#{boxscore_url}?api_key=#{api_key(:nfl)}")
+      @game_roster_xml = RestClient.get("#{game_roster_url}?api_key=#{api_key(:nfl)}")
       @weekly_xml = RestClient.get("#{weekly_url}?api_key=#{api_key(:nfl)}")
     end
     describe '.schedule' do
@@ -59,6 +67,14 @@ describe SportsDataApi::Nfl, vcr: {
         params = { params: { api_key: SportsDataApi.key(:nfl) } }
         RestClient.should_receive(:get).with(boxscore_url, params).and_return(@boxscore_xml)
         subject.boxscore(2012, :REG, 9, 'IND', 'MIA')
+      end
+    end
+
+    describe '.game_roster' do
+      it 'creates a valid Sports Data LLC url' do
+        params = { params: { api_key: SportsDataApi.key(:nfl) } }
+        RestClient.should_receive(:get).with(game_roster_url, params).and_return(@game_roster_xml)
+        subject.game_roster(2012, :REG, 9, 'IND', 'MIA')
       end
     end
 
