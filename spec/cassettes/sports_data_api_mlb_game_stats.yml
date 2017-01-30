@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://api.sportsdatallc.org/mlb-t4/statistics/000c465f-7c8c-46bb-8ea7-c26b2bc7c296.xml?api_key=<API_KEY>
+    uri: https://api.sportsdatallc.org/mlb-t4/statistics/000c465f-7c8c-46bb-8ea7-c26b2bc7c296.xml?api_key=<API_KEY>
     body:
       encoding: US-ASCII
       base64_string: ''

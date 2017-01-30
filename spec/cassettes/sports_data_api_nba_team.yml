@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://api.sportsdatallc.org/nba-t3/games/2013/10/30/schedule.xml?api_key=<API_KEY>
+    uri: https://api.sportsdatallc.org/nba-t3/games/2013/10/30/schedule.xml?api_key=<API_KEY>
     body:
       encoding: US-ASCII
       base64_string: ''
@@ -273,7 +273,7 @@ http_interactions:
   recorded_at: Thu, 12 Dec 2013 22:25:39 GMT
 - request:
     method: get
-    uri: http://api.sportsdatallc.org/nba-t3/league/hierarchy.xml?api_key=<API_KEY>
+    uri: https://api.sportsdatallc.org/nba-t3/league/hierarchy.xml?api_key=<API_KEY>
     body:
       encoding: US-ASCII
       base64_string: ''
@@ -544,7 +544,7 @@ http_interactions:
   recorded_at: Thu, 12 Dec 2013 22:25:39 GMT
 - request:
     method: get
-    uri: http://api.sportsdatallc.org/nba-t3/games/e1dcf692-330d-46d3-8add-a241b388fbe2/summary.xml?api_key=<API_KEY>
+    uri: https://api.sportsdatallc.org/nba-t3/games/e1dcf692-330d-46d3-8add-a241b388fbe2/summary.xml?api_key=<API_KEY>
     body:
       encoding: US-ASCII
       base64_string: ''
@@ -1160,7 +1160,7 @@ http_interactions:
   recorded_at: Thu, 12 Dec 2013 23:24:19 GMT
 - request:
     method: get
-    uri: http://api.sportsdatallc.org/nba-t3/teams/583ec825-fb46-11e1-82cb-f4ce4684ea4c/profile.xml?api_key=<API_KEY>
+    uri: https://api.sportsdatallc.org/nba-t3/teams/583ec825-fb46-11e1-82cb-f4ce4684ea4c/profile.xml?api_key=<API_KEY>
     body:
       encoding: US-ASCII
       base64_string: ''

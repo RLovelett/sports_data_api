@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://api.sportsdatallc.org/nba-t3/games/2013/12/12/schedule.xml?api_key=<API_KEY>
+    uri: https://api.sportsdatallc.org/nba-t3/games/2013/12/12/schedule.xml?api_key=<API_KEY>
     body:
       encoding: US-ASCII
       base64_string: ''
@@ -87,7 +87,7 @@ http_interactions:
   recorded_at: Thu, 12 Dec 2013 04:47:28 GMT
 - request:
     method: get
-    uri: http://api.sportsdatallc.org/mlb-t4daily/schedule/2014/6/21.xml?api_key=
+    uri: https://api.sportsdatallc.org/mlb-t4daily/schedule/2014/6/21.xml?api_key=
     body:
       encoding: US-ASCII
       base64_string: ''

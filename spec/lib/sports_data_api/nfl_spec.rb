@@ -42,10 +42,10 @@ describe SportsDataApi::Nfl, vcr: {
   end
 
   context 'create valid URLs' do
-    let(:schedule_url) { 'http://api.sportsdatallc.org/nfl-t1/2012/REG/schedule.json' }
-    let(:boxscore_url) { 'http://api.sportsdatallc.org/nfl-t1/2012/REG/9/MIA/IND/boxscore.json' }
-    let(:game_roster_url) { 'http://api.sportsdatallc.org/nfl-t1/2012/REG/9/MIA/IND/roster.json' }
-    let(:weekly_url) { 'http://api.sportsdatallc.org/nfl-t1/2012/PRE/1/schedule.json' }
+    let(:schedule_url) { 'https://api.sportsdatallc.org/nfl-t1/2012/REG/schedule.json' }
+    let(:boxscore_url) { 'https://api.sportsdatallc.org/nfl-t1/2012/REG/9/MIA/IND/boxscore.json' }
+    let(:game_roster_url) { 'https://api.sportsdatallc.org/nfl-t1/2012/REG/9/MIA/IND/roster.json' }
+    let(:weekly_url) { 'https://api.sportsdatallc.org/nfl-t1/2012/PRE/1/schedule.json' }
     before(:each) do
       SportsDataApi.set_key(:nfl, api_key(:nfl))
       SportsDataApi.set_access_level(:nfl, 't')

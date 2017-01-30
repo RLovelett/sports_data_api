@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://api.sportsdatallc.org/nfl-t1/2012/REG/9/MIA/IND/boxscore.json?api_key=<API_KEY>
+    uri: https://api.sportsdatallc.org/nfl-t1/2012/REG/9/MIA/IND/boxscore.json?api_key=<API_KEY>
     body:
       encoding: US-ASCII
       base64_string: ''
@@ -100,7 +100,7 @@ http_interactions:
   recorded_at: Wed, 13 Aug 2014 19:47:29 GMT
 - request:
     method: get
-    uri: http://api.sportsdatallc.org/nfl-t1/2012/REG/9/MIA/IND/statistics.json?api_key=<API_KEY>
+    uri: https://api.sportsdatallc.org/nfl-t1/2012/REG/9/MIA/IND/statistics.json?api_key=<API_KEY>
     body:
       encoding: US-ASCII
       base64_string: ''
@@ -1023,7 +1023,7 @@ http_interactions:
   recorded_at: Wed, 13 Aug 2014 19:47:30 GMT
 - request:
     method: get
-    uri: http://api.sportsdatallc.org/nfl-t1/2012/REG/9/MIA/IND/boxscore.json?api_key=<API_KEY>
+    uri: https://api.sportsdatallc.org/nfl-t1/2012/REG/9/MIA/IND/boxscore.json?api_key=<API_KEY>
     body:
       encoding: US-ASCII
       base64_string: ''
@@ -1121,7 +1121,7 @@ http_interactions:
   recorded_at: Wed, 13 Aug 2014 19:47:30 GMT
 - request:
     method: get
-    uri: http://api.sportsdatallc.org/nfl-t1/2012/PRE/1/schedule.json?api_key=<API_KEY>
+    uri: https://api.sportsdatallc.org/nfl-t1/2012/PRE/1/schedule.json?api_key=<API_KEY>
     body:
       encoding: US-ASCII
       base64_string: ''
@@ -1351,7 +1351,7 @@ http_interactions:
   recorded_at: Wed, 13 Aug 2014 19:47:30 GMT
 - request:
     method: get
-    uri: http://api.sportsdatallc.org/nfl-t1/2012/PRE/1/WAS/BUF/statistics.json?api_key=<API_KEY>
+    uri: https://api.sportsdatallc.org/nfl-t1/2012/PRE/1/WAS/BUF/statistics.json?api_key=<API_KEY>
     body:
       encoding: US-ASCII
       base64_string: ''
@@ -2559,7 +2559,7 @@ http_interactions:
   recorded_at: Wed, 13 Aug 2014 19:47:31 GMT
 - request:
     method: get
-    uri: http://api.sportsdatallc.org/nfl-t1/2012/PRE/1/WAS/BUF/boxscore.json?api_key=<API_KEY>
+    uri: https://api.sportsdatallc.org/nfl-t1/2012/PRE/1/WAS/BUF/boxscore.json?api_key=<API_KEY>
     body:
       encoding: US-ASCII
       base64_string: ''
@@ -2624,7 +2624,7 @@ http_interactions:
   recorded_at: Wed, 13 Aug 2014 19:47:32 GMT
 - request:
     method: get
-    uri: http://api.sportsdatallc.org/nfl-t1/2012/REG/schedule.json?api_key=<API_KEY>
+    uri: https://api.sportsdatallc.org/nfl-t1/2012/REG/schedule.json?api_key=<API_KEY>
     body:
       encoding: US-ASCII
       base64_string: ''
@@ -5818,7 +5818,7 @@ http_interactions:
   recorded_at: Wed, 13 Aug 2014 19:47:32 GMT
 - request:
     method: get
-    uri: http://api.sportsdatallc.org/nfl-t1/2012/REG/1/DAL/NYG/statistics.json?api_key=<API_KEY>
+    uri: https://api.sportsdatallc.org/nfl-t1/2012/REG/1/DAL/NYG/statistics.json?api_key=<API_KEY>
     body:
       encoding: US-ASCII
       base64_string: ''
@@ -6682,7 +6682,7 @@ http_interactions:
   recorded_at: Wed, 13 Aug 2014 19:47:33 GMT
 - request:
     method: get
-    uri: http://api.sportsdatallc.org/nfl-t1/2012/REG/1/DAL/NYG/boxscore.json?api_key=<API_KEY>
+    uri: https://api.sportsdatallc.org/nfl-t1/2012/REG/1/DAL/NYG/boxscore.json?api_key=<API_KEY>
     body:
       encoding: US-ASCII
       base64_string: ''
@@ -6776,7 +6776,7 @@ http_interactions:
   recorded_at: Wed, 13 Aug 2014 19:47:33 GMT
 - request:
     method: get
-    uri: http://api.sportsdatallc.org/nfl-t1/2013/REG/16/PIT/GB/statistics.json?api_key=<API_KEY>
+    uri: https://api.sportsdatallc.org/nfl-t1/2013/REG/16/PIT/GB/statistics.json?api_key=<API_KEY>
     body:
       encoding: US-ASCII
       base64_string: ''
@@ -7752,7 +7752,7 @@ http_interactions:
   recorded_at: Wed, 13 Aug 2014 19:47:34 GMT
 - request:
     method: get
-    uri: http://api.sportsdatallc.org/nfl-t1/2013/REG/16/PIT/GB/boxscore.json?api_key=<API_KEY>
+    uri: https://api.sportsdatallc.org/nfl-t1/2013/REG/16/PIT/GB/boxscore.json?api_key=<API_KEY>
     body:
       encoding: US-ASCII
       base64_string: ''
@@ -7884,7 +7884,7 @@ http_interactions:
   recorded_at: Wed, 13 Aug 2014 19:47:35 GMT
 - request:
     method: get
-    uri: http://api.sportsdatallc.org/nfl-t1/2012/REG/9/MIA/IND/roster.json?api_key=<API_KEY>
+    uri: https://api.sportsdatallc.org/nfl-t1/2012/REG/9/MIA/IND/roster.json?api_key=<API_KEY>
     body:
       encoding: US-ASCII
       base64_string: ''
@@ -8741,7 +8741,7 @@ http_interactions:
   recorded_at: Mon, 14 Sep 2015 19:35:50 GMT
 - request:
     method: get
-    uri: http://api.sportsdatallc.org/nfl-t1/2012/PRE/1/WAS/BUF/roster.json?api_key=<API_KEY>
+    uri: https://api.sportsdatallc.org/nfl-t1/2012/PRE/1/WAS/BUF/roster.json?api_key=<API_KEY>
     body:
       encoding: US-ASCII
       base64_string: ''
@@ -9858,7 +9858,7 @@ http_interactions:
   recorded_at: Mon, 14 Sep 2015 20:01:47 GMT
 - request:
     method: get
-    uri: http://api.sportsdatallc.org/nfl-t1/2013/REG/16/PIT/GB/roster.json?api_key=<API_KEY>
+    uri: https://api.sportsdatallc.org/nfl-t1/2013/REG/16/PIT/GB/roster.json?api_key=<API_KEY>
     body:
       encoding: US-ASCII
       base64_string: ''
@@ -10805,7 +10805,7 @@ http_interactions:
   recorded_at: Mon, 14 Sep 2015 20:01:49 GMT
 - request:
     method: get
-    uri: http://api.sportsdatallc.org/nfl-t1/2012/REG/1/DAL/NYG/roster.json?api_key=<API_KEY>
+    uri: https://api.sportsdatallc.org/nfl-t1/2012/REG/1/DAL/NYG/roster.json?api_key=<API_KEY>
     body:
       encoding: US-ASCII
       base64_string: ''
@@ -11608,7 +11608,7 @@ http_interactions:
   recorded_at: Mon, 14 Sep 2015 20:01:51 GMT
 - request:
     method: get
-    uri: http://api.sportsdatallc.org/nfl-t1/2012/REG/9/MIA/IND/roster.json?api_key=<API_KEY>
+    uri: https://api.sportsdatallc.org/nfl-t1/2012/REG/9/MIA/IND/roster.json?api_key=<API_KEY>
     body:
       encoding: US-ASCII
       base64_string: ''

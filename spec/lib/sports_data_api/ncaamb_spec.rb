@@ -24,7 +24,7 @@ describe SportsDataApi::Ncaamb, vcr: {
   end
 
   context 'create valid URLs' do
-    let(:schedule_url) { 'http://api.sportsdatallc.org/ncaamb-t3/games/2014/REG/schedule.xml' }
+    let(:schedule_url) { 'https://api.sportsdatallc.org/ncaamb-t3/games/2014/REG/schedule.xml' }
     before(:each) do
       SportsDataApi.set_key(:ncaamb, 'invalid_key')
       SportsDataApi.set_access_level(:ncaamb, 't')

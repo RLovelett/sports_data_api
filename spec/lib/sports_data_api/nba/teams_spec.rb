@@ -11,7 +11,7 @@ describe SportsDataApi::Nba::Teams, vcr: {
     SportsDataApi::Nba.teams
   end
 
-  let(:url) { 'http://api.sportsdatallc.org/nba-t3/league/hierarchy.xml' }
+  let(:url) { 'https://api.sportsdatallc.org/nba-t3/league/hierarchy.xml' }
 
   let(:warriors_xml) do
     str = RestClient.get(url, params: { api_key: api_key(:nba) }).to_s

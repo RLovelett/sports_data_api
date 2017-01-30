@@ -5,7 +5,7 @@ module SportsDataApi
     end
 
     DIR = File.join(File.dirname(__FILE__), 'mlb')
-    BASE_URL = 'http://api.sportsdatallc.org/mlb-%{access_level}%{version}'
+    BASE_URL = 'https://api.sportsdatallc.org/mlb-%{access_level}%{version}'
     DEFAULT_VERSION = 4
     SPORT = :mlb
 

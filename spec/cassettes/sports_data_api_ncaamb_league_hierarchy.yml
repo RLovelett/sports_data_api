@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://api.sportsdatallc.org/ncaamb-t3/league/hierarchy.xml?api_key=<API_KEY>
+    uri: https://api.sportsdatallc.org/ncaamb-t3/league/hierarchy.xml?api_key=<API_KEY>
     body:
       encoding: US-ASCII
       base64_string: ''
@@ -4505,7 +4505,7 @@ http_interactions:
   recorded_at: Wed, 11 Feb 2015 21:29:41 GMT
 - request:
     method: get
-    uri: http://api.sportsdatallc.org/ncaamb-t3/league/hierarchy.xml?api_key=<API_KEY>
+    uri: https://api.sportsdatallc.org/ncaamb-t3/league/hierarchy.xml?api_key=<API_KEY>
     body:
       encoding: US-ASCII
       base64_string: ''

@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://api.sportsdatallc.org/nhl-t3/games/2013/REG/schedule.xml?api_key=<API_KEY>
+    uri: https://api.sportsdatallc.org/nhl-t3/games/2013/REG/schedule.xml?api_key=<API_KEY>
     body:
       encoding: US-ASCII
       base64_string: ''
@@ -18960,7 +18960,7 @@ http_interactions:
   recorded_at: Fri, 05 Sep 2014 01:51:33 GMT
 - request:
     method: get
-    uri: http://api.sportsdatallc.org/nhl-t3/games/f0f7e327-3a3a-410b-be75-0956c90c4988/summary.xml?api_key=<API_KEY>
+    uri: https://api.sportsdatallc.org/nhl-t3/games/f0f7e327-3a3a-410b-be75-0956c90c4988/summary.xml?api_key=<API_KEY>
     body:
       encoding: US-ASCII
       base64_string: ''
@@ -20303,7 +20303,7 @@ http_interactions:
   recorded_at: Fri, 05 Sep 2014 01:51:38 GMT
 - request:
     method: get
-    uri: http://api.sportsdatallc.org/nhl-t3/games/f0f7e327-3a3a-410b-be75-0956c90c4988/summary.xml?api_key=<API_KEY>
+    uri: https://api.sportsdatallc.org/nhl-t3/games/f0f7e327-3a3a-410b-be75-0956c90c4988/summary.xml?api_key=<API_KEY>
     body:
       encoding: US-ASCII
       base64_string: ''
@@ -21646,7 +21646,7 @@ http_interactions:
   recorded_at: Fri, 05 Sep 2014 01:51:39 GMT
 - request:
     method: get
-    uri: http://api.sportsdatallc.org/nhl-t3/games/2013/12/12/schedule.xml?api_key=<API_KEY>
+    uri: https://api.sportsdatallc.org/nhl-t3/games/2013/12/12/schedule.xml?api_key=<API_KEY>
     body:
       encoding: US-ASCII
       base64_string: ''
@@ -21869,7 +21869,7 @@ http_interactions:
   recorded_at: Fri, 05 Sep 2014 01:51:40 GMT
 - request:
     method: get
-    uri: http://api.sportsdatallc.org/nhl-t3/games/abffac54-dc1e-4f2f-abe5-8c19a87cdad7/summary.xml?api_key=<API_KEY>
+    uri: https://api.sportsdatallc.org/nhl-t3/games/abffac54-dc1e-4f2f-abe5-8c19a87cdad7/summary.xml?api_key=<API_KEY>
     body:
       encoding: US-ASCII
       base64_string: ''

@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://api.sportsdatallc.org/ncaafb-t1/2014/REG/10/NW/IOW/statistics.json?api_key=<API_KEY>
+    uri: https://api.sportsdatallc.org/ncaafb-t1/2014/REG/10/NW/IOW/statistics.json?api_key=<API_KEY>
     body:
       encoding: US-ASCII
       base64_string: ''
@@ -678,7 +678,7 @@ http_interactions:
   recorded_at: Mon, 11 May 2015 12:55:26 GMT
 - request:
     method: get
-    uri: http://api.sportsdatallc.org/ncaafb-t1/2014/REG/10/NW/IOW/boxscore.json?api_key=<API_KEY>
+    uri: https://api.sportsdatallc.org/ncaafb-t1/2014/REG/10/NW/IOW/boxscore.json?api_key=<API_KEY>
     body:
       encoding: US-ASCII
       base64_string: ''
@@ -823,7 +823,7 @@ http_interactions:
   recorded_at: Mon, 11 May 2015 12:55:30 GMT
 - request:
     method: get
-    uri: http://api.sportsdatallc.org/ncaafb-t1/teams/uscaa/hierarchy.json?api_key=<API_KEY>
+    uri: https://api.sportsdatallc.org/ncaafb-t1/teams/uscaa/hierarchy.json?api_key=<API_KEY>
     body:
       encoding: US-ASCII
       base64_string: ''

@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://api.sportsdatallc.org/ncaamb-t3/tournaments/2013/PST/schedule.xml?api_key=<API_KEY>
+    uri: https://api.sportsdatallc.org/ncaamb-t3/tournaments/2013/PST/schedule.xml?api_key=<API_KEY>
     body:
       encoding: US-ASCII
       base64_string: ''
@@ -70,7 +70,7 @@ http_interactions:
   recorded_at: Tue, 17 Feb 2015 23:08:58 GMT
 - request:
     method: get
-    uri: http://api.sportsdatallc.org/ncaamb-t3/tournaments/541807c8-9a76-4999-a2ad-c0ba8a553c3d/schedule.xml?api_key=<API_KEY>
+    uri: https://api.sportsdatallc.org/ncaamb-t3/tournaments/541807c8-9a76-4999-a2ad-c0ba8a553c3d/schedule.xml?api_key=<API_KEY>
     body:
       encoding: US-ASCII
       base64_string: ''

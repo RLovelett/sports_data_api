@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://api.sportsdatallc.org/ncaamb-t3/games/0b387f08-6c3d-4d82-987e-e0fc3ab151d6/summary.xml?api_key=<API_KEY>
+    uri: https://api.sportsdatallc.org/ncaamb-t3/games/0b387f08-6c3d-4d82-987e-e0fc3ab151d6/summary.xml?api_key=<API_KEY>
     body:
       encoding: US-ASCII
       base64_string: ''
@@ -570,7 +570,7 @@ http_interactions:
   recorded_at: Thu, 12 Feb 2015 16:02:15 GMT
 - request:
     method: get
-    uri: http://api.sportsdatallc.org/ncaamb-t3/league/hierarchy.xml?api_key=<API_KEY>
+    uri: https://api.sportsdatallc.org/ncaamb-t3/league/hierarchy.xml?api_key=<API_KEY>
     body:
       encoding: US-ASCII
       base64_string: ''
@@ -5073,7 +5073,7 @@ http_interactions:
   recorded_at: Thu, 12 Feb 2015 16:02:16 GMT
 - request:
     method: get
-    uri: http://api.sportsdatallc.org/ncaamb-t3/teams/c7569eae-5b93-4197-b204-6f3a62146b25/profile.xml?api_key=<API_KEY>
+    uri: https://api.sportsdatallc.org/ncaamb-t3/teams/c7569eae-5b93-4197-b204-6f3a62146b25/profile.xml?api_key=<API_KEY>
     body:
       encoding: US-ASCII
       base64_string: ''

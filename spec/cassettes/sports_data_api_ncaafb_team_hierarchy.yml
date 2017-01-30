@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://api.sportsdatallc.org/ncaafb-t1/teams/FBS/hierarchy.json?api_key=<API_KEY>
+    uri: https://api.sportsdatallc.org/ncaafb-t1/teams/FBS/hierarchy.json?api_key=<API_KEY>
     body:
       encoding: US-ASCII
       base64_string: ''
@@ -912,7 +912,7 @@ http_interactions:
   recorded_at: Mon, 11 May 2015 12:53:07 GMT
 - request:
     method: get
-    uri: http://api.sportsdatallc.org/ncaafb-t1/teams/fbs/hierarchy.json?api_key=<API_KEY>
+    uri: https://api.sportsdatallc.org/ncaafb-t1/teams/fbs/hierarchy.json?api_key=<API_KEY>
     body:
       encoding: US-ASCII
       base64_string: ''

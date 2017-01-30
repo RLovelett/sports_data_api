@@ -11,7 +11,7 @@ describe SportsDataApi::Nhl::Teams, vcr: {
     SportsDataApi::Nhl.teams
   end
 
-  let(:url) { 'http://api.sportsdatallc.org/nhl-t3/league/hierarchy.xml' }
+  let(:url) { 'https://api.sportsdatallc.org/nhl-t3/league/hierarchy.xml' }
 
   let(:kings_xml) do
     str = RestClient.get(url, params: { api_key: api_key(:nhl) }).to_s
