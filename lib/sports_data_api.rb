@@ -3,6 +3,7 @@ require "nokogiri"
 require "rest_client"
 require "time"
 require "multi_json"
+require "json"
 
 module SportsDataApi
   def self.key(sport)
