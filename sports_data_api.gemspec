@@ -15,9 +15,9 @@ Gem::Specification.new do |gem|
   gem.require_paths = %w{lib}
   gem.version       = SportsDataApi::VERSION
 
-  gem.add_dependency 'nokogiri', '~> 1.7.0'
-  gem.add_dependency 'rest-client', '~> 2.0.0'
-  gem.add_dependency 'multi_json', '~> 1.12.1'
+  gem.add_dependency 'nokogiri', '>= 1.5'
+  gem.add_dependency 'rest-client', '>= 1.8'
+  gem.add_dependency 'multi_json', '>= 1.11'
 
   gem.add_development_dependency 'rake', '~> 12.0.0'
   gem.add_development_dependency 'rspec', '~> 3.5.0'
