@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://api.sportsdatallc.org/nfl-t1/2012/REG/1/DAL/NYG/pbp.json?api_key=<API_KEY>
+    uri: https://api.sportsdatallc.org/nfl-t1/2012/REG/1/DAL/NYG/pbp.json?api_key=<API_KEY>
     body:
       encoding: US-ASCII
       base64_string: ''

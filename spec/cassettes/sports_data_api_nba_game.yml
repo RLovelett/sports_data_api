@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://api.sportsdatallc.org/nba-t3/games/2013/REG/schedule.xml?api_key=<API_KEY>
+    uri: https://api.sportsdatallc.org/nba-t3/games/2013/REG/schedule.xml?api_key=<API_KEY>
     body:
       encoding: US-ASCII
       base64_string: ''
@@ -18638,7 +18638,7 @@ http_interactions:
   recorded_at: Thu, 06 Feb 2014 01:47:48 GMT
 - request:
     method: get
-    uri: http://api.sportsdatallc.org/nba-t3/games/0b3d21c7-c13f-4ee8-8d9d-4f334754c7e4/summary.xml?api_key=<API_KEY>
+    uri: https://api.sportsdatallc.org/nba-t3/games/0b3d21c7-c13f-4ee8-8d9d-4f334754c7e4/summary.xml?api_key=<API_KEY>
     body:
       encoding: US-ASCII
       base64_string: ''
@@ -19248,7 +19248,7 @@ http_interactions:
   recorded_at: Thu, 06 Feb 2014 01:47:51 GMT
 - request:
     method: get
-    uri: http://api.sportsdatallc.org/nba-t3/games/2013/12/12/schedule.xml?api_key=<API_KEY>
+    uri: https://api.sportsdatallc.org/nba-t3/games/2013/12/12/schedule.xml?api_key=<API_KEY>
     body:
       encoding: US-ASCII
       base64_string: ''
@@ -19333,7 +19333,7 @@ http_interactions:
   recorded_at: Thu, 06 Feb 2014 01:47:53 GMT
 - request:
     method: get
-    uri: http://api.sportsdatallc.org/nba-t3/games/9dbf017d-250d-4ee7-8b3b-00dfa2f9e8b7/summary.xml?api_key=<API_KEY>
+    uri: https://api.sportsdatallc.org/nba-t3/games/9dbf017d-250d-4ee7-8b3b-00dfa2f9e8b7/summary.xml?api_key=<API_KEY>
     body:
       encoding: US-ASCII
       base64_string: ''
@@ -19969,7 +19969,7 @@ http_interactions:
   recorded_at: Thu, 06 Feb 2014 01:47:54 GMT
 - request:
     method: get
-    uri: http://api.sportsdatallc.org/nba-t3/games/e1dcf692-330d-46d3-8add-a241b388fbe2/summary.xml?api_key=<API_KEY>
+    uri: https://api.sportsdatallc.org/nba-t3/games/e1dcf692-330d-46d3-8add-a241b388fbe2/summary.xml?api_key=<API_KEY>
     body:
       encoding: US-ASCII
       base64_string: ''
@@ -20585,7 +20585,7 @@ http_interactions:
   recorded_at: Thu, 06 Feb 2014 01:47:55 GMT
 - request:
     method: get
-    uri: http://api.sportsdatallc.org/nba-t3/games/e1dcf692-330d-46d3-8add-a241b388fbe2/summary.xml?api_key=<API_KEY>
+    uri: https://api.sportsdatallc.org/nba-t3/games/e1dcf692-330d-46d3-8add-a241b388fbe2/summary.xml?api_key=<API_KEY>
     body:
       encoding: US-ASCII
       base64_string: ''

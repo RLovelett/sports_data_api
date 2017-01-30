@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://api.sportsdatallc.org/nba-t3/games/2013/REG/schedule.xml?api_key=<API_KEY>
+    uri: https://api.sportsdatallc.org/nba-t3/games/2013/REG/schedule.xml?api_key=<API_KEY>
     body:
       encoding: US-ASCII
       base64_string: ''

@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://api.sportsdatallc.org/nhl-t3/league/hierarchy.xml?api_key=<API_KEY>
+    uri: https://api.sportsdatallc.org/nhl-t3/league/hierarchy.xml?api_key=<API_KEY>
     body:
       encoding: US-ASCII
       base64_string: ''
@@ -268,7 +268,7 @@ http_interactions:
   recorded_at: Fri, 05 Sep 2014 01:51:24 GMT
 - request:
     method: get
-    uri: http://api.sportsdatallc.org/nhl-t3/league/hierarchy.xml?api_key=<API_KEY>
+    uri: https://api.sportsdatallc.org/nhl-t3/league/hierarchy.xml?api_key=<API_KEY>
     body:
       encoding: US-ASCII
       base64_string: ''

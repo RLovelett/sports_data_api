@@ -44,7 +44,7 @@ describe SportsDataApi::Ncaafb::Team, vcr: {
     end
 
     describe 'eql' do
-      let(:url) { 'http://api.sportsdatallc.org/ncaafb-t1/teams/uscaa/hierarchy.json' }
+      let(:url) { 'https://api.sportsdatallc.org/ncaafb-t1/teams/uscaa/hierarchy.json' }
 
       let(:team_hash) do
         str = RestClient.get(url, params: { api_key: api_key(:ncaafb) }).to_s

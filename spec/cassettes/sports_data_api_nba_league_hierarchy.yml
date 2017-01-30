@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://api.sportsdatallc.org/nba-t3/league/hierarchy.xml?api_key=<API_KEY>
+    uri: https://api.sportsdatallc.org/nba-t3/league/hierarchy.xml?api_key=<API_KEY>
     body:
       encoding: US-ASCII
       base64_string: ''
@@ -273,7 +273,7 @@ http_interactions:
   recorded_at: Thu, 12 Dec 2013 04:23:07 GMT
 - request:
     method: get
-    uri: http://api.sportsdatallc.org/nba-t3/league/hierarchy.xml?api_key=<API_KEY>
+    uri: https://api.sportsdatallc.org/nba-t3/league/hierarchy.xml?api_key=<API_KEY>
     body:
       encoding: US-ASCII
       base64_string: ''

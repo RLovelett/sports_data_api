@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://api.sportsdatallc.org/ncaamb-t3/teams/c7569eae-5b93-4197-b204-6f3a62146b25/profile.xml?api_key=<API_KEY>
+    uri: https://api.sportsdatallc.org/ncaamb-t3/teams/c7569eae-5b93-4197-b204-6f3a62146b25/profile.xml?api_key=<API_KEY>
     body:
       encoding: US-ASCII
       base64_string: ''

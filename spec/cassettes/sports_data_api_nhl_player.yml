@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://api.sportsdatallc.org/nhl-t3/teams/441713b7-0f24-11e2-8525-18a905767e44/profile.xml?api_key=<API_KEY>
+    uri: https://api.sportsdatallc.org/nhl-t3/teams/441713b7-0f24-11e2-8525-18a905767e44/profile.xml?api_key=<API_KEY>
     body:
       encoding: US-ASCII
       base64_string: ''

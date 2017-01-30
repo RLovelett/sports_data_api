@@ -32,7 +32,7 @@ describe SportsDataApi::Mlb::Boxscore, vcr: {
   end
 
   context "inprogress game" do
-    let(:url) { 'http://developer.sportsdatallc.com/files/mlb_v4_game_boxscore_example.xml' }
+    let(:url) { 'https://developer.sportsdatallc.com/files/mlb_v4_game_boxscore_example.xml' }
 
     let(:boxscore_xml) do
       str = RestClient.get(url).to_s

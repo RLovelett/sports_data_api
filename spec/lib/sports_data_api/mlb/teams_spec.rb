@@ -11,7 +11,7 @@ describe SportsDataApi::Mlb::Teams, vcr: {
     SportsDataApi::Mlb.teams(2014)
   end
 
-  let(:url) { 'http://api.sportsdatallc.org/mlb-t4/teams/2014.xml' }
+  let(:url) { 'https://api.sportsdatallc.org/mlb-t4/teams/2014.xml' }
 
   let(:dodgers_xml) do
     str = RestClient.get(url, params: { api_key: api_key(:mlb) }).to_s

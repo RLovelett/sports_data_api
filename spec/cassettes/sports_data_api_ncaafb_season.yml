@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://api.sportsdatallc.org/ncaafb-t1/2014/REG/schedule.json?api_key=<API_KEY>
+    uri: https://api.sportsdatallc.org/ncaafb-t1/2014/REG/schedule.json?api_key=<API_KEY>
     body:
       encoding: US-ASCII
       base64_string: ''

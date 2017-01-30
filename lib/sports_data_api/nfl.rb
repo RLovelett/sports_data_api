@@ -5,7 +5,7 @@ module SportsDataApi
     end
 
     DIR = File.join(File.dirname(__FILE__), 'nfl')
-    BASE_URL = 'http://api.sportsdatallc.org/nfl-%{access_level}%{version}'
+    BASE_URL = 'https://api.sportsdatallc.org/nfl-%{access_level}%{version}'
     DEFAULT_VERSION = 1
     SPORT = :nfl
 

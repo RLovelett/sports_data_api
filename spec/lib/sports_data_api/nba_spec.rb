@@ -24,7 +24,7 @@ describe SportsDataApi::Nba, vcr: {
   end
 
   context 'create valid URLs' do
-    let(:schedule_url) { 'http://api.sportsdatallc.org/nba-t3/games/2013/REG/schedule.xml' }
+    let(:schedule_url) { 'https://api.sportsdatallc.org/nba-t3/games/2013/REG/schedule.xml' }
     before(:each) do
       SportsDataApi.set_key(:nba, 'invalid_key')
       SportsDataApi.set_access_level(:nba, 't')

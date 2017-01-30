@@ -41,7 +41,7 @@ describe SportsDataApi::Nfl::Team, vcr: {
       its(:quarters) { should eq [3, 14, 0, 3] }
     end
     describe 'eql' do
-      let(:url) { 'http://api.sportsdatallc.org/nfl-t1/teams/hierarchy.json' }
+      let(:url) { 'https://api.sportsdatallc.org/nfl-t1/teams/hierarchy.json' }
 
       let(:dolphins_hash) do
         str = RestClient.get(url, params: { api_key: api_key(:nfl) }).to_s
@@ -68,7 +68,7 @@ describe SportsDataApi::Nfl::Team, vcr: {
     end
   end
   describe 'venue' do
-    let(:url) { 'http://api.sportsdatallc.org/nfl-t1/teams/hierarchy.json' }
+    let(:url) { 'https://api.sportsdatallc.org/nfl-t1/teams/hierarchy.json' }
 
     let(:dolphins_hash) do
       str = RestClient.get(url, params: { api_key: api_key(:nfl) }).to_s

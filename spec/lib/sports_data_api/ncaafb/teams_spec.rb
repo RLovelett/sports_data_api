@@ -12,7 +12,7 @@ describe SportsDataApi::Ncaafb::Teams, vcr: {
     SportsDataApi::Ncaafb.teams(:FBS)
   end
 
-  let(:url) { 'http://api.sportsdatallc.org/ncaafb-t1/teams/fbs/hierarchy.json' }
+  let(:url) { 'https://api.sportsdatallc.org/ncaafb-t1/teams/fbs/hierarchy.json' }
   let(:subdivisions_list) { [:"ACC-ATLANTIC", :"ACC-COASTAL", :"AAC-EAST", :"AAC-WEST", :"BIG-TEN-EAST", :"BIG-TEN-WEST", :"CONFERENCE-USA-EAST", :"CONFERENCE-USA-WEST", :"MID-AMERICAN-EAST", :"MID-AMERICAN-WEST", :"MOUNTAIN-WEST-MOUNTAIN", :"MOUNTAIN-WEST-WEST", :"PAC-12-SOUTH", :"PAC-12-NORTH", :"SEC-WEST", :"SEC-EAST"] }
   let(:divisions_list) { [:"FBS"] }
   let(:louisville_hash) do

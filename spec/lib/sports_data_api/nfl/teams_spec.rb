@@ -11,7 +11,7 @@ describe SportsDataApi::Nfl::Teams, vcr: {
     SportsDataApi::Nfl.teams
   end
 
-  let(:url) { 'http://api.sportsdatallc.org/nfl-t1/teams/hierarchy.json' }
+  let(:url) { 'https://api.sportsdatallc.org/nfl-t1/teams/hierarchy.json' }
 
   let(:dolphins_hash) do
     str = RestClient.get(url, params: { api_key: api_key(:nfl) }).to_s

@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://api.sportsdatallc.org/mlb-t4/boxscore/000c465f-7c8c-46bb-8ea7-c26b2bc7c296.xml?api_key=<API_KEY>
+    uri: https://api.sportsdatallc.org/mlb-t4/boxscore/000c465f-7c8c-46bb-8ea7-c26b2bc7c296.xml?api_key=<API_KEY>
     body:
       encoding: US-ASCII
       base64_string: ''
@@ -109,7 +109,7 @@ http_interactions:
   recorded_at: Mon, 04 Aug 2014 19:39:47 GMT
 - request:
     method: get
-    uri: http://developer.sportsdatallc.com/files/mlb_v4_game_boxscore_example.xml
+    uri: https://developer.sportsdatallc.com/files/mlb_v4_game_boxscore_example.xml
     body:
       encoding: US-ASCII
       base64_string: ''
