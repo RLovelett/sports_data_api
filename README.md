@@ -25,8 +25,8 @@ log](https://github.com/rlovelett/sports_data_api/issues).
   * [MLB](http://developer.sportsdatallc.com/docs/MLB_API)
   * [NHL](http://developer.sportsdatallc.com/docs/NHL_API)
   * [NCAAMB](http://developer.sportsdatallc.com/docs/NCAAMB_API)
-  * TODO
-    2. [NCAA Football](http://developer.sportsdatallc.com/docs/NCAA_Football_API)
+  * [NCAA Football](http://developer.sportsdatallc.com/docs/NCAA_Football_API)
+  * [Golf](http://developer.sportradar.com/files/indexGolf.html)
 
 ## Installation
 
@@ -110,7 +110,7 @@ However, if you want to refresh the actual server API responses you will need to
 This can be achieved simply by performing the following two steps:
 
 1. Delete all the cassettes (`rm spec/cassettes/*.yml`)
-2. Run specs passing the API key as environment variable (`SPORTS_DATA_<NFL|NBA|MLB|NHL|NCAAMB>_API_KEY=realapikey bundle exec rake spec`)
+2. Run specs passing the API key as environment variable (`SPORTS_DATA_<NFL|NBA|MLB|NHL|NCAAMB|NCAAFB|GOLF>_API_KEY=realapikey bundle exec rake spec`)
 
 ## Contributing
 
