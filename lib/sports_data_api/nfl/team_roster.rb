@@ -4,9 +4,8 @@ module SportsDataApi
       attr_reader :players
 
       def initialize(json)
-        @players = []
-        json['players'].each do | player |
-          @players << Player.new(player)
+        @players = json['players'].map do |player|
+          Player.new(player)
         end
       end
     end
