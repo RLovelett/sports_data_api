@@ -33,4 +33,5 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'faker', '~> 1.7.2'
   gem.add_development_dependency 'simplecov', '~> 0.13.0'
   gem.add_development_dependency 'codeclimate-test-reporter', '~> 1.0.0'
+  gem.add_development_dependency 'pry'
 end

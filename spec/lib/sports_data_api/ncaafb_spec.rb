@@ -61,7 +61,7 @@ describe SportsDataApi::Ncaafb, vcr: {
 
     context '#team_roster' do
       it 'returns an array' do
-        expect(subject.team_roster('WIS').players.kind_of?(Array)).to be true
+        expect(subject.team_roster('WIS').players).to be_kind_of(Array)
       end
     end
   end
