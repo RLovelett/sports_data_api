@@ -8,22 +8,22 @@ describe SportsDataApi::Ncaamb::TournamentSchedule, vcr: {
   subject { SportsDataApi::Ncaamb::TournamentSchedule }
   describe '.valid?' do
     context :CT do
-      it { SportsDataApi::Ncaamb::TournamentSchedule.valid?(:CT).should be_true }
+      it { SportsDataApi::Ncaamb::TournamentSchedule.valid?(:CT).should eq(true) }
     end
     context :REG do
-      it { subject.valid?(:REG).should be_true }
+      it { subject.valid?(:REG).should eq(true) }
     end
     context :PST do
-      it { subject.valid?(:PST).should be_true }
+      it { subject.valid?(:PST).should eq(true) }
     end
     context :ct do
-      it { subject.valid?(:ct).should be_false }
+      it { subject.valid?(:ct).should eq(false) }
     end
     context :reg do
-      it { subject.valid?(:reg).should be_false }
+      it { subject.valid?(:reg).should eq(false) }
     end
     context :pst do
-      it { subject.valid?(:pst).should be_false }
+      it { subject.valid?(:pst).should eq(false) }
     end
   end
   context 'results from daily schedule fetch' do

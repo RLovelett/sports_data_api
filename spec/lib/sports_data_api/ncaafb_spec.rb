@@ -25,6 +25,10 @@ describe SportsDataApi::Ncaafb, vcr: {
       it { expect { subject.boxscore(2014, :REG, 10, 'IOW', 'NW') }.to raise_error(SportsDataApi::Exception) }
     end
 
+    describe '.game_roster' do
+      it { expect { subject.game_roster(2014, :REG, 10, 'IOW', 'NW') }.to raise_error(SportsDataApi::Exception) }
+    end
+
     describe '.weekly' do
       it { expect { subject.weekly(2013, :REG, 1) }.to raise_error(SportsDataApi::Exception) }
     end
@@ -38,6 +42,10 @@ describe SportsDataApi::Ncaafb, vcr: {
 
     describe '.boxscore' do
       it { expect { subject.boxscore(2014, :REG, 9, 'IND', 'MIA') }.to raise_error(SportsDataApi::Exception) }
+    end
+
+    describe '.game_roster' do
+      it { expect { subject.game_roster(2014, :REG, 9, 'IND', 'MIA') }.to raise_error(SportsDataApi::Exception) }
     end
 
     describe '.weekly' do

@@ -54,10 +54,10 @@ module SportsDataApi
       end
 
       ##
-      # Wrapper for Ncaafb.roster
+      # Wrapper for Ncaafb.game_roster
       # TODO
       def roster
-        raise NotImplementedError
+        Ncaafb.game_roster(year, season, week, home, away, 1)
       end
 
       ##

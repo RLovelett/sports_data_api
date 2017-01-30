@@ -9,10 +9,10 @@ describe SportsDataApi::Ncaafb::Season, vcr: {
   describe '.season?' do
 
     context :REG do
-      it { subject.valid?(:REG).should be_true }
+      it { subject.valid?(:REG).should eq(true) }
     end
     context :reg do
-      it { subject.valid?(:reg).should be_false }
+      it { subject.valid?(:reg).should eq(false) }
     end
   end
 

@@ -31,6 +31,10 @@ module SportsDataApi
             @statistics = parse_team_statistics(team_hash['statistics'])
             @players = parse_player_statistics(team_hash['statistics'])
           end
+
+          if team_hash['players']
+            @players = TeamRoster.new(team_hash).players
+          end
           @points = team_hash['points'] || score
         end
       end

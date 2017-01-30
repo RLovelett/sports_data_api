@@ -52,7 +52,7 @@ describe SportsDataApi::Nfl::Team, vcr: {
       let(:dolphins1) { SportsDataApi::Nfl::Team.new(dolphins_hash) }
       let(:dolphins2) { SportsDataApi::Nfl::Team.new(dolphins_hash) }
 
-      it { (dolphins1 == dolphins2).should be_true }
+      it { (dolphins1 == dolphins2).should eq(true) }
     end
   end
   context 'game statistics' do

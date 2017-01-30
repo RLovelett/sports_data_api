@@ -2962,4 +2962,44 @@ http_interactions:
         biI6IkhlYWQgQ29hY2giLCJzdGF0dXMiOiJBQ1QiLCJzYWxhcnkiOjB9XX0=
     http_version: 
   recorded_at: Tue, 11 Aug 2015 14:26:51 GMT
+- request:
+    method: get
+    uri: http://api.sportsdatallc.org/ncaafb-t1/2014/REG/10/NW/IOW/roster.json?api_key=invalid_key
+    body:
+      encoding: US-ASCII
+      base64_string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 403
+      message: Forbidden
+    headers:
+      Content-Type:
+      - text/xml
+      Date:
+      - Wed, 09 Sep 2015 21:21:13 GMT
+      Server:
+      - Mashery Proxy
+      X-Error-Detail-Header:
+      - Account Inactive
+      X-Mashery-Error-Code:
+      - ERR_403_DEVELOPER_INACTIVE
+      X-Mashery-Responder:
+      - prod-j-worker-us-east-1d-84.mashery.com
+      Content-Length:
+      - '27'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      base64_string: |
+        PGgxPkRldmVsb3BlciBJbmFjdGl2ZTwvaDE+
+    http_version:
+  recorded_at: Wed, 09 Sep 2015 21:21:14 GMT
 recorded_with: VCR 2.4.0
