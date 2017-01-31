@@ -22,9 +22,7 @@ require 'webmock/rspec'
 require 'vcr'
 
 def api_key(sport)
-  key = 'VALID_SPORTS_DATA_API_KEY'
-  key = ENV["SPORTS_DATA_#{sport.to_s.upcase}_API_KEY"] if ENV.has_key?("SPORTS_DATA_#{sport.to_s.upcase}_API_KEY")
-  key
+  ENV.fetch("SPORTS_DATA_#{sport.to_s.upcase}_API_KEY", 'valid-api-key')
 end
 
 RSpec.configure do |config|

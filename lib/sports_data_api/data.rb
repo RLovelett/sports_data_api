@@ -1,5 +1,5 @@
 module SportsDataApi
-  class Player
+  class Data
     def initialize(json)
       player_ivar = self.instance_variable_set("@player", {})
       self.class.class_eval { attr_reader :"player" }
