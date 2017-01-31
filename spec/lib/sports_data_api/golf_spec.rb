@@ -41,6 +41,13 @@ describe SportsDataApi::Golf, vcr: {
         end.to raise_error(SportsDataApi::Golf::Exception, 'lpga is not a valid tour')
       end
     end
+    describe '.leaderboard' do
+      it do
+        expect do
+          subject.leaderboard(:lpga, nil, nil)
+        end.to raise_error(SportsDataApi::Golf::Exception, 'lpga is not a valid tour')
+      end
+    end
   end
   context 'invalid API key' do
     before do
@@ -62,6 +69,9 @@ describe SportsDataApi::Golf, vcr: {
     describe '.scorecards' do
       it { expect { subject.scorecards(:pga, 2016, 'id', 1) }.to raise_error(SportsDataApi::Exception) }
     end
+    describe '.leaderboard' do
+      it { expect { subject.leaderboard(:pga, 2016, 'id') }.to raise_error(SportsDataApi::Exception) }
+    end
   end
 
   context 'no response from the api' do
@@ -80,6 +90,9 @@ describe SportsDataApi::Golf, vcr: {
     end
     describe '.scorecards' do
       it { expect { subject.scorecards(:pga, 2016, '123', 1) }.to raise_error(SportsDataApi::Exception) }
+    end
+    describe '.leaderboard' do
+      it { expect { subject.leaderboard(:pga, 2016, '123') }.to raise_error(SportsDataApi::Exception) }
     end
   end
 
@@ -146,6 +159,20 @@ describe SportsDataApi::Golf, vcr: {
         allow(RestClient).to receive(:get) { json }
 
         response = subject.scorecards(:pga, 2016, 'b95ab96b-9a0b-4309-880a-ad063cb163ea', 2)
+
+        params = { params: { api_key: SportsDataApi.key(:golf) } }
+        expect(RestClient).to have_received(:get).with(url, params)
+        expect(response.length).to eq 97
+        expect(response.first).to be_an_instance_of(SportsDataApi::Golf::Player)
+      end
+    end
+    describe '.leaderboard' do
+      it 'creates a valid Sports Data LLC url' do
+        url = 'https://api.sportsdatallc.org/golf-t2/leaderboard/pga/2016/tournaments/b95ab96b-9a0b-4309-880a-ad063cb163ea/leaderboard.json'
+        json = RestClient.get("#{url}?api_key=#{api_key(:golf)}")
+        allow(RestClient).to receive(:get) { json }
+
+        response = subject.leaderboard(:pga, 2016, 'b95ab96b-9a0b-4309-880a-ad063cb163ea')
 
         params = { params: { api_key: SportsDataApi.key(:golf) } }
         expect(RestClient).to have_received(:get).with(url, params)

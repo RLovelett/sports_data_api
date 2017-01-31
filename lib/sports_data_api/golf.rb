@@ -9,14 +9,15 @@ module SportsDataApi
     DEFAULT_VERSION = 2
     SPORT = :golf
 
-    autoload :Season, File.join(DIR, 'season')
-    autoload :Tournament, File.join(DIR, 'tournament')
-    autoload :Player, File.join(DIR, 'player')
-    autoload :Summary, File.join(DIR, 'summary')
-    autoload :Round, File.join(DIR, 'round')
     autoload :Course, File.join(DIR, 'course')
+    autoload :Leaderboard, File.join(DIR, 'leaderboard')
     autoload :Pairing, File.join(DIR, 'pairing')
+    autoload :Player, File.join(DIR, 'player')
+    autoload :Round, File.join(DIR, 'round')
     autoload :Score, File.join(DIR, 'score')
+    autoload :Season, File.join(DIR, 'season')
+    autoload :Summary, File.join(DIR, 'summary')
+    autoload :Tournament, File.join(DIR, 'tournament')
 
     class << self
       # Fetches Golf tournament schedule for a given tour and year
@@ -64,6 +65,17 @@ module SportsDataApi
         response = response_json(version, "/scorecards/#{tour}/#{year}/tournaments/#{tournament_id}/rounds/#{round}/scores.json")
 
         response['round']['players'].map do |json|
+          Player.new(json)
+        end
+      end
+
+      # fetches leaderboard for a golf tournament
+      def leaderboard(tour, year, tournament_id, version = DEFAULT_VERSION)
+        tour = validate_tour(tour)
+
+        response = response_json(version, "/leaderboard/#{tour}/#{year}/tournaments/#{tournament_id}/leaderboard.json")
+
+        response['leaderboard'].map do |json|
           Player.new(json)
         end
       end

@@ -10,6 +10,12 @@ module SportsDataApi
           Score.new(json)
         end
       end
+
+      def rounds
+        @rounds ||= player.fetch(:rounds, []).map do |json|
+          Round.new(json)
+        end
+      end
     end
   end
 end
