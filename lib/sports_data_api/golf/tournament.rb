@@ -19,6 +19,10 @@ module SportsDataApi
         @start_date = Date.parse data['start_date']
         @end_date = Date.parse data['end_date']
       end
+
+      def summary(version = DEFAULT_VERSION)
+        Golf.summary(tour, year, id, version)
+      end
     end
   end
 end
