@@ -1,6 +1,6 @@
 module SportsDataApi
   module Golf
-    class Round < SportsDataApi::Player
+    class Round < SportsDataApi::JsonData
     end
   end
 end

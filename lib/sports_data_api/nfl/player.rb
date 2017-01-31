@@ -1,6 +1,6 @@
 module SportsDataApi
   module Nfl
-    class Player < SportsDataApi::Player
+    class Player < SportsDataApi::JsonData
     end
   end
 end
