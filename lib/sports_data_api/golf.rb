@@ -16,6 +16,7 @@ module SportsDataApi
     autoload :Round, File.join(DIR, 'round')
     autoload :Course, File.join(DIR, 'course')
     autoload :Pairing, File.join(DIR, 'pairing')
+    autoload :Score, File.join(DIR, 'score')
 
     class << self
       # Fetches Golf tournament schedule for a given tour and year
@@ -53,6 +54,17 @@ module SportsDataApi
 
         response['round']['courses'].map do |json|
           Course.new(json)
+        end
+      end
+
+      # fetches scorecards for a golf round
+      def scorecards(tour, year, tournament_id, round, version = DEFAULT_VERSION)
+        tour = validate_tour(tour)
+
+        response = response_json(version, "/scorecards/#{tour}/#{year}/tournaments/#{tournament_id}/rounds/#{round}/scores.json")
+
+        response['round']['players'].map do |json|
+          Player.new(json)
         end
       end
 
