@@ -14,44 +14,61 @@ module SportsDataApi
     autoload :Player, File.join(DIR, 'player')
     autoload :Summary, File.join(DIR, 'summary')
     autoload :Round, File.join(DIR, 'round')
+    autoload :Course, File.join(DIR, 'course')
+    autoload :Pairing, File.join(DIR, 'pairing')
 
-    # Fetches Golf tournament schedule for a given tour and year
-    def self.season(tour, year, version = DEFAULT_VERSION)
-      tour = self.validate_tour(tour)
+    class << self
+      # Fetches Golf tournament schedule for a given tour and year
+      def season(tour, year, version = DEFAULT_VERSION)
+        tour = validate_tour(tour)
 
-      response = self.response_json(version, "/schedule/#{tour}/#{year}/tournaments/schedule.json")
+        response = response_json(version, "/schedule/#{tour}/#{year}/tournaments/schedule.json")
 
-      Season.new(response)
-    end
+        Season.new(response)
+      end
 
-    def self.players(tour, year, version = DEFAULT_VERSION)
-      tour = self.validate_tour(tour)
+      # Fetch all players for a season
+      def players(tour, year, version = DEFAULT_VERSION)
+        tour = validate_tour(tour)
 
-      response = self.response_json(version, "/profiles/#{tour}/#{year}/players/profiles.json")
+        response = response_json(version, "/profiles/#{tour}/#{year}/players/profiles.json")
 
-      return response['players'].map { |player_hash| Player.new(player_hash) }
-    end
+        return response['players'].map { |player_hash| Player.new(player_hash) }
+      end
 
-    def self.summary(tour, year, tournament_id, version = DEFAULT_VERSION)
-      tour = self.validate_tour(tour)
+      # Fetch a tournament summary
+      def summary(tour, year, tournament_id, version = DEFAULT_VERSION)
+        tour = validate_tour(tour)
 
-      response = self.response_json(version, "/summary/#{tour}/#{year}/tournaments/#{tournament_id}/summary.json")
+        response = response_json(version, "/summary/#{tour}/#{year}/tournaments/#{tournament_id}/summary.json")
 
-      Summary.new(tour, year, response)
-    end
+        Summary.new(tour, year, response)
+      end
 
-    private
+      # Fetch teetimes for a round in a tournament
+      def tee_times(tour, year, tournament_id, round, version = DEFAULT_VERSION)
+        tour = validate_tour(tour)
 
-    def self.response_json(version, url)
-      base_url = BASE_URL % { access_level: SportsDataApi.access_level(SPORT), version: version }
-      response = SportsDataApi.generic_request("#{base_url}#{url}", SPORT)
-      MultiJson.load(response.to_s)
-    end
+        response = response_json(version, "/teetimes/#{tour}/#{year}/tournaments/#{tournament_id}/rounds/#{round}/teetimes.json")
 
-    def self.validate_tour(tour)
-      tour.to_s.downcase.to_sym.tap do |tour_sym|
-        unless Season.valid_tour?(tour_sym)
-          raise SportsDataApi::Golf::Exception.new("#{tour_sym} is not a valid tour")
+        response['round']['courses'].map do |json|
+          Course.new(json)
+        end
+      end
+
+      private
+
+      def response_json(version, url)
+        base_url = BASE_URL % { access_level: SportsDataApi.access_level(SPORT), version: version }
+        response = SportsDataApi.generic_request("#{base_url}#{url}", SPORT)
+        MultiJson.load(response.to_s)
+      end
+
+      def validate_tour(tour)
+        tour.to_s.downcase.to_sym.tap do |tour_sym|
+          unless Season.valid_tour?(tour_sym)
+            raise SportsDataApi::Golf::Exception.new("#{tour_sym} is not a valid tour")
+          end
         end
       end
     end
