@@ -2,16 +2,16 @@ require 'spec_helper'
 
 describe SportsDataApi::Golf::Player, vcr: {
   cassette_name: 'sports_data_api_golf',
-  record: :new_episodes,
-  match_requests_on: [:host, :path]
+  record: :none,
+  match_requests_on: [:path]
 } do
-  let(:players) do
-    SportsDataApi.set_access_level(:golf, 't')
-    SportsDataApi.set_key(:golf, api_key(:golf))
-    SportsDataApi::Golf.players(:pga, 2016)
-  end
+  context 'results from players fetch' do
+    let(:players) do
+      SportsDataApi.set_access_level(:golf, 't')
+      SportsDataApi.set_key(:golf, api_key(:golf))
+      SportsDataApi::Golf.players(:pga, 2016)
+    end
 
-  context 'results from schedule fetch' do
     it 'populates each field' do
       subject = players.first
       expect(subject).to be_instance_of(SportsDataApi::Golf::Player)
@@ -27,6 +27,36 @@ describe SportsDataApi::Golf::Player, vcr: {
       expect(subject[:turned_pro]).to eq 1983
       expect(subject[:member]).to eq false
       expect(subject[:updated]).to eq '2016-06-08T14:53:32+00:00'
+      expect(subject.course).to be_nil
+      expect(subject.scores).to be_empty
+    end
+  end
+
+  context 'results from scorecards fetch' do
+    let(:players) do
+      SportsDataApi.set_access_level(:golf, 't')
+      SportsDataApi.set_key(:golf, api_key(:golf))
+      SportsDataApi::Golf.scorecards(:pga, 2016, 'b95ab96b-9a0b-4309-880a-ad063cb163ea', 2)
+    end
+    it 'populates each field and course' do
+      subject = players.first
+      expect(subject).to be_instance_of(SportsDataApi::Golf::Player)
+      expect(subject[:id]).to eq '94c4646a-c6f7-4bc8-9543-ac7e93814cd7'
+      expect(subject[:first_name]).to eq 'Ryan'
+      expect(subject[:last_name]).to eq 'Moore'
+      expect(subject[:score]).to eq -6
+      expect(subject[:thru]).to eq 18
+      expect(subject[:strokes]).to eq 66
+      expect(subject[:eagles]).to eq 0
+      expect(subject[:birdies]).to eq 7
+      expect(subject[:pars]).to eq 10
+      expect(subject[:bogeys]).to eq 1
+      expect(subject[:double_bogeys]).to eq 0
+      expect(subject[:holes_in_one]).to eq 0
+      expect(subject[:other_scores]).to eq 0
+      expect(subject.course).to be_an_instance_of(SportsDataApi::Golf::Course)
+      expect(subject.scores.length).to eq 18
+      expect(subject.scores.first).to be_instance_of(SportsDataApi::Golf::Score)
     end
   end
 end
