@@ -27,6 +27,13 @@ describe SportsDataApi::Golf, vcr: {
         end.to raise_error(SportsDataApi::Golf::Exception, 'lpga is not a valid tour')
       end
     end
+    describe '.tee_times' do
+      it do
+        expect do
+          subject.tee_times(:lpga, nil, nil, nil)
+        end.to raise_error(SportsDataApi::Golf::Exception, 'lpga is not a valid tour')
+      end
+    end
   end
   context 'invalid API key' do
     before do
@@ -42,6 +49,9 @@ describe SportsDataApi::Golf, vcr: {
     describe '.summary' do
       it { expect { subject.summary(:pga, 2016, 'id') }.to raise_error(SportsDataApi::Exception) }
     end
+    describe '.tee_times' do
+      it { expect { subject.tee_times(:pga, 2016, 'id', 1) }.to raise_error(SportsDataApi::Exception) }
+    end
   end
 
   context 'no response from the api' do
@@ -54,6 +64,9 @@ describe SportsDataApi::Golf, vcr: {
     end
     describe '.summary' do
       it { expect { subject.summary(:pga, 2016, '123') }.to raise_error(SportsDataApi::Exception) }
+    end
+    describe '.tee_times' do
+      it { expect { subject.tee_times(:pga, 2016, '123', 1) }.to raise_error(SportsDataApi::Exception) }
     end
   end
 
@@ -97,6 +110,20 @@ describe SportsDataApi::Golf, vcr: {
         params = { params: { api_key: SportsDataApi.key(:golf) } }
         expect(RestClient).to have_received(:get).with(summary_url, params)
         expect(response).to be_an_instance_of(SportsDataApi::Golf::Summary)
+      end
+    end
+    describe '.tee_times' do
+      it 'creates a valid Sports Data LLC url' do
+        tee_times_url = 'https://api.sportsdatallc.org/golf-t2/teetimes/pga/2016/tournaments/b95ab96b-9a0b-4309-880a-ad063cb163ea/rounds/2/teetimes.json'
+        tee_times_json = RestClient.get("#{tee_times_url}?api_key=#{api_key(:golf)}")
+        allow(RestClient).to receive(:get) { tee_times_json }
+
+        response = subject.tee_times(:pga, 2016, 'b95ab96b-9a0b-4309-880a-ad063cb163ea', 2)
+
+        params = { params: { api_key: SportsDataApi.key(:golf) } }
+        expect(RestClient).to have_received(:get).with(tee_times_url, params)
+        expect(response.length).to eq 1
+        expect(response.first).to be_an_instance_of(SportsDataApi::Golf::Course)
       end
     end
   end
