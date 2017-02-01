@@ -9,7 +9,7 @@ describe SportsDataApi::Nhl, vcr: {
   context 'invalid API key' do
     before(:each) do
       SportsDataApi.set_key(:nhl, 'invalid_key')
-      SportsDataApi.set_access_level(:nhl, 't')
+      SportsDataApi.set_access_level(:nhl, 'ot')
     end
     describe '.schedule' do
       it { expect { subject.schedule(2014, :REG) }.to raise_error(SportsDataApi::Exception) }
@@ -27,7 +27,7 @@ describe SportsDataApi::Nhl, vcr: {
     let(:schedule_url) { 'https://api.sportsdatallc.org/nhl-ot4/games/2013/REG/schedule.xml' }
     before(:each) do
       SportsDataApi.set_key(:nhl, 'invalid_key')
-      SportsDataApi.set_access_level(:nhl, 't')
+      SportsDataApi.set_access_level(:nhl, 'ot')
       @schedule_xml = RestClient.get("#{schedule_url}?api_key=#{api_key(:nhl)}")
     end
     describe '.schedule' do
