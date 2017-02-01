@@ -1,5 +1,6 @@
 module SportsDataApi
   module Ncaamb
+    extend SportsDataApi::Request
 
     class Exception < ::Exception
     end
@@ -80,17 +81,6 @@ module SportsDataApi
       raise SportsDataApi::Ncaamb::Exception.new("#{season} is not a valid season") unless TournamentSchedule.valid?(season)
 
       return TournamentSchedule.new(year, season, response.xpath("/league/tournament-schedule"))
-    end
-
-    private
-
-    def self.response_xml(url)
-      base_url = BASE_URL % {
-        access_level: SportsDataApi.access_level(SPORT),
-        version: API_VERSION
-      }
-      response = SportsDataApi.generic_request("#{base_url}#{url}", SPORT)
-      Nokogiri::XML(response.to_s).remove_namespaces!
     end
   end
 end

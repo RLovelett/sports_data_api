@@ -1,8 +1,9 @@
-require "sports_data_api/version"
-require "nokogiri"
-require "rest_client"
-require "time"
-require "multi_json"
+require 'multi_json'
+require 'nokogiri'
+require 'rest_client'
+require 'sports_data_api/request'
+require 'sports_data_api/version'
+require 'time'
 
 module SportsDataApi
   def self.key(sport)
@@ -30,7 +31,7 @@ module SportsDataApi
   def self.generic_request(url, sport)
     begin
       return RestClient.get(url, params: { api_key: SportsDataApi.key(sport) })
-    rescue RestClient::RequestTimeout => timeout
+    rescue RestClient::RequestTimeout
       raise SportsDataApi::Exception, 'The API did not respond in a reasonable amount of time'
     rescue RestClient::Exception => e
       message = if e.response.headers.key? :x_server_error

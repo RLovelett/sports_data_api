@@ -1,5 +1,6 @@
 module SportsDataApi
   module Mlb
+    extend SportsDataApi::Request
 
     class Exception < ::Exception
     end
@@ -70,16 +71,6 @@ module SportsDataApi
     def self.team_roster(year=Date.today.year)
       response = self.response_xml("/rosters-full/#{year}.xml")
       return Players.new(response.xpath("rosters"))
-    end
-
-    private
-    def self.response_xml(url)
-      base_url = BASE_URL % {
-        access_level: SportsDataApi.access_level(SPORT),
-        version: API_VERSION
-      }
-      response = SportsDataApi.generic_request("#{base_url}#{url}", SPORT)
-      Nokogiri::XML(response.to_s).remove_namespaces!
     end
   end
 end
