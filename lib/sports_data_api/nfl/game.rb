@@ -28,7 +28,7 @@ module SportsDataApi
       ##
       # Wrapper for Nfl.statistics
       def statistics
-        Nfl.game_statistics(year, season, week, home, away, 1)
+        Nfl.game_statistics(year, season, week, home, away)
       end
 
       ##
@@ -50,13 +50,13 @@ module SportsDataApi
       # to provide similar functionality as the links attribute
       # found in the weekly schedule example.
       def boxscore
-        Nfl.boxscore(year, season, week, home, away, 1)
+        Nfl.boxscore(year, season, week, home, away)
       end
 
       ##
       # Wrapper for Nfl.game_roster
       def roster
-        Nfl.game_roster(year, season, week, home, away, 1)
+        Nfl.game_roster(year, season, week, home, away)
       end
 
       ##

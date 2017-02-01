@@ -4,9 +4,9 @@ module SportsDataApi
     class Exception < ::Exception
     end
 
-    DIR = File.join(File.dirname(__FILE__), 'mlb')
+    API_VERSION = 4
     BASE_URL = 'https://api.sportsdatallc.org/mlb-%{access_level}%{version}'
-    DEFAULT_VERSION = 4
+    DIR = File.join(File.dirname(__FILE__), 'mlb')
     SPORT = :mlb
 
     autoload :Team, File.join(DIR, 'team')
@@ -25,56 +25,59 @@ module SportsDataApi
 
     ##
     # Fetches all NBA teams
-    def self.teams(year=Date.today.year, version = DEFAULT_VERSION)
-      response = self.response_xml(version, "/teams/#{year}.xml")
+    def self.teams(year=Date.today.year)
+      response = self.response_xml("/teams/#{year}.xml")
       return Teams.new(response.xpath('/teams'))
     end
 
     ##
     # Fetches MLB season schedule for a given year and season
-    def self.schedule(year=Date.today.year, version = DEFAULT_VERSION)
-      response = self.response_xml(version, "/schedule/#{year}.xml")
+    def self.schedule(year=Date.today.year)
+      response = self.response_xml("/schedule/#{year}.xml")
       return Season.new(response.xpath("calendars"))
     end
 
     ##
     # Fetches MLB daily schedule for a given date
-    def self.daily(year, month, day, version = DEFAULT_VERSION)
-      response = self.response_xml(version, "/daily/schedule/#{year}/#{month}/#{day}.xml")
+    def self.daily(year, month, day)
+      response = self.response_xml("/daily/schedule/#{year}/#{month}/#{day}.xml")
       return Games.new(response.xpath("calendars"))
     end
 
     ##
     # Fetches MLB venues
-    def self.venues(version = DEFAULT_VERSION)
-      response = self.response_xml(version, "/venues/venues.xml")
+    def self.venues
+      response = self.response_xml("/venues/venues.xml")
       return Venues.new(response.xpath("venues"))
     end
 
     ##
     # Fetch MLB game stats
-    def self.game_statistics(event_id, version = DEFAULT_VERSION )
-      response = self.response_xml(version, "/statistics/#{event_id}.xml")
+    def self.game_statistics(event_id)
+      response = self.response_xml("/statistics/#{event_id}.xml")
       return GameStats.new(response.xpath("/statistics"))
     end
 
     ##
     # Fetch MLB Game Boxscore
-    def self.game_boxscore(event_id, version = DEFAULT_VERSION )
-      response = self.response_xml(version, "/boxscore/#{event_id}.xml")
+    def self.game_boxscore(event_id)
+      response = self.response_xml("/boxscore/#{event_id}.xml")
       return Boxscore.new(response.xpath("/boxscore"))
     end
 
     ##
     # Fetches MLB team roster
-    def self.team_roster(year=Date.today.year, version = DEFAULT_VERSION)
-      response = self.response_xml(version, "/rosters-full/#{year}.xml")
+    def self.team_roster(year=Date.today.year)
+      response = self.response_xml("/rosters-full/#{year}.xml")
       return Players.new(response.xpath("rosters"))
     end
 
     private
-    def self.response_xml(version, url)
-      base_url = BASE_URL % { access_level: SportsDataApi.access_level(SPORT), version: version }
+    def self.response_xml(url)
+      base_url = BASE_URL % {
+        access_level: SportsDataApi.access_level(SPORT),
+        version: API_VERSION
+      }
       response = SportsDataApi.generic_request("#{base_url}#{url}", SPORT)
       Nokogiri::XML(response.to_s).remove_namespaces!
     end

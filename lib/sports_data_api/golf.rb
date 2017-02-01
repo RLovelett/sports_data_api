@@ -4,9 +4,9 @@ module SportsDataApi
     class Exception < ::Exception
     end
 
-    DIR = File.join(File.dirname(__FILE__), 'golf')
+    API_VERSION = 2
     BASE_URL = 'https://api.sportsdatallc.org/golf-%{access_level}%{version}'
-    DEFAULT_VERSION = 2
+    DIR = File.join(File.dirname(__FILE__), 'golf')
     SPORT = :golf
 
     autoload :Course, File.join(DIR, 'course')
@@ -21,37 +21,37 @@ module SportsDataApi
 
     class << self
       # Fetches Golf tournament schedule for a given tour and year
-      def season(tour, year, version = DEFAULT_VERSION)
+      def season(tour, year)
         tour = validate_tour(tour)
 
-        response = response_json(version, "/schedule/#{tour}/#{year}/tournaments/schedule.json")
+        response = response_json("/schedule/#{tour}/#{year}/tournaments/schedule.json")
 
         Season.new(response)
       end
 
       # Fetch all players for a season
-      def players(tour, year, version = DEFAULT_VERSION)
+      def players(tour, year)
         tour = validate_tour(tour)
 
-        response = response_json(version, "/profiles/#{tour}/#{year}/players/profiles.json")
+        response = response_json("/profiles/#{tour}/#{year}/players/profiles.json")
 
         return response['players'].map { |player_hash| Player.new(player_hash) }
       end
 
       # Fetch a tournament summary
-      def summary(tour, year, tournament_id, version = DEFAULT_VERSION)
+      def summary(tour, year, tournament_id)
         tour = validate_tour(tour)
 
-        response = response_json(version, "/summary/#{tour}/#{year}/tournaments/#{tournament_id}/summary.json")
+        response = response_json("/summary/#{tour}/#{year}/tournaments/#{tournament_id}/summary.json")
 
         Summary.new(tour, year, response)
       end
 
       # Fetch teetimes for a round in a tournament
-      def tee_times(tour, year, tournament_id, round, version = DEFAULT_VERSION)
+      def tee_times(tour, year, tournament_id, round)
         tour = validate_tour(tour)
 
-        response = response_json(version, "/teetimes/#{tour}/#{year}/tournaments/#{tournament_id}/rounds/#{round}/teetimes.json")
+        response = response_json("/teetimes/#{tour}/#{year}/tournaments/#{tournament_id}/rounds/#{round}/teetimes.json")
 
         response['round']['courses'].map do |json|
           Course.new(json)
@@ -59,10 +59,10 @@ module SportsDataApi
       end
 
       # fetches scorecards for a golf round
-      def scorecards(tour, year, tournament_id, round, version = DEFAULT_VERSION)
+      def scorecards(tour, year, tournament_id, round)
         tour = validate_tour(tour)
 
-        response = response_json(version, "/scorecards/#{tour}/#{year}/tournaments/#{tournament_id}/rounds/#{round}/scores.json")
+        response = response_json("/scorecards/#{tour}/#{year}/tournaments/#{tournament_id}/rounds/#{round}/scores.json")
 
         response['round']['players'].map do |json|
           Player.new(json)
@@ -70,10 +70,10 @@ module SportsDataApi
       end
 
       # fetches leaderboard for a golf tournament
-      def leaderboard(tour, year, tournament_id, version = DEFAULT_VERSION)
+      def leaderboard(tour, year, tournament_id)
         tour = validate_tour(tour)
 
-        response = response_json(version, "/leaderboard/#{tour}/#{year}/tournaments/#{tournament_id}/leaderboard.json")
+        response = response_json("/leaderboard/#{tour}/#{year}/tournaments/#{tournament_id}/leaderboard.json")
 
         response['leaderboard'].map do |json|
           Player.new(json)
@@ -82,8 +82,11 @@ module SportsDataApi
 
       private
 
-      def response_json(version, url)
-        base_url = BASE_URL % { access_level: SportsDataApi.access_level(SPORT), version: version }
+      def response_json(url)
+        base_url = BASE_URL % {
+          access_level: SportsDataApi.access_level(SPORT),
+          version: API_VERSION
+        }
         response = SportsDataApi.generic_request("#{base_url}#{url}", SPORT)
         MultiJson.load(response.to_s)
       end

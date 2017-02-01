@@ -37,7 +37,7 @@ describe SportsDataApi::Ncaafb::Game, vcr: {
 
       expect(tournament.summary).to eq summary
       expect(SportsDataApi::Golf).to have_received(:summary).with(
-        tournament.tour, tournament.year, tournament.id, SportsDataApi::Golf::DEFAULT_VERSION)
+        tournament.tour, tournament.year, tournament.id)
     end
   end
 end
