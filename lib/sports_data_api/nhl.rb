@@ -5,8 +5,8 @@ module SportsDataApi
     class Exception < ::Exception
     end
 
-    API_VERSION = 3
-    BASE_URL = 'https://api.sportsdatallc.org/nhl-%{access_level}%{version}'
+    API_VERSION = 4
+    BASE_URL = 'https://api.sportsdatallc.org/nhl-o%{access_level}%{version}'
     DIR = File.join(File.dirname(__FILE__), 'nhl')
     SPORT = :nhl
 

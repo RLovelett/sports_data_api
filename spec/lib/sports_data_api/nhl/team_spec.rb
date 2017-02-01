@@ -44,7 +44,7 @@ describe SportsDataApi::Nhl::Team, vcr: {
     its(:points) { should be_nil }
     context 'players' do
       subject { roster.players }
-      its(:count) { should eq 27 }
+      its(:count) { should eq 25 }
     end
   end
   context 'results from game_summary fetch' do
@@ -58,7 +58,7 @@ describe SportsDataApi::Nhl::Team, vcr: {
     its(:conference) { should be_nil }
     its(:division) { should be_nil }
     its(:players) { should be_an_instance_of(Array) }
-    
+
     context 'players' do
       subject { game_summary.home_team.players }
       its(:count) { should eq 26 }
@@ -95,120 +95,120 @@ describe SportsDataApi::Nhl::Team, vcr: {
         expect(subject.player[:scratched]).to eq nil
       end
       it 'should not have goaltending' do
-        expect(subject.stats.goaltending).to eql nil
+        expect(subject.stats.goaltending).to eq nil
       end
 
       its(:stats){ should be_an_instance_of(SportsDataApi::Stats) }
       context 'stats' do
         subject { game_summary.away_team.players.first.stats.statistics }
         it 'should have goals' do
-          expect(subject[:goals]).to eql '0'
+          expect(subject[:goals]).to eq '0'
         end
         it 'should have assists' do
-          expect(subject[:assists]).to eql '0'
+          expect(subject[:assists]).to eq '0'
         end
         it 'should have penalties' do
-          expect(subject[:penalties]).to eql '1'
+          expect(subject[:penalties]).to eq '1'
         end
         it 'should have penalty_minutes' do
-          expect(subject[:penalty_minutes]).to eql '2'
+          expect(subject[:penalty_minutes]).to eq '2'
         end
         it 'should have shots' do
-          expect(subject[:shots]).to eql '2'
+          expect(subject[:shots]).to eq '2'
         end
         it 'should have blocked_att' do
-          expect(subject[:blocked_att]).to eql '1'
+          expect(subject[:blocked_att]).to eq '1'
         end
         it 'should have missed_shots' do
-          expect(subject[:missed_shots]).to eql '1'
+          expect(subject[:missed_shots]).to eq '1'
         end
         it 'should have hits' do
-          expect(subject[:hits]).to eql '4'
+          expect(subject[:hits]).to eq '4'
         end
         it 'should have blocked_att' do
-          expect(subject[:giveaways]).to eql '0'
+          expect(subject[:giveaways]).to eq '0'
         end
         it 'should have takeaways' do
-          expect(subject[:takeaways]).to eql '1'
-        end          
+          expect(subject[:takeaways]).to eq '1'
+        end
         it 'should have blocked_shots' do
-          expect(subject[:blocked_shots]).to eql '1'
+          expect(subject[:blocked_shots]).to eq '1'
         end
         it 'should have faceoffs_won' do
-          expect(subject[:faceoffs_won]).to eql '4'
+          expect(subject[:faceoffs_won]).to eq '4'
         end
         it 'should have faceoffs_lost' do
-          expect(subject[:faceoffs_lost]).to eql '4'
+          expect(subject[:faceoffs_lost]).to eq '4'
         end
         it 'should have winning_goal' do
-          expect(subject[:winning_goal]).to eql 'false'
+          expect(subject[:winning_goal]).to be_falsy
         end
         it 'should have shooting_pct' do
-          expect(subject[:shooting_pct]).to eql '0.0'
+          expect(subject[:shooting_pct]).to eq '0.0'
         end
         it 'should have faceoffs' do
-          expect(subject[:faceoffs]).to eql '8'
+          expect(subject[:faceoffs]).to eq '8'
         end
         it 'should have faceoff_win_pct' do
-          expect(subject[:faceoff_win_pct]).to eql '50.0'
+          expect(subject[:faceoff_win_pct]).to eq '50.0'
         end
         it 'should have points' do
-          expect(subject[:points]).to eql '0'
+          expect(subject[:points]).to eq '0'
         end
         it 'should have powerplay_shots' do
-          expect(subject[:powerplay_shots]).to eql '0'
-        end   
+          expect(subject[:powerplay_shots]).to eq '0'
+        end
         it 'should have powerplay_goals' do
-          expect(subject[:powerplay_goals]).to eql '0'
-        end 
+          expect(subject[:powerplay_goals]).to eq '0'
+        end
         it 'should have powerplay_missed_shots' do
-          expect(subject[:powerplay_missed_shots]).to eql '0'
-        end 
+          expect(subject[:powerplay_missed_shots]).to eq '0'
+        end
         it 'should have powerplay_assists' do
-          expect(subject[:powerplay_assists]).to eql '0'
-        end 
+          expect(subject[:powerplay_assists]).to eq '0'
+        end
         it 'should have shorthanded_shots' do
-          expect(subject[:shorthanded_shots]).to eql '0'
-        end   
+          expect(subject[:shorthanded_shots]).to eq '0'
+        end
         it 'should have shorthanded_goals' do
-          expect(subject[:shorthanded_goals]).to eql '0'
-        end 
+          expect(subject[:shorthanded_goals]).to eq '0'
+        end
         it 'should have shorthanded_missed_shots' do
-          expect(subject[:shorthanded_missed_shots]).to eql '0'
-        end 
+          expect(subject[:shorthanded_missed_shots]).to eq '0'
+        end
         it 'should have shorthanded_assists' do
-          expect(subject[:shorthanded_assists]).to eql '0'
-        end  
+          expect(subject[:shorthanded_assists]).to eq '0'
+        end
         it 'should have eventstrength_shots' do
-          expect(subject[:evenstrength_shots]).to eql '2'
-        end  
+          expect(subject[:evenstrength_shots]).to eq '2'
+        end
         it 'should have eventstrength_goals' do
-          expect(subject[:evenstrength_goals]).to eql '0'
-        end 
+          expect(subject[:evenstrength_goals]).to eq '0'
+        end
         it 'should have eventstrength_missed_shots' do
-          expect(subject[:evenstrength_missed_shots]).to eql '1'
-        end 
+          expect(subject[:evenstrength_missed_shots]).to eq '1'
+        end
         it 'should have eventstrength_assists' do
-          expect(subject[:evenstrength_assists]).to eql '0'
-        end    
+          expect(subject[:evenstrength_assists]).to eq '0'
+        end
         it 'should have penalty_shots' do
-          expect(subject[:penalty_shots]).to eql '0'
-        end  
+          expect(subject[:penalty_shots]).to eq '0'
+        end
         it 'should have penalty_goals' do
-          expect(subject[:penalty_goals]).to eql '0'
-        end 
+          expect(subject[:penalty_goals]).to eq '0'
+        end
         it 'should have penalty_missed_shots' do
-          expect(subject[:penalty_missed_shots]).to eql '0'
-        end    
+          expect(subject[:penalty_missed_shots]).to eq '0'
+        end
         it 'should have shootout_shots' do
-          expect(subject[:shootout_shots]).to eql '0'
-        end  
+          expect(subject[:shootout_shots]).to eq '0'
+        end
         it 'should have shootout_goals' do
-          expect(subject[:shootout_goals]).to eql '0'
-        end 
+          expect(subject[:shootout_goals]).to eq '0'
+        end
         it 'should have shootout_missed_shots' do
-          expect(subject[:shootout_missed_shots]).to eql '0'
-        end                                                          
+          expect(subject[:shootout_missed_shots]).to eq '0'
+        end
       end
     end
 
@@ -218,23 +218,23 @@ describe SportsDataApi::Nhl::Team, vcr: {
         expect(subject).to be_a Hash
       end
       it 'should have shots_against' do
-        expect(subject[:shots_against]).to eql '37'
+        expect(subject[:shots_against]).to eq '37'
       end
       it 'should have goals_against' do
-        expect(subject[:goals_against]).to eql '3'
-      end    
+        expect(subject[:goals_against]).to eq '3'
+      end
       it 'should have saves' do
-        expect(subject[:saves]).to eql '34'
-      end    
+        expect(subject[:saves]).to eq '34'
+      end
       it 'should have credit' do
-        expect(subject[:credit]).to eql 'win'
-      end 
+        expect(subject[:credit]).to eq 'win'
+      end
       it 'should have shutout' do
-        expect(subject[:shutout]).to eql 'false'
-      end    
+        expect(subject[:shutout]).to be_falsy
+      end
       it 'should have saves_pct' do
-        expect(subject[:saves_pct]).to eql '0.919'
-      end                                    
-    end    
+        expect(subject[:saves_pct]).to eq '0.919'
+      end
+    end
   end
 end
