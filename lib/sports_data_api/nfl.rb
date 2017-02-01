@@ -15,6 +15,7 @@ module SportsDataApi
     autoload :TeamRoster, File.join(DIR, 'team_roster')
     autoload :Player, File.join(DIR, 'player')
     autoload :TeamSeasonStats, File.join(DIR, 'team_season_stats')
+
     autoload :PlayerSeasonStats, File.join(DIR, 'player_season_stats')
     autoload :Game, File.join(DIR, 'game')
     autoload :Games, File.join(DIR, 'games')
@@ -33,101 +34,91 @@ module SportsDataApi
     autoload :EventAction, File.join(DIR, 'play_action')
     autoload :PlayAction, File.join(DIR, 'event_action')
 
-    ##
-    # Fetches NFL season schedule for a given year and season
-    def self.schedule(year, season)
-      season = season.to_s.upcase.to_sym
-      raise SportsDataApi::Nfl::Exception.new("#{season} is not a valid season") unless Season.valid?(season)
+    class << self
+      # Fetches NFL season schedule for a given year and season
+      def schedule(year, season)
+        season = validate_season(season)
+        response = response_json("/#{year}/#{season}/schedule.json")
 
-      response = self.response_json("/#{year}/#{season}/schedule.json")
+        Season.new(response)
+      end
 
-      return Season.new(response)
-    end
+      # Fetch NFL team roster
+      def team_roster(team)
+        response = response_json("/teams/#{team}/roster.json")
 
-    ##
-    # Fetch NFL team roster
-    def self.team_roster(team)
-      response = self.response_json("/teams/#{team}/roster.json")
+        TeamRoster.new(response)
+      end
 
-      return TeamRoster.new(response)
-    end
+      # Fetch NFL team seaon stats for a given team, season and season type
+      def team_season_stats(team, year, season)
+        season = validate_season(season)
+        response = response_json("/teams/#{team}/#{year}/#{season}/statistics.json")
 
-    ##
-    # Fetch NFL team seaon stats for a given team, season and season type
-    def self.team_season_stats(team, season, season_type)
-      response = self.response_json("/teams/#{team}/#{season}/#{season_type}/statistics.json")
+        TeamSeasonStats.new(response)
+      end
 
-      return TeamSeasonStats.new(response)
-    end
+      # Fetch NFL player seaon stats for a given team, season and season type
+      def player_season_stats(team, year, season)
+        season = validate_season(season)
+        response = response_json("/teams/#{team}/#{year}/#{season}/statistics.json")
 
-    ##
-    # Fetch NFL player seaon stats for a given team, season and season type
-    def self.player_season_stats(team, season, season_type)
-      response = self.response_json("/teams/#{team}/#{season}/#{season_type}/statistics.json")
+        PlayerSeasonStats.new(response)
+      end
 
-      return PlayerSeasonStats.new(response)
-    end
+      # Fetches NFL boxscore for a given game
+      def boxscore(year, season, week, home, away)
+        season = validate_season(season)
+        response = response_json("/#{year}/#{season}/#{week}/#{away}/#{home}/boxscore.json")
 
-    ##
-    # Fetches NFL boxscore for a given game
-    def self.boxscore(year, season, week, home, away)
-      season = season.to_s.upcase.to_sym
-      raise SportsDataApi::Nfl::Exception.new("#{season} is not a valid season") unless Season.valid?(season)
+        Game.new(year, season, week, response)
+      end
 
-      response = self.response_json("/#{year}/#{season}/#{week}/#{away}/#{home}/boxscore.json")
+      # Fetches statistics for a given NFL game
+      def game_statistics(year, season, week, home, away)
+        season = validate_season(season)
+        response = response_json("/#{year}/#{season}/#{week}/#{away}/#{home}/statistics.json")
 
-      return Game.new(year, season, week, response)
-    end
+        Game.new(year, season, week, response)
+      end
 
-    ##
-    # Fetches statistics for a given NFL game
-    def self.game_statistics(year, season, week, home, away)
-      season = season.to_s.upcase.to_sym
-      raise SportsDataApi::Nfl::Exception.new("#{season} is not a valid season") unless Season.valid?(season)
+      # Fetches roster for a given NFL game
+      def game_roster(year, season, week, home, away)
+        season = validate_season(season)
+        response = response_json("/#{year}/#{season}/#{week}/#{away}/#{home}/roster.json")
 
-      response = self.response_json("/#{year}/#{season}/#{week}/#{away}/#{home}/statistics.json")
+        Game.new(year, season, week, response)
+      end
 
-      return Game.new(year, season, week, response)
-    end
+      # Fetches all NFL teams
+      def teams
+        Teams.new(response_json('/teams/hierarchy.json'))
+      end
 
-    # Fetches roster for a given NFL game
-    def self.game_roster(year, season, week, home, away)
-      season = season.to_s.upcase.to_sym
-      raise SportsDataApi::Nfl::Exception.new("#{season} is not a valid season") unless Season.valid?(season)
+      # Fetches NFL weekly schedule for a given year, season and week
+      def weekly(year, season, week)
+        season = validate_season(season)
+        response = response_json("/#{year}/#{season}/#{week}/schedule.json")
+        Games.new(year, season, week, response)
+      end
 
-      response = self.response_json("/#{year}/#{season}/#{week}/#{away}/#{home}/roster.json")
+      # Fetches NFL play by play for a given year, season and week
+      def play_by_play(year, season, week, home, away)
+        season = validate_season(season)
+        response = response_json("/#{year}/#{season}/#{week}/#{away}/#{home}/pbp.json")
 
-      return Game.new(year, season, week, response)
-    end
+        PlayByPlay.new(year, season, week, response)
+      end
 
-    ##
-    # Fetches all NFL teams
-    def self.teams
-      response = self.response_json("/teams/hierarchy.json")
+      private
 
-      return Teams.new(response)
-    end
-
-    ##
-    # Fetches NFL weekly schedule for a given year, season and week
-    def self.weekly(year, season, week)
-      season = season.to_s.upcase.to_sym
-      raise SportsDataApi::Nfl::Exception.new("#{season} is not a valid season") unless Season.valid?(season)
-
-      response = self.response_json("/#{year}/#{season}/#{week}/schedule.json")
-
-      return Games.new(year, season, week, response)
-    end
-
-    ##
-    # Fetches NFL play by play for a given year, season and week
-    def self.play_by_play(year, season, week, home, away)
-      season = season.to_s.upcase.to_sym
-      raise SportsDataApi::Nfl::Exception.new("#{season} is not a valid season") unless Season.valid?(season)
-
-      response = self.response_json("/#{year}/#{season}/#{week}/#{away}/#{home}/pbp.json")
-
-      return PlayByPlay.new(year, season, week, response)
+      def validate_season(param)
+        param.to_s.upcase.to_sym.tap do |season|
+          unless Season.valid?(season)
+            raise Exception.new("#{season} is not a valid season")
+          end
+        end
+      end
     end
   end
 end

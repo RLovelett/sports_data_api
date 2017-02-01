@@ -5,8 +5,8 @@ module SportsDataApi
     class Exception < ::Exception
     end
 
-    API_VERSION = 3
-    BASE_URL = 'https://api.sportsdatallc.org/nhl-%{access_level}%{version}'
+    API_VERSION = 4
+    BASE_URL = 'https://api.sportsdatallc.org/nhl-o%{access_level}%{version}'
     DIR = File.join(File.dirname(__FILE__), 'nhl')
     SPORT = :nhl
 
@@ -23,7 +23,7 @@ module SportsDataApi
     # Fetches NHL season schedule for a given year and season
     def self.schedule(year, season)
       season = season.to_s.upcase.to_sym
-      raise SportsDataApi::Nhl::Exception.new("#{season} is not a valid season") unless Season.valid?(season)
+      raise Exception.new("#{season} is not a valid season") unless Season.valid?(season)
 
       response = self.response_xml("/games/#{year}/#{season}/schedule.xml")
 

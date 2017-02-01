@@ -23,7 +23,7 @@ module SportsDataApi
               @stats.class.class_eval { attr_reader :"#{goaltending_xml.name}" }
               goaltending_xml.attributes.each { |attr_name, attr_value| goaltending_ivar[attr_name.to_sym] = attr_value.value }
             end
-          end    
+          end
         end
       end
     end
