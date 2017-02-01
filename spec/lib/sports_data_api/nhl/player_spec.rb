@@ -7,7 +7,7 @@ describe SportsDataApi::Nhl::Player, vcr: {
 } do
   before do
     SportsDataApi.set_key(:nhl, api_key(:nhl))
-    SportsDataApi.set_access_level(:nhl, 't')
+    SportsDataApi.set_access_level(:nhl, 'ot')
   end
   let(:player) { SportsDataApi::Nhl.team_roster('441713b7-0f24-11e2-8525-18a905767e44').players.first.player }
 

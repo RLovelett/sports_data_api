@@ -6,7 +6,7 @@ describe SportsDataApi::Nhl::Venue, vcr: {
     match_requests_on: [:host, :path]
 } do
   let(:daily_schedule) do
-    SportsDataApi.set_access_level(:nhl, 't')
+    SportsDataApi.set_access_level(:nhl, 'ot')
     SportsDataApi.set_key(:nhl, api_key(:nhl))
     SportsDataApi::Nhl.daily(2013, 12, 12)
   end

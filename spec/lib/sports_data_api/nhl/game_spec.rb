@@ -7,16 +7,16 @@ describe SportsDataApi::Nhl::Game, vcr: {
 } do
   let(:season) do
     SportsDataApi.set_key(:nhl, api_key(:nhl))
-    SportsDataApi.set_access_level(:nhl, 't')
+    SportsDataApi.set_access_level(:nhl, 'ot')
     SportsDataApi::Nhl.schedule(2013, :REG)
   end
   let(:game_summary) do
     SportsDataApi.set_key(:nhl, api_key(:nhl))
-    SportsDataApi.set_access_level(:nhl, 't')
+    SportsDataApi.set_access_level(:nhl, 'ot')
     SportsDataApi::Nhl.game_summary('f0f7e327-3a3a-410b-be75-0956c90c4988')
   end
   let(:daily_schedule) do
-    SportsDataApi.set_access_level(:nhl, 't')
+    SportsDataApi.set_access_level(:nhl, 'ot')
     SportsDataApi.set_key(:nhl, api_key(:nhl))
     SportsDataApi::Nhl.daily(2013, 12, 12)
   end
