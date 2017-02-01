@@ -86,7 +86,7 @@ module SportsDataApi
       def validate_tour(tour)
         tour.to_s.downcase.to_sym.tap do |tour_sym|
           unless Season.valid_tour?(tour_sym)
-            raise SportsDataApi::Golf::Exception.new("#{tour_sym} is not a valid tour")
+            raise Exception.new("#{tour_sym} is not a valid tour")
           end
         end
       end

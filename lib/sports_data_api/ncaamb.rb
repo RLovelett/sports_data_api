@@ -27,7 +27,7 @@ module SportsDataApi
     # Fetches NCAAAMB season schedule for a given year and season
     def self.schedule(year, season)
       season = season.to_s.upcase.to_sym
-      raise SportsDataApi::Ncaamb::Exception.new("#{season} is not a valid season") unless Season.valid?(season)
+      raise Exception.new("#{season} is not a valid season") unless Season.valid?(season)
 
       response = self.response_xml("/games/#{year}/#{season}/schedule.xml")
 
@@ -69,7 +69,7 @@ module SportsDataApi
     # Fetches NCAAAMB tournaments for a given year and season
     def self.tournament_list(year, season)
       season = season.to_s.upcase.to_sym
-      raise SportsDataApi::Ncaamb::Exception.new("#{season} is not a valid season") unless TournamentList.valid?(season)
+      raise Exception.new("#{season} is not a valid season") unless TournamentList.valid?(season)
 
       response = self.response_xml("/tournaments/#{year}/#{season}/schedule.xml")
 
@@ -78,7 +78,7 @@ module SportsDataApi
 
     def self.tournament_schedule(year, season, tournament_id)
       response = self.response_xml("/tournaments/#{tournament_id}/schedule.xml")
-      raise SportsDataApi::Ncaamb::Exception.new("#{season} is not a valid season") unless TournamentSchedule.valid?(season)
+      raise Exception.new("#{season} is not a valid season") unless TournamentSchedule.valid?(season)
 
       return TournamentSchedule.new(year, season, response.xpath("/league/tournament-schedule"))
     end

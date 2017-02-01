@@ -22,7 +22,7 @@ module SportsDataApi
     # Fetches NBA season schedule for a given year and season
     def self.schedule(year, season)
       season = season.to_s.upcase.to_sym
-      raise SportsDataApi::Nba::Exception.new("#{season} is not a valid season") unless Season.valid?(season)
+      raise Exception.new("#{season} is not a valid season") unless Season.valid?(season)
 
       response = self.response_xml("/games/#{year}/#{season}/schedule.xml")
 
