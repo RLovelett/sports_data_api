@@ -1,11 +1,13 @@
-# SportsDataApi [![Build Status](https://travis-ci.org/RLovelett/sports_data_api.svg?branch=master)](https://travis-ci.org/RLovelett/sports_data_api) [![Gem Version](https://badge.fury.io/rb/sports_data_api.svg)](http://badge.fury.io/rb/sports_data_api) [![Code Climate](https://codeclimate.com/github/RLovelett/sports_data_api/badges/gpa.svg)](https://codeclimate.com/github/RLovelett/sports_data_api) [![Test Coverage](https://codeclimate.com/github/RLovelett/sports_data_api/badges/coverage.svg)](https://codeclimate.com/github/RLovelett/sports_data_api/coverage)
+# SportsDataApi 
+
+[![Build Status](https://travis-ci.org/RLovelett/sports_data_api.svg?branch=master)](https://travis-ci.org/RLovelett/sports_data_api) [![Gem Version](https://badge.fury.io/rb/sports_data_api.svg)](http://badge.fury.io/rb/sports_data_api) [![Code Climate](https://codeclimate.com/github/RLovelett/sports_data_api/badges/gpa.svg)](https://codeclimate.com/github/RLovelett/sports_data_api) [![Test Coverage](https://codeclimate.com/github/RLovelett/sports_data_api/badges/coverage.svg)](https://codeclimate.com/github/RLovelett/sports_data_api/coverage)
 
 SportsDataApi is an attempt to make a Ruby interface to the
-[SportsData](http://www.sportsdatallc.com/) API. The goal is to
+[Sportradar](http://www.sportradar.com/) (previously known as SportsData) API. The goal is to
 eventaully support the full API. Pull requests that extend the API
 support are always welcome.
 
-[SportsData](http://www.sportsdatallc.com/)’s comprehensive data coverage includes all major U.S. sports,
+[Sportradar](http://www.sportradar.com/)’s comprehensive data coverage includes all major U.S. sports,
 plus hundreds of leagues throughout the world. Their live game analysts
 capture every possible event of every game, in real time and with
 accuracy standards developed from years of experience.
@@ -55,46 +57,63 @@ SportsDataApi.set_access_level(:nfl, '<YOUR ACCESS LEVEL HERE>')
 SportsDataApi.set_key(:nfl, '<YOUR API KEY HERE>')
 game_stats = SportsDataApi::Nfl.game_statistics(2014, :REG, 9, 'HOU', 'PHI')
 foster_stats = game_stats.home_team.players.select { |player| player['name'] === 'Arian Foster' }.first
-
-# foster_stats should now be a `Hash` containing something that looks like this:
-# {"id"=>"d89d2aef-c383-4ddf-bed8-3761aed35b10",
-#   "name"=>"Arian Foster",
-#   "jersey"=>23,
-#   "position"=>"RB",
-#   "touchdowns"=>{"pass"=>1, "rush"=>0, "int"=>0, "fum_ret"=>0, "punt_ret"=>0, "kick_ret"=>0, "fg_ret"=>0, "other"=>0},
-#   "rushing"=>
-#    {"att"=>15,
-#     "yds"=>56,
-#     "avg"=>3.733,
-#     "lg"=>18,
-#     "td"=>0,
-#     "fd"=>3,
-#     "fd_pct"=>20.0,
-#     "sfty"=>0,
-#     "rz_att"=>0,
-#     "fum"=>0,
-#     "yds_10_pls"=>2,
-#     "yds_20_pls"=>0,
-#     "yds_30_pls"=>0,
-#     "yds_40_pls"=>0,
-#     "yds_50_pls"=>0},
-#   "receiving"=>
-#    {"tar"=>3,
-#     "rec"=>2,
-#     "yds"=>63,
-#     "yac"=>63,
-#     "fd"=>1,
-#     "avg"=>31.5,
-#     "td"=>1,
-#     "lg"=>56,
-#     "rz_tar"=>0,
-#     "fum"=>0,
-#     "yds_10_pls"=>0,
-#     "yds_20_pls"=>0,
-#     "yds_30_pls"=>0,
-#     "yds_40_pls"=>0,
-#     "yds_50_pls"=>1},
-#   "first_downs"=>{"num"=>4, "pass"=>1, "rush"=>3, "pen"=>0}}
+puts foster_stats
+=> {
+  "id": "d89d2aef-c383-4ddf-bed8-3761aed35b10",
+  "name": "Arian Foster",
+  "jersey": 23,
+  "position": "RB",
+  "touchdowns": {
+    "pass": 1,
+    "rush": 0,
+    "int": 0,
+    "fum_ret": 0,
+    "punt_ret": 0,
+    "kick_ret": 0,
+    "fg_ret": 0,
+    "other": 0
+  },
+  "rushing": {
+    "att": 15,
+    "yds": 56,
+    "avg": 3.733,
+    "lg": 18,
+    "td": 0,
+    "fd": 3,
+    "fd_pct": 20,
+    "sfty": 0,
+    "rz_att": 0,
+    "fum": 0,
+    "yds_10_pls": 2,
+    "yds_20_pls": 0,
+    "yds_30_pls": 0,
+    "yds_40_pls": 0,
+    "yds_50_pls": 0
+  },
+  "receiving": {
+    "tar": 3,
+    "rec": 2,
+    "yds": 63,
+    "yac": 63,
+    "fd": 1,
+    "avg": 31.5,
+    "td": 1,
+    "lg": 56,
+    "rz_tar": 0,
+    "fum": 0,
+    "yds_10_pls": 0,
+    "yds_20_pls": 0,
+    "yds_30_pls": 0,
+    "yds_40_pls": 0,
+    "yds_50_pls": 1
+  },
+  "first_downs": {
+    "num": 4,
+    "pass": 1,
+    "rush": 3,
+    "pen": 0
+  }
+}
 ```
 
 ## Testing
