@@ -28,7 +28,7 @@ module SportsDataApi
       ##
       # Wrapper for Ncaafb.statistics
       def statistics
-        Ncaafb.game_statistics(year, season, week, home, away, 1)
+        Ncaafb.game_statistics(year, season, week, home, away)
       end
 
       ##
@@ -50,14 +50,14 @@ module SportsDataApi
       # to provide similar functionality as the links attribute
       # found in the weekly schedule example.
       def boxscore
-        Ncaafb.boxscore(year, season, week, home, away, 1)
+        Ncaafb.boxscore(year, season, week, home, away)
       end
 
       ##
       # Wrapper for Ncaafb.game_roster
       # TODO
       def roster
-        Ncaafb.game_roster(year, season, week, home, away, 1)
+        Ncaafb.game_roster(year, season, week, home, away)
       end
 
       ##

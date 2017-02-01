@@ -4,9 +4,9 @@ module SportsDataApi
     class Exception < ::Exception
     end
 
-    DIR = File.join(File.dirname(__FILE__), 'nfl')
+    API_VERSION = 1
     BASE_URL = 'https://api.sportsdatallc.org/nfl-%{access_level}%{version}'
-    DEFAULT_VERSION = 1
+    DIR = File.join(File.dirname(__FILE__), 'nfl')
     SPORT = :nfl
 
     autoload :Team, File.join(DIR, 'team')
@@ -34,105 +34,108 @@ module SportsDataApi
 
     ##
     # Fetches NFL season schedule for a given year and season
-    def self.schedule(year, season, version = DEFAULT_VERSION)
+    def self.schedule(year, season)
       season = season.to_s.upcase.to_sym
       raise SportsDataApi::Nfl::Exception.new("#{season} is not a valid season") unless Season.valid?(season)
 
-      response = self.response_json(version, "/#{year}/#{season}/schedule.json")
+      response = self.response_json("/#{year}/#{season}/schedule.json")
 
       return Season.new(response)
     end
 
     ##
     # Fetch NFL team roster
-    def self.team_roster(team, version = DEFAULT_VERSION)
-      response = self.response_json(version, "/teams/#{team}/roster.json")
+    def self.team_roster(team)
+      response = self.response_json("/teams/#{team}/roster.json")
 
       return TeamRoster.new(response)
     end
 
     ##
     # Fetch NFL team seaon stats for a given team, season and season type
-    def self.team_season_stats(team, season, season_type, version = DEFAULT_VERSION)
-      response = self.response_json(version, "/teams/#{team}/#{season}/#{season_type}/statistics.json")
+    def self.team_season_stats(team, season, season_type)
+      response = self.response_json("/teams/#{team}/#{season}/#{season_type}/statistics.json")
 
       return TeamSeasonStats.new(response)
     end
 
     ##
     # Fetch NFL player seaon stats for a given team, season and season type
-    def self.player_season_stats(team, season, season_type, version = DEFAULT_VERSION)
-      response = self.response_json(version, "/teams/#{team}/#{season}/#{season_type}/statistics.json")
+    def self.player_season_stats(team, season, season_type)
+      response = self.response_json("/teams/#{team}/#{season}/#{season_type}/statistics.json")
 
       return PlayerSeasonStats.new(response)
     end
 
     ##
     # Fetches NFL boxscore for a given game
-    def self.boxscore(year, season, week, home, away, version = DEFAULT_VERSION)
+    def self.boxscore(year, season, week, home, away)
       season = season.to_s.upcase.to_sym
       raise SportsDataApi::Nfl::Exception.new("#{season} is not a valid season") unless Season.valid?(season)
 
-      response = self.response_json(version, "/#{year}/#{season}/#{week}/#{away}/#{home}/boxscore.json")
+      response = self.response_json("/#{year}/#{season}/#{week}/#{away}/#{home}/boxscore.json")
 
       return Game.new(year, season, week, response)
     end
 
     ##
     # Fetches statistics for a given NFL game
-    def self.game_statistics(year, season, week, home, away, version = DEFAULT_VERSION)
+    def self.game_statistics(year, season, week, home, away)
       season = season.to_s.upcase.to_sym
       raise SportsDataApi::Nfl::Exception.new("#{season} is not a valid season") unless Season.valid?(season)
 
-      response = self.response_json(version, "/#{year}/#{season}/#{week}/#{away}/#{home}/statistics.json")
+      response = self.response_json("/#{year}/#{season}/#{week}/#{away}/#{home}/statistics.json")
 
       return Game.new(year, season, week, response)
     end
 
     # Fetches roster for a given NFL game
-    def self.game_roster(year, season, week, home, away, version = DEFAULT_VERSION)
+    def self.game_roster(year, season, week, home, away)
       season = season.to_s.upcase.to_sym
       raise SportsDataApi::Nfl::Exception.new("#{season} is not a valid season") unless Season.valid?(season)
 
-      response = self.response_json(version, "/#{year}/#{season}/#{week}/#{away}/#{home}/roster.json")
+      response = self.response_json("/#{year}/#{season}/#{week}/#{away}/#{home}/roster.json")
 
       return Game.new(year, season, week, response)
     end
 
     ##
     # Fetches all NFL teams
-    def self.teams(version = DEFAULT_VERSION)
-      response = self.response_json(version, "/teams/hierarchy.json")
+    def self.teams
+      response = self.response_json("/teams/hierarchy.json")
 
       return Teams.new(response)
     end
 
     ##
     # Fetches NFL weekly schedule for a given year, season and week
-    def self.weekly(year, season, week, version = DEFAULT_VERSION)
+    def self.weekly(year, season, week)
       season = season.to_s.upcase.to_sym
       raise SportsDataApi::Nfl::Exception.new("#{season} is not a valid season") unless Season.valid?(season)
 
-      response = self.response_json(version, "/#{year}/#{season}/#{week}/schedule.json")
+      response = self.response_json("/#{year}/#{season}/#{week}/schedule.json")
 
       return Games.new(year, season, week, response)
     end
 
     ##
     # Fetches NFL play by play for a given year, season and week
-    def self.play_by_play(year, season, week, home, away, version = DEFAULT_VERSION)
+    def self.play_by_play(year, season, week, home, away)
       season = season.to_s.upcase.to_sym
       raise SportsDataApi::Nfl::Exception.new("#{season} is not a valid season") unless Season.valid?(season)
 
-      response = self.response_json(version, "/#{year}/#{season}/#{week}/#{away}/#{home}/pbp.json")
+      response = self.response_json("/#{year}/#{season}/#{week}/#{away}/#{home}/pbp.json")
 
       return PlayByPlay.new(year, season, week, response)
     end
 
     private
 
-    def self.response_json(version, url)
-      base_url = BASE_URL % { access_level: SportsDataApi.access_level(SPORT), version: version }
+    def self.response_json(url)
+      base_url = BASE_URL % {
+        access_level: SportsDataApi.access_level(SPORT),
+        version: API_VERSION
+      }
       response = SportsDataApi.generic_request("#{base_url}#{url}", SPORT)
       MultiJson.load(response.to_s)
     end
