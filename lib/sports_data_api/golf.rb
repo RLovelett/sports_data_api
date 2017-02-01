@@ -1,5 +1,6 @@
 module SportsDataApi
   module Golf
+    extend SportsDataApi::Request
 
     class Exception < ::Exception
     end
@@ -81,15 +82,6 @@ module SportsDataApi
       end
 
       private
-
-      def response_json(url)
-        base_url = BASE_URL % {
-          access_level: SportsDataApi.access_level(SPORT),
-          version: API_VERSION
-        }
-        response = SportsDataApi.generic_request("#{base_url}#{url}", SPORT)
-        MultiJson.load(response.to_s)
-      end
 
       def validate_tour(tour)
         tour.to_s.downcase.to_sym.tap do |tour_sym|

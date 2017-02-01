@@ -1,5 +1,6 @@
 module SportsDataApi
   module Nfl
+    extend SportsDataApi::Request
 
     class Exception < ::Exception
     end
@@ -127,17 +128,6 @@ module SportsDataApi
       response = self.response_json("/#{year}/#{season}/#{week}/#{away}/#{home}/pbp.json")
 
       return PlayByPlay.new(year, season, week, response)
-    end
-
-    private
-
-    def self.response_json(url)
-      base_url = BASE_URL % {
-        access_level: SportsDataApi.access_level(SPORT),
-        version: API_VERSION
-      }
-      response = SportsDataApi.generic_request("#{base_url}#{url}", SPORT)
-      MultiJson.load(response.to_s)
     end
   end
 end
