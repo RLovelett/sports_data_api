@@ -19,47 +19,39 @@ module SportsDataApi
     autoload :Venue, File.join(DIR, 'venue')
     autoload :Broadcast, File.join(DIR, 'broadcast')
 
-    ##
-    # Fetches NHL season schedule for a given year and season
-    def self.schedule(year, season)
-      season = season.to_s.upcase.to_sym
-      raise Exception.new("#{season} is not a valid season") unless Season.valid?(season)
+    class << self
+      ##
+      # Fetches NHL season schedule for a given year and season
+      def schedule(year, season)
+        season = season.to_s.upcase.to_sym
+        raise Exception.new("#{season} is not a valid season") unless Season.valid?(season)
 
-      response = self.response_xml("/games/#{year}/#{season}/schedule.xml")
+        Season.new(response_xml_xpath("/games/#{year}/#{season}/schedule.xml", '/league/season-schedule'))
+      end
 
-      return Season.new(response.xpath("/league/season-schedule"))
-    end
+      ##
+      # Fetches NHL team roster
+      def team_roster(team)
+        Team.new(response_xml_xpath("/teams/#{team}/profile.xml", 'team'))
+      end
 
-    ##
-    # Fetches NHL team roster
-    def self.team_roster(team)
-      response = self.response_xml("/teams/#{team}/profile.xml")
+      ##
+      # Fetches NHL game summary for a given game
+      def game_summary(game)
+        Game.new(xml: response_xml_xpath("/games/#{game}/summary.xml", '/game'))
+      end
 
-      return Team.new(response.xpath("team"))
-    end
+      ##
+      # Fetches all NHL teams
+      def teams
+        Teams.new(response_xml_xpath("/league/hierarchy.xml", '/league'))
+      end
 
-    ##
-    # Fetches NHL game summary for a given game
-    def self.game_summary(game)
-      response = self.response_xml("/games/#{game}/summary.xml")
-
-      return Game.new(xml: response.xpath("/game"))
-    end
-
-    ##
-    # Fetches all NHL teams
-    def self.teams
-      response = self.response_xml("/league/hierarchy.xml")
-
-      return Teams.new(response.xpath('/league'))
-    end
-
-    ##
-    # Fetches NHL daily schedule for a given date
-    def self.daily(year, month, day)
-      response = self.response_xml("/games/#{year}/#{month}/#{day}/schedule.xml")
-
-      return Games.new(response.xpath('league/daily-schedule'))
+      ##
+      # Fetches NHL daily schedule for a given date
+      def daily(year, month, day)
+        Games.new(response_xml_xpath("/games/#{year}/#{month}/#{day}/schedule.xml", 'league/daily-schedule'))
+      end
     end
   end
 end

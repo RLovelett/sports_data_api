@@ -24,13 +24,12 @@ module SportsDataApi
       # Compare the Team with another team
       def ==(other)
         # Must have an id to compare
-        return false if self.id.nil?
+        return false if id.nil?
 
         if other.is_a? SportsDataApi::Nba::Team
-          return false if other.id.nil?
-          self.id === other.id
+          other.id && id === other.id
         elsif other.is_a? Symbol
-          self.id.to_sym === other
+          id.to_sym === other
         else
           super(other)
         end

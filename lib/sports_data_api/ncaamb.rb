@@ -23,64 +23,53 @@ module SportsDataApi
     autoload :TournamentSchedule, File.join(DIR, 'tournament_schedule')
     autoload :TournamentGame, File.join(DIR, 'tournament_game')
 
-    ##
-    # Fetches NCAAAMB season schedule for a given year and season
-    def self.schedule(year, season)
-      season = season.to_s.upcase.to_sym
-      raise Exception.new("#{season} is not a valid season") unless Season.valid?(season)
+    class << self
+      ##
+      # Fetches NCAAAMB season schedule for a given year and season
+      def schedule(year, season)
+        season = season.to_s.upcase.to_sym
+        raise Exception.new("#{season} is not a valid season") unless Season.valid?(season)
 
-      response = self.response_xml("/games/#{year}/#{season}/schedule.xml")
+        Season.new(response_xml_xpath("/games/#{year}/#{season}/schedule.xml", '/league/season-schedule'))
+      end
 
-      return Season.new(response.xpath("/league/season-schedule"))
-    end
+      # ##
+      # # Fetches NCAAMB team roster
+      def team_roster(team)
+        Team.new(response_xml_xpath("/teams/#{team}/profile.xml", 'team'))
+      end
 
-    # ##
-    # # Fetches NCAAMB team roster
-    def self.team_roster(team)
-      response = self.response_xml("/teams/#{team}/profile.xml")
+      # ##
+      # # Fetches NCAAMB game summary for a given game
+      def game_summary(game)
+        Game.new(xml: response_xml_xpath("/games/#{game}/summary.xml", '/game'))
+      end
 
-      return Team.new(response.xpath("team"))
-    end
+      # ##
+      # # Fetches all NCAAMB teams
+      def teams
+        Teams.new(response_xml_xpath('/league/hierarchy.xml', '/league'))
+      end
 
-    # ##
-    # # Fetches NCAAMB game summary for a given game
-    def self.game_summary(game)
-      response = self.response_xml("/games/#{game}/summary.xml")
+      # ##
+      # # Fetches NCAAMB daily schedule for a given date
+      def daily(year, month, day)
+        Games.new(response_xml_xpath("/games/#{year}/#{month}/#{day}/schedule.xml", 'league/daily-schedule'))
+      end
 
-      return Game.new(xml: response.xpath("/game"))
-    end
+      # Fetches NCAAAMB tournaments for a given year and season
+      def tournament_list(year, season)
+        season = season.to_s.upcase.to_sym
+        raise Exception.new("#{season} is not a valid season") unless TournamentList.valid?(season)
 
-    # ##
-    # # Fetches all NCAAMB teams
-    def self.teams
-      response = self.response_xml("/league/hierarchy.xml")
+        TournamentList.new(response_xml_xpath("/tournaments/#{year}/#{season}/schedule.xml", '/league/season-schedule'))
+      end
 
-      return Teams.new(response.xpath('/league'))
-    end
+      def tournament_schedule(year, season, tournament_id)
+        raise Exception.new("#{season} is not a valid season") unless TournamentSchedule.valid?(season)
 
-    # ##
-    # # Fetches NCAAMB daily schedule for a given date
-    def self.daily(year, month, day)
-      response = self.response_xml("/games/#{year}/#{month}/#{day}/schedule.xml")
-
-      return Games.new(response.xpath('league/daily-schedule'))
-    end
-
-    # Fetches NCAAAMB tournaments for a given year and season
-    def self.tournament_list(year, season)
-      season = season.to_s.upcase.to_sym
-      raise Exception.new("#{season} is not a valid season") unless TournamentList.valid?(season)
-
-      response = self.response_xml("/tournaments/#{year}/#{season}/schedule.xml")
-
-      return TournamentList.new(response.xpath("/league/season-schedule"))
-    end
-
-    def self.tournament_schedule(year, season, tournament_id)
-      response = self.response_xml("/tournaments/#{tournament_id}/schedule.xml")
-      raise Exception.new("#{season} is not a valid season") unless TournamentSchedule.valid?(season)
-
-      return TournamentSchedule.new(year, season, response.xpath("/league/tournament-schedule"))
+        TournamentSchedule.new(year, season, response_xml_xpath("/tournaments/#{tournament_id}/schedule.xml", '/league/tournament-schedule'))
+      end
     end
   end
 end

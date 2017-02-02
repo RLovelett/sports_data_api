@@ -53,13 +53,13 @@ module SportsDataApi
       #
       def method_missing(method)
         if @allowed_conferences.include?(method)
-          return @teams.select do |team|
+          @teams.select do |team|
             up = team.conference.upcase.to_sym
             dw = team.conference.downcase.to_sym
             up === method || dw === method
           end
         elsif @allowed_divisions.include?(method)
-          return @teams.select do |team|
+          @teams.select do |team|
             up = team.division.upcase.to_sym
             dw = team.division.downcase.to_sym
             up === method || dw === method

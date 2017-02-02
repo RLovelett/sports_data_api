@@ -28,49 +28,43 @@ module SportsDataApi
       ##
       # Fetches all NBA teams
       def teams(year = Date.today.year)
-        Teams.new(get("/teams/#{year}.xml", '/teams'))
+        Teams.new(response_xml_xpath("/teams/#{year}.xml", '/teams'))
       end
 
       ##
       # Fetches MLB season schedule for a given year and season
       def schedule(year = Date.today.year)
-        Season.new(get("/schedule/#{year}.xml", 'calendars'))
+        Season.new(response_xml_xpath("/schedule/#{year}.xml", 'calendars'))
       end
 
       ##
       # Fetches MLB daily schedule for a given date
       def daily(year, month, day)
-        Games.new(get("/daily/schedule/#{year}/#{month}/#{day}.xml", 'calendars'))
+        Games.new(response_xml_xpath("/daily/schedule/#{year}/#{month}/#{day}.xml", 'calendars'))
       end
 
       ##
       # Fetches MLB venues
       def venues
-        Venues.new(get('/venues/venues.xml', 'venues'))
+        Venues.new(response_xml_xpath('/venues/venues.xml', 'venues'))
       end
 
       ##
       # Fetch MLB game stats
       def game_statistics(event_id)
-        GameStats.new(get("/statistics/#{event_id}.xml", '/statistics'))
+        GameStats.new(response_xml_xpath("/statistics/#{event_id}.xml", '/statistics'))
       end
 
       ##
       # Fetch MLB Game Boxscore
       def game_boxscore(event_id)
-        Boxscore.new(get("/boxscore/#{event_id}.xml", '/boxscore'))
+        Boxscore.new(response_xml_xpath("/boxscore/#{event_id}.xml", '/boxscore'))
       end
 
       ##
       # Fetches MLB team roster
       def team_roster(year=Date.today.year)
-        Players.new(get("/rosters-full/#{year}.xml", 'rosters'))
-      end
-
-      private
-
-      def get(url, xpath)
-        response_xml(url).xpath(xpath)
+        Players.new(response_xml_xpath("/rosters-full/#{year}.xml", 'rosters'))
       end
     end
   end

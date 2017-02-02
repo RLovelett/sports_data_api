@@ -10,6 +10,10 @@ module SportsDataApi
       Nokogiri::XML(response.to_s).remove_namespaces!
     end
 
+    def response_xml_xpath(path, xpath)
+      response_xml(path).xpath(xpath)
+    end
+
     private
 
     def make_request(path)

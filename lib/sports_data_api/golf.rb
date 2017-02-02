@@ -36,7 +36,9 @@ module SportsDataApi
 
         response = response_json("/profiles/#{tour}/#{year}/players/profiles.json")
 
-        return response['players'].map { |player_hash| Player.new(player_hash) }
+        response['players'].map do |json|
+          Player.new(json)
+        end
       end
 
       # Fetch a tournament summary
