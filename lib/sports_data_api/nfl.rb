@@ -37,56 +37,43 @@ module SportsDataApi
     class << self
       # Fetches NFL season schedule for a given year and season
       def schedule(year, season)
-        season = validate_season(season)
-        response = response_json("/#{year}/#{season}/schedule.json")
-
+        response = get("/#{year}/%{season}/schedule.json", season)
         Season.new(response)
       end
 
       # Fetch NFL team roster
       def team_roster(team)
         response = response_json("/teams/#{team}/roster.json")
-
         TeamRoster.new(response)
       end
 
       # Fetch NFL team seaon stats for a given team, season and season type
       def team_season_stats(team, year, season)
-        season = validate_season(season)
-        response = response_json("/teams/#{team}/#{year}/#{season}/statistics.json")
-
+        response = get("/teams/#{team}/#{year}/%{season}/statistics.json", season)
         TeamSeasonStats.new(response)
       end
 
       # Fetch NFL player seaon stats for a given team, season and season type
       def player_season_stats(team, year, season)
-        season = validate_season(season)
-        response = response_json("/teams/#{team}/#{year}/#{season}/statistics.json")
-
+        response = get("/teams/#{team}/#{year}/%{season}/statistics.json", season)
         PlayerSeasonStats.new(response)
       end
 
       # Fetches NFL boxscore for a given game
       def boxscore(year, season, week, home, away)
-        season = validate_season(season)
-        response = response_json("/#{year}/#{season}/#{week}/#{away}/#{home}/boxscore.json")
-
+        response = get("/#{year}/%{season}/#{week}/#{away}/#{home}/boxscore.json", season)
         Game.new(year, season, week, response)
       end
 
       # Fetches statistics for a given NFL game
       def game_statistics(year, season, week, home, away)
-        season = validate_season(season)
-        response = response_json("/#{year}/#{season}/#{week}/#{away}/#{home}/statistics.json")
-
+        response = get("/#{year}/%{season}/#{week}/#{away}/#{home}/statistics.json", season)
         Game.new(year, season, week, response)
       end
 
       # Fetches roster for a given NFL game
       def game_roster(year, season, week, home, away)
-        season = validate_season(season)
-        response = response_json("/#{year}/#{season}/#{week}/#{away}/#{home}/roster.json")
-
+        response = get("/#{year}/%{season}/#{week}/#{away}/#{home}/roster.json", season)
         Game.new(year, season, week, response)
       end
 
@@ -97,20 +84,22 @@ module SportsDataApi
 
       # Fetches NFL weekly schedule for a given year, season and week
       def weekly(year, season, week)
-        season = validate_season(season)
-        response = response_json("/#{year}/#{season}/#{week}/schedule.json")
+        response = get("/#{year}/%{season}/#{week}/schedule.json", season)
         Games.new(year, season, week, response)
       end
 
       # Fetches NFL play by play for a given year, season and week
       def play_by_play(year, season, week, home, away)
-        season = validate_season(season)
-        response = response_json("/#{year}/#{season}/#{week}/#{away}/#{home}/pbp.json")
-
+        response = get("/#{year}/%{season}/#{week}/#{away}/#{home}/pbp.json", season)
         PlayByPlay.new(year, season, week, response)
       end
 
       private
+
+      def get(path, season)
+        season = validate_season(season)
+        response_json(path % { season: season })
+      end
 
       def validate_season(param)
         param.to_s.upcase.to_sym.tap do |season|
