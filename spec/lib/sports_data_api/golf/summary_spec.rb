@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe SportsDataApi::Golf::Summary, vcr: {
   cassette_name: 'sports_data_api_golf_summary',
-  record: :once,
+  record: :new_episodes,
   match_requests_on: [:path]
 } do
   before do
@@ -46,6 +46,26 @@ describe SportsDataApi::Golf::Summary, vcr: {
       round = rounds.first
       expect(round).to be_an_instance_of(SportsDataApi::Golf::Round)
     end
+  end
+
+  context 'when tournament is in the future' do
+    subject { SportsDataApi::Golf.summary(:pga, 2017, 'bc8acbc8-4b19-4152-bb2d-b05876b7b8bb') }
+
+    its(:tour) { should eq(:pga) }
+    its(:year) { should eq(2017) }
+    its(:name) { should eq('AT&T Pebble Beach Pro-Am') }
+    its(:purse) { should eq(7_200_000) }
+    its(:winning_share) { should eq(1_296_000) }
+    its(:currency) { should eq('USD') }
+    its(:points) { should eq(500) }
+    its(:event_type) { should eq('stroke') }
+    its(:start_date) { should eq('2017-02-09') }
+    its(:end_date) { should eq('2017-02-12') }
+    its(:course_timezone) { should eq('US/Pacific') }
+    its(:coverage) { should be_nil }
+    its(:status) { should be_nil }
+    its(:field) { should be_nil }
+    its(:rounds) { should be_nil }
   end
 end
 

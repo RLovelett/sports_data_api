@@ -12,7 +12,7 @@ http_interactions:
       Accept-Encoding:
       - gzip, deflate
       User-Agent:
-      - rest-client/2.0.0 (darwin15.6.0 x86_64) ruby/2.4.0p0
+      - rest-client/2.0.0 (darwin15.6.0 x86_64) ruby/2.3.1p112
       Host:
       - api.sportsdatallc.org
   response:
@@ -23,13 +23,13 @@ http_interactions:
       Content-Type:
       - application/json;charset=utf-8
       Date:
-      - Tue, 31 Jan 2017 15:40:37 GMT
+      - Thu, 02 Feb 2017 17:20:27 GMT
       Server:
       - nginx
       X-Content-Type-Options:
       - nosniff
       X-Mashery-Responder:
-      - prod-j-worker-us-east-1b-115.mashery.com
+      - prod-j-worker-us-east-1e-123.mashery.com
       X-Plan-Qps-Allotted:
       - '1'
       X-Plan-Qps-Current:
@@ -37,7 +37,7 @@ http_interactions:
       X-Plan-Quota-Allotted:
       - '2000'
       X-Plan-Quota-Current:
-      - '32'
+      - '115'
       Content-Length:
       - '13359'
       Connection:
@@ -343,5 +343,116 @@ http_interactions:
         X25hbWUiOiJZYW5nIiwiY291bnRyeSI6IlNvdXRoIEtvcmVhIiwiaWQiOiI5
         YmE2ZTJjNC02M2VkLTQxMjAtOTdmMS1hZTQ1ZjUzZTIxYWMifV19
     http_version: 
-  recorded_at: Tue, 31 Jan 2017 15:40:37 GMT
+  recorded_at: Thu, 02 Feb 2017 17:20:26 GMT
+- request:
+    method: get
+    uri: https://api.sportsdatallc.org/golf-t2/summary/pga/2017/tournaments/bc8acbc8-4b19-4152-bb2d-b05876b7b8bb/summary.json?api_key=<API_KEY>
+    body:
+      encoding: US-ASCII
+      base64_string: ''
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.0 (darwin15.6.0 x86_64) ruby/2.3.1p112
+      Host:
+      - api.sportsdatallc.org
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Thu, 02 Feb 2017 17:20:09 GMT
+      Server:
+      - nginx
+      X-Content-Type-Options:
+      - nosniff
+      X-Mashery-Responder:
+      - prod-j-worker-us-east-1e-117.mashery.com
+      X-Plan-Qps-Allotted:
+      - '1'
+      X-Plan-Qps-Current:
+      - '1'
+      X-Plan-Quota-Allotted:
+      - '2000'
+      X-Plan-Quota-Current:
+      - '116'
+      Content-Length:
+      - '2845'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      base64_string: |
+        eyJpZCI6ImJjOGFjYmM4LTRiMTktNDE1Mi1iYjJkLWIwNTg3NmI3YjhiYiIs
+        Im5hbWUiOiJBVCZUIFBlYmJsZSBCZWFjaCBQcm8tQW0iLCJwdXJzZSI6NzIw
+        MDAwMC4wLCJ3aW5uaW5nX3NoYXJlIjoxMjk2MDAwLjAsImN1cnJlbmN5Ijoi
+        VVNEIiwicG9pbnRzIjo1MDAsImV2ZW50X3R5cGUiOiJzdHJva2UiLCJzdGFy
+        dF9kYXRlIjoiMjAxNy0wMi0wOSIsImVuZF9kYXRlIjoiMjAxNy0wMi0xMiIs
+        ImNvdXJzZV90aW1lem9uZSI6IlVTL1BhY2lmaWMiLCJzZWFzb25zIjpbeyJp
+        ZCI6IjAwMWQ5NGE5LWUzN2QtNDI0Mi05NTViLTBjNjk0NTNlMTQzOCIsInll
+        YXIiOjIwMTcsInRvdXIiOnsiaWQiOiJiNTIwNjhhZi0yOGU0LTRlOTEtYmRi
+        Yi0wMzc1OTFiMGZmODQiLCJuYW1lIjoiUEdBIFRvdXIiLCJhbGlhcyI6InBn
+        YSJ9fV0sInZlbnVlIjp7ImlkIjoiZGEzMjNlOTItNmZmMS00ZjAzLTg5NzQt
+        NGQ1YjNiZjFlMzU3IiwibmFtZSI6IlBlYmJsZSBCZWFjaCBHb2xmIExpbmtz
+        IiwiY2l0eSI6IlBlYmJsZSBCZWFjaCIsInN0YXRlIjoiQ0EiLCJ6aXBjb2Rl
+        IjoiOTM5NTMiLCJjb3VudHJ5IjoiVVNBIiwiY291cnNlcyI6W3sibmFtZSI6
+        IlNweWdsYXNzIEhpbGwgR29sZiBDb3Vyc2UiLCJ5YXJkYWdlIjo2ODU4LCJw
+        YXIiOjcyLCJpZCI6IjI4M2NmYmYxLTg2ZjctNGRlNC04NzQ5LWQwMmE0MDM4
+        M2UzNSIsImhvbGVzIjpbeyJudW1iZXIiOjEsInBhciI6NSwieWFyZGFnZSI6
+        NTk1fSx7Im51bWJlciI6MiwicGFyIjo0LCJ5YXJkYWdlIjozNDl9LHsibnVt
+        YmVyIjozLCJwYXIiOjMsInlhcmRhZ2UiOjE1Mn0seyJudW1iZXIiOjQsInBh
+        ciI6NCwieWFyZGFnZSI6MzcwfSx7Im51bWJlciI6NSwicGFyIjozLCJ5YXJk
+        YWdlIjoxODN9LHsibnVtYmVyIjo2LCJwYXIiOjQsInlhcmRhZ2UiOjQxNn0s
+        eyJudW1iZXIiOjcsInBhciI6NSwieWFyZGFnZSI6NTI5fSx7Im51bWJlciI6
+        OCwicGFyIjo0LCJ5YXJkYWdlIjozOTl9LHsibnVtYmVyIjo5LCJwYXIiOjQs
+        InlhcmRhZ2UiOjQzMX0seyJudW1iZXIiOjEwLCJwYXIiOjQsInlhcmRhZ2Ui
+        OjQwN30seyJudW1iZXIiOjExLCJwYXIiOjUsInlhcmRhZ2UiOjUyOH0seyJu
+        dW1iZXIiOjEyLCJwYXIiOjMsInlhcmRhZ2UiOjE3OH0seyJudW1iZXIiOjEz
+        LCJwYXIiOjQsInlhcmRhZ2UiOjQ0MX0seyJudW1iZXIiOjE0LCJwYXIiOjUs
+        InlhcmRhZ2UiOjU2MH0seyJudW1iZXIiOjE1LCJwYXIiOjMsInlhcmRhZ2Ui
+        OjEyNX0seyJudW1iZXIiOjE2LCJwYXIiOjQsInlhcmRhZ2UiOjQ2Mn0seyJu
+        dW1iZXIiOjE3LCJwYXIiOjQsInlhcmRhZ2UiOjMyNX0seyJudW1iZXIiOjE4
+        LCJwYXIiOjQsInlhcmRhZ2UiOjQwOH1dfSx7Im5hbWUiOiJNb250ZXJleSBQ
+        ZW5pbnN1bGEgU2hvcmUgQ291cnNlIiwieWFyZGFnZSI6NjgzOCwicGFyIjo3
+        MCwiaWQiOiIzMjcwMGRlNy0xOGI4LTQxYTItODBmZC0yOGQ1ZWU0NGE0OGIi
+        LCJob2xlcyI6W3sibnVtYmVyIjoxLCJwYXIiOjQsInlhcmRhZ2UiOjQ1NH0s
+        eyJudW1iZXIiOjIsInBhciI6NCwieWFyZGFnZSI6MzkxfSx7Im51bWJlciI6
+        MywicGFyIjozLCJ5YXJkYWdlIjoxNTV9LHsibnVtYmVyIjo0LCJwYXIiOjQs
+        InlhcmRhZ2UiOjQwMX0seyJudW1iZXIiOjUsInBhciI6NCwieWFyZGFnZSI6
+        MzQ5fSx7Im51bWJlciI6NiwicGFyIjo1LCJ5YXJkYWdlIjo1NDh9LHsibnVt
+        YmVyIjo3LCJwYXIiOjMsInlhcmRhZ2UiOjIyNn0seyJudW1iZXIiOjgsInBh
+        ciI6NCwieWFyZGFnZSI6NDU0fSx7Im51bWJlciI6OSwicGFyIjozLCJ5YXJk
+        YWdlIjoyMjR9LHsibnVtYmVyIjoxMCwicGFyIjo1LCJ5YXJkYWdlIjo1NDR9
+        LHsibnVtYmVyIjoxMSwicGFyIjozLCJ5YXJkYWdlIjoxNzZ9LHsibnVtYmVy
+        IjoxMiwicGFyIjo1LCJ5YXJkYWdlIjo1OTl9LHsibnVtYmVyIjoxMywicGFy
+        Ijo0LCJ5YXJkYWdlIjo0MDF9LHsibnVtYmVyIjoxNCwicGFyIjozLCJ5YXJk
+        YWdlIjoxOTB9LHsibnVtYmVyIjoxNSwicGFyIjo0LCJ5YXJkYWdlIjo0MTV9
+        LHsibnVtYmVyIjoxNiwicGFyIjo0LCJ5YXJkYWdlIjo1MDB9LHsibnVtYmVy
+        IjoxNywicGFyIjo0LCJ5YXJkYWdlIjo0MzB9LHsibnVtYmVyIjoxOCwicGFy
+        Ijo0LCJ5YXJkYWdlIjozODF9XX0seyJuYW1lIjoiUGViYmxlIEJlYWNoIEdv
+        bGYgTGlua3MiLCJ5YXJkYWdlIjo2ODE2LCJwYXIiOjcyLCJpZCI6IjYyYWRi
+        NDUyLThmMTEtNGM1Zi1iNjcyLTdhYzAxNGVlNDAyOCIsImhvbGVzIjpbeyJu
+        dW1iZXIiOjEsInBhciI6NCwieWFyZGFnZSI6MzgxfSx7Im51bWJlciI6Miwi
+        cGFyIjo1LCJ5YXJkYWdlIjo1MDJ9LHsibnVtYmVyIjozLCJwYXIiOjQsInlh
+        cmRhZ2UiOjM5MH0seyJudW1iZXIiOjQsInBhciI6NCwieWFyZGFnZSI6MzMx
+        fSx7Im51bWJlciI6NSwicGFyIjozLCJ5YXJkYWdlIjoxODh9LHsibnVtYmVy
+        Ijo2LCJwYXIiOjUsInlhcmRhZ2UiOjUxM30seyJudW1iZXIiOjcsInBhciI6
+        MywieWFyZGFnZSI6MTA2fSx7Im51bWJlciI6OCwicGFyIjo0LCJ5YXJkYWdl
+        Ijo0MTh9LHsibnVtYmVyIjo5LCJwYXIiOjQsInlhcmRhZ2UiOjQ2Nn0seyJu
+        dW1iZXIiOjEwLCJwYXIiOjQsInlhcmRhZ2UiOjQ0Nn0seyJudW1iZXIiOjEx
+        LCJwYXIiOjQsInlhcmRhZ2UiOjM4MH0seyJudW1iZXIiOjEyLCJwYXIiOjMs
+        InlhcmRhZ2UiOjIwMn0seyJudW1iZXIiOjEzLCJwYXIiOjQsInlhcmRhZ2Ui
+        OjM5OX0seyJudW1iZXIiOjE0LCJwYXIiOjUsInlhcmRhZ2UiOjU3M30seyJu
+        dW1iZXIiOjE1LCJwYXIiOjQsInlhcmRhZ2UiOjM5N30seyJudW1iZXIiOjE2
+        LCJwYXIiOjQsInlhcmRhZ2UiOjQwM30seyJudW1iZXIiOjE3LCJwYXIiOjMs
+        InlhcmRhZ2UiOjE3OH0seyJudW1iZXIiOjE4LCJwYXIiOjUsInlhcmRhZ2Ui
+        OjU0M31dfV19fQ==
+    http_version: 
+  recorded_at: Thu, 02 Feb 2017 17:20:27 GMT
 recorded_with: VCR 3.0.3

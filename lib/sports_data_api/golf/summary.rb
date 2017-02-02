@@ -26,13 +26,13 @@ module SportsDataApi
       def field
         @field ||= data['field'].map do |json|
           SportsDataApi::Golf::Player.new(json)
-        end
+        end if data['field']
       end
 
       def rounds
         @rounds ||= data['rounds'].map do |json|
           SportsDataApi::Golf::Round.new(json)
-        end
+        end if data['rounds']
       end
 
       private

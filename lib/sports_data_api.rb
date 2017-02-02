@@ -20,7 +20,7 @@ module SportsDataApi
 
     def access_level(sport)
       @access_level ||= {}
-      @access_level[sport] ||= "t"
+      @access_level[sport] ||= 't'
       @access_level[sport]
     end
 
