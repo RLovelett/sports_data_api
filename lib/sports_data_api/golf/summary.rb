@@ -24,20 +24,24 @@ module SportsDataApi
       end
 
       def field
-        @field ||= data['field'].map do |json|
+        @field ||= safe_map('field') do |json|
           SportsDataApi::Golf::Player.new(json)
-        end if data['field']
+        end
       end
 
       def rounds
-        @rounds ||= data['rounds'].map do |json|
+        @rounds ||= safe_map('rounds') do |json|
           SportsDataApi::Golf::Round.new(json)
-        end if data['rounds']
+        end
       end
 
       private
 
       attr_reader :data
+
+      def safe_map(field)
+        data[field].map { |val| yield(val) } if data[field]
+      end
     end
   end
 end
