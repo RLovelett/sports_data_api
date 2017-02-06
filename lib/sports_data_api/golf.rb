@@ -67,9 +67,15 @@ module SportsDataApi
 
         response = response_json("/scorecards/#{tour}/#{year}/tournaments/#{tournament_id}/rounds/#{round}/scores.json")
 
-        response['round']['players'].map do |json|
-          Player.new(json)
-        end
+        {
+            round: round,
+            tournament_id: tournament_id,
+            year: year,
+            tour: tour,
+            players: response['round']['players'].map do |json|
+              Player.new(json)
+            end
+        }
       end
 
       # fetches leaderboard for a golf tournament

@@ -162,8 +162,13 @@ describe SportsDataApi::Golf, vcr: {
 
         params = { params: { api_key: SportsDataApi.key(:golf) } }
         expect(RestClient).to have_received(:get).with(url, params)
-        expect(response.length).to eq 97
-        expect(response.first).to be_an_instance_of(SportsDataApi::Golf::Player)
+        players = response[:players]
+        expect(players.length).to eq 97
+        expect(players.first).to be_an_instance_of(SportsDataApi::Golf::Player)
+        expect(response[:round]).to eq 2
+        expect(response[:tournament_id]).to eq 'b95ab96b-9a0b-4309-880a-ad063cb163ea'
+        expect(response[:year]).to eq 2016
+        expect(response[:tour]).to eq :pga
       end
     end
     describe '.leaderboard' do
