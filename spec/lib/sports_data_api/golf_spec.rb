@@ -5,50 +5,6 @@ describe SportsDataApi::Golf, vcr: {
   record: :new_episodes,
   match_requests_on: [:method, :uri]
 } do
-  context 'with invalid tour' do
-    describe '.season' do
-      it do
-        expect do
-          subject.season(:lpga, nil)
-        end.to raise_error(SportsDataApi::Golf::Exception, 'lpga is not a valid tour')
-      end
-    end
-    describe '.players' do
-      it do
-        expect do
-          subject.players(:lpga, nil)
-        end.to raise_error(SportsDataApi::Golf::Exception, 'lpga is not a valid tour')
-      end
-    end
-    describe '.summary' do
-      it do
-        expect do
-          subject.summary(:lpga, nil, nil)
-        end.to raise_error(SportsDataApi::Golf::Exception, 'lpga is not a valid tour')
-      end
-    end
-    describe '.tee_times' do
-      it do
-        expect do
-          subject.tee_times(:lpga, nil, nil, nil)
-        end.to raise_error(SportsDataApi::Golf::Exception, 'lpga is not a valid tour')
-      end
-    end
-    describe '.scorecards' do
-      it do
-        expect do
-          subject.scorecards(:lpga, nil, nil, nil)
-        end.to raise_error(SportsDataApi::Golf::Exception, 'lpga is not a valid tour')
-      end
-    end
-    describe '.leaderboard' do
-      it do
-        expect do
-          subject.leaderboard(:lpga, nil, nil)
-        end.to raise_error(SportsDataApi::Golf::Exception, 'lpga is not a valid tour')
-      end
-    end
-  end
   context 'invalid API key' do
     before do
       SportsDataApi.set_key(:golf, 'invalid_key')

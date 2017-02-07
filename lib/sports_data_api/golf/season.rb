@@ -5,10 +5,6 @@ module SportsDataApi
 
       attr_reader :year, :tour, :tournaments
 
-      def self.valid_tour?(tour)
-        VALID_TOURS.include?(tour)
-      end
-
       def initialize(season_hash)
         @year = season_hash['season']['year']
         @tour = season_hash['tour']['alias'].downcase.to_sym

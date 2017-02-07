@@ -20,21 +20,26 @@ module SportsDataApi
     autoload :Summary, File.join(DIR, 'summary')
     autoload :Tournament, File.join(DIR, 'tournament')
 
+    module UrlPaths
+      SEASON       = '/schedule/%{tour}/%{year}/tournaments/schedule.json'.freeze
+      PLAYERS      = '/profiles/%{tour}/%{year}/players/profiles.json'.freeze
+      SUMMARY      = '/summary/%{tour}/%{year}/tournaments/%{tournament_id}/summary.json'.freeze
+      TEE_TIMES    = '/teetimes/%{tour}/%{year}/tournaments/%{tournament_id}/rounds/%{round}/teetimes.json'.freeze
+      SCORECARDS   = '/scorecards/%{tour}/%{year}/tournaments/%{tournament_id}/rounds/%{round}/scores.json'.freeze
+      LEADERBOARDS = '/leaderboard/%{tour}/%{year}/tournaments/%{tournament_id}/leaderboard.json'.freeze
+    end
+
     class << self
       # Fetches Golf tournament schedule for a given tour and year
       def season(tour, year)
-        tour = validate_tour(tour)
-
-        response = response_json("/schedule/#{tour}/#{year}/tournaments/schedule.json")
+        response = response_json UrlPaths::SEASON % { tour: tour, year: year }
 
         Season.new(response)
       end
 
       # Fetch all players for a season
       def players(tour, year)
-        tour = validate_tour(tour)
-
-        response = response_json("/profiles/#{tour}/#{year}/players/profiles.json")
+        response = response_json UrlPaths::PLAYERS % { tour: tour, year: year }
 
         response['players'].map do |json|
           Player.new(json)
@@ -43,18 +48,17 @@ module SportsDataApi
 
       # Fetch a tournament summary
       def summary(tour, year, tournament_id)
-        tour = validate_tour(tour)
-
-        response = response_json("/summary/#{tour}/#{year}/tournaments/#{tournament_id}/summary.json")
+        response = response_json UrlPaths::SUMMARY %
+          { tour: tour, year: year, tournament_id: tournament_id }
 
         Summary.new(tour, year, response)
       end
 
       # Fetch teetimes for a round in a tournament
       def tee_times(tour, year, tournament_id, round)
-        tour = validate_tour(tour)
+        response = response_json UrlPaths::TEE_TIMES %
+          { tour: tour, year: year, tournament_id: tournament_id, round: round }
 
-        response = response_json("/teetimes/#{tour}/#{year}/tournaments/#{tournament_id}/rounds/#{round}/teetimes.json")
 
         response['round']['courses'].map do |json|
           Course.new(json)
@@ -63,40 +67,28 @@ module SportsDataApi
 
       # fetches scorecards for a golf round
       def scorecards(tour, year, tournament_id, round)
-        tour = validate_tour(tour)
-
-        response = response_json("/scorecards/#{tour}/#{year}/tournaments/#{tournament_id}/rounds/#{round}/scores.json")
+        response = response_json UrlPaths::SCORECARDS %
+          { tour: tour, year: year, tournament_id: tournament_id, round: round }
 
         {
-            round: round,
-            tournament_id: tournament_id,
-            status: response['round']['status'],
-            year: year,
-            tour: tour,
-            players: response['round']['players'].map do |json|
-              Player.new(json)
-            end
+          round: round,
+          tournament_id: tournament_id,
+          status: response['round']['status'],
+          year: year,
+          tour: tour,
+          players: response['round']['players'].map do |json|
+            Player.new(json)
+          end
         }
       end
 
       # fetches leaderboard for a golf tournament
       def leaderboard(tour, year, tournament_id)
-        tour = validate_tour(tour)
-
-        response = response_json("/leaderboard/#{tour}/#{year}/tournaments/#{tournament_id}/leaderboard.json")
+        response = response_json UrlPaths::LEADERBOARDS %
+          { tour: tour, year: year, tournament_id: tournament_id }
 
         response['leaderboard'].map do |json|
           Player.new(json)
-        end
-      end
-
-      private
-
-      def validate_tour(tour)
-        tour.to_s.downcase.to_sym.tap do |tour_sym|
-          unless Season.valid_tour?(tour_sym)
-            raise Exception.new("#{tour_sym} is not a valid tour")
-          end
         end
       end
     end
