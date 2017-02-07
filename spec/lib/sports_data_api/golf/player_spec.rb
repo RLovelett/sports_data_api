@@ -34,13 +34,18 @@ describe SportsDataApi::Golf::Player, vcr: {
   end
 
   context 'results from scorecards fetch' do
-    let(:players) do
+    let(:scorecard) do
       SportsDataApi.set_access_level(:golf, 't')
       SportsDataApi.set_key(:golf, api_key(:golf))
       SportsDataApi::Golf.scorecards(:pga, 2016, 'b95ab96b-9a0b-4309-880a-ad063cb163ea', 2)
     end
     it 'populates each field and course' do
-      subject = players.first
+      result = scorecard
+      expect(result[:round]).to eq 2
+      expect(result[:tournament_id]).to eq 'b95ab96b-9a0b-4309-880a-ad063cb163ea'
+      expect(result[:year]).to eq 2016
+      expect(result[:tour]).to eq :pga
+      subject = result[:players].first
       expect(subject).to be_instance_of(SportsDataApi::Golf::Player)
       expect(subject[:id]).to eq '94c4646a-c6f7-4bc8-9543-ac7e93814cd7'
       expect(subject[:first_name]).to eq 'Ryan'
