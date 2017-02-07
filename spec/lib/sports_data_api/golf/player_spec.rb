@@ -41,6 +41,7 @@ describe SportsDataApi::Golf::Player, vcr: {
     end
     it 'populates each field and course' do
       result = scorecard
+      expect(result[:status]).to eq 'closed'
       expect(result[:round]).to eq 2
       expect(result[:tournament_id]).to eq 'b95ab96b-9a0b-4309-880a-ad063cb163ea'
       expect(result[:year]).to eq 2016

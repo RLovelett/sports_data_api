@@ -70,6 +70,7 @@ module SportsDataApi
         {
             round: round,
             tournament_id: tournament_id,
+            status: response['round']['status'],
             year: year,
             tour: tour,
             players: response['round']['players'].map do |json|

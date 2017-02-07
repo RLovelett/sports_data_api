@@ -166,6 +166,7 @@ describe SportsDataApi::Golf, vcr: {
         expect(players.length).to eq 97
         expect(players.first).to be_an_instance_of(SportsDataApi::Golf::Player)
         expect(response[:round]).to eq 2
+        expect(response[:status]).to eq 'closed'
         expect(response[:tournament_id]).to eq 'b95ab96b-9a0b-4309-880a-ad063cb163ea'
         expect(response[:year]).to eq 2016
         expect(response[:tour]).to eq :pga
