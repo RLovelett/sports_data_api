@@ -43,11 +43,11 @@ module SportsDataApi
 
     def exception_message(e)
       if e.response.headers.key? :x_server_error
-        JSON.parse(e.response.headers[:x_server_error], { symbolize_names: true })[:message]
+        JSON.parse(e.response.headers[:x_server_error])['message']
       elsif e.response.headers.key? :x_mashery_error_code
         e.response.headers[:x_mashery_error_code]
       else
-        "The server did not specify a message"
+        'The server did not specify a message'
       end
     end
   end
