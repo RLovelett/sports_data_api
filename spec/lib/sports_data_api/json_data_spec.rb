@@ -20,4 +20,10 @@ describe SportsDataApi::JsonData, '#[]' do
     subject = ManHole::FooBar.new({ foo: 'bar' })
     expect(subject[:zar]).to eq 'zar'
   end
+
+  it 'allows override of instance var name' do
+    subject = ManHole::FooBar.new({ foo: 'bar' }, 'whatup')
+    expect(subject.whatup[:foo]).to eq 'bar'
+    expect(subject[:foo]).to eq 'bar'
+  end
 end
