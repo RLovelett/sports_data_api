@@ -16,6 +16,7 @@ describe SportsDataApi::Mlb::Team, vcr: {
     its(:roster) { should be_empty }
     its(:starting_pitcher) { should be_nil }
     its(:probable_pitcher) { should be_nil }
+    its(:expected_players) { should be_empty }
 
     it 'sets the id' do
       expect(subject[:id]).to eq '575c19b7-4052-41c2-9f0a-1c5813d02f99'
@@ -38,6 +39,8 @@ describe SportsDataApi::Mlb::Team, vcr: {
     end
 
     it { should be_an_instance_of(SportsDataApi::Mlb::Team) }
+
+    its(:expected_players) { should be_empty }
 
     it 'sets the id' do
       expect(subject[:id]).to eq '27a59d3b-ff7c-48ea-b016-4798f560f5e1'

@@ -2,19 +2,23 @@ module SportsDataApi
   module Mlb
     class Team < SportsDataApi::JsonData
       def players
-        @players ||= map_players(:players)
+        @players ||= map_players :players
       end
 
       def roster
-        @rosters ||= map_players(:roster)
+        @rosters ||= map_players :roster
+      end
+
+      def expected_players
+        @expected_players ||= map_players :expected_players
       end
 
       def starting_pitcher
-        @starting_pitcher ||= populate_player(:starting_pitcher)
+        @starting_pitcher ||= populate_player :starting_pitcher
       end
 
       def probable_pitcher
-        @probable_pitcher ||= populate_player(:probable_pitcher)
+        @probable_pitcher ||= populate_player :probable_pitcher
       end
 
       private
