@@ -22,12 +22,12 @@ log](https://github.com/rlovelett/sports_data_api/issues).
 
 ## API Support
 
-  * [NFL](http://developer.sportsdatallc.com/docs/NFL_API)
-  * [NBA](http://developer.sportsdatallc.com/docs/NBA_API)
-  * [MLB](http://developer.sportsdatallc.com/docs/MLB_API)
-  * [NHL](http://developer.sportsdatallc.com/docs/NHL_API)
-  * [NCAAMB](http://developer.sportsdatallc.com/docs/NCAAMB_API)
-  * [NCAA Football](http://developer.sportsdatallc.com/docs/NCAA_Football_API)
+  * [NFL](http://developer.sportradar.com/files/indexFootball.html#classic-nfl-api)
+  * [NBA](http://developer.sportradar.com/files/indexBasketball.html#nba-api)
+  * [MLB](http://developer.sportradar.com/files/indexBaseball.html#major-league-baseball-api-v6)
+  * [NHL](http://developer.sportradar.com/files/indexHockey.html#nhl-api)
+  * [NCAAMB](http://developer.sportradar.com/files/indexBasketball.html#ncaa-men-39-s-basketball-api)
+  * [NCAA Football](http://developer.sportradar.com/files/indexFootball.html#ncaa-football-api)
   * [Golf](http://developer.sportradar.com/files/indexGolf.html)
 
 ## Installation

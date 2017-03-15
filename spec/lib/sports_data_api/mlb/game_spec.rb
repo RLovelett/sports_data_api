@@ -2,23 +2,41 @@ require 'spec_helper'
 
 describe SportsDataApi::Mlb::Game, vcr: {
     cassette_name: 'sports_data_api_mlb_game',
-    record: :new_episodes,
+    record: :none,
     match_requests_on: [:host, :path]
 } do
-  let(:season) do
-    SportsDataApi.set_key(:mlb, api_key(:mlb))
-    SportsDataApi.set_access_level(:mlb, 't')
-    SportsDataApi::Mlb.schedule(2014)
+  context 'when fetching a game summary' do
+    subject do
+      SportsDataApi.set_key(:mlb, api_key(:mlb))
+      SportsDataApi.set_access_level(:mlb, 't')
+      SportsDataApi::Mlb.game('4f46825d-8172-47bc-9f06-2a162c330ffb')
+    end
+    context 'parses the game' do
+      it { should be_an_instance_of(SportsDataApi::Mlb::Game) }
+      it 'sets the basic properties' do
+        expect(subject[:id]).to eq '4f46825d-8172-47bc-9f06-2a162c330ffb'
+        expect(subject[:status]).to eq 'closed'
+      end
+      its(:home) { should be_an_instance_of(SportsDataApi::Mlb::Team) }
+      its(:away) { should be_an_instance_of(SportsDataApi::Mlb::Team) }
+    end
   end
-  context 'results from schedule fetch' do
-    subject { season.games.first }
-    it { should be_an_instance_of(SportsDataApi::Mlb::Game) }
-    its(:id) { should eq '00372cd7-911b-42e7-a509-bb555f747a9d' }
-    its(:scheduled) { should eq Time.parse("2014-09-14T20:10:00Z") }
-    its(:home) { should eq '25507be1-6a68-4267-bd82-e097d94b359b' }
-    its(:away) { should eq 'd52d5339-cbdd-43f3-9dfa-a42fd588b9a3' }
-    its(:status) { should eq 'scheduled' }
-    its(:venue) { should eq 'bf05de0d-7ced-4a19-8e17-2bbd985f8a92' }
-    its(:broadcast) { should be_an_instance_of(SportsDataApi::Mlb::Broadcast) }
+  context 'when fetching a season schedule' do
+    let(:schedule) do
+      SportsDataApi.set_key(:mlb, api_key(:mlb))
+      SportsDataApi.set_access_level(:mlb, 't')
+      SportsDataApi::Mlb.season_schedule(2016, :reg)
+    end
+    subject { schedule.first }
+
+    context 'parses the game' do
+      it { should be_an_instance_of(SportsDataApi::Mlb::Game) }
+      it 'sets the basic properties' do
+        expect(subject[:id]).to eq '000f209b-7132-4020-a2b6-dec9196a1802'
+        expect(subject[:status]).to eq 'closed'
+      end
+      its(:home) { should be_an_instance_of(SportsDataApi::Mlb::Team) }
+      its(:away) { should be_an_instance_of(SportsDataApi::Mlb::Team) }
+    end
   end
 end

@@ -1,0 +1,261 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.sportradar.us/mlb-t6/teams/575c19b7-4052-41c2-9f0a-1c5813d02f99/profile.json?api_key=invalid_key
+    body:
+      encoding: US-ASCII
+      base64_string: ''
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.0 (darwin15.6.0 x86_64) ruby/2.4.0p0
+      Host:
+      - api.sportradar.us
+  response:
+    status:
+      code: 403
+      message: Forbidden
+    headers:
+      Content-Type:
+      - text/xml
+      Date:
+      - Wed, 15 Mar 2017 00:27:26 GMT
+      Server:
+      - Mashery Proxy
+      X-Error-Detail-Header:
+      - Account Inactive
+      X-Mashery-Error-Code:
+      - ERR_403_DEVELOPER_INACTIVE
+      X-Mashery-Responder:
+      - prod-j-worker-us-east-1b-127.mashery.com
+      Content-Length:
+      - '27'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      base64_string: 'PGgxPkRldmVsb3BlciBJbmFjdGl2ZTwvaDE+
+
+'
+    http_version: 
+  recorded_at: Wed, 15 Mar 2017 00:27:26 GMT
+- request:
+    method: get
+    uri: https://api.sportradar.us/mlb-t6/games/4f46825d-8172-47bc-9f06-2a162c330ffb/summary.json?api_key=invalid_key
+    body:
+      encoding: US-ASCII
+      base64_string: ''
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.0 (darwin15.6.0 x86_64) ruby/2.4.0p0
+      Host:
+      - api.sportradar.us
+  response:
+    status:
+      code: 403
+      message: Forbidden
+    headers:
+      Content-Type:
+      - text/xml
+      Date:
+      - Wed, 15 Mar 2017 00:27:26 GMT
+      Server:
+      - Mashery Proxy
+      X-Error-Detail-Header:
+      - Account Inactive
+      X-Mashery-Error-Code:
+      - ERR_403_DEVELOPER_INACTIVE
+      X-Mashery-Responder:
+      - prod-j-worker-us-east-1e-117.mashery.com
+      Content-Length:
+      - '27'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      base64_string: 'PGgxPkRldmVsb3BlciBJbmFjdGl2ZTwvaDE+
+
+'
+    http_version: 
+  recorded_at: Wed, 15 Mar 2017 00:27:26 GMT
+- request:
+    method: get
+    uri: https://api.sportradar.us/mlb-t6/games/2016/9/24/summary.json?api_key=invalid_key
+    body:
+      encoding: US-ASCII
+      base64_string: ''
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.0 (darwin15.6.0 x86_64) ruby/2.4.0p0
+      Host:
+      - api.sportradar.us
+  response:
+    status:
+      code: 403
+      message: Forbidden
+    headers:
+      Content-Type:
+      - text/xml
+      Date:
+      - Wed, 15 Mar 2017 00:27:27 GMT
+      Server:
+      - Mashery Proxy
+      X-Error-Detail-Header:
+      - Account Inactive
+      X-Mashery-Error-Code:
+      - ERR_403_DEVELOPER_INACTIVE
+      X-Mashery-Responder:
+      - prod-j-worker-us-east-1d-113.mashery.com
+      Content-Length:
+      - '27'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      base64_string: 'PGgxPkRldmVsb3BlciBJbmFjdGl2ZTwvaDE+
+
+'
+    http_version: 
+  recorded_at: Wed, 15 Mar 2017 00:27:27 GMT
+- request:
+    method: get
+    uri: https://api.sportradar.us/mlb-t6/games/2016/9/24/schedule.json?api_key=invalid_key
+    body:
+      encoding: US-ASCII
+      base64_string: ''
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.0 (darwin15.6.0 x86_64) ruby/2.4.0p0
+      Host:
+      - api.sportradar.us
+  response:
+    status:
+      code: 403
+      message: Forbidden
+    headers:
+      Content-Type:
+      - text/xml
+      Date:
+      - Wed, 15 Mar 2017 00:27:27 GMT
+      Server:
+      - Mashery Proxy
+      X-Error-Detail-Header:
+      - Account Inactive
+      X-Mashery-Error-Code:
+      - ERR_403_DEVELOPER_INACTIVE
+      X-Mashery-Responder:
+      - prod-j-worker-us-east-1b-121.mashery.com
+      Content-Length:
+      - '27'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      base64_string: 'PGgxPkRldmVsb3BlciBJbmFjdGl2ZTwvaDE+
+
+'
+    http_version: 
+  recorded_at: Wed, 15 Mar 2017 00:27:27 GMT
+- request:
+    method: get
+    uri: https://api.sportradar.us/mlb-t6/games/2017/REG/schedule.json?api_key=invalid_key
+    body:
+      encoding: US-ASCII
+      base64_string: ''
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.0 (darwin15.6.0 x86_64) ruby/2.4.0p0
+      Host:
+      - api.sportradar.us
+  response:
+    status:
+      code: 403
+      message: Forbidden
+    headers:
+      Content-Type:
+      - text/xml
+      Date:
+      - Wed, 15 Mar 2017 00:27:27 GMT
+      Server:
+      - Mashery Proxy
+      X-Error-Detail-Header:
+      - Account Inactive
+      X-Mashery-Error-Code:
+      - ERR_403_DEVELOPER_INACTIVE
+      X-Mashery-Responder:
+      - prod-j-worker-us-east-1d-122.mashery.com
+      Content-Length:
+      - '27'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      base64_string: 'PGgxPkRldmVsb3BlciBJbmFjdGl2ZTwvaDE+
+
+'
+    http_version: 
+  recorded_at: Wed, 15 Mar 2017 00:27:27 GMT
+- request:
+    method: get
+    uri: https://api.sportradar.us/mlb-t6/league/hierarchy.json?api_key=invalid_key
+    body:
+      encoding: US-ASCII
+      base64_string: ''
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.0 (darwin15.6.0 x86_64) ruby/2.4.0p0
+      Host:
+      - api.sportradar.us
+  response:
+    status:
+      code: 403
+      message: Forbidden
+    headers:
+      Content-Type:
+      - text/xml
+      Date:
+      - Wed, 15 Mar 2017 00:27:27 GMT
+      Server:
+      - Mashery Proxy
+      X-Error-Detail-Header:
+      - Account Inactive
+      X-Mashery-Error-Code:
+      - ERR_403_DEVELOPER_INACTIVE
+      X-Mashery-Responder:
+      - prod-j-worker-us-east-1b-109.mashery.com
+      Content-Length:
+      - '27'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      base64_string: 'PGgxPkRldmVsb3BlciBJbmFjdGl2ZTwvaDE+
+
+'
+    http_version: 
+  recorded_at: Wed, 15 Mar 2017 00:27:27 GMT
+recorded_with: VCR 3.0.3
