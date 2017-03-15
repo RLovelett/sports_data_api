@@ -12,9 +12,10 @@ plus hundreds of leagues throughout the world. Their live game analysts
 capture every possible event of every game, in real time and with
 accuracy standards developed from years of experience.
 
-## Author
+## Authors
 
-[Ryan Lovelett](http://ryan.lovelett.me/) ( [@rlovelett](http://twitter.com/#!/rlovelett) )
+* [Ryan Lovelett](http://ryan.lovelett.me/) ( [@rlovelett](http://twitter.com/#!/rlovelett) )
+* [Trevor John](http://www.trevorjohn.tj/) ( [@trevorrjohn](http://twitter.com/#!/trevorrjohn) )
 
 Drop me a message for any questions, suggestions, requests, bugs or
 submit them to the [issue

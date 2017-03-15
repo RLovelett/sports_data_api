@@ -2,8 +2,8 @@
 require File.expand_path('../lib/sports_data_api/version', __FILE__)
 
 Gem::Specification.new do |gem|
-  gem.authors       = %w{Ryan Lovelett}
-  gem.email         = %w{ryan@lovelett.me'}
+  gem.authors       = ['Ryan Lovelett', 'Trevor John']
+  gem.email       = ['ryan@lovelett.me', 'Trevor@John.tj']
   gem.description   = %q{A Ruby interface to the Sportradar API.}
   gem.summary       = %q{Sportradar’s comprehensive data coverage includes all major U.S. sports, plus hundreds of leagues throughout the world. Their live game analysts capture every possible event of every game, in real time and with accuracy standards developed from years of experience.}
   gem.homepage      = 'https://github.com/RLovelett/sports_data_api'
