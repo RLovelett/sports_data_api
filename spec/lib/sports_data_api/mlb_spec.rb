@@ -13,6 +13,9 @@ describe SportsDataApi::Mlb do
     describe '.leagues' do
       it { expect { subject.leagues }.to raise_error(SportsDataApi::Exception) }
     end
+    describe '.teams' do
+      it { expect { subject.teams }.to raise_error(SportsDataApi::Exception) }
+    end
     describe '.season_schedule' do
       it { expect { subject.season_schedule(2017, :REG) }.to raise_error(SportsDataApi::Exception) }
     end
@@ -34,6 +37,9 @@ describe SportsDataApi::Mlb do
     before { stub_request(:any, /api\.sportradar\.us.*/).to_timeout }
     describe '.leagues' do
       it { expect { subject.leagues }.to raise_error(SportsDataApi::Exception) }
+    end
+    describe '.teams' do
+      it { expect { subject.teams }.to raise_error(SportsDataApi::Exception) }
     end
     describe '.season_schedule' do
       it { expect { subject.season_schedule(2017, :REG) }.to raise_error(SportsDataApi::Exception) }
@@ -69,6 +75,20 @@ describe SportsDataApi::Mlb do
 
         subject.leagues
 
+        params = { params: { api_key: SportsDataApi.key(:mlb) } }
+        expect(RestClient).to have_received(:get).with(season_url, params)
+      end
+    end
+    describe '.teams' do
+      it 'creates a valid url' do
+        season_url = 'https://api.sportradar.us/mlb-t6/league/hierarchy.json'
+        schedule_json = RestClient.get("#{season_url}?api_key=#{api_key(:mlb)}")
+        allow(RestClient).to receive(:get) { schedule_json }
+
+        teams = subject.teams
+
+        expect(teams.count).to eq 30
+        expect(teams.first).to be_instance_of SportsDataApi::Mlb::Team
         params = { params: { api_key: SportsDataApi.key(:mlb) } }
         expect(RestClient).to have_received(:get).with(season_url, params)
       end

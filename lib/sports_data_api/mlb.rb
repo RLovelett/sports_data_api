@@ -20,10 +20,16 @@ module SportsDataApi
 
     class << self
       ##
-      # Fetches all MLB leagues
+      # Fetches leagues hierachy
       def leagues
         response = response_json('/league/hierarchy.json')
         map_model response, 'leagues', League
+      end
+
+      ##
+      # Fetches all MLB teams
+      def teams
+        leagues.flat_map(&:teams)
       end
 
       ##
