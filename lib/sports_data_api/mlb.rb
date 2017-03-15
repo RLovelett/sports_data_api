@@ -5,66 +5,67 @@ module SportsDataApi
     class Exception < ::Exception
     end
 
-    API_VERSION = 4
-    BASE_URL = 'https://api.sportsdatallc.org/mlb-%{access_level}%{version}'
+    API_VERSION = 6
+    BASE_URL = 'https://api.sportradar.us/mlb-%{access_level}%{version}'
     DIR = File.join(File.dirname(__FILE__), 'mlb')
     SPORT = :mlb
 
-    autoload :Team, File.join(DIR, 'team')
-    autoload :Teams, File.join(DIR, 'teams')
-    autoload :Player, File.join(DIR, 'player')
-    autoload :Players, File.join(DIR, 'players')
+    autoload :Division, File.join(DIR, 'division')
     autoload :Game, File.join(DIR, 'game')
-    autoload :Games, File.join(DIR, 'games')
-    autoload :Season, File.join(DIR, 'season')
-    autoload :Broadcast, File.join(DIR, 'broadcast')
-    autoload :GameStat, File.join(DIR,'game_stat')
-    autoload :GameStats, File.join(DIR, 'game_stats')
-    autoload :Boxscore, File.join(DIR, 'boxscore')
-    autoload :Venue, File.join(DIR, 'venue')
-    autoload :Venues, File.join(DIR, 'venues')
+    autoload :League, File.join(DIR, 'league')
+    autoload :MergedStats, File.join(DIR, 'merged_stats')
+    autoload :Player, File.join(DIR, 'player')
+    autoload :Statistics, File.join(DIR, 'statistics')
+    autoload :Team, File.join(DIR, 'team')
 
     class << self
       ##
-      # Fetches all NBA teams
-      def teams(year = Date.today.year)
-        Teams.new(response_xml_xpath("/teams/#{year}.xml", '/teams'))
+      # Fetches all MLB leagues
+      def leagues
+        response = response_json('/league/hierarchy.json')
+        map_model response, 'leagues', League
       end
 
       ##
       # Fetches MLB season schedule for a given year and season
-      def schedule(year = Date.today.year)
-        Season.new(response_xml_xpath("/schedule/#{year}.xml", 'calendars'))
+      def season_schedule(year, season)
+        response = response_json("/games/#{year}/#{season}/schedule.json")
+        map_model response, 'games', Game
       end
 
       ##
       # Fetches MLB daily schedule for a given date
-      def daily(year, month, day)
-        Games.new(response_xml_xpath("/daily/schedule/#{year}/#{month}/#{day}.xml", 'calendars'))
+      def daily_schedule(year, month, day)
+        response = response_json("/games/#{year}/#{month}/#{day}/schedule.json")
+        map_model response, 'games', Game
       end
 
       ##
-      # Fetches MLB venues
-      def venues
-        Venues.new(response_xml_xpath('/venues/venues.xml', 'venues'))
+      # Fetches MLB daily summary
+      def daily_summary(year, month, day)
+        response = response_json("/games/#{year}/#{month}/#{day}/summary.json")
+        map_model response['league'], 'games', Game
       end
 
       ##
-      # Fetch MLB game stats
-      def game_statistics(event_id)
-        GameStats.new(response_xml_xpath("/statistics/#{event_id}.xml", '/statistics'))
-      end
-
-      ##
-      # Fetch MLB Game Boxscore
-      def game_boxscore(event_id)
-        Boxscore.new(response_xml_xpath("/boxscore/#{event_id}.xml", '/boxscore'))
+      # Fetches MLB game summary
+      def game(game_id)
+        response = response_json("/games/#{game_id}/summary.json")
+        Game.new(response['game'])
       end
 
       ##
       # Fetches MLB team roster
-      def team_roster(year=Date.today.year)
-        Players.new(response_xml_xpath("/rosters-full/#{year}.xml", 'rosters'))
+      def team(team_id)
+        Team.new(response_json("/teams/#{team_id}/profile.json"))
+      end
+
+      private
+
+      def map_model(json, key, klass)
+        json[key].map do |data|
+          klass.new(data)
+        end
       end
     end
   end
