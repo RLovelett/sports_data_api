@@ -16,8 +16,10 @@ describe SportsDataApi::Mlb::Division, vcr: {
     expect(subject[:id]).to eq '1d74e8e9-7faf-4cdb-b613-3944fa5aa739'
     expect(subject[:name]).to eq 'East'
     expect(subject[:teams].count).to eq 5
-    expect(subject[:teams].first)
-      .to be_instance_of SportsDataApi::Mlb::Team
+    team = subject[:teams].first
+    expect(team).to be_instance_of SportsDataApi::Mlb::Team
+    expect(team[:division_alias]).to eq 'E'
+    expect(team[:division]).to eq 'East'
   end
 end
 

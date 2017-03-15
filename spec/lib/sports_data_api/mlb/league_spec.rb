@@ -18,5 +18,12 @@ describe SportsDataApi::Mlb::League, vcr: {
     expect(subject[:divisions].first)
       .to be_instance_of SportsDataApi::Mlb::Division
   end
+
+  it 'populates teams with conference' do
+    expect(subject[:teams].count).to eq 15
+    team = subject[:teams].first
+    expect(team[:conference]).to eq 'AL'
+    expect(team[:conference_name]).to eq 'American League'
+  end
 end
 
