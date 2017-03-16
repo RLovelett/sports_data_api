@@ -3,7 +3,7 @@ module SportsDataApi
     class Game
       attr_reader :id, :scheduled, :home, :home_team, :away,
         :away_team, :status, :quarter, :clock, :venue, :broadcast, :weather,
-        :year, :season, :week
+        :year, :season, :week, :home_team_id, :away_team_id
 
       def initialize(year, season, week, game_hash)
         @year = year
@@ -14,6 +14,8 @@ module SportsDataApi
         @scheduled = Time.parse game_hash['scheduled']
         @home = game_hash['home'] || game_hash['home_team']['id']
         @away = game_hash['away'] || game_hash['away_team']['id']
+        @home_team_id = @home
+        @away_team_id = @away
         @status = game_hash['status']
         @quarter = game_hash['quarter'].to_i
         @clock = game_hash['clock']

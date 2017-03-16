@@ -37,6 +37,8 @@ describe SportsDataApi::Nfl::Game, vcr: {
     its(:scheduled) { should eq Time.new(2012, 9, 5, 19, 30, 00, '-05:00') }
     its(:home) { should eq 'NYG' }
     its(:away) { should eq 'DAL' }
+    its(:home_team_id) { should eq 'NYG' }
+    its(:away_team_id) { should eq 'DAL' }
     its(:status) { should eq 'closed' }
     its(:home_team) { should be_an_instance_of(SportsDataApi::Nfl::Team) }
     its(:away_team) { should be_an_instance_of(SportsDataApi::Nfl::Team) }
@@ -66,6 +68,8 @@ describe SportsDataApi::Nfl::Game, vcr: {
     its(:scheduled) { should eq Time.new(2012, 11, 4, 18, 00, 00, '+00:00') }
     its(:home) { should eq 'IND' }
     its(:away) { should eq 'MIA' }
+    its(:home_team_id) { should eq 'IND' }
+    its(:away_team_id) { should eq 'MIA' }
     its(:status) { should eq 'closed' }
     its(:quarter) { should eq 4 }
     its(:clock) { should eq ':00' }
@@ -97,6 +101,8 @@ describe SportsDataApi::Nfl::Game, vcr: {
     its(:scheduled) { should eq Time.new(2012, 11, 4, 18, 00, 00, '+00:00') }
     its(:home) { should eq 'IND' }
     its(:away) { should eq 'MIA' }
+    its(:home_team_id) { should eq 'IND' }
+    its(:away_team_id) { should eq 'MIA' }
     its(:status) { should eq 'closed' }
     its(:home_team) { should be_an_instance_of(SportsDataApi::Nfl::Team) }
     its(:away_team) { should be_an_instance_of(SportsDataApi::Nfl::Team) }
@@ -130,6 +136,8 @@ describe SportsDataApi::Nfl::Game, vcr: {
     its(:scheduled) { should eq Time.new(2012, 8, 9, 23, 00, 00, '+00:00') }
     its(:home) { should eq 'BUF' }
     its(:away) { should eq 'WAS' }
+    its(:home_team_id) { should eq 'BUF' }
+    its(:away_team_id) { should eq 'WAS' }
     its(:status) { should eq 'closed' }
     its(:quarter) { should eq 0 }
     its(:clock) { should eq nil }
@@ -158,6 +166,10 @@ describe SportsDataApi::Nfl::Game, vcr: {
     subject { game_statistics }
     its(:id) { should eq '00d5024b-0853-4e09-ad5a-4981a968f0ad' }
     its(:status) { should eq 'closed' }
+    its(:home) { should eq 'GB' }
+    its(:away) { should eq 'PIT' }
+    its(:home_team_id) { should eq 'GB' }
+    its(:away_team_id) { should eq 'PIT' }
     its(:scheduled) { should eq Time.parse("2013-12-22T21:25:00+00:00") }
     its(:home_team) { should be_an_instance_of(SportsDataApi::Nfl::Team) }
     its(:away_team) { should be_an_instance_of(SportsDataApi::Nfl::Team) }

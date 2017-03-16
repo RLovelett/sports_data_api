@@ -27,6 +27,8 @@ describe SportsDataApi::Nhl::Game, vcr: {
     its(:scheduled) { should eq Time.new(2013, 10, 01, 16, 00, 00, '-07:00') }
     its(:home) { should eq '441713b7-0f24-11e2-8525-18a905767e44' }
     its(:away) { should eq '441730a9-0f24-11e2-8525-18a905767e44' }
+    its(:home_team_id) { should eq '441713b7-0f24-11e2-8525-18a905767e44' }
+    its(:away_team_id) { should eq '441730a9-0f24-11e2-8525-18a905767e44' }
     its(:status) { should eq 'closed' }
     its(:home_team) { should be_an_instance_of(SportsDataApi::Nhl::Team) }
     its(:away_team) { should be_an_instance_of(SportsDataApi::Nhl::Team) }
@@ -47,6 +49,8 @@ describe SportsDataApi::Nhl::Game, vcr: {
     its(:scheduled) { should eq Time.new(2013, 10, 01, 16, 00, 00, '-07:00') }
     its(:home) { should eq '441713b7-0f24-11e2-8525-18a905767e44' }
     its(:away) { should eq '441730a9-0f24-11e2-8525-18a905767e44' }
+    its(:home_team_id) { should eq '441713b7-0f24-11e2-8525-18a905767e44' }
+    its(:away_team_id) { should eq '441730a9-0f24-11e2-8525-18a905767e44' }
     its(:status) { should eq 'closed' }
     its(:period) { should eq 3 }
     its(:clock) { should eq "00:00" }
@@ -69,6 +73,8 @@ describe SportsDataApi::Nhl::Game, vcr: {
     its(:scheduled) { should eq Time.new(2013, 12, 12, 16, 00, 00, '-08:00') }
     its(:home) { should eq '44179d47-0f24-11e2-8525-18a905767e44' }
     its(:away) { should eq '441713b7-0f24-11e2-8525-18a905767e44' }
+    its(:home_team_id) { should eq '44179d47-0f24-11e2-8525-18a905767e44' }
+    its(:away_team_id) { should eq '441713b7-0f24-11e2-8525-18a905767e44' }
     its(:status) { should eq 'closed' }
     its(:period) { should eq nil }
     its(:clock) { should eq nil }

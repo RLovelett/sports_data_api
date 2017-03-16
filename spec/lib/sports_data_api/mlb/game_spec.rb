@@ -19,6 +19,8 @@ describe SportsDataApi::Mlb::Game, vcr: {
       end
       its(:home) { should be_an_instance_of(SportsDataApi::Mlb::Team) }
       its(:away) { should be_an_instance_of(SportsDataApi::Mlb::Team) }
+      its(:home_team_id) { should eq '27a59d3b-ff7c-48ea-b016-4798f560f5e1' }
+      its(:away_team_id) { should eq 'd99f919b-1534-4516-8e8a-9cd106c6d8cd' }
     end
   end
   context 'when fetching a season schedule' do
@@ -37,6 +39,8 @@ describe SportsDataApi::Mlb::Game, vcr: {
       end
       its(:home) { should be_an_instance_of(SportsDataApi::Mlb::Team) }
       its(:away) { should be_an_instance_of(SportsDataApi::Mlb::Team) }
+      its(:home_team_id) { should eq 'c874a065-c115-4e7d-b0f0-235584fb0e6f' }
+      its(:away_team_id) { should eq 'd99f919b-1534-4516-8e8a-9cd106c6d8cd' }
     end
   end
 end
