@@ -14,11 +14,15 @@ module SportsDataApi
       end
 
       def starting_pitcher
-        @starting_pitcher ||= populate_player :starting_pitcher
+        @starting_pitcher ||= populate_model :starting_pitcher, Player
       end
 
       def probable_pitcher
-        @probable_pitcher ||= populate_player :probable_pitcher
+        @probable_pitcher ||= populate_model :probable_pitcher, Player
+      end
+
+      def scoring
+        @scoring ||= populate_model :scoring, Scoring
       end
 
       private
@@ -29,8 +33,8 @@ module SportsDataApi
         end
       end
 
-      def populate_player(key)
-        Player.new(team[key]) if team.has_key?(key)
+      def populate_model(key, klass)
+        klass.new(team[key]) if team.has_key?(key)
       end
     end
   end

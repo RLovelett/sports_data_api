@@ -15,6 +15,7 @@ module SportsDataApi
     autoload :League, File.join(DIR, 'league')
     autoload :MergedStats, File.join(DIR, 'merged_stats')
     autoload :Player, File.join(DIR, 'player')
+    autoload :Scoring, File.join(DIR, 'scoring')
     autoload :Statistics, File.join(DIR, 'statistics')
     autoload :Team, File.join(DIR, 'team')
 
