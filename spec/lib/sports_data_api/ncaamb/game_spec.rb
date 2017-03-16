@@ -27,6 +27,8 @@ describe SportsDataApi::Ncaamb::Game, vcr: {
     its(:scheduled) { should eq Time.new(2014, 11, 14, 11, 00, 00, '-05:00') }
     its(:home) { should eq '54df21af-8f65-42fc-bc01-8bf750856d70' }
     its(:away) { should eq 'eb157f98-0697-459c-9293-ddb162ceb28b' }
+    its(:home_team_id) { should eq '54df21af-8f65-42fc-bc01-8bf750856d70' }
+    its(:away_team_id) { should eq 'eb157f98-0697-459c-9293-ddb162ceb28b' }
     its(:status) { should eq 'closed' }
     its(:home_team) { should be_an_instance_of(SportsDataApi::Ncaamb::Team) }
     its(:away_team) { should be_an_instance_of(SportsDataApi::Ncaamb::Team) }
@@ -47,6 +49,8 @@ describe SportsDataApi::Ncaamb::Game, vcr: {
     its(:scheduled) { should eq Time.new(2015, 2, 07, 17, 30, 00, '-05:00') }
     its(:home) { should eq 'c7569eae-5b93-4197-b204-6f3a62146b25' }
     its(:away) { should eq '4b7dedc0-7b48-49a4-aad6-8a94a33274d2' }
+    its(:home_team_id) { should eq 'c7569eae-5b93-4197-b204-6f3a62146b25' }
+    its(:away_team_id) { should eq '4b7dedc0-7b48-49a4-aad6-8a94a33274d2' }
     its(:status) { should eq 'closed' }
     its(:half) { should eq 2 }
     its(:clock) { should eq '00:00' }
@@ -69,6 +73,8 @@ describe SportsDataApi::Ncaamb::Game, vcr: {
     its(:scheduled) { should eq Time.new(2015, 2, 25, 19, 00, 00, '-05:00') }
     its(:home) { should eq '9b66e1e0-aace-4671-9be2-54c8acf5ecfc' }
     its(:away) { should eq 'c1c1e6df-a383-4fbd-ba7b-32d4f9ef9518' }
+    its(:home_team_id) { should eq '9b66e1e0-aace-4671-9be2-54c8acf5ecfc' }
+    its(:away_team_id) { should eq 'c1c1e6df-a383-4fbd-ba7b-32d4f9ef9518' }
     its(:status) { should eq 'scheduled' }
     its(:half) { should eq nil }
     its(:clock) { should eq nil }

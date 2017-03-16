@@ -41,6 +41,8 @@ describe SportsDataApi::Ncaafb::Game, vcr: {
     its(:scheduled) { should eq Time.new(2014, 8, 23, 19, 30, 00, '+00:00') }
     its(:home) { should eq 'EW' }
     its(:away) { should eq 'SHS' }
+    its(:home_team_id) { should eq 'EW' }
+    its(:away_team_id) { should eq 'SHS' }
     its(:status) { should eq 'closed' }
     its(:home_team) { should be_an_instance_of(SportsDataApi::Ncaafb::Team) }
     its(:away_team) { should be_an_instance_of(SportsDataApi::Ncaafb::Team) }
@@ -72,6 +74,8 @@ describe SportsDataApi::Ncaafb::Game, vcr: {
     its(:scheduled) { should eq Time.new(2014, 11, 1, 16, 00, 00, '+00:00') }
     its(:home) { should eq 'IOW' }
     its(:away) { should eq 'NW' }
+    its(:home_team_id) { should eq 'IOW' }
+    its(:away_team_id) { should eq 'NW' }
     its(:status) { should eq 'closed' }
     its(:quarter) { should eq 4 }
     its(:clock) { should eq ':00' }
@@ -105,6 +109,8 @@ describe SportsDataApi::Ncaafb::Game, vcr: {
     its(:scheduled) { should eq Time.new(2014, 8, 23, 19, 30, 00, '+00:00') }
     its(:home) { should eq 'EW' }
     its(:away) { should eq 'SHS' }
+    its(:home_team_id) { should eq 'EW' }
+    its(:away_team_id) { should eq 'SHS' }
     its(:status) { should eq 'closed' }
     its(:quarter) { should eq 0 }
     its(:clock) { should eq nil }
@@ -137,6 +143,8 @@ describe SportsDataApi::Ncaafb::Game, vcr: {
     its(:scheduled) { should eq Time.new(2014, 11, 01, 16, 00, 00, '+00:00') }
     its(:home_team) { should be_an_instance_of(SportsDataApi::Ncaafb::Team) }
     its(:away_team) { should be_an_instance_of(SportsDataApi::Ncaafb::Team) }
+    its(:home_team_id) { should eq 'IOW' }
+    its(:away_team_id) { should eq 'NW' }
 
     it '#summary' do
       expect { subject.summary }.to raise_error(NotImplementedError)
@@ -161,6 +169,8 @@ describe SportsDataApi::Ncaafb::Game, vcr: {
     its(:scheduled) { should eq Time.new(2014, 11, 01, 16, 00, 00, '+00:00') }
     its(:home_team) { should be_an_instance_of(SportsDataApi::Ncaafb::Team) }
     its(:away_team) { should be_an_instance_of(SportsDataApi::Ncaafb::Team) }
+    its(:home_team_id) { should eq 'IOW' }
+    its(:away_team_id) { should eq 'NW' }
 
     it 'has home_team players' do
       expect(subject.home_team.players.first).to be_an_instance_of(SportsDataApi::Ncaafb::Player)

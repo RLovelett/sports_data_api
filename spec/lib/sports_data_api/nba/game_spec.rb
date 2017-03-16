@@ -27,6 +27,8 @@ describe SportsDataApi::Nba::Game, vcr: {
     its(:scheduled) { should eq Time.new(2013, 10, 29, 19, 00, 00, '-04:00') }
     its(:home) { should eq '583ec7cd-fb46-11e1-82cb-f4ce4684ea4c' }
     its(:away) { should eq '583ed157-fb46-11e1-82cb-f4ce4684ea4c' }
+    its(:home_team_id) { should eq '583ec7cd-fb46-11e1-82cb-f4ce4684ea4c' }
+    its(:away_team_id) { should eq '583ed157-fb46-11e1-82cb-f4ce4684ea4c' }
     its(:status) { should eq 'closed' }
     its(:home_team) { should be_an_instance_of(SportsDataApi::Nba::Team) }
     its(:away_team) { should be_an_instance_of(SportsDataApi::Nba::Team) }
@@ -97,6 +99,8 @@ describe SportsDataApi::Nba::Game, vcr: {
     its(:scheduled) { should eq Time.new(2013, 12, 12, 20, 00, 00, '-05:00') }
     its(:home) { should eq '583ec9d6-fb46-11e1-82cb-f4ce4684ea4c' }
     its(:away) { should eq '583ecdfb-fb46-11e1-82cb-f4ce4684ea4c' }
+    its(:home_team_id) { should eq '583ec9d6-fb46-11e1-82cb-f4ce4684ea4c' }
+    its(:away_team_id) { should eq '583ecdfb-fb46-11e1-82cb-f4ce4684ea4c' }
     its(:status) { should eq 'closed' }
     its(:quarter) { should eq nil }
     its(:clock) { should eq nil }
