@@ -19,7 +19,7 @@ describe SportsDataApi::Mlb::Scoring do
     it 'returns the innings and no half inning' do
       data = (1..9).to_a.each_with_object([]) do |num, arr|
         arr.push({
-          'number' => num, 'inning' => num,
+          'number' => num, 'sequence' => num,
           'runs' => 0, 'type' => 'inning'
         })
       end
@@ -34,7 +34,7 @@ describe SportsDataApi::Mlb::Scoring do
     it 'returns the innings and no half inning' do
       data = (1..7).to_a.each_with_object([]) do |num, arr|
         arr.push({
-          'number' => num, 'inning' => num,
+          'number' => num, 'sequence' => num,
           'runs' => (num == 7 ? 'X' : 0), 'type' => 'inning'
         })
       end
@@ -49,7 +49,7 @@ describe SportsDataApi::Mlb::Scoring do
     it 'returns the innings and no half inning' do
       data = (1..6).to_a.each_with_object([]) do |num, arr|
         arr.push({
-          'number' => num, 'inning' => num,
+          'number' => num, 'sequence' => num,
           'runs' => 0, 'type' => 'inning'
         })
       end

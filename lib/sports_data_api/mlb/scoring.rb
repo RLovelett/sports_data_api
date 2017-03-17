@@ -8,7 +8,7 @@ module SportsDataApi
       end
 
       def inning
-        @inning ||= last_inning ? last_inning['inning'] : nil
+        @inning ||= last_inning ? last_inning['number'] : nil
       end
 
       def inning_half
