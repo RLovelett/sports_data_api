@@ -31,3 +31,5 @@ doc/
 
 # RubyMine
 .idea/
+
+.byebug_history
