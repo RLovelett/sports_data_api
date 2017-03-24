@@ -123,8 +123,15 @@ describe SportsDataApi::Mlb do
         summary_json = RestClient.get("#{daily_url}?api_key=#{api_key(:mlb)}")
         allow(RestClient).to receive(:get) { summary_json }
 
-        subject.daily_summary(2016, 9, 24)
+        games = subject.daily_summary(2016, 9, 24)
 
+        game = games.first
+        expect(games.count).to eq 15
+        expect(game).to be_instance_of(SportsDataApi::Mlb::Game)
+        expect(game[:home]).to be_instance_of(SportsDataApi::Mlb::Team)
+        expect(game.home[:id]).to eq '27a59d3b-ff7c-48ea-b016-4798f560f5e1'
+        expect(game[:away]).to be_instance_of(SportsDataApi::Mlb::Team)
+        expect(game.away[:id]).to eq 'd99f919b-1534-4516-8e8a-9cd106c6d8cd'
         params = { params: { api_key: SportsDataApi.key(:mlb) } }
         expect(RestClient).to have_received(:get).with(daily_url, params)
       end

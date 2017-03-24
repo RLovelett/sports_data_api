@@ -51,7 +51,7 @@ module SportsDataApi
       # Fetches MLB daily summary
       def daily_summary(year, month, day)
         response = response_json("/games/#{year}/#{month}/#{day}/summary.json")
-        map_model response['league'], 'games', Game
+        map_model response['league'], 'games', Game, 'game'
       end
 
       ##
@@ -69,9 +69,9 @@ module SportsDataApi
 
       private
 
-      def map_model(json, key, klass)
+      def map_model(json, key, klass, data_key = nil)
         json[key].map do |data|
-          klass.new(data)
+          klass.new(data_key ? data[data_key] : data)
         end
       end
     end
