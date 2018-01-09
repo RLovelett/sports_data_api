@@ -28,13 +28,14 @@ describe SportsDataApi::Nba::Season, vcr: {
   end
   context 'results from schedule fetch' do
       let(:season) do
-        SportsDataApi.set_access_level(:nba, 't')
+        SportsDataApi.set_access_level(:nba, 'trial')
         SportsDataApi.set_key(:nba, api_key(:nba))
-        SportsDataApi::Nba.schedule(2013, :reg)
+        SportsDataApi::Nba.schedule(2017, :reg)
       end
       subject { season }
       it { should be_an_instance_of(SportsDataApi::Nba::Season) }
-      its(:year) { should eq 2013 }
+      its(:id) { should eq '7dcb5184-ab33-49fe-bd18-c4ca2b1cfc08' }
+      its(:year) { should eq 2017 }
       its(:type) { should eq :REG }
       its(:games) { should have(1230).games }
   end

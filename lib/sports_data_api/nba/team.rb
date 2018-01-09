@@ -1,23 +1,31 @@
 module SportsDataApi
   module Nba
     class Team
-      attr_reader :id, :name, :market, :alias, :conference, :division,
-                  :stats, :players, :points
+      attr_reader :id, :name, :market, :alias, :conference, :division, :stats
 
-      def initialize(xml, conference = nil, division = nil)
-        xml = xml.first if xml.is_a? Nokogiri::XML::NodeSet
-        if xml.is_a? Nokogiri::XML::Element
-          @id = xml['id']
-          @name = xml['name']
-          @market = xml['market']
-          @alias = xml['alias']
-          @points = xml['points'] ? xml['points'].to_i : nil
-          @conference = conference
-          @division = division
-          @players = xml.xpath("players/player").map do |player_xml|
-            Player.new(player_xml)
-          end
-        end
+      def initialize(json, conference = nil, division = nil)
+        @conference = conference
+        @division = division
+        @id = json['id']
+        @name = json['name']
+        @market = json['market']
+        @alias = json['alias']
+        @points = json['points']
+        @alias = json['alias']
+        @json = json
+      end
+
+      def points
+        @points ||= json['points'] ? json['points'].to_i : nil
+      end
+
+      def players
+        return [] if json['players'].nil? || json['players'].empty?
+        @players ||= json['players'].map { |x| Player.new(x) }
+      end
+
+      def venue
+        @venue ||= Venue.new(json['venue']) if json['venue']
       end
 
       ##
@@ -34,6 +42,10 @@ module SportsDataApi
           super(other)
         end
       end
+
+      private
+
+      attr_reader :json
     end
   end
 end

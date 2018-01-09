@@ -5,14 +5,18 @@ describe SportsDataApi::Nba::Broadcast, vcr: {
     record: :new_episodes,
     match_requests_on: [:host, :path]
 } do
-  let(:daily_schedule) do
-    SportsDataApi.set_access_level(:nba, 't')
+  before do
+    SportsDataApi.set_access_level(:nba, 'trial')
     SportsDataApi.set_key(:nba, api_key(:nba))
+  end
+  let(:daily_schedule) do
     SportsDataApi::Nba.daily(2013, 12, 12)
   end
   context 'results from daily schedule fetch' do
     subject { daily_schedule.first.broadcast }
-    its(:network) { should eq 'TNT' }
-    its(:satellite) { should eq '245' }
+    it 'parses the data' do
+      expect(subject[:network]).to eq 'TNT'
+      expect(subject[:satellite]).to eq '245'
+    end
   end
 end

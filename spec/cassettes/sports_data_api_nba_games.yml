@@ -2,17 +2,19 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.sportsdatallc.org/nba-t3/games/2013/12/12/schedule.xml?api_key=<API_KEY>
+    uri: https://api.sportradar.us/nba/trial/v4/en/games/2018/1/1/schedule.json?api_key=<API_KEY>
     body:
       encoding: US-ASCII
       base64_string: ''
     headers:
       Accept:
-      - '*/*; q=0.5, application/xml'
+      - "*/*"
       Accept-Encoding:
       - gzip, deflate
       User-Agent:
-      - Ruby
+      - rest-client/2.0.2 (darwin15.6.0 x86_64) ruby/2.4.0p0
+      Host:
+      - api.sportradar.us
   response:
     status:
       code: 200
@@ -20,109 +22,151 @@ http_interactions:
     headers:
       Accept-Ranges:
       - bytes
+      Age:
+      - '0'
       Cache-Control:
-      - public, must-revalidate, max-age=2
+      - public, must-revalidate, max-age=11
+      Content-Language:
+      - en
       Content-Type:
-      - application/xml
+      - application/json;charset=utf-8
       Date:
-      - Thu, 12 Dec 2013 04:47:27 GMT
-      Etag:
-      - '"f26b3760f1cf5592b6efbe81f1928a1d"'
-      Last-Modified:
-      - Thu, 12 Dec 2013 04:27:04 GMT
+      - Tue, 09 Jan 2018 16:13:05 GMT
+      Expires:
+      - Tue, 09 Jan 2018 16:13:16 GMT
       Server:
-      - nginx/1.4.0
+      - nginx
+      Via:
+      - 1.1 varnish-v4
+      - 1.1 varnish-v4
+      X-Be-Cache:
+      - MISS
+      X-Fe-Cache:
+      - MISS
       X-Mashery-Responder:
-      - prod-p-worker-us-east-1c-36.mashery.com
+      - prod-j-worker-us-east-1e-114.mashery.com
+      X-Plan-Qps-Allotted:
+      - '25'
+      X-Plan-Qps-Current:
+      - '1'
+      X-Plan-Quota-Allotted:
+      - '15000'
+      X-Plan-Quota-Current:
+      - '53'
+      X-Varnish:
+      - '15152119'
+      - '36536366'
       X-Via:
-      - Nginx-S3-Proxy
+      - Translation-Proxy
       Content-Length:
-      - '1788'
+      - '2803'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
       base64_string: |
-        PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCEtLSBH
-        ZW5lcmF0aW9uIHN0YXJ0ZWQgQCAyMDEzLTEyLTEyIDA0OjI3OjAwICswMDAw
-        IC0tPgo8bGVhZ3VlIHhtbG5zPSJodHRwOi8vZmVlZC5lbGFzdGljc3RhdHMu
-        Y29tL3NjaGVtYS9iYXNrZXRiYWxsL3NjaGVkdWxlLXYyLjAueHNkIiBpZD0i
-        NDM1MzEzOGQtNGMyMi00Mzk2LTk1ZDgtNWY1ODdkMmRmMjVjIiBuYW1lPSJO
-        QkEiIGFsaWFzPSJOQkEiPgogIDxkYWlseS1zY2hlZHVsZSBkYXRlPSIyMDEz
-        LTEyLTEyIj4KICAgIDxnYW1lcz4KICAgICAgPGdhbWUgaWQ9IjlkYmYwMTdk
-        LTI1MGQtNGVlNy04YjNiLTAwZGZhMmY5ZThiNyIgc3RhdHVzPSJzY2hlZHVs
-        ZWQiIGNvdmVyYWdlPSJmdWxsIiBob21lX3RlYW09IjU4M2VjOWQ2LWZiNDYt
-        MTFlMS04MmNiLWY0Y2U0Njg0ZWE0YyIgYXdheV90ZWFtPSI1ODNlY2RmYi1m
-        YjQ2LTExZTEtODJjYi1mNGNlNDY4NGVhNGMiIHNjaGVkdWxlZD0iMjAxMy0x
-        Mi0xM1QwMTowMDowMCswMDowMCI+CiAgICAgICAgPHZlbnVlIGlkPSI3YTMz
-        MGJjZC1hYzBmLTUwY2EtYmMyOS0yNDYwZTVjNDc2YjMiIG5hbWU9IkJhcmNs
-        YXlzIENlbnRlciIgY2FwYWNpdHk9IjE4MjAwIiBhZGRyZXNzPSI2MjAgQXRs
-        YW50aWMgQXZlbnVlLiIgY2l0eT0iQnJvb2tseW4iIHN0YXRlPSJOWSIgemlw
-        PSIxMTIxNyIgY291bnRyeT0iVVNBIi8+CiAgICAgICAgPGhvbWUgbmFtZT0i
-        QnJvb2tseW4gTmV0cyIgYWxpYXM9IkJLTiIgaWQ9IjU4M2VjOWQ2LWZiNDYt
-        MTFlMS04MmNiLWY0Y2U0Njg0ZWE0YyI+CiAgICAgICAgPC9ob21lPgogICAg
-        ICAgIDxhd2F5IG5hbWU9IkxvcyBBbmdlbGVzIENsaXBwZXJzIiBhbGlhcz0i
-        TEFDIiBpZD0iNTgzZWNkZmItZmI0Ni0xMWUxLTgyY2ItZjRjZTQ2ODRlYTRj
-        Ij4KICAgICAgICA8L2F3YXk+CiAgICAgICAgPGJyb2FkY2FzdCBuZXR3b3Jr
-        PSJUTlQiIHNhdGVsbGl0ZT0iMjQ1Ii8+CiAgICAgIDwvZ2FtZT4KICAgICAg
-        PGdhbWUgaWQ9IjBiMDQ4NGVlLThiNDMtNGZjYi1hYWQzLTZlM2Y3MWJlYTc5
-        OCIgc3RhdHVzPSJzY2hlZHVsZWQiIGNvdmVyYWdlPSJmdWxsIiBob21lX3Rl
-        YW09IjU4M2VkMDU2LWZiNDYtMTFlMS04MmNiLWY0Y2U0Njg0ZWE0YyIgYXdh
-        eV90ZWFtPSI1ODNlY2IzYS1mYjQ2LTExZTEtODJjYi1mNGNlNDY4NGVhNGMi
-        IHNjaGVkdWxlZD0iMjAxMy0xMi0xM1QwMzozMDowMCswMDowMCI+CiAgICAg
-        ICAgPHZlbnVlIGlkPSIxZDFmNzRhMi03YjM1LTU2ZjAtOGNiZC01NTJjNTFj
-        YjJjMTQiIG5hbWU9Ik1vZGEgQ2VudGVyIGF0IHRoZSBSb3NlIFF1YXJ0ZXIi
-        IGNhcGFjaXR5PSIxOTk4MCIgYWRkcmVzcz0iMSBDZW50ZXIgQ291cnQiIGNp
-        dHk9IlBvcnRsYW5kIiBzdGF0ZT0iT1IiIHppcD0iOTcyMjciIGNvdW50cnk9
-        IlVTQSIvPgogICAgICAgIDxob21lIG5hbWU9IlBvcnRsYW5kIFRyYWlsIEJs
-        YXplcnMiIGFsaWFzPSJQT1IiIGlkPSI1ODNlZDA1Ni1mYjQ2LTExZTEtODJj
-        Yi1mNGNlNDY4NGVhNGMiPgogICAgICAgIDwvaG9tZT4KICAgICAgICA8YXdh
-        eSBuYW1lPSJIb3VzdG9uIFJvY2tldHMiIGFsaWFzPSJIT1UiIGlkPSI1ODNl
-        Y2IzYS1mYjQ2LTExZTEtODJjYi1mNGNlNDY4NGVhNGMiPgogICAgICAgIDwv
-        YXdheT4KICAgICAgICA8YnJvYWRjYXN0IG5ldHdvcms9IlROVCIgc2F0ZWxs
-        aXRlPSIyNDUiLz4KICAgICAgPC9nYW1lPgogICAgPC9nYW1lcz4KICA8L2Rh
-        aWx5LXNjaGVkdWxlPgo8L2xlYWd1ZT4KPCEtLSBHZW5lcmF0aW9uIGVuZGVk
-        IEAgMjAxMy0xMi0xMiAwNDoyNzowMCArMDAwMCAtLT4K
+        eyJkYXRlIjoiMjAxOC0wMS0wMSIsImxlYWd1ZSI6eyJpZCI6IjQzNTMxMzhk
+        LTRjMjItNDM5Ni05NWQ4LTVmNTg3ZDJkZjI1YyIsIm5hbWUiOiJOQkEiLCJh
+        bGlhcyI6Ik5CQSJ9LCJnYW1lcyI6W3siaWQiOiIzZTRkOTZiNy1hYzliLTRh
+        ZDktODg5ZC0wOGU4OTRkMDdlNTkiLCJzdGF0dXMiOiJjbG9zZWQiLCJjb3Zl
+        cmFnZSI6ImZ1bGwiLCJzY2hlZHVsZWQiOiIyMDE4LTAxLTAyVDAwOjMwOjAw
+        KzAwOjAwIiwiaG9tZV9wb2ludHMiOjEzMSwiYXdheV9wb2ludHMiOjEyNywi
+        dHJhY2tfb25fY291cnQiOnRydWUsInJlZmVyZW5jZSI6IjAwMjE3MDA1NDYi
+        LCJ2ZW51ZSI6eyJpZCI6IjYyY2M5NjYxLTdiMTMtNTZlNy1iZjRhLWJiYTdh
+        ZDdiZThkYSIsIm5hbWUiOiJBaXIgQ2FuYWRhIENlbnRyZSIsImNhcGFjaXR5
+        IjoxOTgwMCwiYWRkcmVzcyI6IjQwIEJheSBTdC4iLCJjaXR5IjoiVG9yb250
+        byIsInN0YXRlIjoiT04iLCJ6aXAiOiJNNUogMlgyIiwiY291bnRyeSI6IkNB
+        TiJ9LCJicm9hZGNhc3QiOnsibmV0d29yayI6IkZTLVdJIiwic2F0ZWxsaXRl
+        IjoiNjY5In0sImhvbWUiOnsibmFtZSI6IlRvcm9udG8gUmFwdG9ycyIsImFs
+        aWFzIjoiVE9SIiwiaWQiOiI1ODNlY2RhNi1mYjQ2LTExZTEtODJjYi1mNGNl
+        NDY4NGVhNGMiLCJyZWZlcmVuY2UiOiIxNjEwNjEyNzYxIn0sImF3YXkiOnsi
+        bmFtZSI6Ik1pbHdhdWtlZSBCdWNrcyIsImFsaWFzIjoiTUlMIiwiaWQiOiI1
+        ODNlY2VmZC1mYjQ2LTExZTEtODJjYi1mNGNlNDY4NGVhNGMiLCJyZWZlcmVu
+        Y2UiOiIxNjEwNjEyNzQ5In19LHsiaWQiOiJlZmZlM2MyMS0zOTVlLTQyYzgt
+        YTAzNi0xZTE0ZDZiMzMyYjkiLCJzdGF0dXMiOiJjbG9zZWQiLCJjb3ZlcmFn
+        ZSI6ImZ1bGwiLCJzY2hlZHVsZWQiOiIyMDE4LTAxLTAyVDAwOjMwOjAwKzAw
+        OjAwIiwiaG9tZV9wb2ludHMiOjk4LCJhd2F5X3BvaW50cyI6OTUsInRyYWNr
+        X29uX2NvdXJ0Ijp0cnVlLCJyZWZlcmVuY2UiOiIwMDIxNzAwNTQ1IiwidmVu
+        dWUiOnsiaWQiOiI3YTMzMGJjZC1hYzBmLTUwY2EtYmMyOS0yNDYwZTVjNDc2
+        YjMiLCJuYW1lIjoiQmFyY2xheXMgQ2VudGVyIiwiY2FwYWNpdHkiOjE3NzMy
+        LCJhZGRyZXNzIjoiNjIwIEF0bGFudGljIEF2ZW51ZS4iLCJjaXR5IjoiQnJv
+        b2tseW4iLCJzdGF0ZSI6Ik5ZIiwiemlwIjoiMTEyMTciLCJjb3VudHJ5Ijoi
+        VVNBIn0sImJyb2FkY2FzdCI6eyJuZXR3b3JrIjoiWUVTIiwic2F0ZWxsaXRl
+        IjoiNjMxIn0sImhvbWUiOnsibmFtZSI6IkJyb29rbHluIE5ldHMiLCJhbGlh
+        cyI6IkJLTiIsImlkIjoiNTgzZWM5ZDYtZmI0Ni0xMWUxLTgyY2ItZjRjZTQ2
+        ODRlYTRjIiwicmVmZXJlbmNlIjoiMTYxMDYxMjc1MSJ9LCJhd2F5Ijp7Im5h
+        bWUiOiJPcmxhbmRvIE1hZ2ljIiwiYWxpYXMiOiJPUkwiLCJpZCI6IjU4M2Vk
+        MTU3LWZiNDYtMTFlMS04MmNiLWY0Y2U0Njg0ZWE0YyIsInJlZmVyZW5jZSI6
+        IjE2MTA2MTI3NTMifX0seyJpZCI6Ijk3ZjUyNWQ5LTBhZWUtNDI5Ny05YjNj
+        LWI0NzQxNjZkOGM3OSIsInN0YXR1cyI6ImNsb3NlZCIsImNvdmVyYWdlIjoi
+        ZnVsbCIsInNjaGVkdWxlZCI6IjIwMTgtMDEtMDJUMDE6MDA6MDArMDA6MDAi
+        LCJob21lX3BvaW50cyI6MTE0LCJhd2F5X3BvaW50cyI6OTYsInRyYWNrX29u
+        X2NvdXJ0Ijp0cnVlLCJyZWZlcmVuY2UiOiIwMDIxNzAwNTQ4IiwidmVudWUi
+        OnsiaWQiOiI3YWVkODAyZS0zNTYyLTViNzMtYWYxYi0zODU5NTI5ZjliOTUi
+        LCJuYW1lIjoiVGFyZ2V0IENlbnRlciIsImNhcGFjaXR5IjoxOTM1NiwiYWRk
+        cmVzcyI6IjYwMCBGaXJzdCBBdmUuIE5vcnRoIiwiY2l0eSI6Ik1pbm5lYXBv
+        bGlzIiwic3RhdGUiOiJNTiIsInppcCI6IjU1NDAzIiwiY291bnRyeSI6IlVT
+        QSJ9LCJicm9hZGNhc3QiOnsibmV0d29yayI6IkZTLU4iLCJzYXRlbGxpdGUi
+        OiI2NjgifSwiaG9tZSI6eyJuYW1lIjoiTWlubmVzb3RhIFRpbWJlcndvbHZl
+        cyIsImFsaWFzIjoiTUlOIiwiaWQiOiI1ODNlY2EyZi1mYjQ2LTExZTEtODJj
+        Yi1mNGNlNDY4NGVhNGMiLCJyZWZlcmVuY2UiOiIxNjEwNjEyNzUwIn0sImF3
+        YXkiOnsibmFtZSI6IkxvcyBBbmdlbGVzIExha2VycyIsImFsaWFzIjoiTEFM
+        IiwiaWQiOiI1ODNlY2FlMi1mYjQ2LTExZTEtODJjYi1mNGNlNDY4NGVhNGMi
+        LCJyZWZlcmVuY2UiOiIxNjEwNjEyNzQ3In19LHsiaWQiOiJjMGY2YTI2ZC04
+        Y2RjLTRlYWEtYmUwNy1kMWViMTYzMjRiNDUiLCJzdGF0dXMiOiJjbG9zZWQi
+        LCJjb3ZlcmFnZSI6ImZ1bGwiLCJzY2hlZHVsZWQiOiIyMDE4LTAxLTAyVDAx
+        OjAwOjAwKzAwOjAwIiwiaG9tZV9wb2ludHMiOjEyMCwiYXdheV9wb2ludHMi
+        OjEyNCwidHJhY2tfb25fY291cnQiOnRydWUsInJlZmVyZW5jZSI6IjAwMjE3
+        MDA1NDciLCJ2ZW51ZSI6eyJpZCI6IjM4OTExNjQ5LWFjZmQtNTUxYS05NDli
+        LTY4ZjBmY2FhNDRlNyIsIm5hbWUiOiJVbml0ZWQgQ2VudGVyIiwiY2FwYWNp
+        dHkiOjIwOTE3LCJhZGRyZXNzIjoiMTkwMSBXIE1hZGlzb24gU3QuIiwiY2l0
+        eSI6IkNoaWNhZ28iLCJzdGF0ZSI6IklMIiwiemlwIjoiNjA2MTIiLCJjb3Vu
+        dHJ5IjoiVVNBIn0sImJyb2FkY2FzdCI6eyJuZXR3b3JrIjoiV0dOIn0sImhv
+        bWUiOnsibmFtZSI6IkNoaWNhZ28gQnVsbHMiLCJhbGlhcyI6IkNISSIsImlk
+        IjoiNTgzZWM1ZmQtZmI0Ni0xMWUxLTgyY2ItZjRjZTQ2ODRlYTRjIiwicmVm
+        ZXJlbmNlIjoiMTYxMDYxMjc0MSJ9LCJhd2F5Ijp7Im5hbWUiOiJQb3J0bGFu
+        ZCBUcmFpbCBCbGF6ZXJzIiwiYWxpYXMiOiJQT1IiLCJpZCI6IjU4M2VkMDU2
+        LWZiNDYtMTFlMS04MmNiLWY0Y2U0Njg0ZWE0YyIsInJlZmVyZW5jZSI6IjE2
+        MTA2MTI3NTcifX1dfQ==
     http_version: 
-  recorded_at: Thu, 12 Dec 2013 04:47:28 GMT
+  recorded_at: Tue, 09 Jan 2018 16:13:05 GMT
 - request:
     method: get
-    uri: https://api.sportsdatallc.org/mlb-t4daily/schedule/2014/6/21.xml?api_key=
+    uri: https://api.sportradar.us/nba/t/v4/en/games/2018/1/1/schedule.json?api_key=<API_KEY>
     body:
       encoding: US-ASCII
       base64_string: ''
     headers:
       Accept:
-      - '*/*; q=0.5, application/xml'
+      - "*/*"
       Accept-Encoding:
       - gzip, deflate
       User-Agent:
-      - Ruby
+      - rest-client/2.0.2 (darwin15.6.0 x86_64) ruby/2.4.0p0
+      Host:
+      - api.sportradar.us
   response:
     status:
       code: 596
-      message: ???
+      message: '596'
     headers:
-      Accept-Ranges:
-      - bytes
       Content-Type:
       - text/xml
       Date:
-      - Tue, 11 Mar 2014 19:47:30 GMT
+      - Tue, 09 Jan 2018 21:14:32 GMT
       Server:
       - Mashery Proxy
       X-Mashery-Error-Code:
       - ERR_596_SERVICE_NOT_FOUND
       Content-Length:
       - '30'
-      Via:
-      - 1.1 sea19-proxy-3.amazon.com:80 (Cisco-IronPort-WSA/7.5.1-201)
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      base64_string: |
-        PGgxPjU5NiBTZXJ2aWNlIE5vdCBGb3VuZDwvaDE+
+      base64_string: 'PGgxPjU5NiBTZXJ2aWNlIE5vdCBGb3VuZDwvaDE+
+
+'
     http_version: 
-  recorded_at: Tue, 11 Mar 2014 19:47:30 GMT
-recorded_with: VCR 2.4.0
+  recorded_at: Tue, 09 Jan 2018 21:14:32 GMT
+recorded_with: VCR 3.0.3
