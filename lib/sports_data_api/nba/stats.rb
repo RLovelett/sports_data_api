@@ -1,6 +1,6 @@
 module SportsDataApi
   module Nba
-    class Broadcast < SportsDataApi::JsonData
+    class Stats < SportsDataApi::JsonData
     end
   end
 end

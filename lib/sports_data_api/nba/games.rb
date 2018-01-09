@@ -2,25 +2,28 @@ module SportsDataApi
   module Nba
     class Games
       include Enumerable
-      attr_reader :games, :date
 
-      def initialize(xml)
-        @date = xml.first['date']
+      attr_reader :date
 
-        @games = xml.xpath("games/game").map do |game_xml|
-          Game.new(date: @date, xml: game_xml)
+      def initialize(json)
+        @json = json
+        @date = json['date']
+      end
+
+      def games
+        @games ||= json['games'].map do |game_json|
+          Game.new(json: game_json)
         end
       end
 
-      def each &block
-        @games.each do |game|
-          if block_given?
-            block.call game
-          else
-            yield game
-          end
-        end
+      def each
+        return games.each unless block_given?
+        games.each { |game| yield game }
       end
+
+      private
+
+      attr_reader :json
     end
   end
 end
