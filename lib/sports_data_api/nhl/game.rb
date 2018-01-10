@@ -1,41 +1,51 @@
 module SportsDataApi
   module Nhl
     class Game
-      attr_reader :id, :scheduled, :home, :home_team, :away,
-        :away_team, :status, :venue, :broadcast, :year, :season,
-        :date, :period, :clock, :home_team_id, :away_team_id
+      attr_reader :id, :status, :year, :season, :clock,
+        :home_team_id, :away_team_id
 
-      def initialize(args={})
-        xml = args.fetch(:xml)
-        @year = args[:year] ? args[:year].to_i : nil
-        @season = args[:season] ? args[:season].to_sym : nil
-        @date = args[:date]
+      def initialize(json:, year: nil, season: nil)
+        @json = json
+        @year = year
+        @season = season
+        @id = json['id']
+        @home_team_id = json['home']['id']
+        @away_team_id = json['away']['id']
+        @status = json['status']
+        @clock = json['clock']
+      end
 
-        xml = xml.first if xml.is_a? Nokogiri::XML::NodeSet
-        if xml.is_a? Nokogiri::XML::Element
-          @id = xml['id']
-          @scheduled = Time.parse xml['scheduled']
-          @home = xml['home_team']
-          @away = xml['away_team']
-          @home_team_id = xml['home_team']
-          @away_team_id = xml['away_team']
-          @status = xml['status']
-          @clock = xml['clock']
-          @period = xml['period'] ? xml['period'].to_i : nil
+      def period
+        return unless json['period']
+        json['period'].to_i
+      end
 
-          team_xml = xml.xpath('team')
-          @home_team = Team.new(team_xml.first)
-          @away_team = Team.new(team_xml.last)
-          @venue = Venue.new(xml.xpath('venue'))
-          @broadcast = Broadcast.new(xml.xpath('broadcast'))
-        end
+      def scheduled
+        @scheduled = Time.parse(json['scheduled'])
+      end
+
+      def home_team
+        @home_team ||= Team.new(json['home'])
+      end
+
+      def away_team
+        @away_team ||= Team.new(json['away'])
+      end
+
+      def broadcast
+        return if json['broadcast'].nil? || json['broadcast'].empty?
+        @broadcast ||= Broadcast.new(json['broadcast'])
+      end
+
+      def venue
+        return if json['venue'].nil? || json['venue'].empty?
+        @venue ||= Venue.new(json['venue'])
       end
 
       ##
       # Wrapper for Nhl.game_summary
-      # TODO
       def summary
-        Nhl.game_summary(@id)
+        Nhl.game_summary(id)
       end
 
       ##
@@ -51,6 +61,10 @@ module SportsDataApi
       def boxscore
         raise NotImplementedError
       end
+
+      private
+
+      attr_reader :json
     end
   end
 end

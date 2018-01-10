@@ -1,17 +1,18 @@
 module SportsDataApi
   module Nhl
     class Season
-      attr_reader :id, :year, :type, :games
+      attr_reader :id, :year, :type
 
-      def initialize(xml)
-        if xml.is_a? Nokogiri::XML::NodeSet
-          @id = xml.first["id"]
-          @year = xml.first["year"].to_i
-          @type = xml.first["type"].to_sym
+      def initialize(json)
+        @json = json
+        @id = json['season']['id']
+        @year = json['season']['year']
+        @type = json['season']['type'].to_sym
+      end
 
-          @games = xml.first.xpath("games/game").map do |game_xml|
-            Game.new(year: @year, season: @type, xml: game_xml)
-          end
+      def games
+        @games ||= json['games'].map do |game_json|
+          Game.new(year: year, season: type, json: game_json)
         end
       end
 
@@ -21,8 +22,12 @@ module SportsDataApi
       #
       # The only valid types are: :pre, :reg, :pst
       def self.valid?(season)
-        [:PRE, :REG, :PST].include?(season)
+        %i[PRE REG PST].include?(season)
       end
+
+      private
+
+      attr_reader :json
     end
   end
 end
