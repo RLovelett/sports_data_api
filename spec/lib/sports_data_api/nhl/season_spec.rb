@@ -28,7 +28,7 @@ describe SportsDataApi::Nhl::Season, vcr: {
   end
   context 'results from schedule fetch' do
       let(:season) do
-        SportsDataApi.set_access_level(:nhl, 'ot')
+        SportsDataApi.set_access_level(:nhl, 'trial')
         SportsDataApi.set_key(:nhl, api_key(:nhl))
         SportsDataApi::Nhl.schedule(2013, :reg)
       end

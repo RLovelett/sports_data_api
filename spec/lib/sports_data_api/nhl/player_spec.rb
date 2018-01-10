@@ -7,50 +7,102 @@ describe SportsDataApi::Nhl::Player, vcr: {
 } do
   before do
     SportsDataApi.set_key(:nhl, api_key(:nhl))
-    SportsDataApi.set_access_level(:nhl, 'ot')
+    SportsDataApi.set_access_level(:nhl, 'trial')
   end
-  let(:player) { SportsDataApi::Nhl.team_roster('441713b7-0f24-11e2-8525-18a905767e44').players.first.player }
-
-  describe 'player' do
-    subject { player }
-    it 'should have an id' do
-      expect(subject[:id]).to eq '3d1e8155-8371-11e2-a3e0-f4ce4684ea4c'
+  context 'when from team_roster' do
+    let(:roster) { SportsDataApi::Nhl.team_roster('4416091c-0f24-11e2-8525-18a905767e44') }
+    let(:players) { roster.players }
+    it 'parses out the data' do
+      player = players.find do |x|
+        x.player[:id] == '431e124a-0f24-11e2-8525-18a905767e44'
+      end
+      expect(player[:status]).to eq 'ACT'
+      expect(player[:full_name]).to eq 'Zach Parise'
+      expect(player[:first_name]).to eq 'Zach'
+      expect(player[:last_name]).to eq 'Parise'
+      expect(player[:abbr_name]).to eq 'Z.Parise'
+      expect(player[:height]).to eq 71
+      expect(player[:weight]).to eq 196
+      expect(player[:position]).to eq 'F'
+      expect(player[:primary_position]).to eq 'LW'
+      expect(player[:jersey_number]).to eq '11'
+      expect(player[:experience]).to eq '11'
+      expect(player[:college]).to eq 'North Dakota'
+      expect(player[:birth_place]).to eq 'Minneapolis, MN, USA'
+      expect(player[:birthdate]).to eq '1984-07-28'
+      expect(player[:updated]).to eq '2018-01-02T18:04:00+00:00'
+      expect(player[:reference]).to eq '8470610'
+      expect(player.stats).to be_nil
     end
+  end
 
-    it 'should have a status' do
-      expect(subject[:status]).to eq 'ACT'
-    end
+  context 'when from .game_summary' do
+    let(:game_summary) { SportsDataApi::Nhl.game_summary('af285aa3-3d80-4051-9449-5b58e5985a4e') }
+    let(:team) { game_summary.home_team }
+    let(:players) { team.players }
 
-    it 'should have a full_name' do
-      expect(subject[:full_name]).to eq 'Brian Flynn'
-    end
-
-    it 'should have a first_name' do
-      expect(subject[:first_name]).to eq 'Brian'
-    end
-
-    it 'should have a last_name' do
-      expect(subject[:last_name]).to eq 'Flynn'
-    end
-
-    it 'should have an abbr_name' do
-      expect(subject[:abbr_name]).to eq 'B.Flynn'
-    end
-
-    it 'should have a handedness' do
-      expect(subject[:handedness]).to eq 'R'
-    end
-
-    it 'should have a position' do
-      expect(subject[:position]).to eq 'F'
-    end
-
-    it 'should have a primary_position' do
-      expect(subject[:primary_position]).to eq 'LW'
-    end
-
-    it 'should have a jersey_number' do
-      expect(subject[:jersey_number]).to eq '32'
+    it 'parses out the data' do
+      player = players.find do |x|
+        x.player[:id] == '431e124a-0f24-11e2-8525-18a905767e44'
+      end
+      expect(player[:status]).to be_nil
+      expect(player[:full_name]).to eq 'Zach Parise'
+      expect(player[:first_name]).to eq 'Zach'
+      expect(player[:last_name]).to eq 'Parise'
+      expect(player[:position]).to eq 'F'
+      expect(player[:primary_position]).to eq 'LW'
+      expect(player[:jersey_number]).to eq '11'
+      expect(player[:starter]).to eq true
+      expect(player[:played]).to eq true
+      expect(player.stats).to be_a SportsDataApi::MergedStats
+      expect(player.stats[:total_goals]).to eq 0
+      expect(player.stats[:total_assists]).to eq 1
+      expect(player.stats[:total_penalties]).to eq 1
+      expect(player.stats[:total_penalty_minutes]).to eq 2
+      expect(player.stats[:total_shots]).to eq 2
+      expect(player.stats[:total_blocked_att]).to eq 0
+      expect(player.stats[:total_missed_shots]).to eq 2
+      expect(player.stats[:total_hits]).to eq 1
+      expect(player.stats[:total_giveaways]).to eq 0
+      expect(player.stats[:total_takeaways]).to eq 2
+      expect(player.stats[:total_blocked_shots]).to eq 2
+      expect(player.stats[:total_faceoffs_won]).to eq 0
+      expect(player.stats[:total_faceoffs_lost]).to eq 0
+      expect(player.stats[:total_plus_minus]).to eq(-1)
+      expect(player.stats[:total_shooting_pct]).to eq 0
+      expect(player.stats[:total_faceoff_win_pct]).to eq 0
+      expect(player.stats[:total_faceoffs]).to eq 0
+      expect(player.stats[:total_points]).to eq 1
+      expect(player.stats[:powerplay_shots]).to eq 0
+      expect(player.stats[:powerplay_goals]).to eq 0
+      expect(player.stats[:powerplay_missed_shots]).to eq 0
+      expect(player.stats[:powerplay_assists]).to eq 0
+      expect(player.stats[:powerplay_faceoffs]).to eq 0
+      expect(player.stats[:powerplay_faceoffs_won]).to eq 0
+      expect(player.stats[:powerplay_faceoffs_lost]).to eq 0
+      expect(player.stats[:powerplay_faceoff_win_pct]).to eq 0
+      expect(player.stats[:shorthanded_shots]).to eq 0
+      expect(player.stats[:shorthanded_goals]).to eq 0
+      expect(player.stats[:shorthanded_missed_shots]).to eq 0
+      expect(player.stats[:shorthanded_assists]).to eq 0
+      expect(player.stats[:shorthanded_faceoffs]).to eq 0
+      expect(player.stats[:shorthanded_faceoffs_won]).to eq 0
+      expect(player.stats[:shorthanded_faceoffs_lost]).to eq 0
+      expect(player.stats[:shorthanded_faceoff_win_pct]).to eq 0
+      expect(player.stats[:evenstrength_shots]).to eq 2
+      expect(player.stats[:evenstrength_goals]).to eq 0
+      expect(player.stats[:evenstrength_missed_shots]).to eq 2
+      expect(player.stats[:evenstrength_assists]).to eq 1
+      expect(player.stats[:evenstrength_faceoffs]).to eq 0
+      expect(player.stats[:evenstrength_faceoffs_won]).to eq 0
+      expect(player.stats[:evenstrength_faceoffs_lost]).to eq 0
+      expect(player.stats[:evenstrength_faceoff_win_pct]).to eq 0
+      expect(player.stats[:penalty_shots]).to eq 0
+      expect(player.stats[:penalty_goals]).to eq 0
+      expect(player.stats[:penalty_missed_shots]).to eq 0
+      expect(player.stats[:shootout_shots]).to eq 0
+      expect(player.stats[:shootout_goals]).to eq 0
+      expect(player.stats[:shootout_missed_shots]).to eq 0
     end
   end
 end

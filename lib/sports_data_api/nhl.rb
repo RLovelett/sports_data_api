@@ -5,8 +5,8 @@ module SportsDataApi
     class Exception < ::Exception
     end
 
-    API_VERSION = 4
-    BASE_URL = 'https://api.sportsdatallc.org/nhl-%{access_level}%{version}'
+    API_VERSION = 5
+    BASE_URL = 'https://api.sportradar.us/nhl/%{access_level}/v%{version}/en'
     DIR = File.join(File.dirname(__FILE__), 'nhl')
     SPORT = :nhl
 
@@ -26,31 +26,31 @@ module SportsDataApi
         season = season.to_s.upcase.to_sym
         raise Exception.new("#{season} is not a valid season") unless Season.valid?(season)
 
-        Season.new(response_xml_xpath("/games/#{year}/#{season}/schedule.xml", '/league/season-schedule'))
+        Season.new(response_json("/games/#{year}/#{season}/schedule.json"))
       end
 
       ##
       # Fetches NHL team roster
-      def team_roster(team)
-        Team.new(response_xml_xpath("/teams/#{team}/profile.xml", 'team'))
+      def team_roster(team_id)
+        Team.new(response_json("/teams/#{team_id}/profile.json"))
       end
 
       ##
       # Fetches NHL game summary for a given game
-      def game_summary(game)
-        Game.new(xml: response_xml_xpath("/games/#{game}/summary.xml", '/game'))
+      def game_summary(game_id)
+        Game.new(json: response_json("/games/#{game_id}/summary.json"))
       end
 
       ##
       # Fetches all NHL teams
       def teams
-        Teams.new(response_xml_xpath("/league/hierarchy.xml", '/league'))
+        Teams.new(response_json('/league/hierarchy.json'))
       end
 
       ##
       # Fetches NHL daily schedule for a given date
       def daily(year, month, day)
-        Games.new(response_xml_xpath("/games/#{year}/#{month}/#{day}/schedule.xml", 'league/daily-schedule'))
+        Games.new(response_json("/games/#{year}/#{month}/#{day}/schedule.json"))
       end
     end
   end

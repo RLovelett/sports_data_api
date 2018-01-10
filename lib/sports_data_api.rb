@@ -57,6 +57,7 @@ module SportsDataApi
   autoload :Exception,   File.join(LIBRARY_PATH, 'exception')
   autoload :Golf,        File.join(LIBRARY_PATH, 'golf')
   autoload :JsonData,    File.join(LIBRARY_PATH, 'json_data')
+  autoload :MergedStats, File.join(LIBRARY_PATH, 'merged_stats')
   autoload :Mlb,         File.join(LIBRARY_PATH, 'mlb')
   autoload :Nba,         File.join(LIBRARY_PATH, 'nba')
   autoload :Ncaafb,      File.join(LIBRARY_PATH, 'ncaafb')

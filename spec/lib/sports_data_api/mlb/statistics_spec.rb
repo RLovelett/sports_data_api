@@ -21,8 +21,8 @@ describe SportsDataApi::Mlb::Statistics, vcr: {
     subject { player.statistics }
 
     its(:pitching) { should be_nil }
-    its(:fielding) { should be_instance_of(SportsDataApi::Mlb::MergedStats) }
-    its(:hitting) { should be_instance_of(SportsDataApi::Mlb::MergedStats) }
+    its(:fielding) { should be_instance_of(SportsDataApi::MergedStats) }
+    its(:hitting) { should be_instance_of(SportsDataApi::MergedStats) }
   end
 
   context 'when dh' do
@@ -35,7 +35,7 @@ describe SportsDataApi::Mlb::Statistics, vcr: {
 
     its(:pitching) { should be_nil }
     its(:fielding) { should be_nil }
-    its(:hitting) { should be_instance_of(SportsDataApi::Mlb::MergedStats) }
+    its(:hitting) { should be_instance_of(SportsDataApi::MergedStats) }
   end
 
   context 'when pitcher' do
@@ -46,8 +46,8 @@ describe SportsDataApi::Mlb::Statistics, vcr: {
     end
     subject { player.statistics }
 
-    its(:pitching) { should be_instance_of(SportsDataApi::Mlb::MergedStats) }
-    its(:fielding) { should be_instance_of(SportsDataApi::Mlb::MergedStats) }
+    its(:pitching) { should be_instance_of(SportsDataApi::MergedStats) }
+    its(:fielding) { should be_instance_of(SportsDataApi::MergedStats) }
     its(:hitting) { should be_nil }
   end
 end
