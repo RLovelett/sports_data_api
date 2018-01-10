@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe SportsDataApi::Mlb::MergedStats, vcr: {
+describe SportsDataApi::MergedStats, vcr: {
   cassette_name: 'sports_data_api_mlb_player',
   record: :new_episodes,
   match_requests_on: [:host, :path]
@@ -20,7 +20,7 @@ describe SportsDataApi::Mlb::MergedStats, vcr: {
     subject { player.statistics.fielding }
 
     it 'parses out fielding stats' do
-      expect(subject).to be_instance_of SportsDataApi::Mlb::MergedStats
+      expect(subject).to be_instance_of SportsDataApi::MergedStats
       expect(subject[:po]).to eq 1.0
       expect(subject[:a]).to eq 2.0
       expect(subject[:dp]).to eq 0.0
@@ -51,7 +51,7 @@ describe SportsDataApi::Mlb::MergedStats, vcr: {
     subject { player.statistics.hitting }
 
     it 'parses out hitting stats' do
-      expect(subject).to be_instance_of SportsDataApi::Mlb::MergedStats
+      expect(subject).to be_instance_of SportsDataApi::MergedStats
       expect(subject[:ab]).to eq 4.0
       expect(subject[:lob]).to eq 1.0
       expect(subject[:rbi]).to eq 4.0
@@ -132,7 +132,7 @@ describe SportsDataApi::Mlb::MergedStats, vcr: {
     subject { player.statistics.pitching }
 
     it 'parses out pitching stats' do
-      expect(subject).to be_instance_of SportsDataApi::Mlb::MergedStats
+      expect(subject).to be_instance_of SportsDataApi::MergedStats
       expect(subject[:bf]).to eq 24.0
       expect(subject[:bk]).to eq 0.0
       expect(subject[:era]).to eq 0.0
