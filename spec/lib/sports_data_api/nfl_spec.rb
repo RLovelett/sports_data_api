@@ -12,32 +12,32 @@ describe SportsDataApi::Nfl, vcr: {
       SportsDataApi.set_access_level(:nfl, 't')
     end
     describe '.schedule' do
-      it { expect { subject.schedule(2013, :REG) }.to raise_error(SportsDataApi::Exception) }
+      it { expect { subject.schedule(2013, :REG) }.to raise_error(SportsDataApi::Error) }
     end
     describe '.boxscore' do
-      it { expect { subject.boxscore(2012, :REG, 9, 'IND', 'MIA') }.to raise_error(SportsDataApi::Exception) }
+      it { expect { subject.boxscore(2012, :REG, 9, 'IND', 'MIA') }.to raise_error(SportsDataApi::Error) }
     end
     describe '.game_roster' do
-      it { expect { subject.game_roster(2012, :REG, 9, 'IND', 'MIA') }.to raise_error(SportsDataApi::Exception) }
+      it { expect { subject.game_roster(2012, :REG, 9, 'IND', 'MIA') }.to raise_error(SportsDataApi::Error) }
     end
     describe '.weekly' do
-      it { expect { subject.weekly(2013, :PRE, 1) }.to raise_error(SportsDataApi::Exception) }
+      it { expect { subject.weekly(2013, :PRE, 1) }.to raise_error(SportsDataApi::Error) }
     end
   end
 
   context 'no response from the api' do
     before(:each) { stub_request(:any, /api\.sportsdatallc\.org.*/).to_timeout }
     describe '.schedule' do
-      it { expect { subject.schedule(2013, :REG) }.to raise_error(SportsDataApi::Exception) }
+      it { expect { subject.schedule(2013, :REG) }.to raise_error(SportsDataApi::Error) }
     end
     describe '.boxscore' do
-      it { expect { subject.boxscore(2012, :REG, 9, 'IND', 'MIA') }.to raise_error(SportsDataApi::Exception) }
+      it { expect { subject.boxscore(2012, :REG, 9, 'IND', 'MIA') }.to raise_error(SportsDataApi::Error) }
     end
     describe '.game_roster' do
-      it { expect { subject.game_roster(2012, :REG, 9, 'IND', 'MIA') }.to raise_error(SportsDataApi::Exception) }
+      it { expect { subject.game_roster(2012, :REG, 9, 'IND', 'MIA') }.to raise_error(SportsDataApi::Error) }
     end
     describe '.weekly' do
-      it { expect { subject.weekly(2013, :PRE, 1) }.to raise_error(SportsDataApi::Exception) }
+      it { expect { subject.weekly(2013, :PRE, 1) }.to raise_error(SportsDataApi::Error) }
     end
   end
 

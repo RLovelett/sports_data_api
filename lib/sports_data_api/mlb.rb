@@ -2,9 +2,6 @@ module SportsDataApi
   module Mlb
     extend SportsDataApi::Request
 
-    class Exception < ::Exception
-    end
-
     API_VERSION = 6
     BASE_URL = 'https://api.sportradar.us/mlb-%{access_level}%{version}'
     DIR = File.join(File.dirname(__FILE__), 'mlb')

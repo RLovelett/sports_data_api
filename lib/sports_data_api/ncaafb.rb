@@ -2,9 +2,6 @@ module SportsDataApi
   module Ncaafb
     extend SportsDataApi::Request
 
-    class Exception < ::Exception
-    end
-
     API_VERSION = 1
     BASE_URL = 'https://api.sportsdatallc.org/ncaafb-%{access_level}%{version}'
     DIR = File.join(File.dirname(__FILE__), 'ncaafb')
@@ -45,8 +42,8 @@ module SportsDataApi
 
       # Fetches Ncaafb season ranking for a given year , poll and week
       def rankings(year, poll, week)
-        raise Exception.new("#{poll} is not a valid poll")  unless Polls.valid_name?(poll)
-        raise Exception.new("#{week} nr is not a valid week nr") unless Polls.valid_week?(week)
+        raise Error.new("#{poll} is not a valid poll")  unless Polls.valid_name?(poll)
+        raise Error.new("#{week} nr is not a valid week nr") unless Polls.valid_week?(week)
 
         response = response_json("/polls/#{poll}/#{year}/#{week}/rankings.json")
         Polls.new(response)

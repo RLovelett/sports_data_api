@@ -24,7 +24,7 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'pry'
   gem.add_development_dependency 'rake', '>= 11.0'
   gem.add_development_dependency 'rb-fsevent', '~> 0.9'
-  gem.add_development_dependency 'rspec', '~> 3.5'
+  gem.add_development_dependency 'rspec', '~> 3.7'
   gem.add_development_dependency 'rspec-collection_matchers', '~> 1.1'
   gem.add_development_dependency 'rspec-its', '~> 1.2'
   gem.add_development_dependency 'rspec-xml', '~> 0.1'

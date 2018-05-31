@@ -13,23 +13,23 @@ describe SportsDataApi::Nba, vcr: {
     end
 
     describe '.schedule' do
-      it { expect { subject.schedule(2017, :REG) }.to raise_error(SportsDataApi::Exception) }
+      it { expect { subject.schedule(2017, :REG) }.to raise_error(SportsDataApi::Error) }
     end
 
     describe '.team_roster' do
-      it { expect { subject.team_roster('team_uuid') }.to raise_error(SportsDataApi::Exception) }
+      it { expect { subject.team_roster('team_uuid') }.to raise_error(SportsDataApi::Error) }
     end
 
     describe '.game_summary' do
-      it { expect { subject.game_summary('game_uuid') }.to raise_error(SportsDataApi::Exception) }
+      it { expect { subject.game_summary('game_uuid') }.to raise_error(SportsDataApi::Error) }
     end
 
     describe '.teams' do
-      it { expect { subject.teams }.to raise_error(SportsDataApi::Exception) }
+      it { expect { subject.teams }.to raise_error(SportsDataApi::Error) }
     end
 
     describe '.daily' do
-      it { expect { subject.daily(2017, 1, 1) }.to raise_error(SportsDataApi::Exception) }
+      it { expect { subject.daily(2017, 1, 1) }.to raise_error(SportsDataApi::Error) }
     end
   end
 
@@ -42,23 +42,23 @@ describe SportsDataApi::Nba, vcr: {
     before { stub_request(:any, /api\.sportradar\.us.*/).to_timeout }
 
     describe '.schedule' do
-      it { expect { subject.schedule(2017, :REG) }.to raise_error(SportsDataApi::Exception) }
+      it { expect { subject.schedule(2017, :REG) }.to raise_error(SportsDataApi::Error) }
     end
 
     describe '.team_roster' do
-      it { expect { subject.team_roster('team_uuid') }.to raise_error(SportsDataApi::Exception) }
+      it { expect { subject.team_roster('team_uuid') }.to raise_error(SportsDataApi::Error) }
     end
 
     describe '.game_summary' do
-      it { expect { subject.game_summary('game_uuid') }.to raise_error(SportsDataApi::Exception) }
+      it { expect { subject.game_summary('game_uuid') }.to raise_error(SportsDataApi::Error) }
     end
 
     describe '.teams' do
-      it { expect { subject.teams }.to raise_error(SportsDataApi::Exception) }
+      it { expect { subject.teams }.to raise_error(SportsDataApi::Error) }
     end
 
     describe '.daily' do
-      it { expect { subject.daily(2017, 1, 1) }.to raise_error(SportsDataApi::Exception) }
+      it { expect { subject.daily(2017, 1, 1) }.to raise_error(SportsDataApi::Error) }
     end
   end
 
