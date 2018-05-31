@@ -12,7 +12,7 @@ http_interactions:
       Accept-Encoding:
       - gzip, deflate
       User-Agent:
-      - rest-client/2.0.2 (darwin17.3.0 x86_64) ruby/2.5.0p0
+      - rest-client/2.0.2 (darwin16.7.0 x86_64) ruby/2.3.3p222
       Host:
       - api.sportradar.us
   response:
@@ -31,9 +31,9 @@ http_interactions:
       Content-Type:
       - application/json;charset=utf-8
       Date:
-      - Wed, 10 Jan 2018 19:23:03 GMT
+      - Thu, 31 May 2018 20:58:18 GMT
       Expires:
-      - Wed, 10 Jan 2018 19:23:12 GMT
+      - Thu, 31 May 2018 20:58:29 GMT
       Server:
       - nginx
       Via:
@@ -44,7 +44,7 @@ http_interactions:
       X-Fe-Cache:
       - MISS
       X-Mashery-Responder:
-      - prod-j-worker-us-east-1d-135.mashery.com
+      - prod-j-worker-us-east-1e-65.mashery.com
       X-Plan-Qps-Allotted:
       - '25'
       X-Plan-Qps-Current:
@@ -52,10 +52,10 @@ http_interactions:
       X-Plan-Quota-Allotted:
       - '15000'
       X-Plan-Quota-Current:
-      - '55'
+      - '29'
       X-Varnish:
-      - '24229988'
-      - '47011925'
+      - '1019646'
+      - '1195953'
       X-Via:
       - Translation-Proxy
       Content-Length:
@@ -15712,44 +15712,5 @@ http_interactions:
         MThhOTA1NzY3ZTQ0IiwibmFtZSI6IkRhbGxhcyBTdGFycyIsImFsaWFzIjoi
         REFMIn19XX0=
     http_version: 
-  recorded_at: Wed, 10 Jan 2018 19:23:06 GMT
-- request:
-    method: get
-    uri: https://api.sportradar.us/nhl/ot/v5/en/games/2013/REG/schedule.json?api_key=<API_KEY>
-    body:
-      encoding: US-ASCII
-      base64_string: ''
-    headers:
-      Accept:
-      - "*/*"
-      Accept-Encoding:
-      - gzip, deflate
-      User-Agent:
-      - rest-client/2.0.2 (darwin16.7.0 x86_64) ruby/2.3.3p222
-      Host:
-      - api.sportradar.us
-  response:
-    status:
-      code: 596
-      message: '596'
-    headers:
-      Content-Type:
-      - text/xml
-      Date:
-      - Thu, 31 May 2018 15:57:14 GMT
-      Server:
-      - Mashery Proxy
-      X-Mashery-Error-Code:
-      - ERR_596_SERVICE_NOT_FOUND
-      Content-Length:
-      - '30'
-      Connection:
-      - keep-alive
-    body:
-      encoding: UTF-8
-      base64_string: 'PGgxPjU5NiBTZXJ2aWNlIE5vdCBGb3VuZDwvaDE+
-
-'
-    http_version:
-  recorded_at: Thu, 31 May 2018 15:57:14 GMT
+  recorded_at: Thu, 31 May 2018 20:58:19 GMT
 recorded_with: VCR 3.0.3

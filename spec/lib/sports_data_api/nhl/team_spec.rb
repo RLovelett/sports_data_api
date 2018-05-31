@@ -36,7 +36,7 @@ describe SportsDataApi::Nhl::Team, vcr: {
     its(:name) { should eq 'Wild' }
     its(:points) { should be_nil }
     it 'parses players' do
-      expect(subject.players.count).to eq 24
+      expect(subject.players.count).to eq 36
       expect(subject.players.first).to be_a SportsDataApi::Nhl::Player
     end
   end
