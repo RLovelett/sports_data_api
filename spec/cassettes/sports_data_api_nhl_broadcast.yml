@@ -2,45 +2,6 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.sportradar.us/nhl/ot/v5/en/games/2013/12/12/schedule.json?api_key=<API_KEY>
-    body:
-      encoding: US-ASCII
-      base64_string: ''
-    headers:
-      Accept:
-      - "*/*"
-      Accept-Encoding:
-      - gzip, deflate
-      User-Agent:
-      - rest-client/2.0.2 (darwin15.6.0 x86_64) ruby/2.4.2p198
-      Host:
-      - api.sportradar.us
-  response:
-    status:
-      code: 596
-      message: '596'
-    headers:
-      Content-Type:
-      - text/xml
-      Date:
-      - Wed, 10 Jan 2018 05:22:27 GMT
-      Server:
-      - Mashery Proxy
-      X-Mashery-Error-Code:
-      - ERR_596_SERVICE_NOT_FOUND
-      Content-Length:
-      - '30'
-      Connection:
-      - keep-alive
-    body:
-      encoding: UTF-8
-      base64_string: 'PGgxPjU5NiBTZXJ2aWNlIE5vdCBGb3VuZDwvaDE+
-
-'
-    http_version:
-  recorded_at: Wed, 10 Jan 2018 05:22:27 GMT
-- request:
-    method: get
     uri: https://api.sportradar.us/nhl/trial/v5/en/games/2013/12/12/schedule.json?api_key=<API_KEY>
     body:
       encoding: US-ASCII
@@ -51,7 +12,7 @@ http_interactions:
       Accept-Encoding:
       - gzip, deflate
       User-Agent:
-      - rest-client/2.0.2 (darwin17.3.0 x86_64) ruby/2.5.0p0
+      - rest-client/2.0.2 (darwin16.7.0 x86_64) ruby/2.3.3p222
       Host:
       - api.sportradar.us
   response:
@@ -70,9 +31,9 @@ http_interactions:
       Content-Type:
       - application/json;charset=utf-8
       Date:
-      - Wed, 10 Jan 2018 15:52:53 GMT
+      - Thu, 31 May 2018 20:59:05 GMT
       Expires:
-      - Wed, 10 Jan 2018 15:53:04 GMT
+      - Thu, 31 May 2018 20:59:16 GMT
       Server:
       - nginx
       Via:
@@ -83,7 +44,7 @@ http_interactions:
       X-Fe-Cache:
       - MISS
       X-Mashery-Responder:
-      - prod-j-worker-us-east-1b-134.mashery.com
+      - prod-j-worker-us-east-1b-50.mashery.com
       X-Plan-Qps-Allotted:
       - '25'
       X-Plan-Qps-Current:
@@ -91,10 +52,10 @@ http_interactions:
       X-Plan-Quota-Allotted:
       - '15000'
       X-Plan-Quota-Current:
-      - '37'
+      - '35'
       X-Varnish:
-      - '23041489'
-      - '47005038'
+      - '1237098'
+      - '1245444'
       X-Via:
       - Translation-Proxy
       Content-Length:
@@ -248,5 +209,5 @@ http_interactions:
         MDkxYy0wZjI0LTExZTItODUyNS0xOGE5MDU3NjdlNDQiLCJuYW1lIjoiTWlu
         bmVzb3RhIFdpbGQiLCJhbGlhcyI6Ik1JTiJ9fV19
     http_version: 
-  recorded_at: Wed, 10 Jan 2018 15:52:53 GMT
+  recorded_at: Thu, 31 May 2018 20:59:05 GMT
 recorded_with: VCR 3.0.3

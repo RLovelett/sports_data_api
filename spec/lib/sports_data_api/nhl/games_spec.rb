@@ -7,7 +7,7 @@ describe SportsDataApi::Nhl::Games, vcr: {
 } do
   context 'results from daily schedule fetch' do
     let(:games) do
-      SportsDataApi.set_access_level(:nhl, 'ot')
+      SportsDataApi.set_access_level(:nhl, 'trial')
       SportsDataApi.set_key(:nhl, api_key(:nhl))
       SportsDataApi::Nhl.daily(2013, 12, 12)
     end
