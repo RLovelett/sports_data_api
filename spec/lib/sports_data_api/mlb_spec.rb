@@ -11,50 +11,50 @@ describe SportsDataApi::Mlb do
       SportsDataApi.set_access_level(:mlb, 't')
     end
     describe '.leagues' do
-      it { expect { subject.leagues }.to raise_error(SportsDataApi::Exception) }
+      it { expect { subject.leagues }.to raise_error(SportsDataApi::Error) }
     end
     describe '.teams' do
-      it { expect { subject.teams }.to raise_error(SportsDataApi::Exception) }
+      it { expect { subject.teams }.to raise_error(SportsDataApi::Error) }
     end
     describe '.season_schedule' do
-      it { expect { subject.season_schedule(2017, :REG) }.to raise_error(SportsDataApi::Exception) }
+      it { expect { subject.season_schedule(2017, :REG) }.to raise_error(SportsDataApi::Error) }
     end
     describe '.daily_schedule' do
-      it { expect { subject.daily_schedule(2016, 9, 24) }.to raise_error(SportsDataApi::Exception) }
+      it { expect { subject.daily_schedule(2016, 9, 24) }.to raise_error(SportsDataApi::Error) }
     end
     describe '.daily_summary' do
-      it { expect { subject.daily_summary(2016, 9, 24) }.to raise_error(SportsDataApi::Exception) }
+      it { expect { subject.daily_summary(2016, 9, 24) }.to raise_error(SportsDataApi::Error) }
     end
     describe '.game' do
-      it { expect { subject.game('4f46825d-8172-47bc-9f06-2a162c330ffb') }.to raise_error(SportsDataApi::Exception) }
+      it { expect { subject.game('4f46825d-8172-47bc-9f06-2a162c330ffb') }.to raise_error(SportsDataApi::Error) }
     end
     describe '.team' do
-      it { expect { subject.team('575c19b7-4052-41c2-9f0a-1c5813d02f99') }.to raise_error(SportsDataApi::Exception) }
+      it { expect { subject.team('575c19b7-4052-41c2-9f0a-1c5813d02f99') }.to raise_error(SportsDataApi::Error) }
     end
   end
 
   context 'no response from the api' do
     before { stub_request(:any, /api\.sportradar\.us.*/).to_timeout }
     describe '.leagues' do
-      it { expect { subject.leagues }.to raise_error(SportsDataApi::Exception) }
+      it { expect { subject.leagues }.to raise_error(SportsDataApi::Error) }
     end
     describe '.teams' do
-      it { expect { subject.teams }.to raise_error(SportsDataApi::Exception) }
+      it { expect { subject.teams }.to raise_error(SportsDataApi::Error) }
     end
     describe '.season_schedule' do
-      it { expect { subject.season_schedule(2017, :REG) }.to raise_error(SportsDataApi::Exception) }
+      it { expect { subject.season_schedule(2017, :REG) }.to raise_error(SportsDataApi::Error) }
     end
     describe '.daily_schedule' do
-      it { expect { subject.daily_schedule(2016, 9,24) }.to raise_error(SportsDataApi::Exception) }
+      it { expect { subject.daily_schedule(2016, 9,24) }.to raise_error(SportsDataApi::Error) }
     end
     describe '.daily_summary' do
-      it { expect { subject.daily_summary(2016, 9,24) }.to raise_error(SportsDataApi::Exception) }
+      it { expect { subject.daily_summary(2016, 9,24) }.to raise_error(SportsDataApi::Error) }
     end
     describe '.game' do
-      it { expect { subject.game('4f46825d-8172-47bc-9f06-2a162c330ffb') }.to raise_error(SportsDataApi::Exception) }
+      it { expect { subject.game('4f46825d-8172-47bc-9f06-2a162c330ffb') }.to raise_error(SportsDataApi::Error) }
     end
     describe '.team' do
-      it { expect { subject.team('575c19b7-4052-41c2-9f0a-1c5813d02f99') }.to raise_error(SportsDataApi::Exception) }
+      it { expect { subject.team('575c19b7-4052-41c2-9f0a-1c5813d02f99') }.to raise_error(SportsDataApi::Error) }
     end
   end
 

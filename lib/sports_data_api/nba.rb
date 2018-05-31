@@ -2,9 +2,6 @@ module SportsDataApi
   module Nba
     extend SportsDataApi::Request
 
-    class Exception < ::Exception
-    end
-
     API_VERSION = 4
     BASE_URL = 'https://api.sportradar.us/nba/%{access_level}/v%{version}/en'
     DIR = File.join(File.dirname(__FILE__), 'nba')
@@ -25,7 +22,7 @@ module SportsDataApi
       # Fetches NBA season schedule for a given year and season
       def schedule(year, season)
         season = season.to_s.upcase.to_sym
-        raise Exception.new("#{season} is not a valid season") unless Season.valid?(season)
+        raise Error.new("#{season} is not a valid season") unless Season.valid?(season)
 
         Season.new(response_json("/games/#{year}/#{season}/schedule.json"))
       end

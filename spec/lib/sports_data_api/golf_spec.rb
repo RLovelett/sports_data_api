@@ -11,44 +11,44 @@ describe SportsDataApi::Golf, vcr: {
       SportsDataApi.set_access_level(:golf, 't')
     end
     describe '.season' do
-      it { expect { subject.season(:pga, 2016) }.to raise_error(SportsDataApi::Exception) }
+      it { expect { subject.season(:pga, 2016) }.to raise_error(SportsDataApi::Error) }
     end
     describe '.players' do
-      it { expect { subject.players(:pga, 2016) }.to raise_error(SportsDataApi::Exception) }
+      it { expect { subject.players(:pga, 2016) }.to raise_error(SportsDataApi::Error) }
     end
     describe '.summary' do
-      it { expect { subject.summary(:pga, 2016, 'id') }.to raise_error(SportsDataApi::Exception) }
+      it { expect { subject.summary(:pga, 2016, 'id') }.to raise_error(SportsDataApi::Error) }
     end
     describe '.tee_times' do
-      it { expect { subject.tee_times(:pga, 2016, 'id', 1) }.to raise_error(SportsDataApi::Exception) }
+      it { expect { subject.tee_times(:pga, 2016, 'id', 1) }.to raise_error(SportsDataApi::Error) }
     end
     describe '.scorecards' do
-      it { expect { subject.scorecards(:pga, 2016, 'id', 1) }.to raise_error(SportsDataApi::Exception) }
+      it { expect { subject.scorecards(:pga, 2016, 'id', 1) }.to raise_error(SportsDataApi::Error) }
     end
     describe '.leaderboard' do
-      it { expect { subject.leaderboard(:pga, 2016, 'id') }.to raise_error(SportsDataApi::Exception) }
+      it { expect { subject.leaderboard(:pga, 2016, 'id') }.to raise_error(SportsDataApi::Error) }
     end
   end
 
   context 'no response from the api' do
     before { stub_request(:any, /api\.sportsdatallc\.org.*/).to_timeout }
     describe '.season' do
-      it { expect { subject.season(:pga, 2016) }.to raise_error(SportsDataApi::Exception) }
+      it { expect { subject.season(:pga, 2016) }.to raise_error(SportsDataApi::Error) }
     end
     describe '.players' do
-      it { expect { subject.players(:pga, 2016) }.to raise_error(SportsDataApi::Exception) }
+      it { expect { subject.players(:pga, 2016) }.to raise_error(SportsDataApi::Error) }
     end
     describe '.summary' do
-      it { expect { subject.summary(:pga, 2016, '123') }.to raise_error(SportsDataApi::Exception) }
+      it { expect { subject.summary(:pga, 2016, '123') }.to raise_error(SportsDataApi::Error) }
     end
     describe '.tee_times' do
-      it { expect { subject.tee_times(:pga, 2016, '123', 1) }.to raise_error(SportsDataApi::Exception) }
+      it { expect { subject.tee_times(:pga, 2016, '123', 1) }.to raise_error(SportsDataApi::Error) }
     end
     describe '.scorecards' do
-      it { expect { subject.scorecards(:pga, 2016, '123', 1) }.to raise_error(SportsDataApi::Exception) }
+      it { expect { subject.scorecards(:pga, 2016, '123', 1) }.to raise_error(SportsDataApi::Error) }
     end
     describe '.leaderboard' do
-      it { expect { subject.leaderboard(:pga, 2016, '123') }.to raise_error(SportsDataApi::Exception) }
+      it { expect { subject.leaderboard(:pga, 2016, '123') }.to raise_error(SportsDataApi::Error) }
     end
   end
 

@@ -12,14 +12,14 @@ describe SportsDataApi::Ncaamb, vcr: {
       SportsDataApi.set_access_level(:ncaamb, 't')
     end
     describe '.schedule' do
-      it { expect { subject.schedule(2014, :REG) }.to raise_error(SportsDataApi::Exception) }
+      it { expect { subject.schedule(2014, :REG) }.to raise_error(SportsDataApi::Error) }
     end
   end
 
   context 'no response from the api' do
     before(:each) { stub_request(:any, /api\.sportsdatallc\.org.*/).to_timeout }
     describe '.schedule' do
-      it { expect { subject.schedule(2014, :REG) }.to raise_error(SportsDataApi::Exception) }
+      it { expect { subject.schedule(2014, :REG) }.to raise_error(SportsDataApi::Error) }
     end
   end
 

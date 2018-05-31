@@ -33,9 +33,9 @@ module SportsDataApi
       begin
         RestClient.get(url, params: { api_key: SportsDataApi.key(sport) })
       rescue RestClient::RequestTimeout
-        raise Exception, 'The API did not respond in a reasonable amount of time'
+        raise Error, 'The API did not respond in a reasonable amount of time'
       rescue RestClient::Exception => e
-        raise Exception, exception_message(e)
+        raise Error, exception_message(e)
       end
     end
 
@@ -54,7 +54,7 @@ module SportsDataApi
 
   LIBRARY_PATH = File.join(File.dirname(__FILE__), 'sports_data_api')
 
-  autoload :Exception,   File.join(LIBRARY_PATH, 'exception')
+  autoload :Error,       File.join(LIBRARY_PATH, 'error')
   autoload :Golf,        File.join(LIBRARY_PATH, 'golf')
   autoload :JsonData,    File.join(LIBRARY_PATH, 'json_data')
   autoload :MergedStats, File.join(LIBRARY_PATH, 'merged_stats')

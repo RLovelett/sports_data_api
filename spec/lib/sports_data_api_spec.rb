@@ -21,7 +21,7 @@ describe SportsDataApi do
         expect do
           SportsDataApi.generic_request('https://example.com', 'sport')
         end.to raise_error(
-          SportsDataApi::Exception,
+          SportsDataApi::Error,
           'The API did not respond in a reasonable amount of time')
       end
     end
@@ -46,7 +46,7 @@ describe SportsDataApi do
 
           expect do
             SportsDataApi.generic_request('https://example.com', :sport)
-          end.to raise_error(SportsDataApi::Exception, 'Server Error')
+          end.to raise_error(SportsDataApi::Error, 'Server Error')
 
           expect(RestClient).to have_received(:get)
             .with('https://example.com', { params: { api_key: 'key' } })
@@ -60,7 +60,7 @@ describe SportsDataApi do
 
           expect do
             SportsDataApi.generic_request('https://example.com', :sport)
-          end.to raise_error(SportsDataApi::Exception, '527 Error')
+          end.to raise_error(SportsDataApi::Error, '527 Error')
 
           expect(RestClient).to have_received(:get)
             .with('https://example.com', { params: { api_key: 'key' } })
@@ -74,7 +74,7 @@ describe SportsDataApi do
 
           expect do
             SportsDataApi.generic_request('https://example.com', :sport)
-          end.to raise_error(SportsDataApi::Exception, 'The server did not specify a message')
+          end.to raise_error(SportsDataApi::Error, 'The server did not specify a message')
 
           expect(RestClient).to have_received(:get)
             .with('https://example.com', { params: { api_key: 'key' } })
