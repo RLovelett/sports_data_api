@@ -6,36 +6,21 @@ describe SportsDataApi::Nfl::Season, vcr: {
     match_requests_on: [:host, :path]
 } do
   subject { SportsDataApi::Nfl::Season }
-  describe '.season?' do
-    context :PRE do
-      it { SportsDataApi::Nfl::Season.valid?(:PRE).should eq(true) }
+
+  context 'results from .schedule' do
+    let(:season) { SportsDataApi::Nfl.schedule(2012, :REG) }
+
+    before do
+      SportsDataApi.set_access_level(:nfl, 'ot')
+      SportsDataApi.set_key(:nfl, api_key(:nfl))
     end
-    context :REG do
-      it { subject.valid?(:REG).should eq(true) }
+
+    it 'parses out the season' do
+      expect(season).to be_a SportsDataApi::Nfl::Season
+      expect(season.year).to eq 2012
+      expect(season.type).to eq :REG
+      expect(season.weeks.count).to eq 17
+      expect(season.weeks.map(&:class).uniq).to eq [SportsDataApi::Nfl::Week]
     end
-    context :PST do
-      it { subject.valid?(:PST).should eq(true) }
-    end
-    context :pre do
-      it { subject.valid?(:pre).should eq(false) }
-    end
-    context :reg do
-      it { subject.valid?(:reg).should eq(false) }
-    end
-    context :pst do
-      it { subject.valid?(:pst).should eq(false) }
-    end
-  end
-  context 'results from schedule fetch' do
-      let(:season) do
-        SportsDataApi.set_access_level(:nfl, 't')
-        SportsDataApi.set_key(:nfl, api_key(:nfl))
-        SportsDataApi::Nfl.schedule(2012, :REG)
-      end
-      subject { season }
-      it { should be_an_instance_of(SportsDataApi::Nfl::Season) }
-      its(:year) { should eq 2012 }
-      its(:type) { should eq :REG }
-      its(:weeks) { should have(17).weeks }
   end
 end

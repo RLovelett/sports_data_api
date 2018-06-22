@@ -1,25 +1,24 @@
 module SportsDataApi
   module Nfl
     class Season
-      attr_reader :year, :type, :weeks
+      attr_reader :year, :type
 
-      def initialize(season_hash)
-        @weeks = []
-        @year = season_hash['season']
-        @type = season_hash['type'].to_sym
-        @weeks = season_hash['weeks'].map do |week_hash|
-          Week.new(@year, @type, week_hash)
+      def initialize(json)
+        @json = json
+        @id = json['id']
+        @year = json['year']
+        @type = json['type'].to_sym
+      end
+
+      def weeks
+        @weeks ||= json['weeks'].map do |week|
+          Week.new(week, year, type)
         end
       end
 
-      ##
-      # Check if the requested season is a valid
-      # NFL season type.
-      #
-      # The only valid types are: :PRE, :REG, :PST
-      def self.valid?(season)
-        [:PRE, :REG, :PST].include?(season)
-      end
+      private
+
+      attr_reader :json
     end
   end
 end
