@@ -58,7 +58,7 @@ describe SportsDataApi::Nfl, vcr: {
   context 'create valid URLs' do
     let(:full_url) { "#{url}?api_key=#{api_key(:nfl)}" }
     let(:json) { RestClient.get(full_url) }
-    let(:params) { { params: { api_key: SportsDataApi.key(:nfl) } } }
+    let(:params) { { params: { api_key: api_key(:nfl) } } }
 
     before(:each) do
       SportsDataApi.set_key(:nfl, api_key(:nfl))

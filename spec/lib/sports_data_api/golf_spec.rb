@@ -53,71 +53,56 @@ describe SportsDataApi::Golf, vcr: {
   end
 
   context 'valid API key' do
+    let(:params) { { params: { api_key: api_key(:golf) } } }
+    let(:json) { RestClient.get(url, params) }
     before do
-      SportsDataApi.set_key(:golf, 'valid-key')
+      SportsDataApi.set_key(:golf, api_key(:golf))
       SportsDataApi.set_access_level(:golf, 't')
+      allow(RestClient).to receive(:get).and_return(json)
     end
     describe '.season' do
+      let(:url) { 'https://api.sportsdatallc.org/golf-t2/schedule/pga/2016/tournaments/schedule.json' }
+
       it 'creates a valid Sports Data LLC url' do
-        season_url = 'https://api.sportsdatallc.org/golf-t2/schedule/pga/2016/tournaments/schedule.json'
-        tournaments_json = RestClient.get("#{season_url}?api_key=#{api_key(:golf)}")
-        allow(RestClient).to receive(:get) { tournaments_json }
-
-        subject.season(:pga, 2016)
-
-        params = { params: { api_key: SportsDataApi.key(:golf) } }
-        expect(RestClient).to have_received(:get).with(season_url, params)
+        expect(subject.season(:pga, 2016)).to be_a SportsDataApi::Golf::Season
+        expect(RestClient).to have_received(:get).with(url, params)
       end
     end
     describe '.players' do
+      let(:url) { 'https://api.sportsdatallc.org/golf-t2/profiles/pga/2016/players/profiles.json' }
+
       it 'creates a valid Sports Data LLC url' do
-        players_url = 'https://api.sportsdatallc.org/golf-t2/profiles/pga/2016/players/profiles.json'
-        players_json = RestClient.get("#{players_url}?api_key=#{api_key(:golf)}")
-        allow(RestClient).to receive(:get) { players_json }
-
-        subject.players(:pga, 2016)
-
-        params = { params: { api_key: SportsDataApi.key(:golf) } }
-        expect(RestClient).to have_received(:get).with(players_url, params)
+        response = subject.players(:pga, 2016)
+        expect(response).to be_a Array
+        expect(response.first).to be_a SportsDataApi::Golf::Player
+        expect(RestClient).to have_received(:get).with(url, params)
       end
     end
     describe '.summary' do
+      let(:url) { 'https://api.sportsdatallc.org/golf-t2/summary/pga/2016/tournaments/b95ab96b-9a0b-4309-880a-ad063cb163ea/summary.json' }
+
       it 'creates a valid Sports Data LLC url' do
-        summary_url = 'https://api.sportsdatallc.org/golf-t2/summary/pga/2016/tournaments/b95ab96b-9a0b-4309-880a-ad063cb163ea/summary.json'
-        summary_json = RestClient.get("#{summary_url}?api_key=#{api_key(:golf)}")
-        allow(RestClient).to receive(:get) { summary_json }
-
         response = subject.summary(:pga, 2016, 'b95ab96b-9a0b-4309-880a-ad063cb163ea')
-
-        params = { params: { api_key: SportsDataApi.key(:golf) } }
-        expect(RestClient).to have_received(:get).with(summary_url, params)
         expect(response).to be_an_instance_of(SportsDataApi::Golf::Summary)
+        expect(RestClient).to have_received(:get).with(url, params)
       end
     end
     describe '.tee_times' do
+      let(:url) { 'https://api.sportsdatallc.org/golf-t2/teetimes/pga/2016/tournaments/b95ab96b-9a0b-4309-880a-ad063cb163ea/rounds/2/teetimes.json' }
+
       it 'creates a valid Sports Data LLC url' do
-        tee_times_url = 'https://api.sportsdatallc.org/golf-t2/teetimes/pga/2016/tournaments/b95ab96b-9a0b-4309-880a-ad063cb163ea/rounds/2/teetimes.json'
-        tee_times_json = RestClient.get("#{tee_times_url}?api_key=#{api_key(:golf)}")
-        allow(RestClient).to receive(:get) { tee_times_json }
-
         response = subject.tee_times(:pga, 2016, 'b95ab96b-9a0b-4309-880a-ad063cb163ea', 2)
-
-        params = { params: { api_key: SportsDataApi.key(:golf) } }
-        expect(RestClient).to have_received(:get).with(tee_times_url, params)
         expect(response.length).to eq 1
         expect(response.first).to be_an_instance_of(SportsDataApi::Golf::Course)
+        expect(RestClient).to have_received(:get).with(url, params)
       end
     end
     describe '.scorecards' do
-      it 'creates a valid Sports Data LLC url' do
-        url = 'https://api.sportsdatallc.org/golf-t2/scorecards/pga/2016/tournaments/b95ab96b-9a0b-4309-880a-ad063cb163ea/rounds/2/scores.json'
-        json = RestClient.get("#{url}?api_key=#{api_key(:golf)}")
-        allow(RestClient).to receive(:get) { json }
+      let(:url) { 'https://api.sportsdatallc.org/golf-t2/scorecards/pga/2016/tournaments/b95ab96b-9a0b-4309-880a-ad063cb163ea/rounds/2/scores.json' }
 
+      it 'creates a valid Sports Data LLC url' do
         response = subject.scorecards(:pga, 2016, 'b95ab96b-9a0b-4309-880a-ad063cb163ea', 2)
 
-        params = { params: { api_key: SportsDataApi.key(:golf) } }
-        expect(RestClient).to have_received(:get).with(url, params)
         players = response[:players]
         expect(players.length).to eq 97
         expect(players.first).to be_an_instance_of(SportsDataApi::Golf::Player)
@@ -126,20 +111,19 @@ describe SportsDataApi::Golf, vcr: {
         expect(response[:tournament_id]).to eq 'b95ab96b-9a0b-4309-880a-ad063cb163ea'
         expect(response[:year]).to eq 2016
         expect(response[:tour]).to eq :pga
+        expect(RestClient).to have_received(:get).with(url, params)
       end
     end
-    describe '.leaderboard' do
-      it 'creates a valid Sports Data LLC url' do
-        url = 'https://api.sportsdatallc.org/golf-t2/leaderboard/pga/2016/tournaments/b95ab96b-9a0b-4309-880a-ad063cb163ea/leaderboard.json'
-        json = RestClient.get("#{url}?api_key=#{api_key(:golf)}")
-        allow(RestClient).to receive(:get) { json }
 
+    describe '.leaderboard' do
+      let(:url) { 'https://api.sportsdatallc.org/golf-t2/leaderboard/pga/2016/tournaments/b95ab96b-9a0b-4309-880a-ad063cb163ea/leaderboard.json' }
+
+      it 'creates a valid Sports Data LLC url' do
         response = subject.leaderboard(:pga, 2016, 'b95ab96b-9a0b-4309-880a-ad063cb163ea')
 
-        params = { params: { api_key: SportsDataApi.key(:golf) } }
-        expect(RestClient).to have_received(:get).with(url, params)
         expect(response.length).to eq 97
         expect(response.first).to be_an_instance_of(SportsDataApi::Golf::Player)
+        expect(RestClient).to have_received(:get).with(url, params)
       end
     end
   end

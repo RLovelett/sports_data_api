@@ -4,8 +4,8 @@ module SportsDataApi
 
     API_VERSION = 2
     BASE_URL = 'https://api.sportsdatallc.org/golf-%{access_level}%{version}'
-    DIR = File.join(File.dirname(__FILE__), 'golf')
     SPORT = :golf
+    DIR = File.join(File.dirname(__FILE__), SPORT.to_s)
 
     autoload :Course, File.join(DIR, 'course')
     autoload :Leaderboard, File.join(DIR, 'leaderboard')

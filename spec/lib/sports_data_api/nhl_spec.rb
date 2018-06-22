@@ -63,60 +63,59 @@ describe SportsDataApi::Nhl, vcr: {
   end
 
   context 'create valid URLs' do
+    let(:params) { { params: { api_key: api_key(:nhl) } } }
+    let(:json) { RestClient.get(url, params) }
+
     before do
-      SportsDataApi.set_key(:nhl, 'valid_key')
+      SportsDataApi.set_key(:nhl, api_key(:nhl))
       SportsDataApi.set_access_level(:nhl, 'trial')
+      allow(RestClient).to receive(:get).and_return(json)
     end
 
     describe '.schedule' do
       let(:url) { 'https://api.sportradar.us/nhl/trial/v5/en/games/2017/REG/schedule.json' }
-      let!(:json) { RestClient.get("#{url}?api_key=#{api_key(:nhl)}") }
+
       it 'creates a valid Sports Data LLC url' do
-        params = { params: { api_key: SportsDataApi.key(:nhl) } }
-        RestClient.should_receive(:get).with(url, params).and_return(json)
         expect(subject.schedule(2017, :REG)).to be_a SportsDataApi::Nhl::Season
+        expect(RestClient).to have_received(:get).with(url, params)
       end
     end
 
     describe '.team_roster' do
       let(:team_id) { '4416091c-0f24-11e2-8525-18a905767e44' }
       let(:url) { "https://api.sportradar.us/nhl/trial/v5/en/teams/#{team_id}/profile.json" }
-      let!(:json) { RestClient.get("#{url}?api_key=#{api_key(:nhl)}") }
+
       it 'creates a valid Sports Data LLC url' do
-        params = { params: { api_key: SportsDataApi.key(:nhl) } }
-        RestClient.should_receive(:get).with(url, params).and_return(json)
         expect(subject.team_roster(team_id)).to be_a SportsDataApi::Nhl::Team
+        expect(RestClient).to have_received(:get).with(url, params)
       end
     end
 
     describe '.game_summary' do
       let(:game_id) { 'af285aa3-3d80-4051-9449-5b58e5985a4e' }
       let(:url) { "https://api.sportradar.us/nhl/trial/v5/en/games/#{game_id}/summary.json" }
-      let!(:json) { RestClient.get("#{url}?api_key=#{api_key(:nhl)}") }
+
       it 'creates a valid Sports Data LLC url' do
-        params = { params: { api_key: SportsDataApi.key(:nhl) } }
-        RestClient.should_receive(:get).with(url, params).and_return(json)
         expect(subject.game_summary(game_id)).to be_a SportsDataApi::Nhl::Game
+        expect(RestClient).to have_received(:get).with(url, params)
       end
     end
 
     describe '.teams' do
       let(:url) { "https://api.sportradar.us/nhl/trial/v5/en/league/hierarchy.json" }
-      let!(:json) { RestClient.get("#{url}?api_key=#{api_key(:nhl)}") }
+
       it 'creates a valid Sports Data LLC url' do
-        params = { params: { api_key: SportsDataApi.key(:nhl) } }
-        RestClient.should_receive(:get).with(url, params).and_return(json)
         expect(subject.teams).to be_a SportsDataApi::Nhl::Teams
+        expect(RestClient).to have_received(:get).with(url, params)
       end
     end
 
     describe '.daily' do
       let(:url) { "https://api.sportradar.us/nhl/trial/v5/en/games/2018/1/1/schedule.json" }
-      let!(:json) { RestClient.get("#{url}?api_key=#{api_key(:nhl)}") }
+
       it 'creates a valid Sports Data LLC url' do
-        params = { params: { api_key: SportsDataApi.key(:nhl) } }
-        RestClient.should_receive(:get).with(url, params).and_return(json)
         expect(subject.daily(2018, 1, 1)).to be_a SportsDataApi::Nhl::Games
+        expect(RestClient).to have_received(:get).with(url, params)
       end
     end
   end
