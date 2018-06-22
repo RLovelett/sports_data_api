@@ -5,22 +5,47 @@ describe SportsDataApi::Nfl::Venue, vcr: {
     record: :new_episodes,
     match_requests_on: [:host, :path]
 } do
-  let(:weekly_schedule) do
-    SportsDataApi.set_access_level(:nfl, 't')
+  before do
     SportsDataApi.set_key(:nfl, api_key(:nfl))
-    SportsDataApi::Nfl.weekly(2011, :PST, 4)
+    SportsDataApi.set_access_level(:nfl, 'ot')
   end
-  context 'results from weekly schedule fetch' do
-    subject { weekly_schedule.first.venue }
-    its(:id) { should eq '6ed18563-53e0-46c2-a91d-12d73a16456d' }
-    its(:name) { should eq 'Lucas Oil Stadium' }
-    its(:address) { should eq '500 South Capitol Avenue' }
-    its(:city) { should eq 'Indianapolis' }
-    its(:state) { should eq 'IN' }
-    its(:zip) { '46225' }
-    its(:country) { should eq 'USA' }
-    its(:capacity) { should eq 67000 }
-    its(:surface) { should eq 'artificial' }
-    its(:type) { should eq 'retractable_dome' }
+
+  describe 'when venue comes from .team_roster' do
+    let(:team_id) { '33405046-04ee-4058-a950-d606f8c30852' }
+    let(:base) { SportsDataApi::Nfl.team_roster(team_id) }
+    let(:venue) { base.venue }
+
+    it 'parses out the venue data' do
+      expect(venue[:id]).to eq 'f5ff00d4-1ed8-4918-bf73-13d66d510f98'
+      expect(venue[:name]).to eq 'U.S. Bank Stadium'
+      expect(venue[:city]).to eq 'Minneapolis'
+      expect(venue[:state]).to eq 'MN'
+      expect(venue[:country]).to eq 'USA'
+      expect(venue[:zip]).to eq '55415'
+      expect(venue[:address]).to eq '900 S 5th St'
+      expect(venue[:capacity]).to eq 66200
+      expect(venue[:surface]).to eq 'turf'
+      expect(venue[:roof_type]).to eq 'dome'
+    end
+  end
+
+  describe 'when venue comes from .teams' do
+    let(:team_id) { '33405046-04ee-4058-a950-d606f8c30852' }
+    let(:base) { SportsDataApi::Nfl.teams }
+    let(:team) { base.teams.detect { |t| t.id == team_id } }
+    let(:venue) { team.venue }
+
+    it 'parses out the venue data' do
+      expect(venue[:id]).to eq 'f5ff00d4-1ed8-4918-bf73-13d66d510f98'
+      expect(venue[:name]).to eq 'U.S. Bank Stadium'
+      expect(venue[:city]).to eq 'Minneapolis'
+      expect(venue[:state]).to eq 'MN'
+      expect(venue[:country]).to eq 'USA'
+      expect(venue[:zip]).to eq '55415'
+      expect(venue[:address]).to eq '900 S 5th St'
+      expect(venue[:capacity]).to eq 66200
+      expect(venue[:surface]).to eq 'turf'
+      expect(venue[:roof_type]).to eq 'dome'
+    end
   end
 end

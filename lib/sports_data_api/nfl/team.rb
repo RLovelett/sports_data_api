@@ -1,87 +1,78 @@
 module SportsDataApi
   module Nfl
     class Team
-      attr_reader :id, :name, :conference, :division, :market, :remaining_challenges,
-                  :remaining_timeouts, :score, :quarters, :venue, :points, :statistics, :players
+      attr_reader :id, :name, :alias, :market, :statistics,
+        :remaining_challenges, :remaining_timeouts
 
-      def initialize(team_hash, conference = nil, division = nil)
-        if team_hash
-          @id = team_hash['id']
-          @name = team_hash['name']
-          @conference = conference
-          @division = division
-          @market = team_hash['market']
-          @remaining_challenges = team_hash['remaining_challenges']
-          @remaining_timeouts = team_hash['remaining_timeouts']
-          @quarters = []
-          if team_hash['scoring']
-            team_hash['scoring'].each do |scoring_hash|
-              @quarters[scoring_hash['quarter']-1] = scoring_hash['points']
-            end
-          end
-          @quarters = @quarters.fill(0, @quarters.size, 4 - @quarters.size)
+      def initialize(json, conference: nil, division: nil, statistics: nil)
+        @json = json
+        @conference = conference
+        @division = division
+        @statistics = statistics
 
-          # Parse the Venue data if it exists
-          if team_hash.key?('venue')
-            @venue = Venue.new(team_hash['venue'])
-          end
-
-          if team_hash['statistics']
-            @statistics = parse_team_statistics(team_hash['statistics'])
-            @players = parse_player_statistics(team_hash['statistics'])
-          end
-
-          if team_hash['players']
-            @players = TeamRoster.new(team_hash).players
-          end
-          @points = team_hash['points'] || score
-        end
+        @id = json['id']
+        @name = json['name']
+        @alias = json['alias']
+        @market = json['market']
+        @remaining_challenges = json['remaining_challenges']
+        @remaining_timeouts = json['remaining_timeouts']
       end
 
-      # Sum the score of each quarter
-      def score
-        @quarters.inject(:+)
+      def conference
+        @conference || json.dig('conference', 'name')
       end
 
-      ##
-      # Compare the Team with another team
-      def ==(other)
-        # Must have an id to compare
-        return false if id.nil?
+      def division
+        @division || json.dig('division', 'name')
+      end
 
-        if other.is_a? SportsDataApi::Nfl::Team
-          other.id && id === other.id
-        elsif other.is_a? Symbol
-          id.to_sym === other
-        else
-          super(other)
-        end
+      def venue
+        return unless json['venue']
+        Venue.new(json['venue'])
+      end
+
+      def points
+        json['points']
+      end
+
+      def players
+        players_json.map { |p| Player.new(p) }
       end
 
       private
 
-      def parse_team_statistics(stats_hash)
-        stats = {}
-        stats_hash.keys.each do |key|
-          stats[key] = stats_hash[key]['team']
+      PLAYER_KEYS = %w[id name jersey reference position].freeze
+
+      attr_reader :json
+
+      def players_json
+        if statistics
+          players_from_stats.values
+        else
+          json.fetch('players', [])
         end
-        stats
       end
 
-      def parse_player_statistics(stats_hash)
-        players = []
-        stats_hash.keys.each do |key|
-          next if !stats_hash[key]['players']
-          stats_hash[key]['players'].each do |p|
-            player = players.select{|a| a['id'] == p['id']}.first || {}
-            players << player if !players.select{|a| a['id'] == p['id']}.first
-            ['id', 'name', 'jersey', 'position'].each do |k|
-              player[k] = p.delete(k)
-            end
-            player[key] = p
+      def players_from_stats
+        statistics.each_with_object({}) do |(key, data), players|
+          next unless data.is_a?(Hash)
+          data.fetch('players', []).each do |player_json|
+            base, stats = split_player_json(player_json)
+            player = players[player_json['id']] || base
+            player['statistics'][key] = stats
+            players[player['id']] = player
           end
         end
-        players
+      end
+
+      def split_player_json(player_json)
+        player = { 'statistics' => {} }
+        stats = {}
+        player_json.each do |k, v|
+          hash = PLAYER_KEYS.include?(k) ? player : stats
+          hash[k] = v
+        end
+        [player, stats]
       end
     end
   end

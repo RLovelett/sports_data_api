@@ -5,15 +5,15 @@ describe SportsDataApi::Nfl::Broadcast, vcr: {
     record: :new_episodes,
     match_requests_on: [:host, :path]
 } do
-  let(:weekly_schedule) do
-    SportsDataApi.set_access_level(:nfl, 't')
+  before do
+    SportsDataApi.set_access_level(:nfl, 'ot')
     SportsDataApi.set_key(:nfl, api_key(:nfl))
-    SportsDataApi::Nfl.weekly(2011, :PST, 4)
   end
-  context 'results from weekly schedule fetch' do
-    subject { weekly_schedule.first.broadcast }
-    its(:network) { should eq 'NBC' }
-    its(:satellite) { should eq '' }
-    its(:internet) { should eq 'NFL Redzone' }
+
+  let(:base) { SportsDataApi::Nfl.schedule(2013, :REG) }
+  let(:broadcast) { base.weeks.first.games.first.broadcast }
+
+  it 'parses out the broadcast data' do
+    expect(broadcast[:network]).to eq 'NBC'
   end
 end

@@ -5,188 +5,100 @@ describe SportsDataApi::Nfl::Game, vcr: {
     record: :new_episodes,
     match_requests_on: [:host, :path]
 } do
-  let(:season) do
+  before do
     SportsDataApi.set_key(:nfl, api_key(:nfl))
-    SportsDataApi.set_access_level(:nfl, 't')
-    SportsDataApi::Nfl.schedule(2012, :REG)
+    SportsDataApi.set_access_level(:nfl, 'ot')
   end
-  let(:boxscore) do
-    SportsDataApi.set_key(:nfl, api_key(:nfl))
-    SportsDataApi.set_access_level(:nfl, 't')
-    SportsDataApi::Nfl.boxscore(2012, :REG, 9, 'IND', 'MIA')
-  end
-  let(:game_roster) do
-    SportsDataApi.set_key(:nfl, api_key(:nfl))
-    SportsDataApi.set_access_level(:nfl, 't')
-    SportsDataApi::Nfl.game_roster(2012, :REG, 9, 'IND', 'MIA')
-  end
-  let(:game_statistics) do
-    SportsDataApi.set_key(:nfl, api_key(:nfl))
-    SportsDataApi.set_access_level(:nfl, 't')
-    SportsDataApi::Nfl.game_statistics(2013, :REG, 16, 'GB', 'PIT')
-  end
-  let(:weekly_schedule) do
-    SportsDataApi.set_access_level(:nfl, 't')
-    SportsDataApi.set_key(:nfl, api_key(:nfl))
-    SportsDataApi::Nfl.weekly(2012, :PRE, 1)
-  end
-  context 'results from schedule fetch' do
-    subject { season.weeks.first.games.first }
-    it { should be_an_instance_of(SportsDataApi::Nfl::Game) }
-    its(:id) { should eq '8c0bce5a-7ca2-41e5-9838-d1b8c356ddc3' }
-    its(:scheduled) { should eq Time.new(2012, 9, 5, 19, 30, 00, '-05:00') }
-    its(:home) { should eq 'NYG' }
-    its(:away) { should eq 'DAL' }
-    its(:home_team_id) { should eq 'NYG' }
-    its(:away_team_id) { should eq 'DAL' }
-    its(:status) { should eq 'closed' }
-    its(:home_team) { should be_an_instance_of(SportsDataApi::Nfl::Team) }
-    its(:away_team) { should be_an_instance_of(SportsDataApi::Nfl::Team) }
-    its(:venue) { should be_an_instance_of(SportsDataApi::Nfl::Venue) }
-    its(:broadcast) { should be_an_instance_of(SportsDataApi::Nfl::Broadcast) }
-    its(:weather) { should be_an_instance_of(SportsDataApi::Nfl::Weather) }
-    it '#summary' do
-      expect { subject.summary }.to raise_error(NotImplementedError)
-    end
-    it '#pbp' do
-      expect { subject.pbp }.to raise_error(NotImplementedError)
-    end
-    it '#injuries' do
-      expect { subject.injuries }.to raise_error(NotImplementedError)
-    end
-    it '#depthchart' do
-      expect { subject.depthchart }.to raise_error(NotImplementedError)
-    end
-    its(:boxscore) { should be_an_instance_of(SportsDataApi::Nfl::Game) }
-    its(:roster) { should be_an_instance_of(SportsDataApi::Nfl::Game) }
-    its(:statistics) { should be_an_instance_of(SportsDataApi::Nfl::Game) }
-  end
-  context 'results from boxscore fetch' do
-    subject { boxscore }
-    it { should be_an_instance_of(SportsDataApi::Nfl::Game) }
-    its(:id) { should eq '55d0b262-98ff-49fa-95c8-5ab8ec8cbd34' }
-    its(:scheduled) { should eq Time.new(2012, 11, 4, 18, 00, 00, '+00:00') }
-    its(:home) { should eq 'IND' }
-    its(:away) { should eq 'MIA' }
-    its(:home_team_id) { should eq 'IND' }
-    its(:away_team_id) { should eq 'MIA' }
-    its(:status) { should eq 'closed' }
-    its(:quarter) { should eq 4 }
-    its(:clock) { should eq ':00' }
-    its(:home_team) { should be_an_instance_of(SportsDataApi::Nfl::Team) }
-    its(:away_team) { should be_an_instance_of(SportsDataApi::Nfl::Team) }
-    its(:venue) { should be_an_instance_of(SportsDataApi::Nfl::Venue) }
-    its(:broadcast) { should be_an_instance_of(SportsDataApi::Nfl::Broadcast) }
-    its(:weather) { should be_an_instance_of(SportsDataApi::Nfl::Weather) }
-    it '#summary' do
-      expect { subject.summary }.to raise_error(NotImplementedError)
-    end
-    it '#pbp' do
-      expect { subject.pbp }.to raise_error(NotImplementedError)
-    end
-    it '#injuries' do
-      expect { subject.injuries }.to raise_error(NotImplementedError)
-    end
-    it '#depthchart' do
-      expect { subject.depthchart }.to raise_error(NotImplementedError)
-    end
-    its(:boxscore) { should be_an_instance_of(SportsDataApi::Nfl::Game) }
-    its(:roster) { should be_an_instance_of(SportsDataApi::Nfl::Game) }
-    its(:statistics) { should be_an_instance_of(SportsDataApi::Nfl::Game) }
-  end
-  context 'results from game roster fetch' do
-    subject { game_roster }
-    it { should be_an_instance_of(SportsDataApi::Nfl::Game) }
-    its(:id) { should eq '55d0b262-98ff-49fa-95c8-5ab8ec8cbd34' }
-    its(:scheduled) { should eq Time.new(2012, 11, 4, 18, 00, 00, '+00:00') }
-    its(:home) { should eq 'IND' }
-    its(:away) { should eq 'MIA' }
-    its(:home_team_id) { should eq 'IND' }
-    its(:away_team_id) { should eq 'MIA' }
-    its(:status) { should eq 'closed' }
-    its(:home_team) { should be_an_instance_of(SportsDataApi::Nfl::Team) }
-    its(:away_team) { should be_an_instance_of(SportsDataApi::Nfl::Team) }
-    it 'has home_team players' do
-      expect(subject.home_team.players.first).to be_an_instance_of(SportsDataApi::Nfl::Player)
-    end
 
-    it 'has away_team players' do
-      expect(subject.away_team.players.first).to be_an_instance_of(SportsDataApi::Nfl::Player)
-    end
-    it '#summary' do
-      expect { subject.summary }.to raise_error(NotImplementedError)
-    end
-    it '#pbp' do
-      expect { subject.pbp }.to raise_error(NotImplementedError)
-    end
-    it '#injuries' do
-      expect { subject.injuries }.to raise_error(NotImplementedError)
-    end
-    it '#depthchart' do
-      expect { subject.depthchart }.to raise_error(NotImplementedError)
-    end
-    its(:boxscore) { should be_an_instance_of(SportsDataApi::Nfl::Game) }
-    its(:roster) { should be_an_instance_of(SportsDataApi::Nfl::Game) }
-    its(:statistics) { should be_an_instance_of(SportsDataApi::Nfl::Game) }
-  end
-  context 'results from weekly schedule fetch' do
-    subject { weekly_schedule.first }
-    it { should be_an_instance_of(SportsDataApi::Nfl::Game) }
-    its(:id) { should eq '433d3222-e82d-4f14-97e2-4115579473f6' }
-    its(:scheduled) { should eq Time.new(2012, 8, 9, 23, 00, 00, '+00:00') }
-    its(:home) { should eq 'BUF' }
-    its(:away) { should eq 'WAS' }
-    its(:home_team_id) { should eq 'BUF' }
-    its(:away_team_id) { should eq 'WAS' }
-    its(:status) { should eq 'closed' }
-    its(:quarter) { should eq 0 }
-    its(:clock) { should eq nil }
-    its(:home_team) { should be_an_instance_of(SportsDataApi::Nfl::Team) }
-    its(:away_team) { should be_an_instance_of(SportsDataApi::Nfl::Team) }
-    its(:venue) { should be_an_instance_of(SportsDataApi::Nfl::Venue) }
-    its(:broadcast) { should be_an_instance_of(SportsDataApi::Nfl::Broadcast) }
-    its(:weather) { should be_an_instance_of(SportsDataApi::Nfl::Weather) }
-    it '#summary' do
-      expect { subject.summary }.to raise_error(NotImplementedError)
-    end
-    it '#pbp' do
-      expect { subject.pbp }.to raise_error(NotImplementedError)
-    end
-    it '#injuries' do
-      expect { subject.injuries }.to raise_error(NotImplementedError)
-    end
-    it '#depthchart' do
-      expect { subject.depthchart }.to raise_error(NotImplementedError)
-    end
-    its(:boxscore) { should be_an_instance_of(SportsDataApi::Nfl::Game) }
-    its(:roster) { should be_an_instance_of(SportsDataApi::Nfl::Game) }
-    its(:statistics) { should be_an_instance_of(SportsDataApi::Nfl::Game) }
-  end
-  context 'results from game statistics fetch' do
-    subject { game_statistics }
-    its(:id) { should eq '00d5024b-0853-4e09-ad5a-4981a968f0ad' }
-    its(:status) { should eq 'closed' }
-    its(:home) { should eq 'GB' }
-    its(:away) { should eq 'PIT' }
-    its(:home_team_id) { should eq 'GB' }
-    its(:away_team_id) { should eq 'PIT' }
-    its(:scheduled) { should eq Time.parse("2013-12-22T21:25:00+00:00") }
-    its(:home_team) { should be_an_instance_of(SportsDataApi::Nfl::Team) }
-    its(:away_team) { should be_an_instance_of(SportsDataApi::Nfl::Team) }
+  describe 'game parsed from .schedule' do
+    let(:base) { SportsDataApi::Nfl.schedule(2013, :REG) }
+    let(:game) { base.weeks.first.games.first }
 
-    it '#summary' do
-      expect { subject.summary }.to raise_error(NotImplementedError)
+    it 'parses each field' do
+      expect(game.id).to eq '05e9531d-e7e7-45c8-ae5a-91a2eb8acfa8'
+      expect(game.status).to eq 'closed'
+      expect(game.quarter).to be_nil
+      expect(game.clock).to be_nil
+      expect(game.year).to eq 2013
+      expect(game.season).to eq :REG
+      expect(game.week).to eq 1
+      expect(game.home_team_id).to eq 'e627eec7-bbae-4fa4-8e73-8e1d6bc5c060'
+      expect(game.home_team).to be_a SportsDataApi::Nfl::Team
+      expect(game.away_team_id).to eq '04aa1c9d-66da-489d-b16a-1dee3f2eec4d'
+      expect(game.away_team).to be_a SportsDataApi::Nfl::Team
+      expect(game.scheduled).to eq Time.parse('2013-09-09T00:30:42+00:00')
+      expect(game.venue).to be_a SportsDataApi::Nfl::Venue
+      expect(game.broadcast).to be_a SportsDataApi::Nfl::Broadcast
     end
-    it '#pbp' do
-      expect { subject.pbp }.to raise_error(NotImplementedError)
+  end
+
+  describe 'game parsed from .boxscore' do
+    let(:game_id) { '55d0b262-98ff-49fa-95c8-5ab8ec8cbd34' }
+    let(:game) { SportsDataApi::Nfl.boxscore(game_id) }
+
+    it 'parses each field' do
+      expect(game.id).to eq game_id
+      expect(game.status).to eq 'closed'
+      expect(game.quarter).to eq 4
+      expect(game.clock).to eq '00:00'
+      expect(game.year).to eq 2012
+      expect(game.season).to eq :REG
+      expect(game.week).to eq 9
+      expect(game.home_team_id).to eq '82cf9565-6eb9-4f01-bdbd-5aa0d472fcd9'
+      expect(game.home_team).to be_a SportsDataApi::Nfl::Team
+      expect(game.away_team_id).to eq '4809ecb0-abd3-451d-9c4a-92a90b83ca06'
+      expect(game.away_team).to be_a SportsDataApi::Nfl::Team
+      expect(game.scheduled).to eq Time.parse('2012-11-04T18:02:34+00:00')
+      expect(game.venue).to be_a SportsDataApi::Nfl::Venue
+      expect(game.broadcast).to be_nil
     end
-    it '#injuries' do
-      expect { subject.injuries }.to raise_error(NotImplementedError)
+  end
+
+  describe 'game parsed from .game_roster' do
+    let(:game_id) { '55d0b262-98ff-49fa-95c8-5ab8ec8cbd34' }
+    let(:game) { SportsDataApi::Nfl.game_roster(game_id) }
+
+    it 'parses each field' do
+      expect(game.id).to eq game_id
+      expect(game.status).to eq 'closed'
+      expect(game.quarter).to eq 4
+      expect(game.clock).to eq '00:00'
+      expect(game.year).to eq 2012
+      expect(game.season).to eq :REG
+      expect(game.week).to eq 9
+      expect(game.home_team_id).to eq '82cf9565-6eb9-4f01-bdbd-5aa0d472fcd9'
+      expect(game.home_team).to be_a SportsDataApi::Nfl::Team
+      expect(game.away_team_id).to eq '4809ecb0-abd3-451d-9c4a-92a90b83ca06'
+      expect(game.away_team).to be_a SportsDataApi::Nfl::Team
+      expect(game.scheduled).to eq Time.parse('2012-11-04T18:02:34+00:00')
+      expect(game.venue).to be_a SportsDataApi::Nfl::Venue
+      expect(game.broadcast).to be_nil
     end
-    it '#depthchart' do
-      expect { subject.depthchart }.to raise_error(NotImplementedError)
+  end
+
+  describe 'game parsed from .game_statistics' do
+    let(:game_id) { '55d0b262-98ff-49fa-95c8-5ab8ec8cbd34' }
+    let(:game) { SportsDataApi::Nfl.game_statistics(game_id) }
+
+    it 'parses each field' do
+      expect(game.id).to eq game_id
+      expect(game.status).to eq 'closed'
+      expect(game.quarter).to eq 4
+      expect(game.clock).to eq '00:00'
+      expect(game.year).to eq 2012
+      expect(game.season).to eq :REG
+      expect(game.week).to eq 9
+      expect(game.home_team_id).to eq '82cf9565-6eb9-4f01-bdbd-5aa0d472fcd9'
+      home_team = game.home_team
+      expect(home_team).to be_a SportsDataApi::Nfl::Team
+      expect(home_team.players.first.stats).not_to be_nil
+      expect(game.away_team_id).to eq '4809ecb0-abd3-451d-9c4a-92a90b83ca06'
+      away_team = game.away_team
+      expect(away_team).to be_a SportsDataApi::Nfl::Team
+      expect(away_team.players.first.stats).not_to be_nil
+      expect(game.scheduled).to eq Time.parse('2012-11-04T18:02:34+00:00')
+      expect(game.venue).to be_a SportsDataApi::Nfl::Venue
+      expect(game.broadcast).to be_nil
     end
-    its(:boxscore) { should be_an_instance_of(SportsDataApi::Nfl::Game) }
-    its(:roster) { should be_an_instance_of(SportsDataApi::Nfl::Game) }
   end
 end

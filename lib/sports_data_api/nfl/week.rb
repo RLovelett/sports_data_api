@@ -1,18 +1,24 @@
 module SportsDataApi
   module Nfl
     class Week
-      attr_reader :number, :games, :year, :season
+      attr_reader :number, :year, :season
 
-      def initialize(year, season, week_hash)
-        @games = []
+      def initialize(json, year, season)
+        @json = json
         @year = year
         @season = season
+        @number = json['sequence']
+      end
 
-        @number = week_hash['number']
-        @games = week_hash['games'].map do |game_hash|
-          Game.new(@year, @season, @number, game_hash)
+      def games
+        @games ||= json['games'].map do |game|
+          Game.new(game, year: year, season: season, week: number)
         end
       end
+
+      private
+
+      attr_reader :json
     end
   end
 end

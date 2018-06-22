@@ -25,14 +25,16 @@ describe SportsDataApi::Ncaamb, vcr: {
 
   context 'create valid URLs' do
     let(:schedule_url) { 'https://api.sportsdatallc.org/ncaamb-t3/games/2014/REG/schedule.xml' }
+
     before(:each) do
-      SportsDataApi.set_key(:ncaamb, 'invalid_key')
+      SportsDataApi.set_key(:ncaamb, api_key(:ncaamb))
       SportsDataApi.set_access_level(:ncaamb, 't')
       @schedule_xml = RestClient.get("#{schedule_url}?api_key=#{api_key(:ncaamb)}")
     end
+
     describe '.schedule' do
       it 'creates a valid Sports Data LLC url' do
-        params = { params: { api_key: SportsDataApi.key(:ncaamb) } }
+        params = { params: { api_key: api_key(:ncaamb) } }
         RestClient.should_receive(:get).with(schedule_url, params).and_return(@schedule_xml)
         subject.schedule(2014, :REG)
       end

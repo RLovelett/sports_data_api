@@ -5,72 +5,18 @@ describe SportsDataApi::Nfl::Teams, vcr: {
     record: :new_episodes,
     match_requests_on: [:host, :path]
 } do
-  let(:teams) do
+  let(:teams) { SportsDataApi::Nfl.teams }
+  let(:team_id) { '33405046-04ee-4058-a950-d606f8c30852' }
+
+  before do
     SportsDataApi.set_key(:nfl, api_key(:nfl))
-    SportsDataApi.set_access_level(:nfl, 't')
-    SportsDataApi::Nfl.teams
+    SportsDataApi.set_access_level(:nfl, 'ot')
   end
 
-  let(:url) { 'https://api.sportsdatallc.org/nfl-t1/teams/hierarchy.json' }
-
-  let(:dolphins_hash) do
-    str = RestClient.get(url, params: { api_key: api_key(:nfl) }).to_s
-    teams_hash = MultiJson.load(str)
-    teams_hash['conferences'][0]['divisions'][0]['teams'][1]
-  end
-
-  let(:dolphins) { SportsDataApi::Nfl::Team.new(dolphins_hash) }
-
-  subject { teams }
-  its(:conferences) { should eq %w(AFC NFC).map { |str| str.to_sym } }
-  its(:divisions) { should eq %w(AFC_EAST AFC_NORTH AFC_SOUTH AFC_WEST NFC_EAST NFC_NORTH NFC_SOUTH NFC_WEST).map { |str| str.to_sym } }
-  its(:count) { should eq 32 }
-
-  it { subject[:MIA].should eq dolphins }
-
-  describe 'meta methods' do
-    it { should respond_to :AFC }
-    it { should respond_to :NFC }
-    it { should respond_to :afc }
-    it { should respond_to :nfc }
-    it { should respond_to :NFC_WEST }
-    it { should respond_to :afc_east }
-    it { should respond_to :nfc_west }
-
-    its(:AFC) { should be_a Array }
-    its(:NFC) { should be_a Array }
-
-    context '#AFC' do
-      subject { teams.AFC }
-      its(:count) { should eq 16 }
-    end
-
-    context '#afc' do
-      subject { teams.afc }
-      its(:count) { should eq 16 }
-    end
-
-    context '#NFC' do
-      subject { teams.NFC }
-      its(:count) { should eq 16 }
-    end
-
-    context '#nfc' do
-      subject { teams.nfc }
-      its(:count) { should eq 16 }
-    end
-
-    context '#afc_east' do
-      subject { teams.afc_east }
-      its(:count) { should eq 4 }
-      it { should include dolphins }
-    end
-
-    context '#AFC_EAST' do
-      subject { teams.AFC_EAST }
-      its(:count) { should eq 4 }
-      it { should include dolphins }
-    end
+  it 'parses out the teams' do
+    expect(teams.count).to eq 32
+    team = teams.detect { |x| x.id == team_id }
+    expect(team).to be_a SportsDataApi::Nfl::Team
   end
 end
 

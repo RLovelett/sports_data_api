@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe SportsDataApi::Ncaafb::Week, vcr: {
-    cassette_name: 'sports_data_api_nfl_week',
+    cassette_name: 'sports_data_api_ncaafb_week',
     record: :new_episodes,
     match_requests_on: [:host, :path]
 } do

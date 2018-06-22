@@ -4,8 +4,8 @@ module SportsDataApi
 
     API_VERSION = 4
     BASE_URL = 'https://api.sportradar.us/nba/%{access_level}/v%{version}/en'
-    DIR = File.join(File.dirname(__FILE__), 'nba')
     SPORT = :nba
+    DIR = File.join(File.dirname(__FILE__), SPORT.to_s)
 
     autoload :Team, File.join(DIR, 'team')
     autoload :Teams, File.join(DIR, 'teams')
