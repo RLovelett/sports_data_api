@@ -11,5 +11,10 @@ module SportsDataApi
         ivar.delete key.to_sym
       end
     end
+
+    def fetch(key, default = nil)
+      ivar = instance_variable_get("@#{instance_var_name}")
+      ivar.fetch(key, default)
+    end
   end
 end
