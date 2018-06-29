@@ -11,6 +11,20 @@ describe SportsDataApi::MergedStats, vcr: {
     SportsDataApi::Mlb.game('4f46825d-8172-47bc-9f06-2a162c330ffb')
   }
 
+  describe '#fetch' do
+    let(:player) do
+      game.away.players.find do |p|
+        p[:first_name] == 'Elvis' && p[:last_name] == 'Andrus'
+      end
+    end
+    subject { player.statistics.fielding }
+
+    it 'delegates to the stats hash' do
+      expect(subject.fetch(:po)).to eq 1.0
+      expect(subject.fetch(:po, 2)).to eq 1.0
+      expect(subject.fetch(:unknown, 2)).to eq 2
+    end
+  end
   context 'when fielding' do
     let(:player) do
       game.away.players.find do |p|
