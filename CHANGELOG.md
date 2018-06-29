@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v0.15.1
+* [#92](https://github.com/RLovelett/sports_data_api/pull/92) [FIX] NFL extra points stats
+* [#93](https://github.com/RLovelett/sports_data_api/pull/93) [Feature] Stats have #fetch like hash
+
 ## v0.15.0
 * [#91](https://github.com/RLovelett/sports_data_api/pull/91) Adds V2 NFL Support
   
