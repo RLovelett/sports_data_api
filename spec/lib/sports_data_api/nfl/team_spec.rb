@@ -196,7 +196,7 @@ describe SportsDataApi::Nfl::Team, vcr: {
   end
 
   describe 'when team comes from .game_statistics' do
-    let(:game_id) { '55d0b262-98ff-49fa-95c8-5ab8ec8cbd34' }
+    let(:game_id) { 'cd2bd061-0acd-4f3b-97e4-9b2ca04f99b1' }
     let(:base) { SportsDataApi::Nfl.game_statistics(game_id) }
 
     context 'when home team' do
@@ -204,19 +204,21 @@ describe SportsDataApi::Nfl::Team, vcr: {
 
       it 'parses out the data' do
         expect(team).to be_a SportsDataApi::Nfl::Team
-        expect(team.id).to eq '82cf9565-6eb9-4f01-bdbd-5aa0d472fcd9'
+        expect(team.id).to eq 'cb2f9f1f-ac67-424e-9e72-1475cb0ed398'
         expect(team.conference).to be_nil
         expect(team.division).to be_nil
-        expect(team.alias).to eq 'IND'
-        expect(team.name).to eq 'Colts'
-        expect(team.market).to eq 'Indianapolis'
+        expect(team.alias).to eq 'PIT'
+        expect(team.name).to eq 'Steelers'
+        expect(team.market).to eq 'Pittsburgh'
         expect(team.remaining_challenges).to be_nil
-        expect(team.remaining_timeouts).to eq 1
-        expect(team.points).to eq 23
+        expect(team.remaining_timeouts).to eq 0
+        expect(team.points).to eq 24
         players = team.players
-        expect(players.size).to eq 37
-        player = players.detect { |p| p[:name] == 'T.Y. Hilton' }
-        expect(player.stats[:receiving_yards]).to eq 102
+        expect(players.size).to eq 33
+        player = players.detect { |p| p[:name] == "Le'Veon Bell" }
+        expect(player.stats[:rushing_yards]).to eq 117
+        expect(player.stats[:receiving_yards]).to eq 48
+        expect(player.stats[:rushing_touchdowns]).to eq 1
         expect(team.statistics).to be_a Hash
         expect(team.venue).to be_nil
       end
@@ -227,19 +229,27 @@ describe SportsDataApi::Nfl::Team, vcr: {
 
       it 'parses out the data' do
         expect(team).to be_a SportsDataApi::Nfl::Team
-        expect(team.id).to eq '4809ecb0-abd3-451d-9c4a-92a90b83ca06'
+        expect(team.id).to eq '97354895-8c77-4fd4-a860-32e62ea7382a'
         expect(team.conference).to be_nil
         expect(team.division).to be_nil
-        expect(team.alias).to eq 'MIA'
-        expect(team.name).to eq 'Dolphins'
-        expect(team.market).to eq 'Miami'
+        expect(team.alias).to eq 'NE'
+        expect(team.name).to eq 'Patriots'
+        expect(team.market).to eq 'New England'
         expect(team.remaining_challenges).to be_nil
-        expect(team.remaining_timeouts).to eq 0
-        expect(team.points).to eq 20
+        expect(team.remaining_timeouts).to eq 2
+        expect(team.points).to eq 27
         players = team.players
-        expect(players.size).to eq 34
-        player = players.detect { |p| p[:name] == 'Ryan Tannehill' }
-        expect(player.stats[:passing_yards]).to eq 290
+        expect(players.size).to eq 35
+        player1 = players.detect { |p| p[:name] == 'Tom Brady' }
+        expect(player1.stats[:extra_points_pass_attempts]).to eq 1
+        expect(player1.stats[:extra_points_pass_successes]).to eq 1
+        expect(player1.stats[:passing_yards]).to eq 298
+        player2 = players.detect { |p| p[:name] == 'Rob Gronkowski' }
+        expect(player2.stats[:extra_points_receive_attempts]).to eq 1
+        expect(player2.stats[:extra_points_receive_successes]).to eq 1
+        player3 = players.detect { |p| p[:name] == 'Stephen Gostkowski' }
+        expect(player3.stats[:extra_points_kicks_attempts]).to eq 2
+        expect(player3.stats[:extra_points_kicks_made]).to eq 1
         expect(team.statistics).to be_a Hash
         expect(team.venue).to be_nil
       end
