@@ -42,6 +42,7 @@ module SportsDataApi
       private
 
       PLAYER_KEYS = %w[id name jersey reference position].freeze
+      EXTRA_POINTS_KEY = 'extra_points'.freeze
 
       attr_reader :json
 
@@ -56,13 +57,26 @@ module SportsDataApi
       def players_from_stats
         statistics.each_with_object({}) do |(key, data), players|
           next unless data.is_a?(Hash)
-          data.fetch('players', []).each do |player_json|
-            base, stats = split_player_json(player_json)
-            player = players[player_json['id']] || base
-            player['statistics'][key] = stats
-            players[player['id']] = player
+          if key == EXTRA_POINTS_KEY
+            data.each do |nested_key, nested_data|
+              nested_data.fetch('players', []).each do |player_json|
+                category = player_json.delete('category') || nested_key
+                add_stat(players, player_json, "#{key}_#{category}")
+              end
+            end
+          else
+            data.fetch('players', []).each do |player_json|
+              add_stat(players, player_json, key)
+            end
           end
         end
+      end
+
+      def add_stat(players, player_json, key)
+        base, stats = split_player_json(player_json)
+        player = players[player_json['id']] || base
+        player['statistics'][key] = stats
+        players[player['id']] = player
       end
 
       def split_player_json(player_json)
