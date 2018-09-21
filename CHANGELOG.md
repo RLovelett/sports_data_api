@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## v0.15.2
+* [#94](https://github.com/RLovelett/sports_data_api/pull/94) [FIX] Safe map of json responses
+
 ## v0.15.1
 * [#92](https://github.com/RLovelett/sports_data_api/pull/92) [FIX] NFL extra points stats
 * [#93](https://github.com/RLovelett/sports_data_api/pull/93) [Feature] Stats have #fetch like hash
