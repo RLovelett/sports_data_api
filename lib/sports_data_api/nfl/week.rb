@@ -11,7 +11,7 @@ module SportsDataApi
       end
 
       def games
-        @games ||= json['games'].map do |game|
+        @games ||= json.fetch('games', []).map do |game|
           Game.new(game, year: year, season: season, week: number)
         end
       end

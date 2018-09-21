@@ -13,7 +13,7 @@ module SportsDataApi
       end
 
       def teams
-        @teams ||= json['conferences'].flat_map do |conference_json|
+        @teams ||= json.fetch('conferences', []).flat_map do |conference_json|
           conference = conference_json['name']
           conference_json['divisions'].flat_map do |division_json|
             division = division_json['name']

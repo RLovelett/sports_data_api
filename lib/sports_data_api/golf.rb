@@ -38,7 +38,7 @@ module SportsDataApi
       def players(tour, year)
         response = response_json UrlPaths::PLAYERS % { tour: tour, year: year }
 
-        response['players'].map do |json|
+        response.fetch('players', []).map do |json|
           Player.new(json)
         end
       end
@@ -57,7 +57,7 @@ module SportsDataApi
           { tour: tour, year: year, tournament_id: tournament_id, round: round }
 
 
-        response['round']['courses'].map do |json|
+        (response.dig('round', 'courses') || []).map do |json|
           Course.new(json)
         end
       end
@@ -73,7 +73,7 @@ module SportsDataApi
           status: response['round']['status'],
           year: year,
           tour: tour,
-          players: response['round']['players'].map do |json|
+          players: (response.dig('round', 'players') || []).map do |json|
             Player.new(json)
           end
         }
@@ -84,7 +84,7 @@ module SportsDataApi
         response = response_json UrlPaths::LEADERBOARDS %
           { tour: tour, year: year, tournament_id: tournament_id }
 
-        response['leaderboard'].map do |json|
+        response.fetch('leaderboard', []).map do |json|
           Player.new(json)
         end
       end

@@ -10,7 +10,7 @@ module SportsDataApi
       end
 
       def players
-        @players ||= data['players'].map do |json|
+        @players ||= data.fetch('players', []).map do |json|
           Player.new(json)
         end
       end

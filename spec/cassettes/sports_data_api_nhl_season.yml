@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.sportradar.us/nhl/trial/v5/en/games/2013/REG/schedule.json?api_key=<API_KEY>
+    uri: https://api.sportradar.us/nhl/trial/v5/en/games/2018/PST/schedule.json?api_key=<API_KEY>
     body:
       encoding: US-ASCII
       base64_string: ''
@@ -12,7 +12,7 @@ http_interactions:
       Accept-Encoding:
       - gzip, deflate
       User-Agent:
-      - rest-client/2.0.2 (darwin16.7.0 x86_64) ruby/2.3.3p222
+      - rest-client/2.0.2 (darwin16.7.0 x86_64) ruby/2.5.1p57
       Host:
       - api.sportradar.us
   response:
@@ -31,9 +31,9 @@ http_interactions:
       Content-Type:
       - application/json;charset=utf-8
       Date:
-      - Thu, 31 May 2018 20:58:18 GMT
+      - Fri, 21 Sep 2018 16:30:19 GMT
       Expires:
-      - Thu, 31 May 2018 20:58:29 GMT
+      - Fri, 21 Sep 2018 16:30:30 GMT
       Server:
       - nginx
       Via:
@@ -44,7 +44,7 @@ http_interactions:
       X-Fe-Cache:
       - MISS
       X-Mashery-Responder:
-      - prod-j-worker-us-east-1e-65.mashery.com
+      - prod-j-worker-us-east-1b-50.mashery.com
       X-Plan-Qps-Allotted:
       - '25'
       X-Plan-Qps-Current:
@@ -52,10 +52,81 @@ http_interactions:
       X-Plan-Quota-Allotted:
       - '15000'
       X-Plan-Quota-Current:
-      - '29'
+      - '4'
       X-Varnish:
-      - '1019646'
-      - '1195953'
+      - '11247620'
+      - '25454331'
+      X-Via:
+      - Translation-Proxy
+      Content-Length:
+      - '163'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      base64_string: |
+        eyJsZWFndWUiOnsiaWQiOiJmZDU2MDEwNy1hODViLTQzODgtYWIwZC02NTVh
+        ZDAyMmFmZjciLCJuYW1lIjoiTkhMIiwiYWxpYXMiOiJOSEwifSwic2Vhc29u
+        Ijp7ImlkIjoiNDU1MmM0OWUtMzBlNi00YmNiLThhM2MtYTllM2I3OTUwOWQy
+        IiwieWVhciI6MjAxOCwidHlwZSI6IlBTVCJ9fQ==
+    http_version:
+  recorded_at: Fri, 21 Sep 2018 16:30:19 GMT
+- request:
+    method: get
+    uri: https://api.sportradar.us/nhl/trial/v5/en/games/2013/REG/schedule.json?api_key=<API_KEY>
+    body:
+      encoding: US-ASCII
+      base64_string: ''
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.2 (darwin16.7.0 x86_64) ruby/2.5.1p57
+      Host:
+      - api.sportradar.us
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Accept-Ranges:
+      - bytes
+      Age:
+      - '0'
+      Cache-Control:
+      - public, must-revalidate, max-age=11
+      Content-Language:
+      - en
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Fri, 21 Sep 2018 16:30:24 GMT
+      Expires:
+      - Fri, 21 Sep 2018 16:30:35 GMT
+      Server:
+      - nginx
+      Via:
+      - 1.1 varnish-v4
+      - 1.1 varnish-v4
+      X-Be-Cache:
+      - MISS
+      X-Fe-Cache:
+      - MISS
+      X-Mashery-Responder:
+      - prod-j-worker-us-east-1d-58.mashery.com
+      X-Plan-Qps-Allotted:
+      - '25'
+      X-Plan-Qps-Current:
+      - '1'
+      X-Plan-Quota-Allotted:
+      - '15000'
+      X-Plan-Quota-Current:
+      - '5'
+      X-Varnish:
+      - '24303725'
+      - '9523988'
       X-Via:
       - Translation-Proxy
       Content-Length:
@@ -15712,5 +15783,5 @@ http_interactions:
         MThhOTA1NzY3ZTQ0IiwibmFtZSI6IkRhbGxhcyBTdGFycyIsImFsaWFzIjoi
         REFMIn19XX0=
     http_version: 
-  recorded_at: Thu, 31 May 2018 20:58:19 GMT
+  recorded_at: Fri, 21 Sep 2018 16:30:25 GMT
 recorded_with: VCR 3.0.3

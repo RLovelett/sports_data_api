@@ -11,7 +11,7 @@ module SportsDataApi
       end
 
       def weeks
-        @weeks ||= json['weeks'].map do |week|
+        @weeks ||= json.fetch('weeks', []).map do |week|
           Week.new(week, year, type)
         end
       end

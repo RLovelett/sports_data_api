@@ -12,7 +12,7 @@ module SportsDataApi
       end
 
       def pairings
-        @pairings ||= data['pairings'].map do |json|
+        @pairings ||= data.fetch('pairings', []).map do |json|
           Pairing.new(json)
         end
       end
