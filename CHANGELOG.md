@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## v0.15.3
+* [#95](https://github.com/RLovelett/sports_data_api/pull/95) [FIX] Safe map of MLB json responses
+
 ## v0.15.2
 * [#94](https://github.com/RLovelett/sports_data_api/pull/94) [FIX] Safe map of json responses
 
