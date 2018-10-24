@@ -66,7 +66,7 @@ module SportsDataApi
       private
 
       def map_model(json, key, klass, data_key = nil)
-        json[key].map do |data|
+        json.fetch(key, []).map do |data|
           klass.new(data_key ? data[data_key] : data)
         end
       end
